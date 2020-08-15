@@ -33,29 +33,65 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
         ]
       },
       {
         test: /\.(png|gif|jpg|jpeg)$/,
         use: [
           {
-            'loader': 'file-loader',
+            loader: 'file-loader',
             options: {
-              name: 'assets/[hash].[ext]'
-            }
-          }
-        ]
-      }
+              name: 'assets/[hash].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        exclude: path.resolve(__dirname, 'node_modules', 'font-awesome'),
+        use: ['babel-loader', 'react-svg-loader'],
+      },
+      {
+        test: /\.svg$/,
+        include: path.resolve(__dirname, 'node_modules', 'font-awesome'),
+        use: [{
+          loader: 'file-loader',
+          options: {
+            jsx: true,
+          },
+        }],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-react-loader',
+      },
     ],
   }, /* Dicta las reglas necesarias para el proyecto */
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html', /* Donde esta ubicado el template */
-      filename: './index.html'/* Nombre */
+      filename: './index.html', /* Nombre */
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css'
-    })
-  ], /* Añada los plugins que se necesitan */
+      filename: 'assets/[name].css',
+    }),
+  ] /* Añada los plugins que se necesitan */,
 };
