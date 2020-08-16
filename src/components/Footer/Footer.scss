@@ -1,11 +1,8 @@
 .Footer {
-  background-color: var(--principal);
+  background-color: #afafaf;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   padding: 0.7em 0;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
 
   &--social-networks {
     padding: 0 1em;
@@ -18,8 +15,8 @@
   }
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 768px) {
   .Footer {
-    justify-content: center;
+    display: none;
   }
 }

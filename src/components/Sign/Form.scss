@@ -1,0 +1,18 @@
+.Sign {
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+
+  &__Form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 0.2em;
+    }
+
+  }
+}

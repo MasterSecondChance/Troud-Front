@@ -2,29 +2,21 @@ import React from 'react';
 import '../assets/styles/containers/App.scss';
 
 import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
-import Containers from '../components/Containers/Containers';
-import Layout from '../components/Layout';
-import HelloWorld from '../components/HelloWorld/HelloWorld';
+import Home from '../pages/Home';
+import Login from '../components/Sign/SignIn'
+import SignUp from '../components/Sign/SignUp';
+import User from '../components/User';
 
 function App() {
   return (
-    // <ProductsProvider>
     <BrowserRouter>
-      <Layout>
-        <Containers>
-          <Switch>
-            <Route exact path='/' component={HelloWorld} />
-          </Switch>
-
-          <ul>
-            <li>
-              <Link to='/anotherpage'>Test Router</Link>
-            </li>
-          </ul>
-        </Containers>
-      </Layout>
+      <Switch>
+        <Route exact path='/' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
+        <Route exact path='/home' component={Home} />
+        <Route exact path='/user' component={User} />
+      </Switch>
     </BrowserRouter>
-    // </ProductsProvider>
   );
 }
 
