@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './Form.scss'
+import './SignUp.scss'
 
 const SignUp = (props) => {
 
@@ -18,14 +18,22 @@ const SignUp = (props) => {
   }
 
   return (
-    <div className='Sign'>
-      <form className="Sign__Form" onSubmit={handleSubmit}>
-        <h2>Crea una cuenta</h2>
+    <div className='SignUp'>
+      <form className="SignUp__Form" onSubmit={handleSubmit}>
+        <h2>Crea tu cuenta</h2>
         <input
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Ingrese su correo"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Ingrese su Nombre"
+          onChange={handleInputChange}
+          aria-label='Usuario'
+        />
+        <input
+          id="phone"
+          name="phone"
+          type="number"
+          placeholder="Ingrese su numero de Telefono"
           onChange={handleInputChange}
           aria-label='Usuario'
         />
@@ -47,13 +55,9 @@ const SignUp = (props) => {
         <input
           type='submit'
           name='signup'
-          value='Registrarse'
+          value='Continuar'
           aria-label='Botón registrarse'
         />
-        <p className='signup'>
-          ¿Ya tienes una cuenta?
-            <Link to="/" aria-label='Inicia Sesion' href='#'>Inicia Sesion.</Link>
-        </p>
       </form>
     </div>
   );

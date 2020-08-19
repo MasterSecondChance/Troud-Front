@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import './Form.scss'
+import './SignIn.scss'
 
 
 const SignIn = (props) => {
@@ -10,7 +10,7 @@ const SignIn = (props) => {
   const [profile, setProfile] = useState(0);
 
   const userValues = {
-    email: '',
+    phone: '',
     password: '',
   };
 
@@ -26,14 +26,16 @@ const SignIn = (props) => {
 
   return (
     <div className='Sign'>
+      <h1>Trode</h1>
+      <p>Tu aplicación para buscar, encontrar e intercambiar tu ropa.</p>
       <form className="Sign__Form" onSubmit={handleSubmit}>
         <h2>Inicia sesión</h2>
         <div>
           <input
-            id="email"
-            name="email"
-            type="text"
-            placeholder="Ingrese su correo"
+            id="phone"
+            name="phone"
+            type="number"
+            placeholder="Ingrese su Telefono"
             onChange=""
             onChange={handleInputChange}
           />
@@ -50,10 +52,9 @@ const SignIn = (props) => {
           />
           <small />
         </div>
-        <input type='submit' name='' value='Iniciar sesión' aria-label='Botón iniciar sesión' />
+        <input type='submit' name='' value='Ingresar' aria-label='Botón iniciar sesión' />
         <p className='signup'>
-          ¿No tienes una cuenta?
-            <Link to="/signup" aria-label='Registrarse'>Regístrate.</Link>
+          <Link to="/signup" aria-label='Registrarse'>Regístrate.</Link>
         </p>
       </form>
     </div>
