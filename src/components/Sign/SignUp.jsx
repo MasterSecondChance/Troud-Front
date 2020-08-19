@@ -46,8 +46,8 @@ const SignUp = (props) => {
           aria-label='Contraseña'
         />
         <input
-          id="password"
-          name="password"
+          id="password2"
+          name="password2"
           type="password"
           placeholder="Ingrese su Contraseña"
           aria-label='Confirmar contraseña'
