@@ -1,36 +1,78 @@
 .Card {
-  display: flex;
-  flex-direction: column;
+  border: 1px solid #99999919;
   margin: 1em 0.5em;
-  justify-content: space-evenly;
-  border: 1px solid #99999999;
-  border-radius: 0.2em;
-  position: relative;
 
-  &__Title {
-    margin: 1em;
-  }
-
-  &__Categorie {
-    color: red;
-    font-size: 0.5em;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  &__Desc {
-    margin: 1em;
-  }
-
-  &__Image {
-    margin: 1em auto;
-  }
-
-  &__Likes {
+  &__Info {
+    background-color: #c4c4c4;
     display: flex;
-    justify-content: center;
-    margin: 1em;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 0.7em;
+    position: relative;
+
+    &__Header {
+      display: flex;
+      margin: 1em;
+      align-items: center;
+
+      &--Pic {
+        height: 2em;
+        margin: 0 1em;
+      }
+    }
+
+    &__Name {
+      margin: 1.5em;
+      font-weight: bold;
+    }
+
+    &__Desc {
+      margin: 2em;
+    }
+
+    &__Img {
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid red;
+
+      &__Image {
+        margin: 1em auto;
+        height: 300px;
+      }
+
+      &__Gender {
+        color: red;
+        font-size: 1em;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &__Size {
+        color: red;
+        font-size: 1em;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+  }
+
+  &__Actions {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+
+    .icon {
+      margin: 1em 0;
+      font-size: 3em;
+    }
+
+    .iconS {
+      margin: 1em 0;
+      font-size: 1.8em;
+    }
   }
 
 }

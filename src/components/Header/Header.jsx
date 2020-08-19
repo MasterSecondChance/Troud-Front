@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.scss'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSearch, faUser, faPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUpload, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -22,9 +22,8 @@ const Header = () => {
           <Link to="/home">
             <FontAwesomeIcon className="faHome" icon={faHome} title="Trode" />
           </Link>
-          <FontAwesomeIcon className="faSearch" icon={faSearch} title="Buscar" />
-          <FontAwesomeIcon className="faPlus" icon={faPlus} title="Añadir" />
-          <FontAwesomeIcon className="faPlus" icon={faHeart} title="Favoritos" />
+          <FontAwesomeIcon className="faUpload" icon={faUpload} title="Buscar" />
+          <FontAwesomeIcon className="faEnvelope" icon={faEnvelope} title="Añadir" />
           <Link to='/user'>
             <FontAwesomeIcon className="faUser" icon={faUser} title="Cuenta" />
           </Link>

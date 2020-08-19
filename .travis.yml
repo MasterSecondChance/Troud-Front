@@ -20,4 +20,4 @@ deploy:
   commit_message: "Deploy Release from: %{git_branch} & with message: %{git_commit_msg}"
   verbose: true
   on:
-    branch: development
+    branch: master
