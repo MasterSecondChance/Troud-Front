@@ -5,9 +5,14 @@ import './Footer.scss';
 class Footer extends React.Component {
   render() {
     return (
-      <>
-        <h1>Footer</h1>
-      </>
+      <div className="Footer">
+        <ul>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+          <li>Item</li>
+        </ul>
+      </div>
     )
   }
 }
