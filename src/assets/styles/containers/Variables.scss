@@ -1,0 +1,55 @@
+//Color Palette
+
+$primary-color: #C7A0DA;
+$primary-color-light: #D3B5E5;
+$primary-color-light-2: #DDC8ED;
+$primary-color-dark: #B38DC9;
+$primary-color-dark-2: #A17DBC;
+
+$warning-color: #CC0E0E;
+
+$secondary-color: #B2E101;
+$secondary-color-dark: #A6CE00;
+$secondary-color-dark-2: #9FBA00;
+$secondary-color-light: #CAF222;
+$secondary-color-light-2: #DCF739;
+
+$success-color: #45D567;
+
+$white-color: #FFFFFF;
+$grey-1: #F4F3F5;
+$grey-2: #D3CFD4;
+$grey-3: #9C95A0;
+$grey-4: #4A3C51;
+
+//Font
+
+$headlines-font: 'Montserrat', sans-serif;
+$text-font: 'Source Sans Pro', sans-serif;
+$font-color: #4A3C51;
+
+//Mixins
+
+
+@mixin default-button {
+    background-color: #B2E101;
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+
+@mixin hover-button {
+    background-color: #B2E101;
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    border: none;
+    filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+}
+
+@mixin card {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
+    border-radius: 10px;
+}
