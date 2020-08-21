@@ -24,32 +24,56 @@ $grey-4: #4A3C51;
 
 //Font
 
-$headlines-font: 'Montserrat', sans-serif;
-$text-font: 'Source Sans Pro', sans-serif;
+$headlines-font: 'Montserrat',
+sans-serif;
+$text-font: 'Source Sans Pro',
+sans-serif;
 $font-color: #4A3C51;
 
 //Mixins
 
 
 @mixin default-button {
-    background-color: #B2E101;
-    border-radius: 10px;
-    text-align: center;
-    outline: none;
-    border: none;
+  background-color: #B2E101;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+  border: none;
 }
 
 @mixin hover-button {
-    background-color: #B2E101;
-    border-radius: 10px;
-    text-align: center;
-    outline: none;
-    border: none;
-    filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+  background-color: #B2E101;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
 }
 
 @mixin card {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
-    border-radius: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
+  border-radius: 10px;
+}
+
+// Reset
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: $grey-4;
+}
+
+a:hover {
+  color: $grey-4;
+}
+
+a:active {
+  color: $grey-4;
+}
+
+a:link {
+  color: $grey-4;
 }

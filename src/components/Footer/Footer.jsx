@@ -7,10 +7,10 @@ class Footer extends React.Component {
     return (
       <div className="Footer">
         <ul>
+          <li>Footer En Construccion</li>
+          {/* <li>Item</li>
           <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
+          <li>Item</li> */}
         </ul>
       </div>
     )

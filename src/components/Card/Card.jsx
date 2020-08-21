@@ -3,7 +3,7 @@ import './Card.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faTimes, faHeart, faBolt } from '@fortawesome/free-solid-svg-icons';
 
-const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stay_Awake.svg/1200px-Stay_Awake.svg.png';
+const image = 'https://i.pinimg.com/originals/80/a5/1a/80a51a0b7293317a273207178aa12358.jpg';
 const circle = 'https://www.onlygfx.com/wp-content/uploads/2017/11/grunge-circle-frame-6.png'
 
 function Card() {
@@ -28,7 +28,7 @@ function Card() {
       </div>
       <div className="Card__Actions">
         <FontAwesomeIcon className="icon faTimes" icon={faTimes} title="Trode" />
-        <FontAwesomeIcon className="iconS faBolt" icon={faBolt} title="Trode" />
+        <FontAwesomeIcon className="icon small faBolt" icon={faBolt} title="Trode" />
         <FontAwesomeIcon className="icon faHeart" icon={faHeart} title="Trode" />
       </div>
     </div>
