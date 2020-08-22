@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 
 import './SignUp.scss';
 
-import Header from '../Header/Header';
+import Header from '../HeaderLight/HeaderLight';
 
 export class FourthStep extends Component {
 
-    continue = (e) => {
-      e.preventDefault();
-      this.props.next();
-    }
+  continue = (e) => {
+    e.preventDefault();
+    this.props.next();
+  }
 
-    back = (e) => {
-      e.preventDefault();
-      this.props.previous();
-    }
+  back = (e) => {
+    e.preventDefault();
+    this.props.previous();
+  }
 
-    render() {
+  render() {
 
-      const { values, handleChange, stepper, title } = this.props;
+    const { values, handleChange, stepper, title } = this.props;
 
-      return (
-        <div>
+    return (
+      <div>
 
-          <Header />
+        <Header />
 
           <section className='Form Reset-height'>
             <div className='White Long'>

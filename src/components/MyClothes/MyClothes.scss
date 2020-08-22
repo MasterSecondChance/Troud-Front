@@ -1,0 +1,80 @@
+@import '../../assets/styles/containers/Variables.scss';
+
+.MyClothes {
+  margin: 1em auto 3em auto;
+  width: 70%;
+
+  &__Profile {
+    display: flex;
+    margin: 2em;
+    justify-content: center;
+    align-items: center;
+
+    &--Config {
+      align-items: center;
+      background-color: $white-color;
+      border-radius: 50%;
+      display: flex;
+      font-size: 1.5em;
+      flex-direction: column;
+      font-weight: bold;
+      justify-content: center;
+      height: 55px;
+      position: relative;
+      top: -1.5em;
+      right: -1.5em;
+      text-align: center;
+      width: 55px;
+
+      .icon {
+        color: $secondary-color;
+        font-size: 1.5em;
+      }
+    }
+
+
+    span {
+      margin: 0.3em 0.5em;
+    }
+
+    &--Info {
+      display: flex;
+      flex-direction: column;
+
+      &-Name {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+
+      &-Number {
+        padding: 0 0.5em;
+      }
+
+      &-Count {
+        padding: 0 0.5em;
+      }
+    }
+
+    &--Image {
+      margin: 1em;
+      height: 7em;
+    }
+  }
+
+  &__Clothes {
+    display: flex;
+    flex-direction: column;
+
+    &-List {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 0.5em;
+
+      &-Items {
+        border: 1px solid $grey-2;
+        border-radius: 0.5em;
+        height: 10em;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import '../components/Sign/SignIn.scss';
 import SignInImage from '../assets/static/trode-card2x.png';
 
-import Header from '../components/Header/Header';
+import Header from '../components/HeaderLight/HeaderLight';
 
 const SignIn = (props) => {
 
