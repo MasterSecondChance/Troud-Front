@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 
 import '../components/Sign/SignIn.scss';
+import SignInImage from '../assets/static/trode-card2x.png';
 
 import Header from '../components/HeaderLight/HeaderLight';
 
 const SignIn = (props) => {
 
-  let history = useHistory();
+  const history = useHistory();
   const [values, setValues] = useState('');
   const [profile, setProfile] = useState(0);
 
@@ -21,60 +22,68 @@ const SignIn = (props) => {
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     event.preventDefault();
-    history.push("/home");
-  }
+    history.push('/home');
+  };
 
   return (
     <div>
       <Header />
-      <section className='SignIn__container'>
+      <div className='SignIn'>
+        <section className='SignIn--img'>
+          <img src={SignInImage} alt="Signin" />
+        </section>
+        <section className='SignIn__container'>
 
-        <div className='SignIn__description-text'>
-          <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
-          <h2>Inicia sesión</h2>
-        </div>
-
-        <form className="SignIn__Form" onSubmit={handleSubmit}>
-
-          <div className='Input__container'>
-            <label>
-              Teléfono
-              <input
-                id="phone"
-                name="phone"
-                type="number"
-                onChange={handleInputChange}
-              />
-              <small />
-            </label>
+          <div className='SignIn__description-text'>
+            <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
+            <h2>Inicia sesión</h2>
           </div>
 
-          <div className='Input__container'>
-            <label>
-              Contraseña
-              <input
-                id="password"
-                name="password"
-                type="password"
-                onChange={handleInputChange}
-              />
-              <small />
-            </label>
-          </div>
+          <form className='SignIn__Form' onSubmit={handleSubmit}>
 
-          <button
-            type="submit"
-            aria-label='Botón iniciar sesión'>Ingresar</button>
+            <div className='Input__container'>
+              <label>
+                Teléfono
+                <input
+                  id='phone'
+                  name='phone'
+                  type='number'
+                  onChange={handleInputChange}
+                />
+                <small />
+              </label>
+            </div>
 
-          <p className='Account__confirmation'>
-            ¿No tienes una cuenta?
-            <Link className='Account__confirmation--link' to="/signup" aria-label='Registrarse'>¡Regístrate!</Link>
-          </p>
-        </form>
+            <div className='Input__container'>
+              <label>
+                Contraseña
+                <input
+                  id='password'
+                  name='password'
+                  type='password'
+                  onChange={handleInputChange}
+                />
+                <small />
+              </label>
+            </div>
 
-      </section>
+            <button
+              type='submit'
+              aria-label='Botón iniciar sesión'
+            >
+              Ingresar
+            </button>
+
+            <p className='Account__confirmation'>
+              ¿No tienes una cuenta?
+              <Link className='Account__confirmation--link' to='/signup' aria-label='Registrarse'>¡Regístrate!</Link>
+            </p>
+          </form>
+        </section>
+      </div>
+
     </div>
   );
 };
