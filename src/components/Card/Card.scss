@@ -4,7 +4,7 @@
   border: 1px solid $grey-1;
   border-radius: 1em;
   margin: 1em auto 3em auto;
-  width: 80%;
+  width: 70%;
 
   &__Info {
     background-color: $white-color;
@@ -45,6 +45,24 @@
       margin: 0 auto;
       position: relative;
 
+      .center {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .left {
+          height: 100%;
+        }
+
+        .right {
+          height: 100%;
+        }
+      }
+
       &__Image {
         border-radius: 0.7em;
         height: 400px;
@@ -63,7 +81,6 @@
         align-items: center;
         background-color: $white-color;
         border-radius: 50%;
-        color: $font-color;
         display: flex;
         font-size: 1.5em;
         flex-direction: column;
@@ -92,6 +109,48 @@
         position: absolute;
         right: 0.2em;
         padding: 0.3em;
+      }
+
+      .ChevronLeft {
+        color: $grey-3;
+        left: 0.1em;
+        top: 50%;
+        transform: translateY(-50%);
+
+        align-items: center;
+        background-color: $white-color;
+        border-radius: 50%;
+        display: flex;
+        font-size: 2em;
+        flex-direction: column;
+        font-weight: bold;
+        justify-content: center;
+        position: absolute;
+        height: 40px;
+        text-align: center;
+        width: 40px;
+        z-index: 5;
+      }
+
+      .ChevronRight {
+        color: $grey-3;
+        right: 0.1em;
+        top: 50%;
+        transform: translateY(-50%);
+
+        align-items: center;
+        background-color: $white-color;
+        border-radius: 50%;
+        display: flex;
+        font-size: 2em;
+        flex-direction: column;
+        font-weight: bold;
+        justify-content: center;
+        position: absolute;
+        height: 40px;
+        text-align: center;
+        width: 40px;
+        z-index: 5;
       }
     }
   }

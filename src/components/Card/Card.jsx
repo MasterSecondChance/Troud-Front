@@ -2,12 +2,33 @@ import React from 'react';
 import './Card.scss'
 import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faVenus, faTimes, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const image = 'https://i.pinimg.com/originals/80/a5/1a/80a51a0b7293317a273207178aa12358.jpg';
 const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png'
 
 function Card() {
+
+  const changeImageLeft = () => {
+    alert('Left: Foto Anterior');
+  }
+
+  const changeImageRigth = () => {
+    alert('Rigth: Foto Siguiente');
+  }
+
+  const handleDislike = () => {
+    alert('Dislike')
+  }
+
+  const handleLike = () => {
+    alert('Like')
+  }
+
+  const handleSuperLike = () => {
+    alert('Super Hiper Like')
+  }
+
   return (
     <div className="Card">
       <div className="Card__Info">
@@ -21,6 +42,16 @@ function Card() {
           <img className="Card__Info__Img__Image" src={image} alt="Img Card" />
           <div className="Card__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Hombre" /></div>
           <div className="Card__Info__Img__Size">Talla: S</div>
+          <div className="ChevronLeft" onClick={changeImageLeft}>
+            <FontAwesomeIcon className="faChevronLeft" icon={faChevronLeft} title="faChevronLeft" />
+          </div>
+          <div className="ChevronRight" onClick={changeImageRigth}>
+            <FontAwesomeIcon className="faChevronRight" icon={faChevronRight} title="faChevronRight" />
+          </div>
+          <div className="center">
+            <div onClick={handleDislike} className="left"></div>
+            <div onClick={handleLike} className="right"></div>
+          </div>
         </div>
         <p className="Card__Info__Name">Nombre de la prenda</p>
         <div className="Card__Info__Desc">
@@ -28,9 +59,9 @@ function Card() {
         </div>
       </div>
       <div className="Card__Actions">
-        <FontAwesomeIcon className="icon faTimes" icon={faTimes} title="Trode" />
-        <FontAwesomeIcon className="icon small faBolt" icon={faStar} title="Trode" />
-        <FontAwesomeIcon className="icon faHeart" icon={faHeart} title="Trode" />
+        <FontAwesomeIcon onClick={handleDislike} className="icon faTimes" icon={faTimes} title="No Me Gusta" />
+        <FontAwesomeIcon onClick={handleSuperLike} className="icon small faBolt" icon={faStar} title="Super Like" />
+        <FontAwesomeIcon onClick={handleLike} className="icon faHeart" icon={faHeart} title="Me gusta" />
       </div>
     </div>
   );
