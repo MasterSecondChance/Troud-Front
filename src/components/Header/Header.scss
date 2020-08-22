@@ -30,6 +30,10 @@
     bottom: 0;
     position: relative;
 
+    &--Item:hover {
+      border-bottom: 3px solid $secondary-color;
+    }
+
     &--Upload {
       background-color: $secondary-color;
     }
@@ -41,10 +45,6 @@
     span {
       margin: 0.3em;
     }
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 }
 
