@@ -3,85 +3,85 @@ import { Link } from 'react-router-dom';
 
 import './SignUp.scss';
 
-import Header from '../Header/Header';
+import Header from '../HeaderLight/HeaderLight';
 
 export class FirstStep extends Component {
 
-    continue = (e) => {
-      e.preventDefault();
-      this.props.next();
-    }
+  continue = (e) => {
+    e.preventDefault();
+    this.props.next();
+  }
 
-    render() {
+  render() {
 
-      const { values, handleChange, stepper, title } = this.props;
+    const { values, handleChange, stepper, title } = this.props;
 
-      return (
-        <div>
+    return (
+      <div>
 
-          <Header />
+        <Header />
 
-          <section className='FirstStep__container'>
+        <section className='FirstStep__container'>
 
-            <div className='FirstStep__stepper'>
-              <span>{stepper}</span>
+          <div className='FirstStep__stepper'>
+            <span>{stepper}</span>
+          </div>
+
+          <h2>{title}</h2>
+
+          <form className='FirstStep__Form'>
+
+            <div className='Input__container'>
+              <label>
+                Teléfono
+                  <input
+                  type='text'
+                  name='phone'
+                  onChange={handleChange('phone')}
+                  defaultValue={values.phone}
+                />
+              </label>
             </div>
 
-            <h2>{title}</h2>
-
-            <form className='FirstStep__Form'>
-
-              <div className='Input__container'>
-                <label>
-                  Teléfono
+            <div className='Input__container'>
+              <label>
+                Contraseña
                   <input
-                    type='text'
-                    name='phone'
-                    onChange={handleChange('phone')}
-                    defaultValue={values.phone}
-                  />
-                </label>
-              </div>
+                  type='password'
+                  name='password'
+                  onChange={handleChange('password')}
+                  defaultValue={values.password}
+                />
+              </label>
+            </div>
 
-              <div className='Input__container'>
-                <label>
-                  Contraseña
+            <div className='Input__container'>
+              <label>
+                Confirmar contraseña
                   <input
-                    type='password'
-                    name='password'
-                    onChange={handleChange('password')}
-                    defaultValue={values.password}
-                  />
-                </label>
-              </div>
+                  type='password'
+                  name='confirm-password'
+                  onChange={handleChange('Confirmpassword')}
+                  defaultValue={values.password}
+                />
+              </label>
+            </div>
 
-              <div className='Input__container'>
-                <label>
-                  Confirmar contraseña
-                  <input
-                    type='password'
-                    name='confirm-password'
-                    onChange={handleChange('Confirmpassword')}
-                    defaultValue={values.password}
-                  />
-                </label>
-              </div>
-
-              <p className='Account__confirmation'>
-                ¿Ya tienes una cuenta?
+            <p className='Account__confirmation'>
+              ¿Ya tienes una cuenta?
                 <Link className='Account__confirmation--link' to='/signin' aria-label='Registrarse'>¡Inicia sesión!</Link>
-              </p>
+            </p>
 
-              <button
-                onClick={this.continue}
-              >
-                Siguiente
+            <button
+              onClick={this.continue}
+            >
+              Siguiente
               </button>
-            </form>
-          </section>
-        </div>
-      );
-    }
+          </form>
+        </section>
+      </div>
+    );
+  }
 }
 
 export default FirstStep;
