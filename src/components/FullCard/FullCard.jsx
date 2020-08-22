@@ -24,7 +24,7 @@ const FullCard = () => {
               <span>Nombre del Perfil</span>
             </div>
             <Link to="/modify">
-              <FontAwesomeIcon className="options faEllipsisV" icon={faEllipsisV} title="Hombre" />
+              <FontAwesomeIcon className="options faEllipsisV" icon={faEllipsisV} title="Opciones" />
             </Link>
           </div>
           <div className="FullCard__Info__Img">
