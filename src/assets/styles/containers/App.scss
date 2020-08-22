@@ -10,6 +10,16 @@ body {
   color: $font-color;
 }
 
+h1,
+h2,
+h3 {
+  font-family: $headlines-font;
+}
+
+img {
+  vertical-align: top;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
