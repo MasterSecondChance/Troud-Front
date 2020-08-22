@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header';
 import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faEllipsisV, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const image = 'https://st2.depositphotos.com/2885805/5996/v/450/depositphotos_59961247-stock-illustration-businesswoman-clothes-icons.jpg';
 const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png'
@@ -22,7 +23,9 @@ const FullCard = () => {
               </div>
               <span>Nombre del Perfil</span>
             </div>
-            <FontAwesomeIcon className="options faEllipsisV" icon={faEllipsisV} title="Hombre" />
+            <Link to="/modify">
+              <FontAwesomeIcon className="options faEllipsisV" icon={faEllipsisV} title="Opciones" />
+            </Link>
           </div>
           <div className="FullCard__Info__Img">
             <img className="FullCard__Info__Img__Image" src={image} alt="Img FullCard" />
