@@ -12,25 +12,25 @@ const HeaderForm = () => {
         <h1 className='Header__Title'>Trode</h1>
       </Link>
       <ul className='Header__Menu'>
-        <li>
+        <li className="Menu-Item">
           <Link className="Header__Menu--Item" to="/home">
             <FontAwesomeIcon className="icon faHome" icon={faHome} title="Inicio" />
             <span className="Header__Menu--itemMenu">Explorar</span>
           </Link>
         </li>
-        <li>
+        <li className="Menu-Item">
           <Link className="Header__Menu--Item" to="/messages">
             <FontAwesomeIcon className="icon faCommentAlt" icon={faCommentAlt} title="Mensajes" />
             <span className="Header__Menu--itemMenu">Mensajes</span>
           </Link>
         </li>
-        <li>
+        <li className="Menu-Item">
           <Link className="Header__Menu--Item" to="/user">
             <FontAwesomeIcon className="icon faUser" icon={faUser} title="Perfil" />
             <span className="Header__Menu--itemMenu">Perfil</span>
           </Link>
         </li>
-        <li className="Header__Menu--Upload">
+        <li className="Header__Menu--Upload Menu-Item">
           <Link className="Header__Menu--Item" to="/upload">
             <FontAwesomeIcon className="icon faPlusCircle" icon={faPlusCircle} title="Subir" />
             <span className="Header__Menu--itemMenu">Subir</span>
