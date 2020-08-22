@@ -16,66 +16,66 @@
         font-family: $headlines-font;
     }
 
-    .FirstStep__Form {
-        @include steps-form;
+  .FirstStep__Form {
+    @include steps-form;
 
-        .Input__container {
-            width: 80%;
-            font-size: 16px;
+    .Input__container {
+      width: 80%;
+      font-size: 16px;
 
-            label {
-                color: $grey-3;
-            }    
+      label {
+        color: $grey-3;
+      }
 
-            input {
-                @include input;
-            }
-        }
+      input {
+        @include input;
+      }
+    }
 
-        button {
-            @include default-button;
-            /*align-self: flex-end;
+    button {
+      @include default-button;
+      /*align-self: flex-end;
             margin-right: 40px;*/
-        }
     }
+  }
 
-    .Account__confirmation--link {
-        margin: 5px;
-        font-weight: bold;
-        color: black;
-    }
+  .Account__confirmation--link {
+    margin: 5px;
+    font-weight: bold;
+    color: black;
+  }
 }
 
 /*-------------------UPLOAD IMAGE COMPONENT-------------------*/
 
 .Upload-image__container {
-    width: 100%;
-    background-color: #F4F3F5;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 3em;
+  width: 100%;
+  background-color: #F4F3F5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 3em;
 
-    img {
-        width: 100%;
-    }
+  img {
+    width: 100%;
+  }
 }
 
 .SecondStep__container {
-    @include steps-container;
-    padding: 0 40px;
+  @include steps-container;
+  padding: 0 40px;
 
-    h2 {
-        text-align: center;
-        font-family: $headlines-font;
-    }
+  h2 {
+    text-align: center;
+    font-family: $headlines-font;
+  }
 }
 
-.Stepper__container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2em;
+.Stepper__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
 
     button {
         border: none;
@@ -89,22 +89,23 @@
 }
 
 .Back-next__buttons {
-    @include back-next-buttons;
+  @include back-next-buttons;
 }
 
 /*-------------------THIRD STEP-------------------*/
 
 .ThirdStep__container {
-    @include steps-container;
-    padding: 0 40px;
+  @include steps-container;
+  padding: 0 40px;
 
     h2 {
         text-align: center;
         margin-bottom: 2em;
     }
 
-    h3 {
-        font-family: $headlines-font;
+      input {
+        @include input;
+      }
     }
 
     .ThirdStep__Form {
@@ -144,23 +145,23 @@
                 margin-bottom: 2em;
             }
         }
-    }
 }
+
 
 /*-------------------FOURTH STEP-------------------*/
 
 .FourthStep__container {
-    background-color: #F4F3F5;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: $font-color;
-    font-family: $text-font;
-    padding: 2.5em 40px;
+  background-color: #F4F3F5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: $font-color;
+  font-family: $text-font;
+  padding: 2.5em 40px;
 
-    h2 {
-        text-align: center;
-    }
+  h2 {
+    text-align: center;
+  }
 
 
     .Input__container {
@@ -180,8 +181,8 @@
         }
     }
 
-    h3 {
-        margin-top: 2.5em
+    input {
+      @include input;
     }
 
     .Preview__button {

@@ -1,36 +1,15 @@
+@import './Variables.scss';
+
 body {
+  background-color: $grey-1;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
 
-/*body {
-  background-color: #FAFAFA;
-  color: #B5E0FC;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-a:visited {
-  color: var(--link);
-}
-
-a:hover {
-  color: var(--link);
-}
-
-a:active {
-  color: var(--link);
-}
-
-a:link {
-  color: var(--link);
-}
-
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -40,4 +19,5 @@ a:link {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);}*/
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}

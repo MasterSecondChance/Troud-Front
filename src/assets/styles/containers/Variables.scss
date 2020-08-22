@@ -6,7 +6,12 @@ $primary-color-light-2: #DDC8ED;
 $primary-color-dark: #B38DC9;
 $primary-color-dark-2: #A17DBC;
 
+
+$background-color: #E5E5E5;
 $warning-color: #CC0E0E;
+
+$male: #6FD9D9;
+$female: #EB6283;
 
 $secondary-color: #B2E101;
 $secondary-color-dark: #A6CE00;
@@ -24,8 +29,10 @@ $grey-4: #4A3C51;
 
 //Font
 
-$headlines-font: 'Montserrat', sans-serif;
-$text-font: 'Source Sans Pro', sans-serif;
+$headlines-font: 'Montserrat',
+sans-serif;
+$text-font: 'Source Sans Pro',
+sans-serif;
 $font-color: #4A3C51;
 
 //Mixins
@@ -103,12 +110,12 @@ $font-color: #4A3C51;
 }
 
 @mixin hover-button {
-    background-color: #B2E101;
-    border-radius: 10px;
-    text-align: center;
-    outline: none;
-    border: none;
-    filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+  background-color: #B2E101;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
 }
 
 @mixin card {

@@ -28,15 +28,13 @@ const SignIn = (props) => {
 
   return (
     <div>
-
       <Header />
-
       <section className='SignIn__container'>
 
-      <div className='SignIn__description-text'>
-        <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
-        <h2>Inicia sesión</h2>
-      </div>
+        <div className='SignIn__description-text'>
+          <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
+          <h2>Inicia sesión</h2>
+        </div>
 
         <form className="SignIn__Form" onSubmit={handleSubmit}>
 
@@ -67,11 +65,11 @@ const SignIn = (props) => {
           </div>
 
           <button
-            type="submit" 
+            type="submit"
             aria-label='Botón iniciar sesión'>Ingresar</button>
 
           <p className='Account__confirmation'>
-            ¿No tienes una cuenta? 
+            ¿No tienes una cuenta?
             <Link className='Account__confirmation--link' to="/signup" aria-label='Registrarse'>¡Regístrate!</Link>
           </p>
         </form>

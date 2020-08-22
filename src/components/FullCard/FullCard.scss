@@ -1,6 +1,6 @@
 @import '../../assets/styles/containers/Variables.scss';
 
-.Card {
+.FullCard {
   border: 1px solid $grey-1;
   border-radius: 1em;
   margin: 1em auto 3em auto;
@@ -19,15 +19,20 @@
       align-items: center;
       display: flex;
       margin: 1em;
+      justify-content: space-between;
 
       &--Pic {
         height: 2em;
         margin: 0 1em;
       }
 
-      &--name {
-        font-size: 1.5em;
-        font-weight: bold;
+      &--Title {
+        display: flex;
+        align-items: center;
+      }
+
+      .options {
+        font-size: 2em;
       }
     }
 
@@ -66,13 +71,13 @@
         color: $font-color;
         display: flex;
         font-size: 1.5em;
-        flex-direction: column;
         font-weight: bold;
+        flex-direction: column;
+        height: 40px;
         justify-content: center;
         position: absolute;
-        top: 1em;
         right: 0.2em;
-        height: 40px;
+        top: 1em;
         text-align: center;
         width: 40px;
       }
@@ -84,46 +89,43 @@
         border-radius: 0.3em;
         color: $font-color;
         display: flex;
-        flex-direction: column;
         font-weight: bold;
+        flex-direction: column;
         font-size: 1em;
         height: 1.5em;
         justify-content: center;
-        position: absolute;
-        right: 0.2em;
         padding: 0.3em;
+        right: 0.2em;
+        position: absolute;
       }
     }
   }
 
-  &__Actions {
+  &__Details {
     align-items: center;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    .icon {
-      background-color: $white-color;
-      border-radius: 50%;
-      box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
-      margin: 1em 0;
-      font-size: 2.2em;
-      padding: 0.7em;
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0.5em;
+      padding: 0 2em;
+
+      &-title {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      &-text {
+        padding: 0 1em;
+      }
     }
 
     .small {
       font-size: 1.6em;
-    }
-
-    .faTimes {
-      color: red;
-    }
-
-    .faBolt {
-      color: $primary-color-dark-2;
-    }
-
-    .faHeart {
-      color: $secondary-color;
     }
   }
 }

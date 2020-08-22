@@ -1,10 +1,11 @@
 import React from 'react';
 import './Card.scss'
+import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faTimes, faHeart, faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faTimes, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
 
-const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Stay_Awake.svg/1200px-Stay_Awake.svg.png';
-const circle = 'https://www.onlygfx.com/wp-content/uploads/2017/11/grunge-circle-frame-6.png'
+const image = 'https://i.pinimg.com/originals/80/a5/1a/80a51a0b7293317a273207178aa12358.jpg';
+const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png'
 
 function Card() {
   return (
@@ -12,13 +13,13 @@ function Card() {
       <div className="Card__Info">
         <div className="Card__Info__Header">
           <div>
-            <img className="Card__Info__Header--Pic" src={circle} alt="" />
+            <img className="Card__Info__Header--Pic" src={profilePic} alt="" />
           </div>
-          <span>Nombre del Perfil</span>
+          <span className="Card__Info__Header--name">Nombre del Perfil</span>
         </div>
         <div className="Card__Info__Img">
           <img className="Card__Info__Img__Image" src={image} alt="Img Card" />
-          <div className="Card__Info__Img__Gender">Hombre</div>
+          <div className="Card__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Hombre" /></div>
           <div className="Card__Info__Img__Size">Talla: S</div>
         </div>
         <p className="Card__Info__Name">Nombre de la prenda</p>
@@ -28,7 +29,7 @@ function Card() {
       </div>
       <div className="Card__Actions">
         <FontAwesomeIcon className="icon faTimes" icon={faTimes} title="Trode" />
-        <FontAwesomeIcon className="iconS faBolt" icon={faBolt} title="Trode" />
+        <FontAwesomeIcon className="icon small faBolt" icon={faStar} title="Trode" />
         <FontAwesomeIcon className="icon faHeart" icon={faHeart} title="Trode" />
       </div>
     </div>
