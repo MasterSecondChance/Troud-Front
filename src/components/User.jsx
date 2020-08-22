@@ -1,8 +1,7 @@
 import React from 'react';
 import Header from './Header/Header';
-import Footer from './Footer/Footer';
 
-function User(props) {
+const User = (props) => {
   return (
     <>
       <Header />
@@ -11,7 +10,6 @@ function User(props) {
         <li>Publicacion</li>
         <li>Cerrar Sesion</li>
       </ul>
-      <Footer />
     </>
   );
 }
