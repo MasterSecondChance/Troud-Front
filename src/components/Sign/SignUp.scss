@@ -1,73 +1,88 @@
 @import '../../assets/styles/containers/Variables.scss';
 
-.FirstStep__container {
+.Form {
     @include steps-container;
+    padding: 0 40px;
+    display: flex;
 
-    .FirstStep__stepper {
-        margin-bottom: 1.5em;
-        span {
-            margin-left: 40px;
-        }
+    label {
+      color: $grey-3;
     }
-
-    h2 {
-        margin-bottom: 1.5em;
-        text-align: center;
-        font-family: $headlines-font;
+    
+    input {
+      @include input();
     }
-
-  .FirstStep__Form {
-    @include steps-form;
-
-    .Input__container {
-      width: 80%;
-      font-size: 16px;
-
-      label {
-        color: $grey-3;
-      }
-
-      input {
-        @include input;
-      }
-    }
-
     button {
-      @include default-button;
-      /*align-self: flex-end;
-            margin-right: 40px;*/
+      @include default-button();
     }
-  }
 
-  .Account__confirmation--link {
-    margin: 5px;
-    font-weight: bold;
-    color: black;
+    .Center {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    textarea {
+      @include input();
+      height: 90px;
+    }
+    
+    h2 {
+      margin-bottom: 1.5em;
+      text-align: center;
+      font-family: $headlines-font;
+    }
+    
+    select {
+      @include select();
+    }
+
+    .Preview__button {
+      border: none;
+      background: none;
+      outline: none;
+      text-decoration: underline;
+      font-family: $text-font;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 2em;
+      font-weight: bold;
+    }
+    
+    .Form__form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      }
+
+    .Form__stepper {
+        margin-bottom: 1.5em;
+    }
+
+  .Account__confirmation {
+    text-align: center;
+    
+    .Account__confirmation--link {
+      font-weight: bold;
+      text-decoration: underline;
+      margin-left: 5px;
+    }
+
   }
 }
-
-/*-------------------UPLOAD IMAGE COMPONENT-------------------*/
 
 .Upload-image__container {
   width: 100%;
-  background-color: #F4F3F5;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
 
   img {
-    width: 100%;
-  }
-}
-
-.SecondStep__container {
-  @include steps-container;
-  padding: 0 40px;
-
-  h2 {
-    text-align: center;
-    font-family: $headlines-font;
+    width: 20em;
+    height: 20em;
+    margin: 0 auto;
   }
 }
 
@@ -75,7 +90,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 
     button {
         border: none;
@@ -92,108 +107,23 @@
   @include back-next-buttons;
 }
 
-/*-------------------THIRD STEP-------------------*/
-
-.ThirdStep__container {
-  @include steps-container;
-  padding: 0 40px;
-
-    h2 {
-        text-align: center;
-        margin-bottom: 2em;
-    }
-
-      input {
-        @include input;
-      }
-    }
-
-    .ThirdStep__Form {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        .Input__container {
-            width: 100%;
-            font-size: 16px;
-
-            label {
-                color: $grey-3;
-            }    
-
-            input {
-                @include input;
-
-                &::placeholder {
-                    font-size: 40px;
-                }
-            }
-
-            textarea {
-                @include input;
-                height: 90px;
-                
-                &::placeholder {
-                    font-size: 16px;
-                }
-            }
-
-            select {
-                @include select;
-                margin-bottom: 2em;
-            }
-        }
+.Reset-height {
+  height: initial;
 }
 
+@media screen and (min-width: 769px) {
+  .Form {
+    max-width: 50%;
+    margin: 0 auto;
 
-/*-------------------FOURTH STEP-------------------*/
+    .White {
+      background-color: #fff;
+      padding: 3em;
+      border-radius: 15px;
+    }
 
-.FourthStep__container {
-  background-color: #F4F3F5;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color: $font-color;
-  font-family: $text-font;
-  padding: 2.5em 40px;
-
-  h2 {
-    text-align: center;
+    .Long {
+      margin: 3em 0;
+    }
   }
-
-
-    .Input__container {
-        width: 100%;
-        font-size: 16px;
-
-        label {
-            color: $grey-3;
-        }    
-
-        input {
-            @include input;
-        }
-
-        select {
-            @include select;
-        }
-    }
-
-    input {
-      @include input;
-    }
-
-    .Preview__button {
-        border: none;
-        background: none;
-        outline: none;
-        text-decoration: underline;
-        font-family: $text-font;
-        font-size: 16px;
-        text-align: center;
-        margin-bottom: 2em;
-        font-weight: bold;
-    }
 }

@@ -26,31 +26,33 @@ export class SecondStep extends Component {
 
           <Header />
 
-          <section className='SecondStep__container'>
+          <section className='SecondStep__container Form'>
 
-            <div className='Stepper__container'>
-              <span>{stepper}</span>
-              <button onClick={this.continue}>Omitir</button>
-            </div>
+            <div className='White'>
+              <div className='Stepper__container'>
+                <span>{stepper}</span>
+                <button onClick={this.continue}>Omitir</button>
+              </div>
 
-            <h2>{title}</h2>
+              <h2>{title}</h2>
 
-            <UploadImage />
+              <UploadImage />
 
-            <div className='Back-next__buttons'>
-              <button
-                onClick={this.back}
-                className="Back__button"
-              >
-                Atrás
-              </button>
+              <div className='Back-next__buttons'>
+                <button
+                  onClick={this.back}
+                  className='Back__button'
+                >
+                  Atrás
+                </button>
 
-              <button
-                onClick={this.continue}
-                className="Next__button"
-              >
-                Siguiente
-              </button>
+                <button
+                  onClick={this.continue}
+                  className='Next__button'
+                >
+                  Siguiente
+                </button>
+              </div>
             </div>
 
           </section>
