@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header/Header';
-import MyClothes from './MyClothes/MyClothes';
+import MyClothes from '../MyClothes/MyClothes';
+import Header from '../Header/Header'
 
 const User = (props) => {
   return (

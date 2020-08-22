@@ -7,9 +7,10 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
-import User from '../components/User';
+import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
+import Modify from '../components/Sign/ThirdStep';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route exact path='/user' component={User} />
         <Route exact path='/inbox' component={Inbox} />
         <Route exact path='/profile-settings' component={ProfileSettings} />
+        <Route exact path='/modify' component={Modify} />
       </Switch>
     </BrowserRouter>
   );
