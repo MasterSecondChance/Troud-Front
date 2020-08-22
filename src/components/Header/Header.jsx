@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUpload, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faPlusCircle, faUser, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 
 import './Header.scss';
 
@@ -13,23 +13,27 @@ const HeaderForm = () => {
       </Link>
       <ul className='Header__Menu'>
         <li>
-          <Link to="/home">
-            <FontAwesomeIcon className="faHome" icon={faHome} title="Inicio" /> <span className="Header__Menu--itemMenu">Inicio</span>
+          <Link className="Header__Menu--Item" to="/home">
+            <FontAwesomeIcon className="icon faHome" icon={faHome} title="Inicio" />
+            <span className="Header__Menu--itemMenu">Explorar</span>
           </Link>
         </li>
         <li>
-          <Link to="/messages">
-            <FontAwesomeIcon className="faEnvelope" icon={faEnvelope} title="Mensajes" /> <span className="Header__Menu--itemMenu">Mensajes</span>
+          <Link className="Header__Menu--Item" to="/messages">
+            <FontAwesomeIcon className="icon faCommentAlt" icon={faCommentAlt} title="Mensajes" />
+            <span className="Header__Menu--itemMenu">Mensajes</span>
           </Link>
         </li>
         <li>
-          <Link to="/user">
-            <FontAwesomeIcon className="faUser" icon={faUser} title="Perfil" /> <span className="Header__Menu--itemMenu">Perfil</span>
+          <Link className="Header__Menu--Item" to="/user">
+            <FontAwesomeIcon className="icon faUser" icon={faUser} title="Perfil" />
+            <span className="Header__Menu--itemMenu">Perfil</span>
           </Link>
         </li>
         <li className="Header__Menu--Upload">
-          <Link to="/upload">
-            <FontAwesomeIcon className="faUpload" icon={faUpload} title="Subir" /> <span className="Header__Menu--itemMenu">Subir</span>
+          <Link className="Header__Menu--Item" to="/upload">
+            <FontAwesomeIcon className="icon faPlusCircle" icon={faPlusCircle} title="Subir" />
+            <span className="Header__Menu--itemMenu">Subir</span>
           </Link>
         </li>
       </ul>

@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
 import Card from '../components/Card/Card';
+import Category from '../components/Categories/Category';
 
 const Home = (props) => {
 
   return (
     <>
       <Header />
+      <Category />
       <Card />
       <Card />
       <Card />
@@ -17,7 +18,6 @@ const Home = (props) => {
       <Card />
       <Card />
       <Card />
-      <Footer />
     </>
   );
 };
