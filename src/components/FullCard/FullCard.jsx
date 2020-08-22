@@ -5,8 +5,8 @@ import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faEllipsisV, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
 
-const image = 'https://i.pinimg.com/originals/80/a5/1a/80a51a0b7293317a273207178aa12358.jpg';
-const circle = 'https://www.onlygfx.com/wp-content/uploads/2017/11/grunge-circle-frame-6.png'
+const image = 'https://st2.depositphotos.com/2885805/5996/v/450/depositphotos_59961247-stock-illustration-businesswoman-clothes-icons.jpg';
+const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png'
 
 const FullCard = () => {
 
@@ -18,7 +18,7 @@ const FullCard = () => {
           <div className="FullCard__Info__Header">
             <div className="FullCard__Info__Header--Title">
               <div>
-                <img className="FullCard__Info__Header--Pic" src={circle} alt="" />
+                <img className="FullCard__Info__Header--Pic" src={profilePic} alt="" />
               </div>
               <span>Nombre del Perfil</span>
             </div>
@@ -36,19 +36,19 @@ const FullCard = () => {
           <div className="FullCard__Details">
             <div className="FullCard__Details--item">
               <label className="FullCard__Details--item-title">Marca</label>
-              <p className="FullCard__Details--item-text">Detalle de Marca</p>
+              <p className="FullCard__Details--item-text">Standar</p>
             </div>
             <div className="FullCard__Details--item">
               <label className="FullCard__Details--item-title">Estado</label>
-              <p className="FullCard__Details--item-text">Detalle de Estado</p>
+              <p className="FullCard__Details--item-text">Casi Nuevo</p>
             </div>
             <div className="FullCard__Details--item">
               <label className="FullCard__Details--item-title">Categoria</label>
-              <p className="FullCard__Details--item-text">Detalle de Categoria</p>
+              <p className="FullCard__Details--item-text">Accesorios</p>
             </div>
             <div className="FullCard__Details--item">
               <label className="FullCard__Details--item-title">Ciudad</label>
-              <p className="FullCard__Details--item-text">Detalle de Ciudad</p>
+              <p className="FullCard__Details--item-text">Bogota</p>
             </div>
 
           </div>

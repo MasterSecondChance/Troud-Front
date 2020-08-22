@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp';
 import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
+import Modify from '../components/Sign/ThirdStep';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/home' component={Home} />
         <Route exact path='/fullcard' component={FullCard} />
         <Route exact path='/user' component={User} />
+        <Route exact path='/modify' component={Modify} />
       </Switch>
     </BrowserRouter>
   );
