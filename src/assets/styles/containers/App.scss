@@ -1,5 +1,9 @@
 @import './Variables.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $grey-1;
   margin: 0;
