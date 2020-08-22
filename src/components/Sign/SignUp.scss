@@ -1,92 +1,20 @@
 @import '../../assets/styles/containers/Variables.scss';
 
-@mixin steps-container {
-  height: calc(100vh - 60px);
-  background-color: #F4F3F5;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  color: $font-color;
-  font-family: $text-font;
-}
-
-@mixin default-button {
-  width: 130px;
-  height: 52px;
-  background-color: #fff;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  background-color: #B2E101;
-  font-weight: bold;
-  font-size: 16px;
-  justify-content: flex-end;
-}
-
-@mixin steps-form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-@mixin input {
-  width: 100%;
-  height: 40px;
-  display: block;
-  border-radius: 10px;
-  outline: none;
-  border: 1px solid rgb(190, 190, 190);
-  margin-bottom: 1.5em;
-}
-
-@mixin back-next-buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  .Back__button {
-    border: none;
-    background: none;
-    outline: none;
-    text-decoration: underline;
-    font-family: $text-font;
-    font-size: 16px;
-  }
-
-  .Next__button {
-    width: 130px;
-    height: 52px;
-    background-color: #fff;
-    outline: none;
-    border: none;
-    border-radius: 10px;
-    background-color: #B2E101;
-    font-weight: bold;
-    font-size: 16px;
-    justify-content: flex-end;
-    font-family: $text-font;
-    font-size: 16px;
-  }
-}
-
 .FirstStep__container {
-  @include steps-container;
+    @include steps-container;
 
-  .FirstStep__stepper {
-    margin-bottom: 1.5em;
-
-    span {
-      margin-left: 40px;
+    .FirstStep__stepper {
+        margin-bottom: 1.5em;
+        span {
+            margin-left: 40px;
+        }
     }
-  }
 
-  h2 {
-    margin-bottom: 1.5em;
-    text-align: center;
-    font-family: $headlines-font;
-  }
+    h2 {
+        margin-bottom: 1.5em;
+        text-align: center;
+        font-family: $headlines-font;
+    }
 
   .FirstStep__Form {
     @include steps-form;
@@ -149,14 +77,15 @@
   align-items: center;
   margin-bottom: 2em;
 
-  button {
-    border: none;
-    background: none;
-    outline: none;
-    text-decoration: underline;
-    font-family: $text-font;
-    font-size: 16px;
-  }
+    button {
+        border: none;
+        background: none;
+        outline: none;
+        text-decoration: underline;
+        font-family: $text-font;
+        font-size: 16px;
+        color: $grey-2;
+    }
 }
 
 .Back-next__buttons {
@@ -169,43 +98,55 @@
   @include steps-container;
   padding: 0 40px;
 
-  h2 {
-    text-align: center;
-  }
-
-  h3 {
-    font-family: $headlines-font;
-  }
-
-  .ThirdStep__Form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    .Input__container {
-      width: 100%;
-      font-size: 16px;
-
-      label {
-        color: $grey-3;
-      }
+    h2 {
+        text-align: center;
+        margin-bottom: 2em;
+    }
 
       input {
         @include input;
       }
     }
 
-    .Form__checkbox {
-      width: 50%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5em;
-    }
-  }
+    .ThirdStep__Form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .Input__container {
+            width: 100%;
+            font-size: 16px;
+
+            label {
+                color: $grey-3;
+            }    
+
+            input {
+                @include input;
+
+                &::placeholder {
+                    font-size: 40px;
+                }
+            }
+
+            textarea {
+                @include input;
+                height: 90px;
+                
+                &::placeholder {
+                    font-size: 16px;
+                }
+            }
+
+            select {
+                @include select;
+                margin-bottom: 2em;
+            }
+        }
 }
+
 
 /*-------------------FOURTH STEP-------------------*/
 
@@ -223,53 +164,36 @@
   }
 
 
-  .Input__container {
-    width: 100%;
-    font-size: 16px;
+    .Input__container {
+        width: 100%;
+        font-size: 16px;
 
-    label {
-      color: $grey-3;
+        label {
+            color: $grey-3;
+        }    
+
+        input {
+            @include input;
+        }
+
+        select {
+            @include select;
+        }
     }
 
     input {
       @include input;
     }
 
-    select {
-      border-radius: 10px;
-      outline: none;
-      border: 1px solid rgb(190, 190, 190);
-      margin-bottom: 1.5em;
-      display: block;
-      padding: .6em 1.4em .5em .8em;
-      width: 100%;
-      height: 44px;
-      box-sizing: border-box;
-      border: 1px solid #aaa;
-      box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
-      appearance: none;
-      background-color: #fff;
-      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
-        linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
-      background-repeat: no-repeat, repeat;
-      background-position: right .7em top 50%, 0 0;
-      background-size: .65em auto, 100%;
+    .Preview__button {
+        border: none;
+        background: none;
+        outline: none;
+        text-decoration: underline;
+        font-family: $text-font;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 2em;
+        font-weight: bold;
     }
-  }
-
-  h3 {
-    margin-top: 2.5em
-  }
-
-  .Preview__button {
-    border: none;
-    background: none;
-    outline: none;
-    text-decoration: underline;
-    font-family: $text-font;
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 2em;
-  }
-
 }

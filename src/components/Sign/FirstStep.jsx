@@ -33,6 +33,18 @@ export class FirstStep extends Component {
 
             <div className='Input__container'>
               <label>
+                Nombre
+                  <input
+                  type='text'
+                  name='name'
+                  onChange={handleChange('name')}
+                  defaultValue={values.name}
+                />
+              </label>
+            </div>
+
+            <div className='Input__container'>
+              <label>
                 Teléfono
                   <input
                   type='text'
@@ -62,7 +74,7 @@ export class FirstStep extends Component {
                   type='password'
                   name='confirm-password'
                   onChange={handleChange('Confirmpassword')}
-                  defaultValue={values.password}
+                  defaultValue={values.Confirmpassword}
                 />
               </label>
             </div>
