@@ -29,7 +29,7 @@ const FullCard = () => {
           </div>
           <div className="FullCard__Info__Img">
             <img className="FullCard__Info__Img__Image" src={image} alt="Img FullCard" />
-            <div className="FullCard__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Opciones" /></div>
+            <div className="FullCard__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Hombre" /></div>
             <div className="FullCard__Info__Img__Size">Talla: S</div>
           </div>
           <p className="FullCard__Info__Name">Nombre de la prenda</p>
