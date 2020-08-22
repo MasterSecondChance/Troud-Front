@@ -19,7 +19,7 @@ const MyClothes = () => {
           <span className="MyClothes__Profile--Info-Count">10 Prendas</span>
         </div>
         <div className="MyClothes__Profile--Config">
-          <Link to="/modify">
+          <Link to="/settings">
             <FontAwesomeIcon className="icon faCog" icon={faCog} title="Config" />
           </Link>
         </div>

@@ -25,7 +25,7 @@ function App() {
         <Route exact path='/fullcard' component={FullCard} />
         <Route exact path='/user' component={User} />
         <Route exact path='/inbox' component={Inbox} />
-        <Route exact path='/profile-settings' component={ProfileSettings} />
+        <Route exact path='/settings' component={ProfileSettings} />
         <Route exact path='/modify' component={Modify} />
       </Switch>
     </BrowserRouter>
