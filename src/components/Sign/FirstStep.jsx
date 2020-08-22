@@ -61,7 +61,7 @@ export class FirstStep extends Component {
                   <input
                     type='password'
                     name='confirm-password'
-                    onChange={handleChange('Confirmpassword')}
+                    onChange={handleChange('confirmPassword')}
                     defaultValue={values.password}
                   />
                 </label>

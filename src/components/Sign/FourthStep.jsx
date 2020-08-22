@@ -22,19 +22,18 @@ export class FourthStep extends Component {
 
       return (
         <div>
-
           <Header />
 
-          <section className="FourthStep__container">
+          <section className='FourthStep__container'>
             <div className='Stepper__container'>
               <span>{stepper}</span>
             </div>
 
             <h2>{title}</h2>
 
-            <form className="FourthStep__Form">
+            <form className='FourthStep__Form'>
 
-              <div className='Input__container' >
+              <div className='Input__container'>
                 <label>
                   Marca
                   <input
@@ -108,7 +107,7 @@ export class FourthStep extends Component {
                 </label>
               </div>
 
-              <button className="Preview__button">¿Cómo se ve?</button>
+              <button className='Preview__button'>¿Cómo se ve?</button>
 
               <div className='Back-next__buttons'>
                 <button
@@ -119,8 +118,7 @@ export class FourthStep extends Component {
                 </button>
 
                 <button
-                  onClick={this.continue}
-                  className='Next__button'
+                  className='Next__button Publish__button'
                 >
                   Publicar
                 </button>

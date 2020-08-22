@@ -5,7 +5,6 @@ import SecondStep from '../components/Sign/SecondStep';
 import ThirdStep from '../components/Sign/ThirdStep';
 import FourthStep from '../components/Sign/FourthStep';
 import Confirm from '../components/Sign/Confirm';
-import Modal from '../components/Sign/Modal';
 
 class SignUp extends Component {
 
@@ -17,6 +16,7 @@ class SignUp extends Component {
       email: '',
       city: '',
       password: '',
+      confirmPassword: '',
       description: '',
       piece: '',
       female: '',
@@ -49,8 +49,8 @@ class SignUp extends Component {
     render() {
 
       const { step } = this.state;
-      const { phone, password, Confirmpassword, firstName, lastName, email, occupation, city } = this.state;
-      const values = { phone, password, Confirmpassword, firstName, lastName, email, occupation, city };
+      const { phone, password, confirmPassword, firstName, lastName, email, occupation, city } = this.state;
+      const values = { phone, password, confirmPassword, firstName, lastName, email, occupation, city };
 
       switch (step) {
         case 1:
@@ -107,14 +107,6 @@ class SignUp extends Component {
               next={this.next}
               handleChange={this.handleChange}
               values={values}
-            />
-          );
-
-        case 6:
-          return (
-            <Modal
-              modalTrigger='Open Modal'
-              modalComponent="I'm a modal"
             />
           );
       }
