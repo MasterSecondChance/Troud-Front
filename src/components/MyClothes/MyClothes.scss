@@ -73,7 +73,12 @@
       &-Items {
         border: 1px solid $grey-2;
         border-radius: 0.5em;
-        height: 10em;
+        height: 15em;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
