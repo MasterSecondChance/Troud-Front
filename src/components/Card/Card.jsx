@@ -38,23 +38,21 @@ function Card() {
           </div>
           <span className="Card__Info__Header--name">Nombre del Perfil</span>
         </div>
-        <CSSTransitionGroup>
-          <div className="Card__Info__Img">
-            <img className="Card__Info__Img__Image" src={image} alt="Img Card" />
-            <div className="Card__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Hombre" /></div>
-            <div className="Card__Info__Img__Size">Talla: S</div>
-            <div className="ChevronLeft" onClick={changeImageLeft}>
-              <FontAwesomeIcon className="faChevronLeft" icon={faChevronLeft} title="faChevronLeft" />
-            </div>
-            <div className="ChevronRight" onClick={changeImageRigth}>
-              <FontAwesomeIcon className="faChevronRight" icon={faChevronRight} title="faChevronRight" />
-            </div>
-            <div className="center">
-              <div onClick={handleDislike} className="left"></div>
-              <div onClick={handleLike} className="right"></div>
-            </div>
+        <div className="Card__Info__Img">
+          <img className="Card__Info__Img__Image" src={image} alt="Img Card" />
+          <div className="Card__Info__Img__Gender"><FontAwesomeIcon className="faMars" icon={faMars} title="Hombre" /></div>
+          <div className="Card__Info__Img__Size">Talla: S</div>
+          <div className="ChevronLeft" onClick={changeImageLeft}>
+            <FontAwesomeIcon className="faChevronLeft" icon={faChevronLeft} title="faChevronLeft" />
           </div>
-        </CSSTransitionGroup>
+          <div className="ChevronRight" onClick={changeImageRigth}>
+            <FontAwesomeIcon className="faChevronRight" icon={faChevronRight} title="faChevronRight" />
+          </div>
+          <div className="center">
+            <div onClick={handleDislike} className="left"></div>
+            <div onClick={handleLike} className="right"></div>
+          </div>
+        </div>
         <p className="Card__Info__Name">Nombre de la prenda</p>
         <div className="Card__Info__Desc">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat accusantium</p>
