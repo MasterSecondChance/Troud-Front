@@ -1,0 +1,65 @@
+@import '../../assets/styles/containers/Variables.scss';
+
+.Hero {
+  padding: $spacing-03 $spacing-02;
+  font-size: 1.5rem;
+
+  &__circle {
+    display: none;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__imageContainer {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Hero {
+    height: 220px;
+    padding: 80px $spacing-03 0;
+    overflow: hidden;
+    font-size: 2.5rem;
+    background: $primary-color-dark;
+    background: linear-gradient(93deg, $primary-color-dark 0%, $primary-color 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b38dc9", endColorstr="#c7a0da", GradientType=1);
+
+    &>div {
+      position: relative;
+      max-width: 1000px;
+      height: inherit;
+      margin: 0 auto;
+    }
+
+    &__circle {
+      position: absolute;
+      top: -150%;
+      left: 2%;
+      display: block;
+      width: 400px;
+      height: 400px;
+      border: 1px solid $primary-color-light-2;
+      border-radius: 50%;
+    }
+
+    &__title {
+      position: relative;
+      z-index: 2;
+    }
+
+    &__imageContainer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: block;
+      margin: 0;
+    }
+
+    &__image {
+      max-width: 100%;
+    }
+  }
+}

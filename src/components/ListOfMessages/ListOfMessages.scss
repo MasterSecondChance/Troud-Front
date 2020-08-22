@@ -1,0 +1,12 @@
+@import '../../assets/styles/containers/Variables.scss';
+
+.ListOfMessages {
+  max-width: 500px;
+  padding: 0 $spacing-02;
+}
+
+@media screen and (min-width: 768px) {
+  .ListOfMessages {
+    margin: $spacing-05 auto 0;
+  }
+}

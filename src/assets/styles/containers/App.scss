@@ -7,6 +7,17 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   font-family: $text-font;
+  color: $font-color;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $headlines-font;
+}
+
+img {
+  vertical-align: top;
 }
 
 ::-webkit-scrollbar {
