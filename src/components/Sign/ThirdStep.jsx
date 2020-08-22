@@ -52,36 +52,23 @@ export class ThirdStep extends Component {
               <div className='Input__container'>
                 <label>
                   Descripción
-                  <input
+                  <textarea
                     type='text'
                     name='description'
+                    placeholder='Incluye información relevante, como marca, color, etc.'
                     onChange={handleChange('description')}
                     defaultValue={values.description}
                   />
                 </label>
               </div>
 
-              <div className='Form__checkbox'>
+              <div className='Input__container'>
                 <label>
-                  Mujer
-                  <input
-                    type='checkbox'
-                    name='female'
-                    onChange={handleChange('female')}
-                    defaultValue={values.female}
-                    className='Female__checkbox'
-                  />
-                </label>
-
-                <label>
-                  Hombre
-                  <input
-                    type='checkbox'
-                    name='male'
-                    onChange={handleChange('male')}
-                    defaultValue={values.male}
-                    className='Female__checkbox'
-                  />
+                  Género
+                  <select name='gender' defaultValue={values.gender} onChange={handleChange('gender')}>
+                    <option value='option1'>Hombre</option>
+                    <option value='option2'>Mujer</option>
+                  </select>
                 </label>
               </div>
 

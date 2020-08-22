@@ -19,8 +19,7 @@ class SignUp extends Component {
       password: '',
       description: '',
       piece: '',
-      female: '',
-      male: '',
+      gender: '',
       brand: '',
       size: '',
       category: '',
@@ -84,7 +83,7 @@ class SignUp extends Component {
               handleChange={this.handleChange}
               values={values}
               stepper='Paso 3 de 4'
-              title='Sube tu prenda'
+              title='¡Sube tu primera prenda!'
             />
           );
 
