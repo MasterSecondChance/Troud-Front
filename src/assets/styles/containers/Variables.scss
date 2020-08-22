@@ -41,14 +41,12 @@ $font-color: #4A3C51;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: $font-color;
     font-family: $text-font;
 }
 
 @mixin default-button {
     width: 130px;
     height: 52px;
-    background-color: #fff;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -74,6 +72,7 @@ $font-color: #4A3C51;
     outline: none;
     border: 1px solid rgb(190, 190, 190);
     margin-bottom: 1.5em;
+    color: $font-color;
 }
 
 @mixin back-next-buttons {
@@ -89,6 +88,7 @@ $font-color: #4A3C51;
         font-family: $text-font;
         font-size: 16px;
         font-weight: bold;
+        color: $font-color;
     }
 
     .Next__button {
@@ -104,6 +104,7 @@ $font-color: #4A3C51;
         justify-content: flex-end;
         font-family: $text-font;
         font-size: 16px;
+        color: $font-color;
     }
 }
 
