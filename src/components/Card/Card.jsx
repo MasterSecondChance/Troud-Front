@@ -1,7 +1,8 @@
 import React from 'react';
 import './Card.scss'
+import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faTimes, faHeart, faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faHeart, faBolt } from '@fortawesome/free-solid-svg-icons';
 
 const image = 'https://i.pinimg.com/originals/80/a5/1a/80a51a0b7293317a273207178aa12358.jpg';
 const circle = 'https://www.onlygfx.com/wp-content/uploads/2017/11/grunge-circle-frame-6.png'

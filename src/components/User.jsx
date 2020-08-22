@@ -11,7 +11,6 @@ function User(props) {
         <li>Publicacion</li>
         <li>Cerrar Sesion</li>
       </ul>
-      <Footer />
     </>
   );
 }
