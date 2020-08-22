@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 
 import '../components/Sign/SignIn.scss';
 
-import Header from '../components/Header/Header';
+import Header from '../components/HeaderLight/HeaderLight';
 
 const SignIn = (props) => {
 

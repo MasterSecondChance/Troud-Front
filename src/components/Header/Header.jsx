@@ -7,7 +7,7 @@ import './Header.scss';
 
 const HeaderForm = () => {
   return (
-    <header className='Header'>
+    <div className='Header'>
       <Link to="/home">
         <h1 className='Header__Title'>Trode</h1>
       </Link>
@@ -37,7 +37,7 @@ const HeaderForm = () => {
           </Link>
         </li>
       </ul>
-    </header>
+    </div>
   );
 };
 
