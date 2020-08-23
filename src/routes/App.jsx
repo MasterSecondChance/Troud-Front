@@ -10,7 +10,7 @@ import ProfileSettings from '../pages/ProfileSettings';
 import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
-import Modify from '../components/Sign/ThirdStep';
+import EditClothes from '../components/EditClothes/EditClothes';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         <Route exact path='/user' component={User} />
         <Route exact path='/inbox' component={Inbox} />
         <Route exact path='/settings' component={ProfileSettings} />
-        <Route exact path='/modify' component={Modify} />
+        <Route exact path='/modify' component={EditClothes} />
       </Switch>
     </BrowserRouter>
   );
