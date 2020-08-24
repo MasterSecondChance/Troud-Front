@@ -6,7 +6,7 @@ const Hero = ({ title, image }) => {
     <section className="Hero">
       <div>
         <div className="Hero__circle"></div>
-        <h1 className="Hero__title">{title}</h1>
+        <h1 className="Hero__title" tabindex="0">{title}</h1>
         <figure className="Hero__imageContainer">
           <img className="Hero__image" src={image} width="440" role="presentation" />
         </figure>
