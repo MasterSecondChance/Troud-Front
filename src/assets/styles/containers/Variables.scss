@@ -83,6 +83,7 @@ $spacing-05: 50px;
   outline: none;
   border: 1px solid rgb(190, 190, 190);
   margin-bottom: 1.5em;
+  box-sizing: border-box;
 }
 
 @mixin back-next-buttons {
