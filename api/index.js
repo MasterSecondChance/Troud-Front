@@ -22,6 +22,15 @@ export const createUser = async (user) => {
   }
 };
 
+export const getArticleById = async (id) => {
+  try {
+    const data = await serviceInstance.get(`/users/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createArticle = async (clothe) => {
   try {
     await serviceInstance.post(`/articles`, clothe)
