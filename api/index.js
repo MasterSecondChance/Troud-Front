@@ -13,6 +13,15 @@ export const getUserById = async (id) => {
   }
 };
 
+export const createUser = async (user) => {
+  try {
+    await serviceInstance.put(`/users/`, user)
+    console.log('ok');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /**
  * 
  * @param {Object} user //user id
@@ -22,15 +31,12 @@ export const getUserById = async (id) => {
  */
 
 export const updateUser = async (id, user) => {
-
   try {
     await serviceInstance.put(`/users/${id}`, user)
     console.log('ok');
   } catch (error) {
     console.log(error);
   }
-}
-
-
+};
 
 export default serviceInstance;

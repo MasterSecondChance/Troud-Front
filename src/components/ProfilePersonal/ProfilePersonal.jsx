@@ -20,7 +20,7 @@ const ProfilePersonal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateUser('5f407844006da6305c1206bf', {
-      firstName: values.name,
+      userName: values.name,
       password: values.password,
       email: values.email,
       phone: user.phone
@@ -59,7 +59,7 @@ const ProfilePersonal = () => {
             <input
               type='text'
               name='name'
-              placeholder={user.firstName}
+              placeholder={user.userName}
               onChange={handleInputChange}
             />
           </label>

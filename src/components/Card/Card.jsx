@@ -70,7 +70,11 @@ function Card() {
               </div>
               <div className='Card__Info__Img'>
                 <img className='Card__Info__Img__Image' src={article.urlPhoto} alt='Img Card' />
-                <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div>
+                {article.gender === 'male' ?
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div>
+                  :
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>
+                }
                 <div className='Card__Info__Img__Size'>Talla: S</div>
                 <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronLeft' icon={faChevronLeft} title='faChevronLeft' />
@@ -83,7 +87,7 @@ function Card() {
                   <div onClick={handleLike} className='right' role='button' tabIndex='0' />
                 </div>
               </div>
-              <p className='Card__Info__Name'>Nombre de la prenda</p>
+              <p className='Card__Info__Name'>{article.name}</p>
               <div className='Card__Info__Desc'>
                 <p>{article.description}</p>
               </div>

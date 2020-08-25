@@ -15,8 +15,8 @@ const MyClothes = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        // const data = await getUserById('5f3af1332028ba483c674c7b');
-        const result = await api.get('/users/5f3af1332028ba483c674c7b');
+        const result = await getUserById('5f4492b030c9f91600d69de1');
+        //const result = await api.get('/users/5f3af1332028ba483c674c7b');
         setUser(result.data.data);
       } catch (error) {
         console.log(error.response.data.message);
@@ -29,9 +29,9 @@ const MyClothes = () => {
   return (
     <div className='MyClothes'>
       <div className='MyClothes__Profile'>
-        <img className='MyClothes__Profile--Image' src={profileImage} alt='Profile' />
+        <img className='MyClothes__Profile--Image' src={user.urlPhoto} alt='Profile' />
         <div className='MyClothes__Profile--Info'>
-          <span className='MyClothes__Profile--Info-Name'>{`${user.firstName} ${user.lastName}`}</span>
+          <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
           <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
           <span className='MyClothes__Profile--Info-Count'>10 Prendas</span>
         </div>

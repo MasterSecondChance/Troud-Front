@@ -43,13 +43,8 @@ const HeaderForm = () => {
         <li className='Header__Menu--Upload Menu-Item'>
           <Link className='Header__Menu--Item' to='/upload'>
             <FontAwesomeIcon className='icon faPlusCircle' icon={faPlusCircle} title='Subir' />
-
+            <span className='Header__Menu--itemMenu' onClick={algo}>Subir</span>
           </Link>
-        </li>
-        <li className='Header__Menu--Upload Menu-Item'>
-          <span
-            className='Header__Menu--itemMenu' onClick={algo}>Subir</span>
-
         </li>
       </ul>
     </header>
