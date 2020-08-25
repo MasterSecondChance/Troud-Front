@@ -37,9 +37,9 @@ export class FirstStep extends Component {
                     Nombre
                     <input
                       type='text'
-                      name='name'
-                      onChange={handleChange('name')}
-                      defaultValue={values.name}
+                      name='userName'
+                      onChange={handleChange('userName')}
+                      defaultValue={values.nauserNameme}
                     />
                   </label>
                 </div>

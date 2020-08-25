@@ -49,12 +49,24 @@ export class FourthStep extends Component {
 
                 <div className='Input__container'>
                   <label>
+                    Color
+                    <input
+                      type='text'
+                      name='color'
+                      onChange={handleChange('color')}
+                      defaultValue={values.color}
+                    />
+                  </label>
+                </div>
+
+                <div className='Input__container'>
+                  <label>
                     Categoría
-                    <select name='category' defaultValue={values.category} onChange={handleChange('category')}>
-                      <option value='option1'>Option 1</option>
-                      <option value='option2'>Option 2</option>
-                      <option value='option3'>Option 3</option>
-                      <option value='option4'>Option 4</option>
+                    <select name='type' defaultValue={values.type} onChange={handleChange('type')}>
+                        <option value="Camisetas">Camisetas</option>
+                        <option value="Pantalones">Pantalones</option>
+                        <option value="Calzado">Calzado</option>
+                        <option value="Accesorios">Accesorios</option>
                     </select>
                   </label>
                 </div>
@@ -64,9 +76,9 @@ export class FourthStep extends Component {
                     Talla
                     <input
                       type='text'
-                      name='lastName'
-                      onChange={handleChange('lastName')}
-                      defaultValue={values.lastName}
+                      name='size'
+                      onChange={handleChange('size')}
+                      defaultValue={values.size}
                     />
                   </label>
                 </div>
@@ -74,11 +86,10 @@ export class FourthStep extends Component {
                 <div className='Input__container'>
                   <label>
                     Estado
-                    <select name='quality' defaultValue={values.quality} onChange={handleChange('quality')}>
-                      <option value='option1'>Option 1</option>
-                      <option value='option2'>Option 2</option>
-                      <option value='option3'>Option 3</option>
-                      <option value='option4'>Option 4</option>
+                    <select name='condition' defaultValue={values.condition} onChange={handleChange('condition')}>
+                      <option value="">Estado de tu prenda...</option>
+                      <option value='Nuevo'>Nuevo</option>
+                      <option value='Usado'>Usado</option>
                     </select>
                   </label>
                 </div>
@@ -87,24 +98,32 @@ export class FourthStep extends Component {
 
                 <div className='Input__container'>
                   <label>
-                    Departamento
-                    <select name='state' defaultValue={values.state} onChange={handleChange('state')}>
-                      <option value='option1'>Option 1</option>
-                      <option value='option2'>Option 2</option>
-                      <option value='option3'>Option 3</option>
-                      <option value='option4'>Option 4</option>
-                    </select>
-                  </label>
-                </div>
-
-                <div className='Input__container'>
-                  <label>
                     Ciudad
                     <select name='city' defaultValue={values.city} onChange={handleChange('city')}>
-                      <option value='option1'>Option 1</option>
-                      <option value='option2'>Option 2</option>
-                      <option value='option3'>Option 3</option>
-                      <option value='option4'>Option 4</option>
+                      <optgroup label="Cundinamarca">
+                        <option value="Bogotá">Bogotá</option>
+                        <option value="Soacha">Soacha</option>
+                        <option value="Zipaquirá">Zipaquirá</option>
+                        <option value="Cota">Cota</option>
+                        <option value="Facatativá">Facatativá</option>
+                        <option value="Mosquera">Mosquera</option>
+                      </optgroup>
+                      <optgroup label="Antioquia">
+                        <option value="Medellín">Medellín</option>
+                        <option value="Sabaneta">Sabaneta</option>
+                        <option value="Envigado">Envigado</option>
+                        <option value="Bello">Bello</option>
+                        <option value="Facatativá">Facatativá</option>
+                        <option value="Mosquera">Mosquera</option>
+                      </optgroup>
+                      <optgroup label="Valle del Cauca">
+                        <option value="Cali">Cali</option>
+                        <option value="Buga">Buga</option>
+                        <option value="Buenaventura">Buenaventura</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Obando">Obando</option>
+                        <option value="Sevilla">Sevilla</option>
+                      </optgroup>
                     </select>
                   </label>
                 </div>
