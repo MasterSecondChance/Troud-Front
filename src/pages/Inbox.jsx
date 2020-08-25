@@ -6,14 +6,14 @@ import ListOfMessages from '../components/ListOfMessages/ListOfMessages';
 const Inbox = () => {
   return (
     <>
-      <Header/>
+      <Header />
       <Hero
-        title="Mis Mensajes"
-        image="https://trode-s3.s3.amazonaws.com/public/hero-messages.svg"
+        title='Mis Mensajes'
+        image='https://trode-s3.s3.amazonaws.com/public/hero-messages.svg'
       />
       <ListOfMessages />
     </>
-  )
-}
+  );
+};
 
-export default Inbox
+export default Inbox;

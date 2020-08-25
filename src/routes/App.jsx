@@ -7,10 +7,10 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
+import UploadGarment from '../pages/UploadGarment';
 import User from '../components/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
-
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route exact path='/user' component={User} />
         <Route exact path='/inbox' component={Inbox} />
         <Route exact path='/profile-settings' component={ProfileSettings} />
+        <Route exact path='/upload-garment' component={UploadGarment} />
       </Switch>
     </BrowserRouter>
   );
