@@ -51,7 +51,6 @@ $spacing-05: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: $font-color;
   font-family: $text-font;
 }
 
@@ -84,6 +83,7 @@ $spacing-05: 50px;
   outline: none;
   border: 1px solid rgb(190, 190, 190);
   margin-bottom: 1.5em;
+  box-sizing: border-box;
 }
 
 @mixin back-next-buttons {
@@ -104,7 +104,6 @@ $spacing-05: 50px;
   .Next__button {
     width: 130px;
     height: 52px;
-    background-color: #fff;
     outline: none;
     border: none;
     border-radius: 10px;

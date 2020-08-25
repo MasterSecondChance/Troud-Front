@@ -1,17 +1,17 @@
 import React from 'react';
 import '../assets/styles/containers/App.scss';
 
-import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
-import UploadGarment from '../pages/UploadGarment';
-import ModifyGarment from '../pages/ModifyGarment';
-import User from '../components/User';
+import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
+import EditClothes from '../components/EditClothes/EditClothes';
+import UploadClothes from '../components/UploadClothes/UploadClothes';
 
 function App() {
   return (
@@ -25,9 +25,9 @@ function App() {
         <Route exact path='/fullcard' component={FullCard} />
         <Route exact path='/user' component={User} />
         <Route exact path='/inbox' component={Inbox} />
-        <Route exact path='/profile-settings' component={ProfileSettings} />
-        <Route exact path='/upload-garment' component={UploadGarment} />
-        <Route exact path='/modify-garment' component={ModifyGarment} />
+        <Route exact path='/settings' component={ProfileSettings} />
+        <Route exact path='/modify' component={EditClothes} />
+        <Route exact path='/upload' component={UploadClothes} />
       </Switch>
     </BrowserRouter>
   );

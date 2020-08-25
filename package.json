@@ -1,36 +1,38 @@
 {
-  "name": "React-Template",
+  "name": "Trode",
   "version": "1.0.0",
-  "description": "Template for React Proyect",
+  "description": "Trode Application",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open --mode development",
     "eslint": "eslint src/ --fix",
-    "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
+    "format": "prettier --write \"src/*.+(js|jsx|json)\"",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexanderAlvarez9/React-Template.git"
+    "url": "git+https://github.com/MasterSecondChance/Trode-Front.git"
   },
   "keywords": [
-    "commerce"
+    "change"
   ],
   "author": "Alexander Alvarez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MasterEatsPlatzi/Master-Eats/issues"
+    "url": "https://github.com/MasterSecondChance/Trode-Front/issues"
   },
-  "homepage": "https://github.com/MasterEatsPlatzi/Master-Eats#readme",
+  "homepage": "https://github.com/MasterSecondChance/Trode-Front#readme",
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-brands-svg-icons": "^5.13.1",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "axios": "^0.20.0",
     "date-fns": "^2.15.0",
     "firebase": "^7.17.2",
+    "install": "^0.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icomoon": "^2.1.5",

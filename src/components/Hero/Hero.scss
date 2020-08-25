@@ -19,8 +19,8 @@
 
 @media screen and (min-width: 768px) {
   .Hero {
-    height: 220px;
-    padding: 80px $spacing-03 0;
+    height: 300px;
+    padding: 0 $spacing-03 0;
     overflow: hidden;
     font-size: 2.5rem;
     background: $primary-color-dark;
@@ -46,7 +46,8 @@
     }
 
     &__title {
-      position: relative;
+      position: absolute;
+      top: 80px;
       z-index: 2;
     }
 

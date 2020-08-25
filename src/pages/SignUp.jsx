@@ -12,9 +12,7 @@ class SignUp extends Component {
   state = {
     step: 1,
     phone: '',
-    firstName: '',
-    lastName: '',
-    email: '',
+    userName: '',
     city: '',
     password: '',
     description: '',
@@ -22,9 +20,10 @@ class SignUp extends Component {
     gender: '',
     brand: '',
     size: '',
-    category: '',
+    type: '',
     quality: '',
     state: '',
+    color: ''
   }
 
   next = () => {
@@ -48,8 +47,8 @@ class SignUp extends Component {
   render() {
 
     const { step } = this.state;
-    const { phone, password, Confirmpassword, firstName, lastName, email, occupation, city } = this.state;
-    const values = { phone, password, Confirmpassword, firstName, lastName, email, occupation, city };
+    const { phone, password, Confirmpassword, userName, city, color, brand, description, size, condition, gender, type, piece } = this.state;
+    const values = { phone, password, Confirmpassword, userName, city, brand, color, description, size, condition, gender, type, piece };
 
     switch (step) {
       case 1:

@@ -1,0 +1,126 @@
+@import '../../assets/styles/containers/Variables.scss';
+
+.ProfilePersonal {
+  margin-block-end: 100px;
+  padding: 0 $spacing-02 $spacing-04;
+
+  &>div {
+    text-align: center;
+  }
+
+  &__edit-photo {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  & form {
+    margin-block-start: $spacing-04;
+    padding-block-end: $spacing-05;
+    border-block-end: 1px solid $grey-2;
+  }
+
+  &__change-password {
+    &>input {
+      display: none;
+      visibility: hidden;
+
+      &:checked~.expand {
+        height: 200px;
+        visibility: visible;
+        opacity: 1;
+        transition: height 0.3s ease-out, visibility 0.7s ease-out, opacity 0.7s ease-out;
+      }
+    }
+
+    &>label {
+      display: inline-block;
+      margin-block-end: $spacing-03;
+      color: $grey-4;
+      font-weight: 700;
+      text-decoration: underline;
+
+      &:after {
+        content: "+";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-inline-start: 5px;
+      }
+    }
+
+    & .expand {
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: height 0.3s ease-out, visibility 0.2s ease-out, opacity 0.2s ease-out;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 15px 0;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #B2E101;
+  }
+}
+
+.Input__container {
+  width: 100%;
+  font-size: 16px;
+
+  label {
+    color: $grey-3;
+  }
+
+  input {
+    margin-block-start: $spacing-01;
+    margin-block-end: 1.5em;
+    padding-inline-start: 15px;
+    @include input;
+  }
+
+  .phone {
+    padding: 0 1em;
+    font-weight: bold;
+  }
+}
+
+.logged-options {
+  padding-block-start: $spacing-05;
+
+  & a {
+    font-weight: 700;
+
+    &.logged-options__delete {
+      color: $warning-color;
+    }
+  }
+
+  &__logout {
+    display: block;
+    margin-block-end: $spacing-03;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ProfilePersonal {
+    max-width: 690px;
+    margin: 50px auto 100px;
+    padding: $spacing-04 0 $spacing-04;
+    @include card;
+
+    &>div {
+      margin-block-end: $spacing-04;
+    }
+
+    & form {
+      max-width: 390px;
+      margin: 0 auto;
+    }
+  }
+}
