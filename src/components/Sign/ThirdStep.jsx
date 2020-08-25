@@ -67,8 +67,9 @@ export class ThirdStep extends Component {
                 <label>
                   Género
                     <select name='gender' defaultValue={values.gender} onChange={handleChange('gender')}>
-                    <option value='option1'>Hombre</option>
-                    <option value='option2'>Mujer</option>
+                    <option value="">Género de la prenda</option>
+                    <option value='Hombre'>Hombre</option>
+                    <option value='Mujer'>Mujer</option>
                   </select>
                 </label>
               </div>

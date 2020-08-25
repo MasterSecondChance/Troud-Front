@@ -34,7 +34,7 @@ function Card() {
   const handleSuperLike = () => {
     toast('Super Hiper Like', {
       type: 'success',
-      autoClose: 3000,
+      autoClose: 5000,
     });
   };
 

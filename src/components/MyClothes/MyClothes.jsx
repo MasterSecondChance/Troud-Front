@@ -15,7 +15,7 @@ const MyClothes = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await getUserById('5f4492b030c9f91600d69de1');
+        const result = await getUserById('5f44aed1e88cf100081b6814');
         //const result = await api.get('/users/5f3af1332028ba483c674c7b');
         setUser(result.data.data);
       } catch (error) {

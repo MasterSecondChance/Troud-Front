@@ -15,8 +15,26 @@ export const getUserById = async (id) => {
 
 export const createUser = async (user) => {
   try {
-    await serviceInstance.put(`/users/`, user)
-    console.log('ok');
+    await serviceInstance.post(`/users`, user)
+    console.log('Nuevo Usuario Creado');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createArticle = async (clothe) => {
+  try {
+    await serviceInstance.post(`/articles`, clothe)
+    console.log('Nueva prenda Creada');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateArticle = async (clothe) => {
+  try {
+    await serviceInstance.put(`/articles/${id}`, clothe)
+    console.log('Prenda Actualizada');
   } catch (error) {
     console.log(error);
   }
@@ -33,7 +51,7 @@ export const createUser = async (user) => {
 export const updateUser = async (id, user) => {
   try {
     await serviceInstance.put(`/users/${id}`, user)
-    console.log('ok');
+    console.log('Usuario Actualizado');
   } catch (error) {
     console.log(error);
   }
