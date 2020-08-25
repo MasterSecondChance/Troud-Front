@@ -63,6 +63,7 @@ export class FourthStep extends Component {
                   <label>
                     Categoría
                     <select name='type' defaultValue={values.type} onChange={handleChange('type')}>
+                        <option value="">Elige el tipo de prenda...</option>
                         <option value="Camisetas">Camisetas</option>
                         <option value="Pantalones">Pantalones</option>
                         <option value="Calzado">Calzado</option>
@@ -103,26 +104,14 @@ export class FourthStep extends Component {
                       <optgroup label="Cundinamarca">
                         <option value="Bogotá">Bogotá</option>
                         <option value="Soacha">Soacha</option>
-                        <option value="Zipaquirá">Zipaquirá</option>
-                        <option value="Cota">Cota</option>
-                        <option value="Facatativá">Facatativá</option>
-                        <option value="Mosquera">Mosquera</option>
                       </optgroup>
                       <optgroup label="Antioquia">
                         <option value="Medellín">Medellín</option>
                         <option value="Sabaneta">Sabaneta</option>
-                        <option value="Envigado">Envigado</option>
-                        <option value="Bello">Bello</option>
-                        <option value="Facatativá">Facatativá</option>
-                        <option value="Mosquera">Mosquera</option>
                       </optgroup>
                       <optgroup label="Valle del Cauca">
                         <option value="Cali">Cali</option>
                         <option value="Buga">Buga</option>
-                        <option value="Buenaventura">Buenaventura</option>
-                        <option value="Florida">Florida</option>
-                        <option value="Obando">Obando</option>
-                        <option value="Sevilla">Sevilla</option>
                       </optgroup>
                     </select>
                   </label>
