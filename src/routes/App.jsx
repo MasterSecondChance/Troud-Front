@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles/containers/App.scss';
 
-import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -11,6 +11,7 @@ import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
 import EditClothes from '../components/EditClothes/EditClothes';
+import UploadClothes from '../components/UploadClothes/UploadClothes';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/inbox' component={Inbox} />
         <Route exact path='/settings' component={ProfileSettings} />
         <Route exact path='/modify' component={EditClothes} />
+        <Route exact path='/upload' component={UploadClothes} />
       </Switch>
     </BrowserRouter>
   );
