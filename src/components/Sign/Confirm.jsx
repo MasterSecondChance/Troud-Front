@@ -99,7 +99,7 @@ const Confirm = (props) => {
         </div>
         <div className='FullCard__Details--item'>
           <p className='FullCard__Details--item-title'>Nombre de Prenda</p>
-          <p className='FullCard__Details--item-text'>{name}</p>
+          <p className='FullCard__Details--item-text'>{piece}</p>
         </div>
         <div className='FullCard__Details--item'>
           <p className='FullCard__Details--item-title'>Color</p>
