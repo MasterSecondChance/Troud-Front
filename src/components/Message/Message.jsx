@@ -1,5 +1,6 @@
 import React from 'react';
 import './Message.scss';
+import Icon from '../../assets/fonts/icon';
 
 const Message = () => {
   return (
@@ -10,9 +11,11 @@ const Message = () => {
       </div>
       <div>
         <button className='Message__delete'>
-          <i className='delete-icon' />
+          <Icon icon='delete' />
         </button>
-        <button className='Message__chat' />
+        <button className='Message__chat'>
+          <Icon icon='message' />
+        </button>
       </div>
     </div>
   );

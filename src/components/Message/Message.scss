@@ -26,15 +26,12 @@
     width: 30px;
     height: 30px;
     border: none;
+    padding: 0;
+    background-color: transparent;
   }
 
   &__delete {
     margin-inline-end: $spacing-03;
-    background-color: red;
-  }
-
-  &__chat {
-    background-color: red;
   }
 }
 

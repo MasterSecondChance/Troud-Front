@@ -2,16 +2,16 @@ import React from 'react';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 
-const UploadGarment = () => {
+const ModifyGarment = () => {
   return (
     <>
       <Header />
       <Hero
-        title='Sube tu prenda'
-        image='https://trode-s3.s3.amazonaws.com/public/hero-upload-garment.svg'
+        title='Modifica tu prenda'
+        image='https://trode-s3.s3.amazonaws.com/public/hero-modify-garment.svg'
       />
     </>
   );
 };
 
-export default UploadGarment;
+export default ModifyGarment;
