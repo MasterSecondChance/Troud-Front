@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
 import UserContext from '../../utils/UserContext';
