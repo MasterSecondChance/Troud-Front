@@ -13,7 +13,6 @@ import FullCard from '../components/FullCard/FullCard';
 import EditClothes from '../components/EditClothes/EditClothes';
 import UploadClothes from '../components/UploadClothes/UploadClothes';
 
-
 function App() {
   return (
     <BrowserRouter>

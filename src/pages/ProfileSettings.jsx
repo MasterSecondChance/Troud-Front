@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 import ProfilePersonal from '../components/ProfilePersonal/ProfilePersonal';
-import messagesIllustration from '../assets/hero-image@2x.png';
 
 const ProfileSettings = () => {
   return (
@@ -10,7 +9,7 @@ const ProfileSettings = () => {
       <Header />
       <Hero
         title="Ajustes"
-        image={messagesIllustration}
+        image="https://trode-s3.s3.amazonaws.com/public/hero-settings.svg"
       />
       <ProfilePersonal />
     </>

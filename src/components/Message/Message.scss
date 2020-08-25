@@ -27,14 +27,13 @@
     height: 30px;
     padding: 0;
     border: none;
-    background: none;
+    padding: 0;
+    background-color: transparent;
   }
 
   &__delete {
     margin-inline-end: $spacing-03;
   }
-
-  &__chat {}
 }
 
 @media screen and (min-width: 768px) {
