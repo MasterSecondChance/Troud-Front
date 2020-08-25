@@ -82,6 +82,11 @@
     padding-inline-start: 15px;
     @include input;
   }
+
+  .phone {
+    padding: 0 1em;
+    font-weight: bold;
+  }
 }
 
 .logged-options {

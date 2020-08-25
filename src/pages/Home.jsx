@@ -16,14 +16,6 @@ const Home = (props) => {
       />
       <Category />
       <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
     </>
   );
 };
