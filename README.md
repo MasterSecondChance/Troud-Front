@@ -1,45 +1,29 @@
-# React Proyect Template
+# :shirt:Trode
 
 ## Description
 
-Food market Web Application Project
+Trode, the app to search, find, and exchange clothes!
 
 ## Scope
 
-This application aims at helping businesses offer food products and market-related news.
+This application aims at helping users search, find, and exchange either used or new clothes.
 
 By visiting this website, the user will be able to:
 
-- Search for items
-- Filter items by using categories
-- Add and delete items to a cart
-- The purchase process will implement..
-- In order to complete the purchase process, the user must be logged in. Otherwise, he or she will be redirected to the Sign-up and Sign-in section.
+- Register or login.
+- Upload a profile image.
+- Upload clothes or accessories he or she no longer uses.
+- Like, dislike or superlike a piece of clothe.
+- Chat with users by WhatsApp when there is a match.
+- Edit user or clothes information.
 
-## Authors
+## **Getting Started**
 
-- Alexander Alvarez
-
-## Wireframes
-
-- [Home Page](https://docs.google.com/drawings/d/1nLAGowmQsTm9Fm_FjySarD3YVaQZlAsiq2SaSrFgP7E/edit?usp=sharing)
-- [Categories](https://docs.google.com/drawings/d/1QdsPcsVG0hfi45lQyUkz_gAcpHL_o-zaIZkjZZZVys8/edit?usp=sharing)
-- [Cart](https://docs.google.com/drawings/d/15oOWtrWIawqNjZeiD1g8ddk5lNrah_iRq6bFGQC2AwE/edit?usp=sharing)
-- [SignIn/SignUp](https://docs.google.com/drawings/d/1fD4bgBp5PBWeh1o_za6U2wZEtbIhDcAPfxm15pcp7OA/edit?usp=sharing)
-- [Account](https://docs.google.com/drawings/d/1CNXst-WBV_pSlThwBVMDMtAF5rJYv3y66pYFcrUw88s/edit?usp=sharing)
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Mock Ups
 
-- [MockUps Adobe XD](https://xd.adobe.com/view/4ad7fd99-177a-427a-857d-4103f2bb4ee1-1f84/)
-
-## Roles
-
-- Alexander: MainPage - Header - Footer
-- Felipe Chavez: SignIn/SignUp
-- Juan Camilo: Cart
-- Camilo Andres: Account
-- Walter: Design / Error 404 - Success
-- Alejandro: Backend (Node)
+- [Wireframes & MockUps](https://www.figma.com/file/TxD8bIGgXi1UTRwy9BVsA7/Trode?node-id=24%3A3)
 
 ## Installing
 
@@ -47,7 +31,8 @@ By visiting this website, the user will be able to:
 2. install in your local machine
 
 ```jsx
-git clone https://github.com/MasterEatsPlatzi/Master-Eats.git
+git clone https://github.com/MasterSecondChance/Trode-Front.git
+git clone https://github.com/MasterSecondChance/SecondChance_Back.git
 ```
 ```jsx
 npm install
@@ -67,29 +52,12 @@ npm run start
 npm test
 ```
 
-## Usage
-
-## Frontend
-Please make sure to follow the instructions below:
-- You will find the project components in ./src/components/Component.jsx
-- Name componets as follows: inNameOfComponent.jsx
-- Style for each component created in SASS has NameOfComponent.scss in ./src/assets/styles/Style.scss
-- Test will be created has NameOfComponent.test.js in ./src/__test__/Test.test.js
-
-## Backend
-You can find how use the API with this link:
-https://documenter.getpostman.com/view/11548428/T1LPBmPz?version=latest
-
-## Technologies
+## Stack
 
 ### Frontend
-- Webpack
 - React
+- Webpack
 - Sass
-- Redux
-- React Router
-- Prettier
-- Eslint
 
 ### Backend
 - Express
@@ -100,16 +68,20 @@ https://documenter.getpostman.com/view/11548428/T1LPBmPz?version=latest
 
 ## Demo
 
-You can see the demo live [here](https://mastereatsplatzi.github.io/Master-Eats/).
+You can see the demo live [here](https://trode.netlify.app/).
 
 ### Preview
 
 ![preview.png](preview.png)
 
-## About
+## Authors
 
-Platzi Master Group Project - Cohort 3 - Ana - JS Team
+- Alexander Alvarez
+- Andrés Felipe Carrión
+- Andrés Felipe Chávez
+- Felipe Merchán
+- Luis Carrión
 
-## License
+## **License**
 
-This project is released under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/PurpleBooth/LICENSE.md) file for more details.
