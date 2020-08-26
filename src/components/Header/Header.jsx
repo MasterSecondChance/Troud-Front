@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faPlusCircle, faUser, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
-import UserContext from '../../utils/UserContext';
+import { DataContext } from '../../utils/DataContext';
 
 import './Header.scss';
 
 const HeaderForm = () => {
 
-  const userLogged = useContext(UserContext);
+  const { userData } = useContext(DataContext);
   const [state, setState] = useState();
 
   const test = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
-import UserContext from '../../utils/UserContext';
+import UserContext from '../../utils/DataContext';
 
 const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png';
 

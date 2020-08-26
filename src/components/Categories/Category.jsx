@@ -1,35 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Category.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTshirt, faShoePrints, faHatCowboy, faUserSecret, faMitten, faSocks } from '@fortawesome/free-solid-svg-icons';
+import api, { getArticles } from '../../../api';
+import { DataContext } from '../../utils/DataContext';
 
 const Category = () => {
+
+  const { category, saveCategory } = useContext(DataContext);
+
+  const [uniqueCategories, setUniqueCategories] = useState([]);
+  const [selectedArticle, setSelectedArticle] = useState('');
+
+  const categoryFilt = [];
+
+  const defineIcon = (item) => {
+    switch (item) {
+      case 'Camisetas':
+        return (
+          faTshirt
+        );
+      case 'Calzado':
+        return (
+          faTshirt
+        );
+      case 'Camisetas':
+        return (
+          faTshirt
+        );
+      case 'Camisetas':
+        return (
+          faTshirt
+        );
+      case 'Pantalones':
+        return (
+          faTshirt
+        );
+      default:
+        return faShoePrints;
+    }
+  }
+
+  const setCategoryContext = (newCategory) => {
+    setSelectedArticle(newCategory)
+  }
+
+  console.log(selectedArticle);
+
+  useEffect(() => {
+    const filterCategories = async () => {
+      try {
+        const categoryList = await getArticles()
+        Object.keys(categoryList.data.data).map(id => {
+          categoryFilt.push(categoryList.data.data[id].type);
+        })
+        // Remove duplicates or more
+        const filterCategory = (valor, indice, self) => {
+          return self.indexOf(valor) === indice;
+        }
+        setUniqueCategories(categoryFilt.filter(filterCategory))
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
+    };
+    filterCategories();
+  }, []);
+
   return (
     <div className="Category">
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faTshirt" icon={faTshirt} title="Hombre" />
-        <span className="Category__Item-Name">Camisetas</span>
-      </div>
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faShoePrints" icon={faShoePrints} title="Hombre" />
-        <span className="Category__Item-Name">Calzado</span>
-      </div>
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faHatCowboy" icon={faHatCowboy} title="Hombre" />
-        <span className="Category__Item-Name">Sombreros</span>
-      </div>
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faMitten" icon={faMitten} title="Hombre" />
-        <span className="Category__Item-Name">Accesorios</span>
-      </div>
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faUserSecret" icon={faUserSecret} title="Hombre" />
-        <span className="Category__Item-Name">Chaquetas</span>
-      </div>
-      <div className="Category__Item">
-        <FontAwesomeIcon className="faSocks" icon={faSocks} title="Hombre" />
-        <span className="Category__Item-Name">Interior</span>
-      </div>
+      {
+        uniqueCategories.map(item => (
+          <div className="Category__Item" key={item} onClick={() => {
+            setCategoryContext(item)
+          }}>
+            <span className="Category__Item-Name">{item}</span>
+          </div>
+        ))
+      }
     </div>
   );
 };

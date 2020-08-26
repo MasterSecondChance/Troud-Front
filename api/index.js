@@ -23,9 +23,27 @@ export const createUser = async (user) => {
   }
 };
 
+export const getArticles = async (phone) => {
+  try {
+    const data = await serviceInstance.get(`/articles`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getArticleByPhone = async (phone) => {
   try {
     const data = await serviceInstance.get(`/articles?phoneOwner=${phone}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getArticleByCategory = async (category) => {
+  try {
+    const data = await serviceInstance.get(`/articles/categories/${category}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -49,14 +67,6 @@ export const updateArticle = async (clothe) => {
     console.log(error);
   }
 };
-
-/**
- *
- * @param {Object} user //user id
- * @param {String} id //user id
- * @param {String} name //Name to update
- * @param {String} password //Encrypted password
- */
 
 export const updateUser = async (id, user) => {
   try {
