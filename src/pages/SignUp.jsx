@@ -23,7 +23,7 @@ class SignUp extends Component {
     type: '',
     quality: '',
     state: '',
-    color: ''
+    color: '',
   }
 
   next = () => {

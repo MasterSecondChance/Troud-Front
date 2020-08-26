@@ -52,7 +52,7 @@ const SignIn = (props) => {
       <Header />
       <div className='SignIn'>
         <section className='SignIn--img'>
-          <img src={SignInImage} alt="Signin" />
+          <img src={SignInImage} alt='Signin' />
         </section>
         <section className='SignIn__container'>
 

@@ -41,7 +41,7 @@ export class ThirdStep extends Component {
               <div className='Input__container'>
                 <label>
                   Prenda
-                    <input
+                  <input
                     type='text'
                     name='piece'
                     onChange={handleChange('piece')}
@@ -53,7 +53,7 @@ export class ThirdStep extends Component {
               <div className='Input__container'>
                 <label>
                   Descripción
-                    <textarea
+                  <textarea
                     type='text'
                     name='description'
                     placeholder='Incluye información relevante, como marca, color, etc.'
@@ -66,8 +66,8 @@ export class ThirdStep extends Component {
               <div className='Input__container'>
                 <label>
                   Género
-                    <select name='gender' defaultValue={values.gender} onChange={handleChange('gender')}>
-                    <option value="">Género de la prenda</option>
+                  <select name='gender' defaultValue={values.gender} onChange={handleChange('gender')}>
+                    <option value=''>Género de la prenda</option>
                     <option value='Hombre'>Hombre</option>
                     <option value='Mujer'>Mujer</option>
                     <option value='Unisex'>Unisex</option>
@@ -81,14 +81,14 @@ export class ThirdStep extends Component {
                   className='Back__button'
                 >
                   Atrás
-                  </button>
+                </button>
 
                 <button
                   onClick={this.continue}
                   className='Next__button'
                 >
                   Siguiente
-                  </button>
+                </button>
               </div>
             </form>
           </div>

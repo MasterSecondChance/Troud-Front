@@ -12,9 +12,9 @@ const HeaderForm = () => {
   const [state, setState] = useState();
 
   const test = () => {
-    setState({ token: 'qwe1234' })
-    console.log(state)
-  }
+    setState({ token: 'qwe1234' });
+    console.log(state);
+  };
 
   return (
     <header className='Header'>

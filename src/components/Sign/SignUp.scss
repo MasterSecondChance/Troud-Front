@@ -11,11 +11,9 @@
 
   input {
     @include input();
-  }
-
-  button {
-    @include default-button();
-  }
+  }button {
+  @include default-button();
+}
 
   .Center {
     display: block;

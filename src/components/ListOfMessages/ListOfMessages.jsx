@@ -4,7 +4,7 @@ import './ListOfMessages.scss';
 
 const ListOfMessages = () => {
   return (
-    <section className="ListOfMessages">
+    <section className='ListOfMessages'>
       <Message />
       <Message />
       <Message />
@@ -16,7 +16,7 @@ const ListOfMessages = () => {
       <Message />
       <Message />
     </section>
-  )
-}
+  );
+};
 
-export default ListOfMessages
+export default ListOfMessages;

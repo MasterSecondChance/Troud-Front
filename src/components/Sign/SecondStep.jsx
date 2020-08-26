@@ -44,14 +44,14 @@ export class SecondStep extends Component {
                 className='Back__button'
               >
                 Atrás
-                </button>
+              </button>
 
               <button
                 onClick={this.continue}
                 className='Next__button'
               >
                 Siguiente
-                </button>
+              </button>
             </div>
           </div>
 

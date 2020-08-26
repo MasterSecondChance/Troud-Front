@@ -171,6 +171,17 @@
         "max": 1
       }
     ],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "explicitSpread": "ignore",
+        "exceptions": [
+          ""
+        ],
+      }
+    ],
     "no-native-reassign": 2,
     "no-negated-in-lhs": 2,
     "no-nested-ternary": 0,

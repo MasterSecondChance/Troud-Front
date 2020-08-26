@@ -35,7 +35,7 @@ export class FirstStep extends Component {
               <div className='Input__container'>
                 <label>
                   Nombre
-                    <input
+                  <input
                     type='text'
                     name='userName'
                     onChange={handleChange('userName')}
@@ -47,7 +47,7 @@ export class FirstStep extends Component {
               <div className='Input__container'>
                 <label>
                   Teléfono
-                    <input
+                  <input
                     type='text'
                     name='phone'
                     onChange={handleChange('phone')}
@@ -59,7 +59,7 @@ export class FirstStep extends Component {
               <div className='Input__container'>
                 <label>
                   Contraseña
-                    <input
+                  <input
                     type='password'
                     name='password'
                     onChange={handleChange('password')}
@@ -69,7 +69,7 @@ export class FirstStep extends Component {
               </div>
               <p className='Account__confirmation'>
                 ¿Ya tienes una cuenta?
-                  <Link className='Account__confirmation--link' to='/signin' aria-label='Registrarse'>¡Inicia sesión!</Link>
+                <Link className='Account__confirmation--link' to='/signin' aria-label='Registrarse'>¡Inicia sesión!</Link>
               </p>
 
               <button
@@ -77,7 +77,7 @@ export class FirstStep extends Component {
                 className='Center'
               >
                 Siguiente
-                </button>
+              </button>
             </form>
           </div>
         </section>

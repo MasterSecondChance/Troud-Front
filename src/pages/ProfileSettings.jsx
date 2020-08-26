@@ -8,12 +8,12 @@ const ProfileSettings = () => {
     <>
       <Header />
       <Hero
-        title="Ajustes"
-        image="https://trode-s3.s3.amazonaws.com/public/hero-settings.svg"
+        title='Ajustes'
+        image='https://trode-s3.s3.amazonaws.com/public/hero-settings.svg'
       />
       <ProfilePersonal />
     </>
-  )
-}
+  );
+};
 
-export default ProfileSettings
+export default ProfileSettings;

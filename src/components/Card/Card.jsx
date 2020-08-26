@@ -26,11 +26,11 @@ function Card() {
   const handleDislike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
       await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       toast('No te gusta', {
         type: 'error',
         autoClose: 2000,
@@ -43,11 +43,11 @@ function Card() {
   const handleLike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
       await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       toast('Te gusta', {
         autoClose: 2000,
       });
@@ -59,25 +59,25 @@ function Card() {
   const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
       await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       toast('Te Super Encanta', {
         type: 'success',
         autoClose: 5000,
       });
-      const supers = document.querySelectorAll('.small')
-      supers.forEach(item => {
-        item.style.display = "none";
-      })
+      const supers = document.querySelectorAll('.small');
+      supers.forEach((item) => {
+        item.style.display = 'none';
+      });
       const displaySupers = () => {
-        supers.forEach(item => {
-          item.style.display = "initial";
-        })
-      }
-      setTimeout(displaySupers, 60000)
+        supers.forEach((item) => {
+          item.style.display = 'initial';
+        });
+      };
+      setTimeout(displaySupers, 60000);
     } catch (error) {
       console.log(error);
     }
@@ -100,7 +100,7 @@ function Card() {
       <ToastContainer />
 
       {
-        articles.map(article => (
+        articles.map((article) => (
 
           <div className='Card' key={article._id}>
             <div className='Card__Info'>
@@ -108,16 +108,20 @@ function Card() {
                 {/* <div>
                   <img className='Card__Info__Header--Pic' src={profilePic} alt='' />
                 </div> */}
-                <span className='Card__Info__Header--name'>Articulo: {article.name}</span>
+                <span className='Card__Info__Header--name'>
+                  Articulo:
+                  {article.name}
+                </span>
               </div>
               <div className='Card__Info__Img'>
                 <img className='Card__Info__Img__Image' src={article.urlPhoto} alt='Img Card' />
                 {article.gender === 'male' ?
-                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div>
-                  :
-                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>
-                }
-                <div className='Card__Info__Img__Size'>Talla: {article.size}</div>
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div> :
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>}
+                <div className='Card__Info__Img__Size'>
+                  Talla:
+                  {article.size}
+                </div>
                 {/* <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronLeft' icon={faChevronLeft} title='faChevronLeft' />
                 </div>
@@ -126,10 +130,11 @@ function Card() {
                 </div> */}
                 <div className='center'>
                   <div
-                    className='left' role='button'
+                    className='left'
+                    role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                      handleDislike('Dislike', article._id, '3203889058', article.phoneOwner); //Pending fix
                     }}
                   />
                   <div
@@ -137,14 +142,18 @@ function Card() {
                     role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                      handleLike('Like', article._id, '3203889058', article.phoneOwner); //Pending fix
                     }}
                   />
                 </div>
               </div>
               {/* <p className='Card__Info__Name'>{article.name}</p> */}
               <div className='Card__Info__Desc'>
-                <p className='Card__Info__Desc--Info'><b>Descripccion: </b> {article.description}</p>
+                <p className='Card__Info__Desc--Info'>
+                  <b>Descripccion: </b>
+                  {' '}
+                  {article.description}
+                </p>
               </div>
             </div>
             <div className='Card__Actions'>
@@ -153,7 +162,7 @@ function Card() {
                 icon={faTimes}
                 title='No Me Gusta'
                 onClick={() => {
-                  handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleDislike('Dislike', article._id, '3203889058', article.phoneOwner); //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -161,7 +170,7 @@ function Card() {
                 icon={faStar}
                 title='Super Like'
                 onClick={() => {
-                  handleSuperLike('SuperLike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleSuperLike('SuperLike', article._id, '3203889058', article.phoneOwner); //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -169,7 +178,7 @@ function Card() {
                 icon={faHeart}
                 title='Me gusta'
                 onClick={() => {
-                  handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleLike('Like', article._id, '3203889058', article.phoneOwner); //Pending fix
                 }}
               />
             </div>

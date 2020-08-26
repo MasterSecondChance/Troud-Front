@@ -10,7 +10,7 @@ const ProfilePersonal = () => {
   const userLogged = useContext(UserContext);
 
   const [user, setUser] = useState([]);
-  const [values, setValues] = useState('')
+  const [values, setValues] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +23,7 @@ const ProfilePersonal = () => {
       userName: values.name,
       password: values.password,
       email: values.email,
-      phone: user.phone
+      phone: user.phone,
     });
   };
 
@@ -79,11 +79,13 @@ const ProfilePersonal = () => {
           <label>
             Teléfono
             <p
-              className="phone"
+              className='phone'
               placeholder={user.phone}
               type='text'
               name='phone'
-            >{user.phone}</p>
+            >
+              {user.phone}
+            </p>
           </label>
         </div>
         <div className='ProfilePersonal__change-password'>

@@ -32,12 +32,11 @@ const MyClothes = () => {
       try {
         const getArticles = await getArticleByPhone('3203889058');
         const getedArticles = getArticles.data.data;
-        setArticles(getedArticles)
+        setArticles(getedArticles);
       } catch (error) {
         console.log(error.response.data.message);
       }
     };
-
     getArticles();
   }, []);
 
@@ -49,6 +48,7 @@ const MyClothes = () => {
           <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
           <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
           <span className='MyClothes__Profile--Info-Count'>10 Prendas</span>
+          {/*/fix pending*/}
         </div>
         <div className='MyClothes__Profile--Config'>
           <Link to='/settings'>
@@ -60,7 +60,7 @@ const MyClothes = () => {
         <h1>Mis Prendas</h1>
         <div className='MyClothes__Clothes-List'>
 
-          {Object.keys(articles).map(id => (
+          {Object.keys(articles).map((id) => (
             <Link to='/fullcard' className='MyClothes__Clothes-List-Items' key={articles[id]._id}><img src={articles[id].urlPhoto} alt='img' /></Link>
           ))}
         </div>

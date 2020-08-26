@@ -33,7 +33,7 @@ export class UploadImage extends Component {
       const { profileImage } = this.state;
 
       return (
-        <div className="Upload-image__container">
+        <div className='Upload-image__container'>
           <img src={profileImage} alt='Profile' />
           <input type='file' name='upload-image' id='input' accept='image/*' onChange={this.imageHandler} />
           <label htmlFor='input' />
