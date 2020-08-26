@@ -1,0 +1,77 @@
+@import '../containers/Variables.scss';
+
+.NotFoundPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: $primary-color;
+
+  .NotFound {
+    max-width: 390px;
+    text-align: center;
+
+    &__imageContainer {
+      margin: 0;
+    }
+
+    &__title {
+      margin: $spacing-04 0 $spacing-01;
+      font-size: 1.5rem;
+    }
+
+    &__description {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    &__button {
+      display: inline-block;
+      @include default-button;
+      width: 100%;
+      margin-block-start: $spacing-03;
+      cursor: pointer;
+      line-height: 52px;
+      transition: transform .3s ease-out, filter 0.3s ease-out;
+
+      &:hover {
+        filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+        transform: scale(1.06);
+      }
+
+      &:focus {
+        transform: scale(0.94);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .NotFoundPage {
+    .NotFound {
+      &__imageContainer {
+        width: 100%;
+      }
+
+      &__image {
+        width: 100%;
+      }
+
+      &__title {
+        margin: $spacing-04 0 $spacing-02;
+        font-size: 2.5rem;
+      }
+
+      &__description {
+        font-size: 1.5rem
+      }
+
+      &__button {
+        margin-block-start: $spacing-04;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

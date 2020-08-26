@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
 import UploadClothes from '../pages/UploadClothes';
+import NotFound from '../pages/NotFound';
 import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
@@ -28,6 +29,7 @@ function App() {
         <Route exact path='/settings' component={ProfileSettings} />
         <Route exact path='/modify' component={EditClothes} />
         <Route exact path='/upload' component={UploadClothes} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

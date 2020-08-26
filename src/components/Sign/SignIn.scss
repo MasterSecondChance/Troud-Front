@@ -70,15 +70,16 @@
         background-color: #B2E101;
         font-weight: bold;
         font-size: 16px;
+        transition: transform .3s ease-out, filter 0.3s ease-out;
 
         &:hover {
           cursor: pointer;
           filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
-          transform: scale(1.06); 
+          transform: scale(1.06);
         }
 
         &:focus {
-          transform: scale(0.94); 
+          transform: scale(0.94);
         }
       }
     }
