@@ -7,11 +7,6 @@ const User = (props) => {
     <>
       <Header />
       <MyClothes />
-      <ul>
-        <li>Modificar Datos</li>
-        <li>Publicacion</li>
-        <li>Cerrar Sesion</li>
-      </ul>
     </>
   );
 }

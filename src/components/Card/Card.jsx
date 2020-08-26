@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // eslint-disable-next-line no-unused-vars
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api, { getUserById, createReaction } from '../../../api';
-
-const image = 'https://trode-s3.s3.amazonaws.com/deport-col-1598131064350.jpg';
-const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png';
+import api, { getUserById, createReaction, getArticles, getArticleByCategory } from '../../../api';
+import { DataContext } from '../../utils/DataContext';
 
 function Card() {
+
+  const { category } = useContext(DataContext);
 
   const [articles, setArticles] = useState([]);
 
@@ -86,14 +86,22 @@ function Card() {
   useEffect(() => {
     const geArticles = async () => {
       try {
-        const result = await api.get('/articles/');
-        setArticles(result.data.data);
+        if (!category.category) {
+          console.log('Todos');
+          const result = await getArticles();
+          setArticles(result.data.data);
+        }
+        if (category.category) {
+          console.log('Filtrado');
+          const result = await getArticleByCategory(category.category);
+          setArticles(result.data.data);
+        }
       } catch (error) {
-        console.log(error.response.data.message);
+        console.log(error);
       }
     };
     geArticles();
-  }, []);
+  }, [category]);
 
   return (
     <>
