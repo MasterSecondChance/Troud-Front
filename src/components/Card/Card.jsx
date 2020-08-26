@@ -87,14 +87,14 @@ function Card() {
   useEffect(() => {
     const geArticles = async () => {
       try {
-        if (!selectedArticle) {
-          console.log('todos');
+        if (!category.category) {
+          console.log('Todos');
           const result = await getArticles();
           setArticles(result.data.data);
         }
-        if (selectedArticle) {
-          console.log('filtrado');
-          const result = await getArticleByCategory(selectedArticle);
+        if (category.category) {
+          console.log('Filtrado');
+          const result = await getArticleByCategory(category.category);
           setArticles(result.data.data);
         }
       } catch (error) {
@@ -102,7 +102,7 @@ function Card() {
       }
     };
     geArticles();
-  }, []);
+  }, [category]);
 
   return (
     <>

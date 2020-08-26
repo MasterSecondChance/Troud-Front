@@ -42,10 +42,8 @@ const Category = () => {
   }
 
   const setCategoryContext = (newCategory) => {
-    setSelectedArticle(newCategory)
+    saveCategory(newCategory)
   }
-
-  console.log(selectedArticle);
 
   useEffect(() => {
     const filterCategories = async () => {
