@@ -19,7 +19,7 @@ const ProfilePersonal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser('5f44aed1e88cf100081b6814', {
+    await updateUser('5f45c3a523f0e84eb0f8062a', {
       userName: values.name,
       password: values.password,
       email: values.email,
@@ -30,7 +30,7 @@ const ProfilePersonal = () => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await getUserById('5f44aed1e88cf100081b6814');
+        const result = await getUserById('5f45c3a523f0e84eb0f8062a');
         setUser(result.data.data);
       } catch (error) {
         console.log(error.response.data.message, 'Algo fallo');
@@ -44,7 +44,7 @@ const ProfilePersonal = () => {
     <article className='ProfilePersonal'>
       <div>
         <figure className='ProfilePersonal__photoContainer'>
-          <img className='ProfilePersonal__photo' width='90' src={profilePic} role='presentation' />
+          <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
         </figure>
         <a className='ProfilePersonal__edit-photo'>
           Cambiar foto

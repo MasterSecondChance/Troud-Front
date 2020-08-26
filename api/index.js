@@ -17,14 +17,15 @@ export const createUser = async (user) => {
   try {
     await serviceInstance.post(`/users`, user)
     console.log('Nuevo Usuario Creado');
+    return { phone: user.phone }
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getArticleById = async (id) => {
+export const getArticleByPhone = async (phone) => {
   try {
-    const data = await serviceInstance.get(`/users/${id}`);
+    const data = await serviceInstance.get(`/articles?phoneOwner=${phone}`);
     return data;
   } catch (error) {
     console.log(error);

@@ -32,6 +32,20 @@ function Card() {
   };
 
   const handleSuperLike = () => {
+    const supers = document.querySelectorAll('.small')
+
+    supers.forEach(item => {
+      item.style.display = "none";
+    })
+
+    const displaySupers = () => {
+      supers.forEach(item => {
+        item.style.display = "initial";
+      })
+    }
+
+    setTimeout(displaySupers, 60000)
+
     toast('Super Hiper Like', {
       type: 'success',
       autoClose: 5000,
@@ -47,7 +61,6 @@ function Card() {
         console.log(error.response.data.message);
       }
     };
-
     geArticles();
   }, []);
 
