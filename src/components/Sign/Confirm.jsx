@@ -66,7 +66,7 @@ const Confirm = (props) => {
             <p className='Confirm__Card__Item--text'>{userName}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Telefono</p>
+            <p className='Confirm__Card__Item--title'>Teléfono</p>
             <p className='Confirm__Card__Item--text'>{phone}</p>
           </div>
         </div>
@@ -77,15 +77,15 @@ const Confirm = (props) => {
             <p className='Confirm__Card__Item--text'>{city}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Genero</p>
+            <p className='Confirm__Card__Item--title'>Género</p>
             <p className='Confirm__Card__Item--text'>{gender}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Categoria</p>
+            <p className='Confirm__Card__Item--title'>Categoría</p>
             <p className='Confirm__Card__Item--text'>{type}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Descripcion</p>
+            <p className='Confirm__Card__Item--title'>Descripción</p>
             <p className='Confirm__Card__Item--text'>{description}</p>
           </div>
           <div className='Confirm__Card__Item'>
@@ -105,7 +105,7 @@ const Confirm = (props) => {
             <p className='Confirm__Card__Item--text'>{color}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Condicion</p>
+            <p className='Confirm__Card__Item--title'>Estado</p>
             <p className='Confirm__Card__Item--text'>{condition}</p>
           </div>
         </div>
