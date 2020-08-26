@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ThirdStep from '../Sign/ThirdStep';
-import FourthStep from '../Sign/FourthStep';
-import Confirm from '../Sign/Confirm';
+import ThirdStep from '../components/Sign/ThirdStep';
+import FourthStep from '../components/Sign/FourthStep';
+import Confirm from '../components/Sign/Confirm';
 
 class EditClothes extends Component {
 
@@ -74,6 +74,7 @@ class EditClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
+            action='aditionalGarment'
           />
         );
     }

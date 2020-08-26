@@ -106,7 +106,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-
     &--item {
       display: flex;
       flex-direction: column;
@@ -126,6 +125,49 @@
 
     .small {
       font-size: 1.6em;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .FullCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10em;
+
+    &__Info {
+      max-width: 1300px;
+      display: flex;
+      flex-direction: row;
+      padding: 1.5em;
+
+      &__Header {
+        position: absolute;
+        margin: auto;
+        right: 40px;
+        top: 50px;
+        padding: 1em;
+
+        .faEllipsisV {
+          margin-left: 10.5em;
+        }
+      }
+
+      &__Desc {
+        margin: 0 2em;
+      }
+  
+      &-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .FullCard__Details--item-text {
+        padding: 0;
+      }
     }
   }
 }

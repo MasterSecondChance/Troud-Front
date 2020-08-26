@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api, { getUserById } from '../../../api';
+import api, { getUserById, createReaction } from '../../../api';
 
 const image = 'https://trode-s3.s3.amazonaws.com/deport-col-1598131064350.jpg';
 const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png';
@@ -23,33 +23,64 @@ function Card() {
     alert('Rigth: Foto Siguiente');
   };
 
-  const handleDislike = () => {
-    alert('Dislike');
-  };
-
-  const handleLike = () => {
-    toast('Has Dado Like');
-  };
-
-  const handleSuperLike = () => {
-    const supers = document.querySelectorAll('.small')
-
-    supers.forEach(item => {
-      item.style.display = "none";
-    })
-
-    const displaySupers = () => {
-      supers.forEach(item => {
-        item.style.display = "initial";
+  const handleDislike = async (type, idArticle, phoneUser, phoneOwner) => {
+    try {
+      await createReaction({
+        type: type,
+        idArticle: idArticle,
+        phoneUser: phoneUser,
+        phoneOwner: phoneOwner,
       })
+      toast('No te gusta', {
+        type: 'error',
+        autoClose: 2000,
+      });
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    setTimeout(displaySupers, 60000)
+  const handleLike = async (type, idArticle, phoneUser, phoneOwner) => {
+    try {
+      await createReaction({
+        type: type,
+        idArticle: idArticle,
+        phoneUser: phoneUser,
+        phoneOwner: phoneOwner,
+      })
+      toast('Te gusta', {
+        autoClose: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    toast('Super Hiper Like', {
-      type: 'success',
-      autoClose: 5000,
-    });
+  const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner) => {
+    try {
+      await createReaction({
+        type: type,
+        idArticle: idArticle,
+        phoneUser: phoneUser,
+        phoneOwner: phoneOwner,
+      })
+      toast('Te Super Encanta', {
+        type: 'success',
+        autoClose: 5000,
+      });
+      const supers = document.querySelectorAll('.small')
+      supers.forEach(item => {
+        item.style.display = "none";
+      })
+      const displaySupers = () => {
+        supers.forEach(item => {
+          item.style.display = "initial";
+        })
+      }
+      setTimeout(displaySupers, 60000)
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -74,10 +105,10 @@ function Card() {
           <div className='Card' key={article._id}>
             <div className='Card__Info'>
               <div className='Card__Info__Header'>
-                <div>
+                {/* <div>
                   <img className='Card__Info__Header--Pic' src={profilePic} alt='' />
-                </div>
-                <span className='Card__Info__Header--name'>Dueño: {article.phoneOwner}</span>
+                </div> */}
+                <span className='Card__Info__Header--name'>Articulo: {article.name}</span>
               </div>
               <div className='Card__Info__Img'>
                 <img className='Card__Info__Img__Image' src={article.urlPhoto} alt='Img Card' />
@@ -87,32 +118,64 @@ function Card() {
                   <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>
                 }
                 <div className='Card__Info__Img__Size'>Talla: {article.size}</div>
-                <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
+                {/* <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronLeft' icon={faChevronLeft} title='faChevronLeft' />
                 </div>
                 <div className='ChevronRight' onClick={changeImageRigth} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronRight' icon={faChevronRight} title='faChevronRight' />
-                </div>
+                </div> */}
                 <div className='center'>
-                  <div onClick={handleDislike} className='left' role='button' tabIndex='0' />
-                  <div onClick={handleLike} className='right' role='button' tabIndex='0' />
+                  <div
+                    className='left' role='button'
+                    tabIndex='0'
+                    onClick={() => {
+                      handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                    }}
+                  />
+                  <div
+                    className='right'
+                    role='button'
+                    tabIndex='0'
+                    onClick={() => {
+                      handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                    }}
+                  />
                 </div>
               </div>
-              <p className='Card__Info__Name'>{article.name}</p>
+              {/* <p className='Card__Info__Name'>{article.name}</p> */}
               <div className='Card__Info__Desc'>
-                <p>{article.description}</p>
+                <p className='Card__Info__Desc--Info'><b>Descripccion: </b> {article.description}</p>
               </div>
             </div>
             <div className='Card__Actions'>
-              <FontAwesomeIcon onClick={handleDislike} className='icon faTimes' icon={faTimes} title='No Me Gusta' />
-              <FontAwesomeIcon onClick={handleSuperLike} className='icon small faBolt' icon={faStar} title='Super Like' />
-              <FontAwesomeIcon onClick={handleLike} className='icon faHeart' icon={faHeart} title='Me gusta' />
+              <FontAwesomeIcon
+                className='icon faTimes'
+                icon={faTimes}
+                title='No Me Gusta'
+                onClick={() => {
+                  handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                }}
+              />
+              <FontAwesomeIcon
+                className='icon small faBolt'
+                icon={faStar}
+                title='Super Like'
+                onClick={() => {
+                  handleSuperLike('SuperLike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                }}
+              />
+              <FontAwesomeIcon
+                className='icon faHeart'
+                icon={faHeart}
+                title='Me gusta'
+                onClick={() => {
+                  handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                }}
+              />
             </div>
           </div>
-
         ))
       }
-
     </>
   );
 }
