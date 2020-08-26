@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import '../MyClothes/MyClothes.scss';
-import './SignUp.scss';
+import './Confirm.scss';
+import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
 
 const Confirm = (props) => {
@@ -23,9 +23,8 @@ const Confirm = (props) => {
 
   const handleFirstCreate = async () => {
     try {
-      await createUser(user);
-      await createArticle(clothe);
-      console.log(user, clothe);
+      const newUser = await createUser(user);
+      const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone });
     } catch (error) {
       console.log(error);
     }
@@ -52,71 +51,75 @@ const Confirm = (props) => {
     condition: condition,
     date: date,
     urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
-    phoneOwner: '3203889058',
-    idOwner: '5f44aed1e88cf100081b6814'
+    // phoneOwner: '3203889058',
+    idOwner: '5f44aed1e88cf100081b6814', //pending fix
   }
 
   return (
-    <section className='FullCard__Info'>
-      <div className='FullCard__Details'>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Nombre</p>
-          <p className='FullCard__Details--item-text'>{userName}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Usuario</p>
-          <p className='FullCard__Details--item-text'>{userName}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Telefono</p>
-          <p className='FullCard__Details--item-text'>{userName}</p>
-        </div>
-      </div>
-      <div className='FullCard__Details'>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Ciudad</p>
-          <p className='FullCard__Details--item-text'>{city}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Genero</p>
-          <p className='FullCard__Details--item-text'>{gender}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Categoria</p>
-          <p className='FullCard__Details--item-text'>{type}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Descripcion</p>
-          <p className='FullCard__Details--item-text'>{description}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Marca</p>
-          <p className='FullCard__Details--item-text'>{brand}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Talla</p>
-          <p className='FullCard__Details--item-text'>{size}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Nombre de Prenda</p>
-          <p className='FullCard__Details--item-text'>{piece}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Color</p>
-          <p className='FullCard__Details--item-text'>{color}</p>
-        </div>
-        <div className='FullCard__Details--item'>
-          <p className='FullCard__Details--item-title'>Condicion</p>
-          <p className='FullCard__Details--item-text'>{condition}</p>
-        </div>
-      </div>
+    <>
+      <Header />
+      <section className='Confirm'>
 
-      <button onClick={back}>Atrás</button>
+        <div className='Confirm__Card'>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Nombre</p>
+            <p className='Confirm__Card__Item--text'>{userName}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Usuario</p>
+            <p className='Confirm__Card__Item--text'>{userName}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Telefono</p>
+            <p className='Confirm__Card__Item--text'>{userName}</p>
+          </div>
+        </div>
 
-      <button className="Next__button" onClick={handleFirstCreate}>Confirmar y continuar</button>
+        <div className='Confirm__Card'>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Ciudad</p>
+            <p className='Confirm__Card__Item--text'>{city}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Genero</p>
+            <p className='Confirm__Card__Item--text'>{gender}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Categoria</p>
+            <p className='Confirm__Card__Item--text'>{type}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Descripcion</p>
+            <p className='Confirm__Card__Item--text'>{description}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Marca</p>
+            <p className='Confirm__Card__Item--text'>{brand}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Talla</p>
+            <p className='Confirm__Card__Item--text'>{size}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Tu Prenda</p>
+            <p className='Confirm__Card__Item--text'>{piece}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Color</p>
+            <p className='Confirm__Card__Item--text'>{color}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Condicion</p>
+            <p className='Confirm__Card__Item--text'>{condition}</p>
+          </div>
+        </div>
 
+        <div className="Confirm__Actions">
+          <button onClick={back}>Volver</button>
+          <button className="Next__button" onClick={handleFirstCreate}>Confirmar</button>
+        </div>
 
-      {/* 
+        {/* 
       {user.prendas > 0 ?
         <button onClick={handleFirstCreate}>Confirmar y continuar</button>
         :
@@ -124,7 +127,8 @@ const Confirm = (props) => {
       } */}
 
 
-    </section>
+      </section>
+    </>
   )
 }
 

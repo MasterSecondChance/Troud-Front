@@ -51,8 +51,6 @@ function Card() {
     geArticles();
   }, []);
 
-  console.log(articles);
-
   return (
     <>
       <ToastContainer />
@@ -75,7 +73,7 @@ function Card() {
                   :
                   <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>
                 }
-                <div className='Card__Info__Img__Size'>Talla: S</div>
+                <div className='Card__Info__Img__Size'>Talla: {article.size}</div>
                 <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronLeft' icon={faChevronLeft} title='faChevronLeft' />
                 </div>

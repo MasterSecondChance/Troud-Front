@@ -1,68 +1,69 @@
 @import '../../assets/styles/containers/Variables.scss';
 
 .Form {
-    @include steps-container;
-    padding: 0 40px;
+  @include steps-container;
+  padding: 0 40px;
+  display: flex;
+
+  label {
+    color: $grey-3;
+  }
+
+  input {
+    @include input();
+  }
+
+  button {
+    @include default-button();
+  }
+
+  .Center {
+    display: block;
+    margin: 0 auto;
+  }
+
+  textarea {
+    @include input();
+    height: 90px;
+  }
+
+  h2 {
+    margin-bottom: 1.5em;
+    text-align: center;
+    font-family: $headlines-font;
+  }
+
+  select {
+    @include select();
+  }
+
+  .Preview__button {
+    border: none;
+    background: none;
+    outline: none;
+    text-decoration: underline;
+    font-family: $text-font;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 2em;
+    font-weight: bold;
+  }
+
+  .Form__form {
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    label {
-      color: $grey-3;
-    }
-    
-    input {
-      @include input();
-    }
-    button {
-      @include default-button();
-    }
-
-    .Center {
-      display: block;
-      margin: 0 auto;
-    }
-    
-    textarea {
-      @include input();
-      height: 90px;
-    }
-    
-    h2 {
-      margin-bottom: 1.5em;
-      text-align: center;
-      font-family: $headlines-font;
-    }
-    
-    select {
-      @include select();
-    }
-
-    .Preview__button {
-      border: none;
-      background: none;
-      outline: none;
-      text-decoration: underline;
-      font-family: $text-font;
-      font-size: 16px;
-      text-align: center;
-      margin-bottom: 2em;
-      font-weight: bold;
-    }
-    
-    .Form__form {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      }
-
-    .Form__stepper {
-        margin-bottom: 1.5em;
-    }
+  .Form__stepper {
+    margin-bottom: 1.5em;
+  }
 
   .Account__confirmation {
     text-align: center;
-    
+
     .Account__confirmation--link {
       font-weight: bold;
       text-decoration: underline;
@@ -92,15 +93,15 @@
   align-items: center;
   margin-bottom: 1.5em;
 
-    button {
-        border: none;
-        background: none;
-        outline: none;
-        text-decoration: underline;
-        font-family: $text-font;
-        font-size: 16px;
-        color: $grey-2;
-    }
+  button {
+    border: none;
+    background: none;
+    outline: none;
+    text-decoration: underline;
+    font-family: $text-font;
+    font-size: 16px;
+    color: $grey-2;
+  }
 }
 
 .Back-next__buttons {

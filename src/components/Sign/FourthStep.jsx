@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import './SignUp.scss';
-
 import Header from '../HeaderLight/HeaderLight';
 
 export class FourthStep extends Component {
@@ -101,6 +99,7 @@ export class FourthStep extends Component {
                 <label>
                   Ciudad
                     <select name='city' defaultValue={values.city} onChange={handleChange('city')}>
+                    <option value=""></option>
                     <optgroup label="Cundinamarca">
                       <option value="Bogotá">Bogotá</option>
                       <option value="Soacha">Soacha</option>

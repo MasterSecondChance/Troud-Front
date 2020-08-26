@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import api, { userLogin, getUsers } from '../../api';
 
 import '../components/Sign/SignIn.scss';
 import SignInImage from '../assets/static/trode-card2x.png';
-
 import Header from '../components/HeaderLight/HeaderLight';
 
 const SignIn = (props) => {
@@ -12,19 +12,39 @@ const SignIn = (props) => {
   const [values, setValues] = useState('');
   const [profile, setProfile] = useState(0);
 
-  const userValues = {
-    phone: '',
-    password: '',
-  };
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjQ0OWNkZWI5ZDkwZTAwMDdlMDY0NTMiLCJlbWFpbCI6IlVzdWFyaW9QcnVlYmExQGdtYWlsLmNvbSIsImlhdCI6MTU5ODM5NjYyNiwiZXhwIjoxNTk4Mzk4NDI2fQ.GhR32tQ7gRti1xGes9JIBc-13fB9X48WhkmS-noPfgU';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleGetUsers = async (e) => {
     event.preventDefault();
-    history.push('/home');
+    try {
+      const login = await getUsers(token);
+      console.log(login);
+      // history.push('/home');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const login = await userLogin(values.phone, values.password);
+      console.log(login.data.articles);
+
+      if (login.data.articles == 0) {
+        history.push('/upload');
+      } else {
+        history.push('/home');
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -41,7 +61,7 @@ const SignIn = (props) => {
             <h2>Inicia sesión</h2>
           </div>
 
-          <form className='SignIn__Form' onSubmit={handleSubmit}>
+          <form className='SignIn__Form' onSubmit={handleLogin}>
 
             <div className='Input__container'>
               <label>
@@ -49,7 +69,7 @@ const SignIn = (props) => {
                 <input
                   id='phone'
                   name='phone'
-                  type='number'
+                  type='text'
                   onChange={handleInputChange}
                 />
                 <small />
