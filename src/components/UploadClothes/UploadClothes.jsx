@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ThirdStep from '../Sign/ThirdStep';
 import FourthStep from '../Sign/FourthStep';
+import Confirm from '../Sign/Confirm';
 
 class EditClothes extends Component {
 
@@ -38,8 +39,8 @@ class EditClothes extends Component {
   render() {
 
     const { step } = this.state;
-    const { description, piece, gender, brand, size, category, statephone } = this.state;
-    const values = { description, piece, gender, brand, size, category, statephone };
+    const { piece, description, gender, brand, color, category, size, type, condition, city } = this.state;
+    const values = { piece, description, gender, brand, color, category, size, type, condition, city };
 
     switch (step) {
       case 1:
@@ -63,6 +64,16 @@ class EditClothes extends Component {
             values={values}
             stepper='Paso 2 de 2'
             title='Sube tu prenda'
+          />
+        );
+
+      case 3:
+        return (
+          <Confirm
+            previous={this.previous}
+            next={this.next}
+            handleChange={this.handleChange}
+            values={values}
           />
         );
     }
