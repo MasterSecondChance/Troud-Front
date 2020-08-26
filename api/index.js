@@ -66,4 +66,34 @@ export const updateUser = async (id, user) => {
   }
 };
 
+export const userLogin = async (user, pass) => {
+  try {
+    const data = await serviceInstance.post('/auth/token', {}, {
+      auth: {
+        username: user,
+        password: pass,
+      }
+    })
+    console.log(data);
+    return data
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const getUsers = async (token) => {
+  try {
+    const { data } = await serviceInstance.get('/users', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    return data
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 export default serviceInstance;

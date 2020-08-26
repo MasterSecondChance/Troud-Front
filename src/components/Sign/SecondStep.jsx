@@ -3,62 +3,62 @@ import UploadImage from './UploadImage';
 
 import './SignUp.scss';
 
-import Header from '../Header/Header';
+import Header from '../HeaderLight/HeaderLight';
 
 export class SecondStep extends Component {
 
-    continue = (e) => {
-      e.preventDefault();
-      this.props.next();
-    }
+  continue = (e) => {
+    e.preventDefault();
+    this.props.next();
+  }
 
-    back = (e) => {
-      e.preventDefault();
-      this.props.previous();
-    }
+  back = (e) => {
+    e.preventDefault();
+    this.props.previous();
+  }
 
-    render() {
+  render() {
 
-      const { stepper, title } = this.props;
+    const { stepper, title } = this.props;
 
-      return (
-        <div>
+    return (
+      <div>
 
-          <Header />
+        <Header />
 
-          <section className='SecondStep__container Form'>
+        <section className='SecondStep__container Form'>
 
-            <div className='White'>
-              <div className='Stepper__container'>
-                <span>{stepper}</span>
-                <button onClick={this.continue}>Omitir</button>
-              </div>
-
-              <h2>{title}</h2>
-
-              <UploadImage />
-
-              <div className='Back-next__buttons'>
-                <button
-                  onClick={this.back}
-                  className='Back__button'
-                >
-                  Atrás
-                </button>
-
-                <button
-                  onClick={this.continue}
-                  className='Next__button'
-                >
-                  Siguiente
-                </button>
-              </div>
+          <div className='White'>
+            <div className='Stepper__container'>
+              <span>{stepper}</span>
+              <button onClick={this.continue}>Omitir</button>
             </div>
 
-          </section>
-        </div>
-      );
-    }
+            <h2>{title}</h2>
+
+            <UploadImage />
+
+            <div className='Back-next__buttons'>
+              <button
+                onClick={this.back}
+                className='Back__button'
+              >
+                Atrás
+                </button>
+
+              <button
+                onClick={this.continue}
+                className='Next__button'
+              >
+                Siguiente
+                </button>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    );
+  }
 }
 
 export default SecondStep;

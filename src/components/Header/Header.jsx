@@ -11,8 +11,8 @@ const HeaderForm = () => {
   const userLogged = useContext(UserContext);
   const [state, setState] = useState();
 
-  const algo = () => {
-    setState({ token: 'perro' })
+  const test = () => {
+    setState({ token: 'qwe1234' })
     console.log(state)
   }
 
@@ -43,8 +43,14 @@ const HeaderForm = () => {
         <li className='Header__Menu--Upload Menu-Item'>
           <Link className='Header__Menu--Item' to='/upload'>
             <FontAwesomeIcon className='icon faPlusCircle' icon={faPlusCircle} title='Subir' />
-            <span className='Header__Menu--itemMenu' onClick={algo}>Subir</span>
+            <span className='Header__Menu--itemMenu' onClick={test}>Subir</span>
           </Link>
+        </li>
+        <li className='Menu-Item'>
+          <div className='Header__Menu--Item'>
+            <FontAwesomeIcon className='icon faPlusCircle' icon={faPlusCircle} title='Subir' />
+            <span className='Header__Menu--itemMenu' onClick={test}>Test</span>
+          </div>
         </li>
       </ul>
     </header>

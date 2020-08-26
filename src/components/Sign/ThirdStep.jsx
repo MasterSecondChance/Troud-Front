@@ -70,6 +70,7 @@ export class ThirdStep extends Component {
                     <option value="">Género de la prenda</option>
                     <option value='Hombre'>Hombre</option>
                     <option value='Mujer'>Mujer</option>
+                    <option value='Unisex'>Unisex</option>
                   </select>
                 </label>
               </div>

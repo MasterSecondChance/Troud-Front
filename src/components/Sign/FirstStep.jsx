@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './SignUp.scss';
 
-import Header from '../Header/Header';
+import Header from '../HeaderLight/HeaderLight';
 
 export class FirstStep extends Component {
 
