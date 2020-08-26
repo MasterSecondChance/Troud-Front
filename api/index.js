@@ -15,9 +15,9 @@ export const getUserById = async (id) => {
 
 export const createUser = async (user) => {
   try {
-    await serviceInstance.post(`/users`, user)
+    const newUser = await serviceInstance.post(`/users`, user)
     console.log('Nuevo Usuario Creado');
-    return { phone: user.phone }
+    return { phone: user.phone, userId: newUser.data.data }
   } catch (error) {
     console.log(error);
   }
@@ -90,6 +90,15 @@ export const getUsers = async (token) => {
       }
     })
     return data
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const createReaction = async (reaction) => {
+  try {
+    const { data } = await serviceInstance.post('/reactions', reaction)
+    return data.match
   } catch (error) {
     console.log(error);
   }

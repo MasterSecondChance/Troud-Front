@@ -2,9 +2,11 @@ import React from 'react';
 import './Message.scss';
 import Icon from '../../assets/fonts/icon';
 
+const whatsappLink = 'https://api.whatsapp.com/send?phone=${phone}&text=hola%20soy%20sdljndsrgjkldfg';
+
 const Message = () => {
   return (
-    <div className='Message'>
+    <a className='Message' href="https://api.whatsapp.com/send?phone=${phone}&text=hola%20soy%20sdljndsrgjkldfg">
       <div>
         <h3 className='Message__user' tabIndex='0'>Julio Muñoz</h3>
         <time className='Message__date' tabIndex='0'>08/22/20</time>
@@ -17,7 +19,7 @@ const Message = () => {
           <Icon icon='message' />
         </button>
       </div>
-    </div>
+    </a>
   );
 };
 
