@@ -3,7 +3,7 @@ import './MyClothes.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import api, { getUserById } from '../../../api';
+import api, { getUserById, getArticleByPhone } from '../../../api';
 
 const MyClothes = () => {
 
@@ -11,19 +11,34 @@ const MyClothes = () => {
   const clothe = 'https://st2.depositphotos.com/2885805/5996/v/450/depositphotos_59961247-stock-illustration-businesswoman-clothes-icons.jpg';
 
   const [user, setUser] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await getUserById('5f44aed1e88cf100081b6814');
-        //const result = await api.get('/users/5f3af1332028ba483c674c7b');
-        setUser(result.data.data);
+        const dataUser = await getUserById('5f45c3a523f0e84eb0f8062a');
+        //const dataUser = await api.get('/users/5f3af1332028ba483c674c7b');
+        setUser(dataUser.data.data);
       } catch (error) {
         console.log(error.response.data.message);
       }
     };
 
     getUser();
+  }, []);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const getArticles = await getArticleByPhone('3203889058');
+        const getedArticles = getArticles.data.data;
+        setArticles(getedArticles)
+      } catch (error) {
+        console.log(error.response.data.message);
+      }
+    };
+
+    getArticles();
   }, []);
 
   return (
@@ -45,17 +60,9 @@ const MyClothes = () => {
         <h1>Mis Prendas</h1>
         <div className='MyClothes__Clothes-List'>
 
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-          <Link to='/fullcard' className='MyClothes__Clothes-List-Items'><img src={clothe} alt='img' /></Link>
-
+          {Object.keys(articles).map(id => (
+            <Link to='/fullcard' className='MyClothes__Clothes-List-Items' key={articles[id]._id}><img src={articles[id].urlPhoto} alt='img' /></Link>
+          ))}
         </div>
       </div>
     </div>

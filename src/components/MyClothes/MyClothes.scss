@@ -73,7 +73,7 @@
       &-Items {
         border: 1px solid $grey-2;
         border-radius: 0.5em;
-        height: 15em;
+        max-height: 15em;
         overflow: hidden;
 
         img {
