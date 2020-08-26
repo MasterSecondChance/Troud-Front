@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import './Confirm.scss';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
+import { useHistory } from 'react-router-dom';
 
 const Confirm = (props) => {
+
+  let history = useHistory();
 
   const back = e => {
     e.preventDefault();
@@ -18,13 +21,15 @@ const Confirm = (props) => {
     }
   }
 
-  // const date = new Date();
-  const date = '2020-08-23 23:33';
+  const date = new Date();
+  //const date = '2020-08-23 23:33';
 
   const handleFirstCreate = async () => {
     try {
       const newUser = await createUser(user);
-      const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone });
+      console.log(newUser);
+      const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
+      history.push("/home");
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +38,6 @@ const Confirm = (props) => {
   const { values: { userName, password, phone, piece, type, gender, description, city, brand, size, color, condition } } = props;
   const user = {
     userName: userName,
-    email: 'email@example.com',
     phone: phone,
     password: password,
     urlPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'
@@ -49,29 +53,21 @@ const Confirm = (props) => {
     name: piece,
     color: color,
     condition: condition,
-    date: date,
     urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
-    // phoneOwner: '3203889058',
-    idOwner: '5f44aed1e88cf100081b6814', //pending fix
   }
 
   return (
     <>
       <Header />
       <section className='Confirm'>
-
-        <div className='Confirm__Card'>
+        1018435584        <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Nombre</p>
             <p className='Confirm__Card__Item--text'>{userName}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Usuario</p>
-            <p className='Confirm__Card__Item--text'>{userName}</p>
-          </div>
-          <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Telefono</p>
-            <p className='Confirm__Card__Item--text'>{userName}</p>
+            <p className='Confirm__Card__Item--text'>{phone}</p>
           </div>
         </div>
 
