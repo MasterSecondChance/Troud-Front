@@ -35,7 +35,7 @@ export class UploadImage extends Component {
       return (
         <div className="Upload-image__container">
           <img src={profileImage} alt='Profile' />
-          <input type='file' name='upload-image' id='input' accept='image/*' onChange={this.imageHandler} />
+          <input className="Upload__photo-button" type='file' name='upload-image' id='input' accept='image/*' onChange={this.imageHandler} />
           <label htmlFor='input' />
         </div>
       );

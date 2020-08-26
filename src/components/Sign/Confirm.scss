@@ -42,5 +42,15 @@
     @include default-button();
     margin: 0 0.3em;
     box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
+    
+    &:hover {
+      cursor: pointer;
+      filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+      transform: scale(1.06); 
+    }
+
+    &:focus {
+      transform: scale(0.94); 
+    }
   }
 }
