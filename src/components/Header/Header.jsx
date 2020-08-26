@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faPlusCircle, faUser, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
-import UserContext from '../../utils/UserContext';
+import { DataContext } from '../../utils/DataContext';
 
 import './Header.scss';
 
 const HeaderForm = () => {
 
-  const userLogged = useContext(UserContext);
+  const { userData } = useContext(DataContext);
   const [state, setState] = useState();
 
   const test = () => {
@@ -43,14 +43,8 @@ const HeaderForm = () => {
         <li className='Header__Menu--Upload Menu-Item'>
           <Link className='Header__Menu--Item' to='/upload'>
             <FontAwesomeIcon className='icon faPlusCircle' icon={faPlusCircle} title='Subir' />
-            <span className='Header__Menu--itemMenu' onClick={test}>Subir</span>
+            <span className='Header__Menu--itemMenu'>Subir</span>
           </Link>
-        </li>
-        <li className='Menu-Item'>
-          <div className='Header__Menu--Item'>
-            <FontAwesomeIcon className='icon faPlusCircle' icon={faPlusCircle} title='Subir' />
-            <span className='Header__Menu--itemMenu' onClick={test}>conTest</span>
-          </div>
         </li>
       </ul>
     </header>
