@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './Confirm.scss';
+import { useHistory } from 'react-router-dom';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
-import { useHistory } from 'react-router-dom';
 
 const Confirm = (props) => {
 
-  let history = useHistory();
+  const history = useHistory();
 
-  const back = e => {
+  const back = (e) => {
     e.preventDefault();
     props.previous();
-  }
+  };
 
-  const handleupdateClothe = async () => {
+  const handleUpdateClothe = async () => {
     try {
-      await updateArticle(user);
+      await createArticle({ ...clothe, phoneOwner: '3057584589', idOwner: '5f45c3a523f0e84eb0f8062a' }); //Pending to fix
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   const date = new Date();
   //const date = '2020-08-23 23:33';
@@ -29,7 +29,7 @@ const Confirm = (props) => {
       const newUser = await createUser(user);
       console.log(newUser);
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
-      history.push("/home");
+      history.push('/home');
     } catch (error) {
       console.log(error);
     }
@@ -37,30 +37,30 @@ const Confirm = (props) => {
 
   const { values: { userName, password, phone, piece, type, gender, description, city, brand, size, color, condition } } = props;
   const user = {
-    userName: userName,
-    phone: phone,
-    password: password,
-    urlPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'
-  }
+    userName,
+    phone,
+    password,
+    urlPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+  };
 
   const clothe = {
-    city: city,
-    type: type,
-    gender: gender,
-    description: description,
-    brand: brand,
-    size: size,
+    city,
+    type,
+    gender,
+    description,
+    brand,
+    size,
     name: piece,
-    color: color,
-    condition: condition,
+    color,
+    condition,
     urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
-  }
+  };
 
   return (
     <>
       <Header />
       <section className='Confirm'>
-        1018435584        <div className='Confirm__Card'>
+        <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Nombre</p>
             <p className='Confirm__Card__Item--text'>{userName}</p>
@@ -110,22 +110,15 @@ const Confirm = (props) => {
           </div>
         </div>
 
-        <div className="Confirm__Actions">
+        <div className='Confirm__Actions'>
           <button onClick={back}>Volver</button>
-          <button className="Next__button" onClick={handleFirstCreate}>Confirmar</button>
+          {props.action === 'initialGarment' ?
+            <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button> :
+            <button className='Next__button' onClick={handleUpdateClothe}>Confirmar</button>}
         </div>
-
-        {/* 
-      {user.prendas > 0 ?
-        <button onClick={handleFirstCreate}>Confirmar y continuar</button>
-        :
-        <button onClick={handleupdateClothe}>Modificar</button>
-      } */}
-
-
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Confirm;

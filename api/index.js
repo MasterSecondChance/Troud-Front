@@ -15,9 +15,9 @@ export const getUserById = async (id) => {
 
 export const createUser = async (user) => {
   try {
-    const newUser = await serviceInstance.post(`/users`, user)
+    const newUser = await serviceInstance.post('/users', user);
     console.log('Nuevo Usuario Creado');
-    return { phone: user.phone, userId: newUser.data.data }
+    return { phone: user.phone, userId: newUser.data.data };
   } catch (error) {
     console.log(error);
   }
@@ -34,7 +34,7 @@ export const getArticleByPhone = async (phone) => {
 
 export const createArticle = async (clothe) => {
   try {
-    await serviceInstance.post(`/articles`, clothe)
+    await serviceInstance.post('/articles', clothe);
     console.log('Nueva prenda Creada');
   } catch (error) {
     console.log(error);
@@ -43,7 +43,7 @@ export const createArticle = async (clothe) => {
 
 export const updateArticle = async (clothe) => {
   try {
-    await serviceInstance.put(`/articles/${id}`, clothe)
+    await serviceInstance.put(`/articles/${id}`, clothe);
     console.log('Prenda Actualizada');
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ export const updateArticle = async (clothe) => {
 };
 
 /**
- * 
+ *
  * @param {Object} user //user id
  * @param {String} id //user id
  * @param {String} name //Name to update
@@ -60,7 +60,7 @@ export const updateArticle = async (clothe) => {
 
 export const updateUser = async (id, user) => {
   try {
-    await serviceInstance.put(`/users/${id}`, user)
+    await serviceInstance.put(`/users/${id}`, user);
     console.log('Usuario Actualizado');
   } catch (error) {
     console.log(error);
@@ -73,37 +73,35 @@ export const userLogin = async (user, pass) => {
       auth: {
         username: user,
         password: pass,
-      }
-    })
+      },
+    });
     console.log(data);
-    return data
+    return data;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const getUsers = async (token) => {
   try {
     const { data } = await serviceInstance.get('/users', {
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
-    return data
+      },
+    });
+    return data;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const createReaction = async (reaction) => {
   try {
-    const { data } = await serviceInstance.post('/reactions', reaction)
-    return data.match
+    const { data } = await serviceInstance.post('/reactions', reaction);
+    return data.match;
   } catch (error) {
     console.log(error);
   }
-}
-
-
+};
 
 export default serviceInstance;

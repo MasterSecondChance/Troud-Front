@@ -23,7 +23,7 @@ class SignUp extends Component {
     type: '',
     quality: '',
     state: '',
-    color: ''
+    color: '',
   }
 
   next = () => {
@@ -105,6 +105,7 @@ class SignUp extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
+            action='initialGarment'
           />
         );
 

@@ -7,11 +7,11 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
+import UploadClothes from '../pages/UploadClothes';
 import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
 import FullCard from '../components/FullCard/FullCard';
 import EditClothes from '../components/EditClothes/EditClothes';
-import UploadClothes from '../components/UploadClothes/UploadClothes';
 
 function App() {
   return (
