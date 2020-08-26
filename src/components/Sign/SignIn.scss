@@ -6,11 +6,7 @@
   align-items: center;
   padding: 0 .5em;
 
-  .SignIn--img {
-    img {
-      width: 450px
-    }
-  }
+
 
   .SignIn__container {
     height: calc(100vh - 60px);
@@ -74,6 +70,16 @@
         background-color: #B2E101;
         font-weight: bold;
         font-size: 16px;
+
+        &:hover {
+          cursor: pointer;
+          filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+          transform: scale(1.06); 
+        }
+
+        &:focus {
+          transform: scale(0.94); 
+        }
       }
     }
 
@@ -81,11 +87,17 @@
       margin: 5px;
       font-weight: bold;
       color: black;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   }
 }
 
 @media screen and (max-width: 900px) {
+
   .SignIn--img {
     display: none;
   }
