@@ -74,6 +74,11 @@ const Category = () => {
           </div>
         ))
       }
+      <div className="Category__Item" key='clear' onClick={() => {
+        setCategoryContext('')
+      }}>
+        <span className="Category__Item-Name">DesFiltrar</span>
+      </div>
     </div>
   );
 };

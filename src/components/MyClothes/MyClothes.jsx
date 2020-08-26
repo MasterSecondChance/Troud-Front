@@ -41,7 +41,6 @@ const MyClothes = () => {
         console.log(error.response.data.message);
       }
     };
-
     getArticles();
   }, []);
 
