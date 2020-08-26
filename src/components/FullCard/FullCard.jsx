@@ -1,6 +1,5 @@
 import React from 'react';
 import './FullCard.scss';
-import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faEllipsisV, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

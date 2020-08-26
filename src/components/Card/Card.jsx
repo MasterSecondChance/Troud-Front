@@ -14,7 +14,6 @@ function Card() {
   const { category } = useContext(DataContext);
 
   const [articles, setArticles] = useState([]);
-  const [selectedArticle, setSelectedArticle] = useState('Calzado');
 
   const changeImageLeft = () => {
     alert('Left: Foto Anterior');

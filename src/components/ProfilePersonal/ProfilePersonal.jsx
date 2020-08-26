@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
-import UserContext from '../../utils/DataContext';
-
-const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png';
+import { useHistory } from 'react-router-dom';
+import { DataContext } from '../../utils/DataContext';
 
 const ProfilePersonal = () => {
 
-  const userLogged = useContext(UserContext);
+  const { userData } = useContext(DataContext);
 
+  const history = useHistory();
   const [user, setUser] = useState([]);
   const [values, setValues] = useState('')
 
@@ -19,7 +19,7 @@ const ProfilePersonal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser('5f45c3a523f0e84eb0f8062a', {
+    await updateUser(userData.userId, {
       userName: values.name,
       password: values.password,
       email: values.email,
@@ -27,10 +27,14 @@ const ProfilePersonal = () => {
     });
   };
 
+  const handleLogout = () => {
+    history.push('/');
+  }
+
   useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await getUserById('5f45c3a523f0e84eb0f8062a');
+        const result = await getUserById(userData.userId);
         setUser(result.data.data);
       } catch (error) {
         console.log(error.response.data.message, 'Algo fallo');
@@ -115,8 +119,7 @@ const ProfilePersonal = () => {
         <button className='ProfilePersonal__button'>Guardar cambios</button>
       </form>
       <div className='logged-options'>
-        <a className='logged-options__logout' href='#'>Cerrar sesión</a>
-        <a className='logged-options__delete' href='#'>Borrar cuenta</a>
+        <a className='logged-options__logout' onClick={handleLogout}>Cerrar sesión</a>
       </div>
     </article>
   );

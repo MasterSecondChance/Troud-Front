@@ -3,8 +3,11 @@ import './Confirm.scss';
 import { useHistory } from 'react-router-dom';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
+import { DataContext } from '../../utils/DataContext';
 
 const Confirm = (props) => {
+
+  const { userData } = useContext(DataContext);
 
   const history = useHistory();
 
@@ -15,7 +18,7 @@ const Confirm = (props) => {
 
   const handleUpdateClothe = async () => {
     try {
-      await createArticle({ ...clothe, phoneOwner: '3057584589', idOwner: '5f45c3a523f0e84eb0f8062a' }); //Pending to fix
+      await createArticle({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
     } catch (error) {
       console.log(error);
     }

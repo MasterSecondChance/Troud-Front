@@ -85,8 +85,8 @@ export const userLogin = async (user, pass) => {
         password: pass,
       },
     });
-    console.log(data);
-    return data;
+    // console.log(data);
+    return data.data;
   } catch (error) {
     console.log(error);
   }

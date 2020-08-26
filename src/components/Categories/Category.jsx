@@ -7,10 +7,9 @@ import { DataContext } from '../../utils/DataContext';
 
 const Category = () => {
 
-  const { category, saveCategory } = useContext(DataContext);
+  const { saveCategory } = useContext(DataContext);
 
   const [uniqueCategories, setUniqueCategories] = useState([]);
-  const [selectedArticle, setSelectedArticle] = useState('');
 
   const categoryFilt = [];
 

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import api, { userLogin, getUsers } from '../../api';
+import { DataContext } from '../utils/DataContext';
 
 import '../components/Sign/SignIn.scss';
 import SignInImage from '../assets/static/trode-card2x.png';
@@ -9,8 +10,9 @@ import Header from '../components/HeaderLight/HeaderLight';
 const SignIn = (props) => {
 
   const history = useHistory();
+  const { saveUserData } = useContext(DataContext);
+
   const [values, setValues] = useState('');
-  const [profile, setProfile] = useState(0);
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjQ0OWNkZWI5ZDkwZTAwMDdlMDY0NTMiLCJlbWFpbCI6IlVzdWFyaW9QcnVlYmExQGdtYWlsLmNvbSIsImlhdCI6MTU5ODM5NjYyNiwiZXhwIjoxNTk4Mzk4NDI2fQ.GhR32tQ7gRti1xGes9JIBc-13fB9X48WhkmS-noPfgU';
 
@@ -34,14 +36,14 @@ const SignIn = (props) => {
     e.preventDefault();
     try {
       const login = await userLogin(values.phone, values.password);
-      console.log(login.data.articles);
-
-      if (login.data.articles == 0) {
+      //Set values in context
+      saveUserData(login)
+      //Redirect
+      if (login.articles == 0) {
         history.push('/upload');
       } else {
         history.push('/home');
       }
-
     } catch (error) {
       console.log(error);
     }

@@ -6,9 +6,11 @@ const DataProvider = ({ children }) => {
 
   const [userData, setUserData] = useState(
     {
-      token: '',
       userId: '',
       userPhone: 0,
+      urlPhoto: '',
+      userName: '',
+      token: '',
       userArticles: 0,
     }
   );
@@ -20,9 +22,11 @@ const DataProvider = ({ children }) => {
 
   const saveUserData = (data) => {
     setUserData({
-      token: data.token,
-      userId: data.userId,
-      userPhone: data.userPhone,
+      userId: data.user._id,
+      userPhone: data.user.phone,
+      urlPhoto: data.user.urlPhoto,
+      userName: data.user.userName,
+      token: data.access_token,
       userArticles: data.articles,
     })
   }
