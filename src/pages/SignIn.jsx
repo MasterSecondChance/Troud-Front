@@ -41,9 +41,6 @@ const SignIn = (props) => {
       //Set values in context
       saveUserData(login)
       sessionStorage.setItem('userData', JSON.stringify(login));
-      console.log(JSON.parse(sessionStorage.getItem("userData")).access_token);
-      console.log(JSON.parse(sessionStorage.getItem("userData")).user.phone);
-      console.log(JSON.parse(sessionStorage.getItem("userData")));
       //Redirect
       if (login.articles == 0) {
         history.push('/upload');

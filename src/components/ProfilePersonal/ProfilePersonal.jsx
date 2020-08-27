@@ -19,8 +19,6 @@ const ProfilePersonal = () => {
     setValues({ ...values, [name]: value });
   };
 
-  console.log(JSON.parse(sessionStorage.getItem("userData")).user._id);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

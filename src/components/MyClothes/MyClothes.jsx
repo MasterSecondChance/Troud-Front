@@ -58,7 +58,9 @@ const MyClothes = () => {
           <div className='MyClothes__Profile--Info'>
             <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
             <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
-            <span className='MyClothes__Profile--Info-Count'>{JSON.parse(sessionStorage.getItem("userData")).articles} Prendas</span>
+            {JSON.parse(sessionStorage.getItem("userData")) &&
+              <span className='MyClothes__Profile--Info-Count'>{JSON.parse(sessionStorage.getItem("userData")).articles} Prendas</span>
+            }
           </div>
           <div className='MyClothes__Profile--Config'>
             <Link to='/settings'>
