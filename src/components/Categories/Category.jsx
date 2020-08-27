@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTshirt, faShoePrints, faHatCowboy, faUserSecret, faMitten, faSocks } from '@fortawesome/free-solid-svg-icons';
 import api, { getArticles } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Category = () => {
 
@@ -67,22 +69,25 @@ const Category = () => {
   }, []);
 
   return (
-    <div className="Category">
-      {
-        uniqueCategories.map(item => (
-          <div className="Category__Item" key={item} onClick={() => {
-            setCategoryContext(item)
-          }}>
-            <span className="Category__Item-Name">{item}</span>
-          </div>
-        ))
-      }
-      <div className="Category__Item" key='clear' onClick={() => {
-        setCategoryContext('')
-      }}>
-        <span className="Category__Item-Name">DesFiltrar</span>
+    <>
+      <ToastContainer />
+      <div className="Category">
+        {
+          uniqueCategories.map(item => (
+            <div className="Category__Item" key={item} onClick={() => {
+              setCategoryContext(item)
+            }}>
+              <span className="Category__Item-Name">{item}</span>
+            </div>
+          ))
+        }
+        <div className="Category__Item" key='clear' onClick={() => {
+          setCategoryContext('')
+        }}>
+          <span className="Category__Item-Name">DesFiltrar</span>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

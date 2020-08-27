@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
@@ -33,7 +35,6 @@ const Confirm = (props) => {
   const handleFirstCreate = async () => {
     try {
       const newUser = await createUser(user);
-      console.log(newUser);
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
       history.push('/home');
     } catch (error) {
@@ -67,6 +68,7 @@ const Confirm = (props) => {
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <section className='Confirm'>
         <div className='Confirm__Card'>

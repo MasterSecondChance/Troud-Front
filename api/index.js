@@ -25,7 +25,6 @@ export const getUserById = async (id) => {
 export const createUser = async (user) => {
   try {
     const newUser = await serviceInstance.post('/users', user);
-    console.log('Nuevo Usuario Creado');
     return { phone: user.phone, userId: newUser.data.data };
   } catch (error) {
     console.log(error);
@@ -62,7 +61,6 @@ export const getArticleByCategory = async (category) => {
 export const getArticlesUnreaction = async (phone) => {
   try {
     const data = await serviceInstance.get(`/articles/unreaction/${phone}`);
-    console.log(data, phone);
     return data;
   } catch (error) {
     console.log(error);
@@ -72,7 +70,6 @@ export const getArticlesUnreaction = async (phone) => {
 export const createArticle = async (clothe) => {
   try {
     await serviceInstance.post('/articles', clothe);
-    console.log('Nueva prenda Creada');
   } catch (error) {
     console.log(error);
   }
@@ -81,7 +78,6 @@ export const createArticle = async (clothe) => {
 export const updateArticle = async (clothe) => {
   try {
     await serviceInstance.put(`/articles/${id}`, clothe);
-    console.log('Prenda Actualizada');
   } catch (error) {
     console.log(error);
   }
@@ -90,7 +86,6 @@ export const updateArticle = async (clothe) => {
 export const updateUser = async (id, user) => {
   try {
     await serviceInstance.put(`/users/${id}`, user);
-    console.log('Usuario Actualizado');
   } catch (error) {
     console.log(error);
   }
@@ -125,9 +120,17 @@ export const getUsers = async (token) => {
 
 export const createReaction = async (reaction) => {
   try {
-    console.log(reaction);
     const { data } = await serviceInstance.post('/reactions', reaction);
-    return data.match;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createMatch = async (reaction) => {
+  try {
+    const { data } = await serviceInstance.post('/matches', reaction);
+    return data;
   } catch (error) {
     console.log(error);
   }

@@ -1,12 +1,10 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect, useState, useContext } from 'react';
 import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// eslint-disable-next-line no-unused-vars
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api, { getUserById, createReaction, getArticles, getArticleByCategory, getArticlesUnreaction } from '../../../api';
+import { createReaction, getArticles, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
 
 function Card() {
@@ -31,8 +29,7 @@ function Card() {
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
-      console.log(match);
-      if (match) {
+      if (match.match == 1) {
         toast('HICISTEE MATCH', {
           type: 'success',
           autoClose: 3000,
@@ -43,14 +40,14 @@ function Card() {
         autoClose: 2000,
       });
     } catch (error) {
-      toast(error, {
+      toast(error.response, {
         type: 'error',
         autoClose: 2000,
       });
     }
   };
 
-  const handleLike = async (type, idArticle, phoneUser, phoneOwner) => {
+  const handleLike = async (type, idArticle, phoneUser, phoneOwner, articleName, articleImg) => {
     try {
       const match = await createReaction({
         type: type,
@@ -58,8 +55,16 @@ function Card() {
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
-      console.log(match);
-      if (match) {
+      if (match.match == 1) {
+        const matched = await createMatch({
+          article: idArticle,
+          articleName: articleName,
+          articleImg: articleImg,
+          firstUserName: match.owner.userName,
+          firstPhone: match.owner.phone,
+          secondUserName: match.user.userName,
+          secondPhone: match.user.phone,
+        })
         toast('HICISTEE MATCH', {
           type: 'success',
           autoClose: 3000,
@@ -69,14 +74,15 @@ function Card() {
         autoClose: 2000,
       });
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast(error.response, {
         type: 'error',
         autoClose: 2000,
       });
     }
   };
 
-  const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner) => {
+  const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner, articleName, articleImg) => {
     try {
       const match = await createReaction({
         type: type,
@@ -84,8 +90,16 @@ function Card() {
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
-      console.log(match);
-      if (match) {
+      if (match.match == 1) {
+        const matched = await createMatch({
+          article: idArticle,
+          articleName: articleName,
+          articleImg: articleImg,
+          userName: match.owner.userName,
+          phone: match.owner.phone,
+          userName: match.user.userName,
+          phone: match.user.phone,
+        })
         toast('HICISTEE MATCH', {
           type: 'success',
           autoClose: 3000,
@@ -106,7 +120,7 @@ function Card() {
       }
       setTimeout(displaySupers, 60000)
     } catch (error) {
-      toast(error, {
+      toast(error.response, {
         type: 'error',
         autoClose: 2000,
       });
@@ -121,12 +135,11 @@ function Card() {
           setArticles(result.data.data);
         }
         if (category.category) {
-          console.log('Filtrado');
           const result = await getArticleByCategory(category.category);
           setArticles(result.data.data);
         }
       } catch (error) {
-        toast(error, {
+        toast(error.response, {
           type: 'error',
           autoClose: 2000,
         });
@@ -138,7 +151,6 @@ function Card() {
   return (
     <>
       <ToastContainer />
-
       {
         articles.map(article => (
 
@@ -169,7 +181,7 @@ function Card() {
                     className='left' role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
+                      handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner)
                     }}
                   />
                   <div
@@ -177,7 +189,7 @@ function Card() {
                     role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleLike('Like', article._id, userData.userPhone, article.phoneOwner) //Pending fix
+                      handleLike('Like', article._id, userData.userPhone, article.phoneOwner, article.name, article.urlPhoto)
                     }}
                   />
                 </div>
@@ -193,7 +205,7 @@ function Card() {
                 icon={faTimes}
                 title='No Me Gusta'
                 onClick={() => {
-                  handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
+                  handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner)
                 }}
               />
               <FontAwesomeIcon
@@ -201,7 +213,7 @@ function Card() {
                 icon={faStar}
                 title='Super Like'
                 onClick={() => {
-                  handleSuperLike('SuperLike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
+                  handleSuperLike('SuperLike', article._id, userData.userPhone, article.phoneOwner, article.name, article.urlPhoto) //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -209,7 +221,7 @@ function Card() {
                 icon={faHeart}
                 title='Me gusta'
                 onClick={() => {
-                  handleLike('Like', article._id, userData.userPhone, article.phoneOwner) //Pending fix
+                  handleLike('Like', article._id, userData.userPhone, article.phoneOwner, article.name, article.urlPhoto)
                 }}
               />
             </div>

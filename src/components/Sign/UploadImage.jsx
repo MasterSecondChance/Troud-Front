@@ -20,7 +20,6 @@ export class UploadImage extends Component {
     this.setState({
       selectedFile: e.target.files[0]
     })
-    console.log(e.target.files[0]);
     this.uploadImage(e, e.target.files[0]);
   }
 
@@ -35,9 +34,18 @@ export class UploadImage extends Component {
   }
 
   uploadImage = async (e, image) => {
+    console.log(e, image);
     const fd = new FormData();
-    fd.append('image', image, image.name);
-    const sendImage = await axios.post('https://trode.afcarrion.vercel.app/api/images');
+    fd.append('file', image);
+    console.log(image, 'positions');
+    const sendImage = await axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': 'POST',
+        'Content-Type': 'multipart/form-data'
+      },
+    });
     console.log(sendImage);
   }
 
