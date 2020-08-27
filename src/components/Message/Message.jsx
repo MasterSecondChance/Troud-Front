@@ -2,6 +2,8 @@ import React from 'react';
 import './Message.scss';
 import Icon from '../../assets/fonts/icon';
 
+const msg = 'PEPITO, acabas de hacer match con el usuario NOMBRE_OTRO_USUARIO, por la prenda: PRENDA_A_LA_QUE_LE_DOY_LIKE'
+
 const whatsappLink = 'https://api.whatsapp.com/send?phone=${phone}&text=hola%20soy%20sdljndsrgjkldfg';
 
 const Message = () => {

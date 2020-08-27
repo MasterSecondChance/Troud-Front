@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import api, { userLogin, getUsers } from '../../api';
 import { DataContext } from '../utils/DataContext';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../components/Sign/SignIn.scss';
 import SignInImage from '../assets/static/trode-card2x.png';
 import Header from '../components/HeaderLight/HeaderLight';
@@ -14,8 +15,6 @@ const SignIn = (props) => {
 
   const [values, setValues] = useState('');
 
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZjQ0OWNkZWI5ZDkwZTAwMDdlMDY0NTMiLCJlbWFpbCI6IlVzdWFyaW9QcnVlYmExQGdtYWlsLmNvbSIsImlhdCI6MTU5ODM5NjYyNiwiZXhwIjoxNTk4Mzk4NDI2fQ.GhR32tQ7gRti1xGes9JIBc-13fB9X48WhkmS-noPfgU';
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
@@ -25,10 +24,10 @@ const SignIn = (props) => {
     event.preventDefault();
     try {
       const login = await getUsers(token);
-      console.log(login);
       // history.push('/home');
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('Error al cargar Usuarios', {
         type: 'error',
         autoClose: 2000,
       });
@@ -41,6 +40,10 @@ const SignIn = (props) => {
       const login = await userLogin(values.phone, values.password);
       //Set values in context
       saveUserData(login)
+      sessionStorage.setItem('userData', JSON.stringify(login));
+      console.log(JSON.parse(sessionStorage.getItem("userData")).access_token);
+      console.log(JSON.parse(sessionStorage.getItem("userData")).user.phone);
+      console.log(JSON.parse(sessionStorage.getItem("userData")));
       //Redirect
       if (login.articles == 0) {
         history.push('/upload');
@@ -48,7 +51,8 @@ const SignIn = (props) => {
         history.push('/home');
       }
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('Usuario o Contraseña Erronea', {
         type: 'error',
         autoClose: 2000,
       });
@@ -57,6 +61,7 @@ const SignIn = (props) => {
 
   return (
     <div>
+      <ToastContainer />
       <Header />
       <div className='SignIn'>
         <section className='SignIn--img'>
