@@ -15,8 +15,6 @@ const MyClothes = () => {
   const [user, setUser] = useState([]);
   const [articles, setArticles] = useState([]);
 
-  console.log(user);
-
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -73,7 +71,7 @@ const MyClothes = () => {
           <div className='MyClothes__Clothes-List'>
 
             {Object.keys(articles).map(id => (
-              <Link to='/fullcard' className='MyClothes__Clothes-List-Items' key={articles[id]._id}><img src={articles[id].urlPhoto} alt='img' /></Link>
+              <Link to='/fullcard' className='MyClothes__Clothes-List-Items' key={articles[id]._id} id={articles[id]._id}><img src={articles[id].urlPhoto} alt='img' /></Link>
             ))}
           </div>
         </div>

@@ -22,12 +22,12 @@
   li {
     border-radius: 0.4em;
     list-style: none;
-    margin: 0.7em;
-    padding: 1em;
+    padding: 0.6em;
   }
 
   &__Menu {
     bottom: 0;
+    padding: 0;
     position: relative;
 
     &--Item:hover {
@@ -51,23 +51,34 @@
 @media screen and (max-width: 769px) {
   .Header {
 
-    &__Menu {
-      background-color: $grey-1;
-      bottom: 0;
-      font-size: 1.2em;
-      justify-content: space-around;
-      margin: 0;
-      position: fixed;
-      width: 100%;
-      z-index: 6;
+    &__Title {
 
-      &--Item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+
+      // li {
+      //   border-radius: 0.4em;
+      //   list-style: none;
+      //   margin: 0em;
+      //   padding: 1em;
+      // }
+
+      &__Menu {
+        background-color: $grey-1;
+        bottom: 0;
+        font-size: 1.2em;
+        justify-content: space-around;
+        margin: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 6;
+
+        &--Item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
       }
-
     }
 
   }

@@ -136,4 +136,22 @@ export const createMatch = async (reaction) => {
   }
 };
 
+export const getMatchs = async (reaction) => {
+  try {
+    const { data } = await serviceInstance.get('/matches', reaction);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteMatchs = async (id) => {
+  try {
+    const { data } = await serviceInstance.delete(`/matches/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export default serviceInstance;

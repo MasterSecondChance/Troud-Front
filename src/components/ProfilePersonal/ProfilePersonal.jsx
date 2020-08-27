@@ -19,14 +19,28 @@ const ProfilePersonal = () => {
     setValues({ ...values, [name]: value });
   };
 
+  console.log(JSON.parse(sessionStorage.getItem("userData")).user._id);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
-      userName: values.name,
-      password: values.password,
-      email: values.email,
-      phone: user.phone
-    });
+    try {
+      await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
+        userName: values.name,
+        email: values.email,
+        phone: user.phone,
+        password: values.password,
+      });
+      toast('Datos Guardados', {
+        type: 'success',
+        autoClose: 3000,
+      })
+    } catch (error) {
+      console.log(error);
+      toast('No se pudo guardar los datos', {
+        type: 'error',
+        autoClose: 2000,
+      });
+    }
   };
 
   const handleLogout = () => {
@@ -59,11 +73,6 @@ const ProfilePersonal = () => {
           <figure className='ProfilePersonal__photoContainer'>
             <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
           </figure>
-          {/* <a className='ProfilePersonal__edit-photo'>
-            Cambiar foto
-          <br />
-          de perfil
-        </a> */}
         </div>
         <form onSubmit={handleSubmit}>
           <div className='Input__container'>
