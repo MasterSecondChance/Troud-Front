@@ -32,9 +32,18 @@ export const createUser = async (user) => {
   }
 };
 
+export const getArticleById = async (id) => {
+  try {
+    const data = await serviceInstance.get(`/articles/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getArticles = async (phone) => {
   try {
-    const data = await serviceInstance.get(`/articles`);
+    const data = await serviceInstance.get('/articles');
     return data;
   } catch (error) {
     console.log(error);

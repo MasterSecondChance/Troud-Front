@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
+import { getArticleByPhone } from '../../../api/index';
+import { DataContext } from '../../utils/DataContext';
 import ThirdStep from '../Sign/ThirdStep';
 import FourthStep from '../Sign/FourthStep';
 
-class EditClothes extends Component {
+const EditClothes = () => {
 
-  state = {
-    step: 1,
+  const { userData } = useContext(DataContext);
+
+  const [step, setStep] = useState(1);
+  const [article, setArticle] = useState({
     description: '',
     piece: '',
     gender: '',
@@ -15,58 +19,70 @@ class EditClothes extends Component {
     category: '',
     quality: '',
     state: '',
-  }
+  });
 
-  next = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1,
-    });
-  }
+  const { description, piece, gender, brand, size, category, statephone } = article;
+  const values = { description, piece, gender, brand, size, category, statephone };
 
-  previous = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step - 1,
-    });
-  }
+  const next = () => {
+    setStep(step + 1);
+  };
 
-  handleChange = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
-  }
+  const previous = () => {
+    setStep(step - 1);
+  };
 
-  render() {
+  const handleChange = (input) => (e) => {
+    setArticle({ [input]: e.target.value });
+  };
 
-    const { step } = this.state;
-    const { description, piece, gender, brand, size, category, statephone } = this.state;
-    const values = { description, piece, gender, brand, size, category, statephone };
+  useEffect(() => {
+    const getArticle = async () => {
+      try {
+        const result = await getArticleByPhone(userData.userPhone);
+        setArticle(result.data.data);
+        console.log(article);
+      } catch (error) {
+        console.log(error.response.data.message, 'Algo fallo');
+      }
+    };
 
+    getArticle();
+  }, []);
+
+  const renderForm = () => {
     switch (step) {
       case 1:
         return (
           <ThirdStep
-            previous={this.previous}
-            next={this.next}
-            handleChange={this.handleChange}
+            previous={previous}
+            next={next}
+            handleChange={handleChange}
             values={values}
             stepper='Paso 1 de 2'
-            title='Sube tu prenda'
           />
         );
 
       case 2:
         return (
           <FourthStep
-            previous={this.previous}
-            next={this.next}
-            handleChange={this.handleChange}
+            previous={previous}
+            next={next}
+            handleChange={handleChange}
             values={values}
             stepper='Paso 2 de 2'
-            title='Sube tu prenda'
           />
         );
     }
-  }
-}
+  };
+
+  return (
+    <div>
+      {
+        renderForm()
+      }
+    </div>
+  );
+};
 
 export default EditClothes;

@@ -40,7 +40,7 @@ const SignIn = (props) => {
     try {
       const login = await userLogin(values.phone, values.password);
       //Set values in context
-      saveUserData(login)
+      saveUserData(login);
       //Redirect
       if (login.articles == 0) {
         history.push('/upload');
@@ -60,7 +60,7 @@ const SignIn = (props) => {
       <Header />
       <div className='SignIn'>
         <section className='SignIn--img'>
-          <img src={SignInImage} alt="Signin" />
+          <img src={SignInImage} alt='Signin' />
         </section>
         <section className='SignIn__container'>
 

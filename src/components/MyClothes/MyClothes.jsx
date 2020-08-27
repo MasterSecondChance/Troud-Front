@@ -39,7 +39,7 @@ const MyClothes = () => {
       try {
         const getArticles = await getArticleByPhone(userData.userPhone);
         const getedArticles = getArticles.data.data;
-        setArticles(getedArticles)
+        setArticles(getedArticles);
       } catch (error) {
         toast(error, {
           type: 'error',
@@ -57,7 +57,11 @@ const MyClothes = () => {
         <div className='MyClothes__Profile--Info'>
           <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
           <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
-          <span className='MyClothes__Profile--Info-Count'>{userData.userArticles} Prendas</span>
+          <span className='MyClothes__Profile--Info-Count'>
+            {userData.userArticles}
+            {' '}
+            Prendas
+          </span>
         </div>
         <div className='MyClothes__Profile--Config'>
           <Link to='/settings'>
@@ -69,8 +73,14 @@ const MyClothes = () => {
         <h1>Mis Prendas</h1>
         <div className='MyClothes__Clothes-List'>
 
-          {Object.keys(articles).map(id => (
-            <Link to='/fullcard' className='MyClothes__Clothes-List-Items' key={articles[id]._id}><img src={articles[id].urlPhoto} alt='img' /></Link>
+          {Object.keys(articles).map((id) => (
+            <Link
+              to={`/details/${articles[id]._id}`}
+              className='MyClothes__Clothes-List-Items'
+              key={articles[id]._id}
+            >
+              <img src={articles[id].urlPhoto} alt='img' />
+            </Link>
           ))}
         </div>
       </div>

@@ -76,12 +76,14 @@ export class ThirdStep extends Component {
               </div>
 
               <div className='Back-next__buttons'>
-                <button
-                  onClick={this.back}
-                  className='Back__button'
-                >
-                  Atrás
-                </button>
+                {this.props.action === 'initialGarment' ? (
+                  <button
+                    onClick={this.back}
+                    className='Back__button'
+                  >
+                    Atrás
+                  </button>
+                ) : ''}
 
                 <button
                   onClick={this.continue}
