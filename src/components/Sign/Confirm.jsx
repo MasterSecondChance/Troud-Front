@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import './Confirm.scss';
 import { useHistory } from 'react-router-dom';
 import Header from '../HeaderLight/HeaderLight';
@@ -20,7 +20,10 @@ const Confirm = (props) => {
     try {
       await createArticle({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
@@ -34,7 +37,10 @@ const Confirm = (props) => {
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
       history.push('/home');
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
@@ -95,21 +101,23 @@ const Confirm = (props) => {
             <p className='Confirm__Card__Item--title'>Género</p>
             <p className='Confirm__Card__Item--text'>{gender}</p>
           </div>
-          <p className='Confirm__Card__Item--title'>Estado</p>
-          <p className='Confirm__Card__Item--text'>{condition}</p>
-        </div>
-        <div className='Confirm__Card__Item'>
-          <p className='Confirm__Card__Item--title'>Marca</p>
-          <p className='Confirm__Card__Item--text'>{brand}</p>
-        </div>
-        <div className='Confirm__Card__Item'>
-          <p className='Confirm__Card__Item--title'>Color</p>
-          <p className='Confirm__Card__Item--text'>{color}</p>
           <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Estado</p>
+            <p className='Confirm__Card__Item--text'>{condition}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Ciudad</p>
-            <p className='Confirm__Card__Item--text'>{city}</p>
+            <p className='Confirm__Card__Item--title'>Marca</p>
+            <p className='Confirm__Card__Item--text'>{brand}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Color</p>
+            <p className='Confirm__Card__Item--text'>{color}</p>
+          </div>
+          <div className='Confirm__Card__Item'>
+            <div className='Confirm__Card__Item'>
+              <p className='Confirm__Card__Item--title'>Ciudad</p>
+              <p className='Confirm__Card__Item--text'>{city}</p>
+            </div>
           </div>
         </div>
 

@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api, { getUserById, createReaction, getArticles, getArticleByCategory } from '../../../api';
+import api, { getUserById, createReaction, getArticles, getArticleByCategory, getArticlesUnreaction } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
 
 function Card() {
 
-  const { category } = useContext(DataContext);
+  const { userData, category } = useContext(DataContext);
 
   const [articles, setArticles] = useState([]);
 
@@ -25,45 +25,72 @@ function Card() {
 
   const handleDislike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
-      await createReaction({
+      const match = await createReaction({
         type: type,
         idArticle: idArticle,
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
+      console.log(match);
+      if (match) {
+        toast('HICISTEE MATCH', {
+          type: 'success',
+          autoClose: 3000,
+        })
+      }
       toast('No te gusta', {
         type: 'error',
         autoClose: 2000,
       });
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
   const handleLike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
-      await createReaction({
+      const match = await createReaction({
         type: type,
         idArticle: idArticle,
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
+      console.log(match);
+      if (match) {
+        toast('HICISTEE MATCH', {
+          type: 'success',
+          autoClose: 3000,
+        })
+      }
       toast('Te gusta', {
         autoClose: 2000,
       });
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
   const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
-      await createReaction({
+      const match = await createReaction({
         type: type,
         idArticle: idArticle,
         phoneUser: phoneUser,
         phoneOwner: phoneOwner,
       })
+      console.log(match);
+      if (match) {
+        toast('HICISTEE MATCH', {
+          type: 'success',
+          autoClose: 3000,
+        })
+      }
       toast('Te Super Encanta', {
         type: 'success',
         autoClose: 5000,
@@ -79,7 +106,10 @@ function Card() {
       }
       setTimeout(displaySupers, 60000)
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
@@ -87,8 +117,7 @@ function Card() {
     const geArticles = async () => {
       try {
         if (!category.category) {
-          console.log('Todos');
-          const result = await getArticles();
+          const result = await getArticlesUnreaction(userData.userPhone);
           setArticles(result.data.data);
         }
         if (category.category) {
@@ -97,7 +126,10 @@ function Card() {
           setArticles(result.data.data);
         }
       } catch (error) {
-        console.log(error);
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
     geArticles();
@@ -110,7 +142,7 @@ function Card() {
       {
         articles.map(article => (
 
-          <div className='Card' key={article._id}>
+          <div className='Card' key={article._id} id={article._id}>
             <div className='Card__Info'>
               <div className='Card__Info__Header'>
                 {/* <div>
@@ -137,7 +169,7 @@ function Card() {
                     className='left' role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                      handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
                     }}
                   />
                   <div
@@ -145,7 +177,7 @@ function Card() {
                     role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                      handleLike('Like', article._id, userData.userPhone, article.phoneOwner) //Pending fix
                     }}
                   />
                 </div>
@@ -161,7 +193,7 @@ function Card() {
                 icon={faTimes}
                 title='No Me Gusta'
                 onClick={() => {
-                  handleDislike('Dislike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleDislike('Dislike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -169,7 +201,7 @@ function Card() {
                 icon={faStar}
                 title='Super Like'
                 onClick={() => {
-                  handleSuperLike('SuperLike', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleSuperLike('SuperLike', article._id, userData.userPhone, article.phoneOwner) //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -177,7 +209,7 @@ function Card() {
                 icon={faHeart}
                 title='Me gusta'
                 onClick={() => {
-                  handleLike('Like', article._id, '3203889058', article.phoneOwner) //Pending fix
+                  handleLike('Like', article._id, userData.userPhone, article.phoneOwner) //Pending fix
                 }}
               />
             </div>

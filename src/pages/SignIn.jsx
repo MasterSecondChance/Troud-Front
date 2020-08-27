@@ -28,7 +28,10 @@ const SignIn = (props) => {
       console.log(login);
       // history.push('/home');
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 
@@ -45,7 +48,10 @@ const SignIn = (props) => {
         history.push('/home');
       }
     } catch (error) {
-      console.log(error);
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
     }
   };
 

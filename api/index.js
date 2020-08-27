@@ -4,6 +4,15 @@ const serviceInstance = axios.create({
   baseURL: 'https://trode.afcarrion.vercel.app/api',
 });
 
+export const uploadImage = async (id) => {
+  try {
+    const data = await serviceInstance.post();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getUserById = async (id) => {
   try {
     const data = await serviceInstance.get(`/users/${id}`);
@@ -50,6 +59,16 @@ export const getArticleByCategory = async (category) => {
   }
 };
 
+export const getArticlesUnreaction = async (phone) => {
+  try {
+    const data = await serviceInstance.get(`/articles/unreaction/${phone}`);
+    console.log(data, phone);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createArticle = async (clothe) => {
   try {
     await serviceInstance.post('/articles', clothe);
@@ -85,7 +104,6 @@ export const userLogin = async (user, pass) => {
         password: pass,
       },
     });
-    // console.log(data);
     return data.data;
   } catch (error) {
     console.log(error);
@@ -107,6 +125,7 @@ export const getUsers = async (token) => {
 
 export const createReaction = async (reaction) => {
   try {
+    console.log(reaction);
     const { data } = await serviceInstance.post('/reactions', reaction);
     return data.match;
   } catch (error) {
