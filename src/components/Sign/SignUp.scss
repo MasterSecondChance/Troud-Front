@@ -155,3 +155,47 @@
     }
   }
 }
+
+.UploadClothe {
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+  }
+
+  label {
+    margin-left: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+
+    div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  input + label {
+      width: 50px;
+      height: 60px;
+      font-size: 1.25em;
+      font-weight: 700;
+      color: white;
+      background-color: black;
+      display: inline-block;
+  }
+
+  input:focus + label,
+  input:focus + label:hover {
+      background-color: red;
+  }
+}

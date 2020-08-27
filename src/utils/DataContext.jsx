@@ -20,6 +20,12 @@ const DataProvider = ({ children }) => {
     }
   );
 
+  const [profileImage, setProfileImage] = useState(
+    {
+      profileImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png'
+    }
+  )
+
   const saveUserData = (data) => {
     setUserData({
       userId: data.user._id,
@@ -35,8 +41,12 @@ const DataProvider = ({ children }) => {
     setCategory({ category: data })
   }
 
+  const saveImageURL = (data) => {
+    setProfileImage({ profileImage: data })
+  }
+
   return (
-    <DataContext.Provider value={{ userData, saveUserData, category, saveCategory }}>
+    <DataContext.Provider value={{ userData, saveUserData, category, saveCategory, profileImage, saveImageURL }}>
       {children}
     </DataContext.Provider>
   )

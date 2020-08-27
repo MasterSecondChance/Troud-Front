@@ -9,7 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
-  const { userData } = useContext(DataContext);
+  const { userData, profileImage } = useContext(DataContext);
+
+  //console.log(profileImage);
 
   const history = useHistory();
 
@@ -72,6 +74,10 @@ const Confirm = (props) => {
       <Header />
       <section className='Confirm'>
         <div className='Confirm__Card'>
+          <div className='Confirm__Card__Item'>
+            <p className='Confirm__Card__Item--title'>Imagen de perfil</p>
+            <p className='Confirm__Card__Item--text'></p>
+          </div>
           <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Nombre</p>
             <p className='Confirm__Card__Item--text'>{userName}</p>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import UploadImage from './UploadImage';
+//import UploadImage from './UploadImage';
+import UploadImage from '../UploadImage/UploadImage';
 
 import './SignUp.scss';
 
@@ -15,6 +16,10 @@ export class SecondStep extends Component {
   back = (e) => {
     e.preventDefault();
     this.props.previous();
+  }
+
+  handleImageChange = (value) => {
+    this.setState({ profileImage: value });
   }
 
   render() {
@@ -36,7 +41,7 @@ export class SecondStep extends Component {
 
             <h2>{title}</h2>
 
-            <UploadImage />
+            <UploadImage/>
 
             <div className='Back-next__buttons'>
               <button
