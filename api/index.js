@@ -87,7 +87,7 @@ export const createArticle = async (clothe) => {
   }
 };
 
-export const updateArticle = async (clothe) => {
+export const updateArticle = async (id, clothe) => {
   try {
     await serviceInstance.put(`/articles/${id}`, clothe);
     console.log('Prenda Actualizada');

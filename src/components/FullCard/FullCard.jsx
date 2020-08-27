@@ -11,9 +11,6 @@ const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_dis
 const FullCard = (props) => {
 
   const [article, setArticle] = useState({
-    _id: '',
-    phoneOwner: '',
-    idOwner: '',
     type: '',
     size: '',
     name: '',
@@ -22,7 +19,6 @@ const FullCard = (props) => {
     gender: '',
     description: '',
     color: '',
-    date: '',
     urlPhoto: '',
     city: '',
   });
@@ -56,7 +52,7 @@ const FullCard = (props) => {
                 </div>
                 <span />
               </div>
-              <Link to='/modify'>
+              <Link to={`/modify/${props.id}`}>
                 <FontAwesomeIcon className='options faEllipsisV' icon={faEllipsisV} title='Opciones' />
               </Link>
             </div>

@@ -1,28 +1,25 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { getArticleByPhone } from '../../../api/index';
-import { DataContext } from '../../utils/DataContext';
+import { getArticleById } from '../../../api/index';
 import ThirdStep from '../Sign/ThirdStep';
 import FourthStep from '../Sign/FourthStep';
+import Confirm from '../Sign/Confirm';
 
-const EditClothes = () => {
-
-  const { userData } = useContext(DataContext);
+const EditClothes = (props) => {
 
   const [step, setStep] = useState(1);
   const [article, setArticle] = useState({
-    description: '',
-    piece: '',
-    gender: '',
-    brand: '',
+    type: '',
     size: '',
-    category: '',
-    quality: '',
-    state: '',
+    name: '',
+    brand: '',
+    condition: '',
+    gender: '',
+    description: '',
+    color: '',
+    urlPhoto: '',
+    city: '',
   });
-
-  const { description, piece, gender, brand, size, category, statephone } = article;
-  const values = { description, piece, gender, brand, size, category, statephone };
 
   const next = () => {
     setStep(step + 1);
@@ -39,11 +36,13 @@ const EditClothes = () => {
   useEffect(() => {
     const getArticle = async () => {
       try {
-        const result = await getArticleByPhone(userData.userPhone);
+        const result = await getArticleById(props.id);
         setArticle(result.data.data);
-        console.log(article);
       } catch (error) {
-        console.log(error.response.data.message, 'Algo fallo');
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
 
@@ -51,6 +50,8 @@ const EditClothes = () => {
   }, []);
 
   const renderForm = () => {
+    const { type, size, name: piece, brand, condition, gender, description, color, urlPhoto, city } = article;
+    const values = { type, size, piece, brand, condition, gender, description, color, urlPhoto, city };
     switch (step) {
       case 1:
         return (
@@ -71,6 +72,17 @@ const EditClothes = () => {
             handleChange={handleChange}
             values={values}
             stepper='Paso 2 de 2'
+          />
+        );
+
+      case 3:
+        return (
+          <Confirm
+            previous={previous}
+            next={next}
+            handleChange={handleChange}
+            values={values}
+            id={props.id}
           />
         );
     }

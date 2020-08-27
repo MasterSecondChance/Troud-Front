@@ -83,6 +83,7 @@ class SignUp extends Component {
             values={values}
             stepper='Paso 3 de 4'
             title='¡Sube tu primera prenda!'
+            action='initialGarment'
           />
         );
 

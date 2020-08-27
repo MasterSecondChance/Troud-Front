@@ -31,7 +31,7 @@ function App() {
           <Route exact path='/user' component={User} />
           <Route exact path='/inbox' component={Inbox} />
           <Route exact path='/settings' component={ProfileSettings} />
-          <Route exact path='/modify' component={ModifyClothe} />
+          <Route exact path='/modify/:articleId' component={ModifyClothe} />
           <Route exact path='/upload' component={UploadClothes} />
           <Route component={NotFound} />
         </Switch>

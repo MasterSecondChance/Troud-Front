@@ -44,6 +44,17 @@ const Confirm = (props) => {
     }
   };
 
+  const handleModifyClothe = async () => {
+    try {
+      await updateArticle({ id, ...clothe });
+    } catch (error) {
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
+    }
+  };
+
   const { values: { userName, password, phone, piece, type, gender, description, city, brand, size, color, condition } } = props;
   const user = {
     userName,
@@ -123,9 +134,15 @@ const Confirm = (props) => {
 
         <div className='Confirm__Actions'>
           <button onClick={back}>Volver</button>
-          {props.action === 'initialGarment' ?
-            <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button> :
-            <button className='Next__button' onClick={handleUpdateClothe}>Confirmar</button>}
+          {(() => {
+            if (props.action === 'initialGarment') {
+              return <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button>;
+            } if (props.action === 'aditionalGarment') {
+              return <button className='Next__button' onClick={handleUpdateClothe}>Confirmar</button>;
+            }
+
+            return <button className='Next__button' onClick={handleModifyClothe}>Confirmar</button>;
+          })()}
         </div>
       </section>
     </>
