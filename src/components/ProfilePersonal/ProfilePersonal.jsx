@@ -2,13 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
 import { useHistory } from 'react-router-dom';
-import { DataContext } from '../../utils/DataContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePersonal = () => {
-
-  const { userData } = useContext(DataContext);
 
   const history = useHistory();
   const [user, setUser] = useState([]);
@@ -47,6 +44,9 @@ const ProfilePersonal = () => {
   }
 
   useEffect(() => {
+    if (!sessionStorage) {
+      history.push('/');
+    }
     const getUser = async () => {
       try {
         const result = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
@@ -59,7 +59,6 @@ const ProfilePersonal = () => {
         });
       }
     };
-
     getUser();
   }, []);
 

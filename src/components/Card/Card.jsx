@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticles, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
+import { useHistory } from 'react-router-dom';
 
 function Card() {
 

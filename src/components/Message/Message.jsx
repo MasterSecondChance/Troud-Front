@@ -28,6 +28,9 @@ const Message = () => {
 
   useEffect(() => {
     const geArticles = async () => {
+      if (!sessionStorage) {
+        history.push('/');
+      }
       try {
         const matchs = await getMatchs();
         setMatchs(matchs.data);

@@ -2,21 +2,23 @@ import React, { useState, useEffect, useContext } from 'react';
 import './MyClothes.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import api, { getUserById, getArticleByPhone } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyClothes = () => {
 
-  const { userData } = useContext(DataContext);
+  const history = useHistory();
 
   const [user, setUser] = useState([]);
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const getUser = async () => {
+      if (!sessionStorage) {
+        history.push('/');
+      }
       try {
         const dataUser = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
         setUser(dataUser.data.data);
