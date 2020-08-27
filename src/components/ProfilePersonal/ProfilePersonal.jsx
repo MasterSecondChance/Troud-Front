@@ -37,7 +37,10 @@ const ProfilePersonal = () => {
         const result = await getUserById(userData.userId);
         setUser(result.data.data);
       } catch (error) {
-        console.log(error.response.data.message, 'Algo fallo');
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
 

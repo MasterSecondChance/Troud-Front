@@ -24,7 +24,10 @@ const MyClothes = () => {
         const dataUser = await getUserById(userData.userId);
         setUser(dataUser.data.data);
       } catch (error) {
-        console.log(error.response.data.message);
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
 
@@ -38,7 +41,10 @@ const MyClothes = () => {
         const getedArticles = getArticles.data.data;
         setArticles(getedArticles)
       } catch (error) {
-        console.log(error.response.data.message);
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
     getArticles();
