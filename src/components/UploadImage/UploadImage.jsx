@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './UploadImages.scss';
+
 class UploadImage extends Component {
 
   state = {
@@ -17,9 +19,9 @@ class UploadImage extends Component {
     const fd = new FormData();
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
     axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
-      onUploadProgress: progressEvent => {
-        console.log(progressEvent.loaded / progressEvent.total)
-      }
+      onUploadProgress: (progressEvent) => {
+        console.log(progressEvent.loaded / progressEvent.total);
+      },
     })
       .then((res) => {
         sessionStorage.setItem('profilePic', res.data.path.profilePicture);
@@ -30,11 +32,20 @@ class UploadImage extends Component {
 
     return (
       <div className='Upload__Image'>
+
         <input
-          type='file'
-          onChange={this.fileSelectedHandler}
-        />
-        <button onClick={this.fileUploadHandler}>Subir foto</button>
+          type="file"
+          name="file"
+          id="file"
+          onChange={this.fileSelectedHandler}/>
+        <label for="file"><div>+</div></label>
+
+        <button
+          onClick={this.fileUploadHandler}
+          className="Upload__image-button"
+        >
+          Subir foto
+        </button>
       </div>
     );
   }
