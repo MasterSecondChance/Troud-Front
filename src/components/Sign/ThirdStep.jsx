@@ -4,6 +4,7 @@ import axios from 'axios';
 import './SignUp.scss';
 
 import Header from '../HeaderLight/HeaderLight';
+import ClotheImage from '../UploadImage/ClotheImage';
 
 export class ThirdStep extends Component {
 
@@ -54,7 +55,7 @@ export class ThirdStep extends Component {
 
             <h2>{title}</h2>
 
-            <div className="UploadClothe">
+            {/* <div className="UploadClothe">
               <input
                 className="UploadClothe__input"
                 type="file"
@@ -64,7 +65,9 @@ export class ThirdStep extends Component {
               />
               <label className="UploadClothe__label" htmlFor="file"><div>+</div></label>
               <button onClick={this.fileUploadHandler}>Subir foto</button>
-            </div>
+            </div> */}
+
+            <ClotheImage />
 
             <h3>Datos del artículo</h3>
 
@@ -108,12 +111,14 @@ export class ThirdStep extends Component {
               </div>
 
               <div className='Back-next__buttons'>
-                <button
-                  onClick={this.back}
-                  className='Back__button'
-                >
-                  Atrás
-                </button>
+
+                {this.props.action == 'aditionalGarment' ?
+
+                  <></>
+                  :
+                  <button onClick={this.back} className='Back__button'>Atrás</button>
+                }
+
 
                 <button
                   onClick={this.continue}

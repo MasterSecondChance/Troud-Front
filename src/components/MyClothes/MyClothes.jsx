@@ -15,13 +15,16 @@ const MyClothes = () => {
   const [user, setUser] = useState([]);
   const [articles, setArticles] = useState([]);
 
+  console.log(user);
+
   useEffect(() => {
     const getUser = async () => {
       try {
-        const dataUser = await getUserById(userData.userId);
+        const dataUser = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
         setUser(dataUser.data.data);
       } catch (error) {
-        toast(error, {
+        console.log(error);
+        toast('Error al cargar Usuario', {
           type: 'error',
           autoClose: 2000,
         });
@@ -34,11 +37,12 @@ const MyClothes = () => {
   useEffect(() => {
     const getArticles = async () => {
       try {
-        const getArticles = await getArticleByPhone(userData.userPhone);
+        const getArticles = await getArticleByPhone(JSON.parse(sessionStorage.getItem("userData")).user.phone);
         const getedArticles = getArticles.data.data;
         setArticles(getedArticles)
       } catch (error) {
-        toast(error, {
+        console.log(error);
+        toast('Error al cargar Articulos', {
           type: 'error',
           autoClose: 2000,
         });
@@ -52,11 +56,11 @@ const MyClothes = () => {
       <ToastContainer />
       <div className='MyClothes'>
         <div className='MyClothes__Profile'>
-          <img className='MyClothes__Profile--Image' src={userData.urlPhoto} alt='Profile' />
+          <img className='MyClothes__Profile--Image' src={user.urlPhoto} alt='Profile' />
           <div className='MyClothes__Profile--Info'>
             <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
             <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
-            <span className='MyClothes__Profile--Info-Count'>{userData.userArticles} Prendas</span>
+            <span className='MyClothes__Profile--Info-Count'>{JSON.parse(sessionStorage.getItem("userData")).articles} Prendas</span>
           </div>
           <div className='MyClothes__Profile--Config'>
             <Link to='/settings'>

@@ -36,12 +36,12 @@ export class SecondStep extends Component {
           <div className='White'>
             <div className='Stepper__container'>
               <span>{stepper}</span>
-              <button onClick={this.continue}>Omitir</button>
+              {/* <button onClick={this.continue}>Omitir</button> */}
             </div>
 
             <h2>{title}</h2>
 
-            <UploadImage/>
+            <UploadImage />
 
             <div className='Back-next__buttons'>
               <button

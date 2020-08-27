@@ -26,7 +26,8 @@ const SignIn = (props) => {
       const login = await getUsers(token);
       // history.push('/home');
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('Error al cargar Usuarios', {
         type: 'error',
         autoClose: 2000,
       });
@@ -39,6 +40,10 @@ const SignIn = (props) => {
       const login = await userLogin(values.phone, values.password);
       //Set values in context
       saveUserData(login)
+      sessionStorage.setItem('userData', JSON.stringify(login));
+      console.log(JSON.parse(sessionStorage.getItem("userData")).access_token);
+      console.log(JSON.parse(sessionStorage.getItem("userData")).user.phone);
+      console.log(JSON.parse(sessionStorage.getItem("userData")));
       //Redirect
       if (login.articles == 0) {
         history.push('/upload');
@@ -46,7 +51,8 @@ const SignIn = (props) => {
         history.push('/home');
       }
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('Usuario o Contraseña Erronea', {
         type: 'error',
         autoClose: 2000,
       });

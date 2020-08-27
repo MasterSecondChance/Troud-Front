@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class UploadImage extends Component {
+class ClotheImage extends Component {
 
   state = {
     selectedFile: null,
@@ -16,13 +16,9 @@ class UploadImage extends Component {
   fileUploadHandler = () => {
     const fd = new FormData();
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
-      onUploadProgress: progressEvent => {
-        console.log(progressEvent.loaded / progressEvent.total)
-      }
-    })
+    axios.post('https://trode.afcarrion.vercel.app/api/images', fd)
       .then((res) => {
-        sessionStorage.setItem('profilePic', res.data.path.profilePicture);
+        sessionStorage.setItem('clotheImage', res.data.path.profilePicture);
       });
   }
 
@@ -34,10 +30,10 @@ class UploadImage extends Component {
           type='file'
           onChange={this.fileSelectedHandler}
         />
-        <button onClick={this.fileUploadHandler}>Subir foto</button>
+        <button onClick={this.fileUploadHandler}>Subir Foto Prenda</button>
       </div>
     );
   }
 }
 
-export default UploadImage;
+export default ClotheImage;

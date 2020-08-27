@@ -21,7 +21,7 @@ const ProfilePersonal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(userData.userId, {
+    await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
       userName: values.name,
       password: values.password,
       email: values.email,
@@ -30,16 +30,18 @@ const ProfilePersonal = () => {
   };
 
   const handleLogout = () => {
+    sessionStorage.clear()
     history.push('/');
   }
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await getUserById(userData.userId);
+        const result = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
         setUser(result.data.data);
       } catch (error) {
-        toast(error, {
+        console.log(error);
+        toast('Error al cargar Usuario', {
           type: 'error',
           autoClose: 2000,
         });
@@ -57,11 +59,11 @@ const ProfilePersonal = () => {
           <figure className='ProfilePersonal__photoContainer'>
             <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
           </figure>
-          <a className='ProfilePersonal__edit-photo'>
+          {/* <a className='ProfilePersonal__edit-photo'>
             Cambiar foto
           <br />
           de perfil
-        </a>
+        </a> */}
         </div>
         <form onSubmit={handleSubmit}>
           <div className='Input__container'>
