@@ -57,7 +57,10 @@ const Category = () => {
         }
         setUniqueCategories(categoryFilt.filter(filterCategory))
       } catch (error) {
-        console.log(error.response.data.message);
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
       }
     };
     filterCategories();
