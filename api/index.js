@@ -1,5 +1,12 @@
 import axios from 'axios';
 
+//Token initialized
+
+if (!sessionStorage.length) {
+  sessionStorage.setItem("userData", JSON.stringify({ access_token: 0 }))
+}
+
+
 const serviceInstance = axios.create({
   baseURL: 'https://trode.afcarrion.vercel.app/api',
 });
@@ -14,15 +21,23 @@ export const uploadImage = async (id) => {
 };
 
 export const getUserById = async (id) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const data = await serviceInstance.get(`/users/${id}`);
+    const data = await serviceInstance.get(`/users/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const getUsers = async (token) => {
+export const getUsers = async () => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
     const { data } = await serviceInstance.get('/users', {
       headers: {
@@ -44,9 +59,15 @@ export const createUser = async (user) => {
   }
 };
 
-export const getArticles = async (phone) => {
+export const getArticles = async () => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const data = await serviceInstance.get(`/articles`);
+    const data = await serviceInstance.get(`/articles`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -54,8 +75,14 @@ export const getArticles = async (phone) => {
 };
 
 export const getArticleByPhone = async (phone) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const data = await serviceInstance.get(`/articles?phoneOwner=${phone}`);
+    const data = await serviceInstance.get(`/articles?phoneOwner=${phone}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -63,8 +90,14 @@ export const getArticleByPhone = async (phone) => {
 };
 
 export const getArticleByCategory = async (category) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const data = await serviceInstance.get(`/articles/categories/${category}`);
+    const data = await serviceInstance.get(`/articles/categories/${category}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -72,8 +105,14 @@ export const getArticleByCategory = async (category) => {
 };
 
 export const getArticlesUnreaction = async (phone) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const data = await serviceInstance.get(`/articles/unreaction/${phone}`);
+    const data = await serviceInstance.get(`/articles/unreaction/${phone}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -89,16 +128,28 @@ export const createArticle = async (clothe) => {
 };
 
 export const updateArticle = async (clothe) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    await serviceInstance.put(`/articles/${id}`, clothe);
+    await serviceInstance.put(`/articles/${id}`, clothe, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
 export const updateUser = async (id, user) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    await serviceInstance.put(`/users/${id}`, user);
+    await serviceInstance.put(`/users/${id}`, user, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -119,8 +170,15 @@ export const userLogin = async (user, pass) => {
 };
 
 export const createReaction = async (reaction) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const { data } = await serviceInstance.post('/reactions', reaction);
+    console.log(token);
+    const { data } = await serviceInstance.post('/reactions', reaction, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -128,8 +186,14 @@ export const createReaction = async (reaction) => {
 };
 
 export const createMatch = async (reaction) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const { data } = await serviceInstance.post('/matches', reaction);
+    const { data } = await serviceInstance.post('/matches', reaction, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -137,8 +201,14 @@ export const createMatch = async (reaction) => {
 };
 
 export const getMatchs = async (reaction) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const { data } = await serviceInstance.get('/matches', reaction);
+    const { data } = await serviceInstance.get('/matches', reaction, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -146,8 +216,14 @@ export const getMatchs = async (reaction) => {
 };
 
 export const deleteMatchs = async (id) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
   try {
-    const { data } = await serviceInstance.delete(`/matches/${id}`);
+    const { data } = await serviceInstance.delete(`/matches/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);

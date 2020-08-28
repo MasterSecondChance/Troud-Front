@@ -3,7 +3,7 @@ import './MyClothes.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory } from 'react-router-dom';
-import api, { getUserById, getArticleByPhone } from '../../../api';
+import { getUserById, getArticleByPhone } from '../../../api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
