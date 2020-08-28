@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import api, { userLogin, getUsers } from '../../api';
 import { DataContext } from '../utils/DataContext';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../components/Sign/SignIn.scss';
 import SignInImage from '../assets/static/trode-card2x.png';
@@ -39,7 +39,7 @@ const SignIn = (props) => {
     try {
       const login = await userLogin(values.phone, values.password);
       //Set values in context
-      saveUserData(login)
+      saveUserData(login);
       sessionStorage.setItem('userData', JSON.stringify(login));
       //Redirect
       if (login.articles == 0) {
@@ -62,7 +62,7 @@ const SignIn = (props) => {
       <Header />
       <div className='SignIn'>
         <section className='SignIn--img'>
-          <img src={SignInImage} alt="Signin" />
+          <img src={SignInImage} alt='Signin' />
         </section>
         <section className='SignIn__container'>
 
