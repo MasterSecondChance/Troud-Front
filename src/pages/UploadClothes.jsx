@@ -52,6 +52,7 @@ class EditClothes extends Component {
             values={values}
             stepper='Paso 1 de 2'
             title='Sube tu prenda'
+            action='aditionalGarment'
           />
         );
 

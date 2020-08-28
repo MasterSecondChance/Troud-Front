@@ -4,10 +4,14 @@ import { useHistory } from 'react-router-dom';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
-  const { userData } = useContext(DataContext);
+  const { userData, profileImage } = useContext(DataContext);
+
+  //console.log(profileImage);
 
   const history = useHistory();
 
@@ -16,11 +20,14 @@ const Confirm = (props) => {
     props.previous();
   };
 
-  const handleUpdateClothe = async () => {
+  const handleAditionalClothe = async () => {
     try {
-      await createArticle({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
+      await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: userData.userId });
+      console.log({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
+      history.push('/home');
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('No se pudo crear la prenda', {
         type: 'error',
         autoClose: 2000,
       });
@@ -33,11 +40,12 @@ const Confirm = (props) => {
   const handleFirstCreate = async () => {
     try {
       const newUser = await createUser(user);
-      console.log(newUser);
+      sessionStorage.setItem('profilePic', '')
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
-      history.push('/home');
+      history.push('/');
     } catch (error) {
-      toast(error, {
+      console.log(error);
+      toast('Error al Registrar', {
         type: 'error',
         autoClose: 2000,
       });
@@ -49,7 +57,8 @@ const Confirm = (props) => {
     userName,
     phone,
     password,
-    urlPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
+    urlPhoto: sessionStorage.getItem('profilePic'),
+    //urlPhoto: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png',
   };
 
   const clothe = {
@@ -62,23 +71,34 @@ const Confirm = (props) => {
     name: piece,
     color,
     condition,
-    urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
+    urlPhoto: sessionStorage.getItem('clotheImage'),
+    // urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
   };
 
   return (
     <>
+      <ToastContainer />
       <Header />
       <section className='Confirm'>
-        <div className='Confirm__Card'>
-          <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Nombre</p>
-            <p className='Confirm__Card__Item--text'>{userName}</p>
-          </div>
-          <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Teléfono</p>
-            <p className='Confirm__Card__Item--text'>{phone}</p>
-          </div>
-        </div>
+
+
+        {props.action === 'initialGarment' ?
+          <div className='Confirm__Card'>
+            <div className='Confirm__Card__Item'>
+              <p className='Confirm__Card__Item--title'>Imagen de perfil</p>
+              <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt="" />
+            </div>
+            <div className='Confirm__Card__Item'>
+              <p className='Confirm__Card__Item--title'>Nombre</p>
+              <p className='Confirm__Card__Item--text'>{userName}</p>
+            </div>
+            <div className='Confirm__Card__Item'>
+              <p className='Confirm__Card__Item--title'>Teléfono</p>
+              <p className='Confirm__Card__Item--text'>{phone}</p>
+            </div>
+          </div> :
+          <></>
+        }
 
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
@@ -124,8 +144,8 @@ const Confirm = (props) => {
         <div className='Confirm__Actions'>
           <button onClick={back}>Volver</button>
           {props.action === 'initialGarment' ?
-            <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button> :
-            <button className='Next__button' onClick={handleUpdateClothe}>Confirmar</button>}
+            <button className='Next__button' onClick={handleFirstCreate}>Confirmar Primera</button> :
+            <button className='Next__button' onClick={handleAditionalClothe}>Confirmar Adicional</button>}
         </div>
       </section>
     </>

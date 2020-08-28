@@ -116,7 +116,7 @@ export class FourthStep extends Component {
                 </label>
               </div>
 
-              <button className='Preview__button'>¿Cómo se ve?</button>
+              {/* <button className='Preview__button'>¿Cómo se ve?</button> */}
 
               <div className='Back-next__buttons'>
                 <button

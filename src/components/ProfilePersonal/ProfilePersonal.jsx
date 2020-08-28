@@ -2,11 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
 import { useHistory } from 'react-router-dom';
-import { DataContext } from '../../utils/DataContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePersonal = () => {
-
-  const { userData } = useContext(DataContext);
 
   const history = useHistory();
   const [user, setUser] = useState([]);
@@ -19,112 +18,126 @@ const ProfilePersonal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(userData.userId, {
-      userName: values.name,
-      password: values.password,
-      email: values.email,
-      phone: user.phone
-    });
+    try {
+      await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
+        userName: values.name || user.userName,
+        email: values.email || user.email,
+        phone: user.phone,
+        //password: values.password || user.password,
+      });
+      toast('Datos Guardados', {
+        type: 'success',
+        autoClose: 3000,
+      })
+    } catch (error) {
+      console.log(error);
+      toast('No se pudo guardar los datos', {
+        type: 'error',
+        autoClose: 2000,
+      });
+    }
   };
 
   const handleLogout = () => {
+    sessionStorage.clear()
     history.push('/');
   }
 
   useEffect(() => {
+    if (!sessionStorage) {
+      history.push('/');
+    }
     const getUser = async () => {
       try {
-        const result = await getUserById(userData.userId);
+        const result = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
         setUser(result.data.data);
       } catch (error) {
-        toast(error, {
+        console.log(error);
+        toast('Error al cargar Usuario', {
           type: 'error',
           autoClose: 2000,
         });
       }
     };
-
     getUser();
   }, []);
 
   return (
-    <article className='ProfilePersonal'>
-      <div>
-        <figure className='ProfilePersonal__photoContainer'>
-          <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
-        </figure>
-        <a className='ProfilePersonal__edit-photo'>
-          Cambiar foto
-          <br />
-          de perfil
-        </a>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className='Input__container'>
-          <label>
-            Nombre
-            <input
-              type='text'
-              name='name'
-              placeholder={user.userName}
-              onChange={handleInputChange}
-            />
-          </label>
+    <>
+      <ToastContainer />
+      <article className='ProfilePersonal'>
+        <div>
+          <figure className='ProfilePersonal__photoContainer'>
+            <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
+          </figure>
         </div>
-        <div className='Input__container'>
-          <label>
-            Email
+        <form onSubmit={handleSubmit}>
+          <div className='Input__container'>
+            <label>
+              Nombre
             <input
-              type='email'
-              name='email'
-              placeholder={user.email}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <div className='Input__container'>
-          <label>
-            Teléfono
+                type='text'
+                name='name'
+                placeholder={user.userName}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className='Input__container'>
+            <label>
+              Email
+            <input
+                type='email'
+                name='email'
+                placeholder={user.email}
+                onChange={handleInputChange}
+              />
+            </label>
+          </div>
+          <div className='Input__container'>
+            <label>
+              Teléfono
             <p
-              className="phone"
-              placeholder={user.phone}
-              type='text'
-              name='phone'
-            >{user.phone}</p>
-          </label>
-        </div>
-        <div className='ProfilePersonal__change-password'>
-          <input id='changePassword' type='checkbox' />
-          <label htmlFor='changePassword'>Cambiar contraseña</label>
-          <div className='expand'>
-            <div className='Input__container'>
-              <label>
-                Nueva contraseña
+                className="phone"
+                placeholder={user.phone}
+                type='text'
+                name='phone'
+              >{user.phone}</p>
+            </label>
+          </div>
+          <div className='ProfilePersonal__change-password'>
+            <input id='changePassword' type='checkbox' />
+            <label htmlFor='changePassword'>Cambiar contraseña</label>
+            <div className='expand'>
+              <div className='Input__container'>
+                <label>
+                  Nueva contraseña
                 <input
-                  type='password'
-                  name='password'
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className='Input__container'>
-              <label>
-                Confirmar contraseña
+                    type='password'
+                    name='password'
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className='Input__container'>
+                <label>
+                  Confirmar contraseña
                 <input
-                  type='password'
-                  name='password2'
-                  onChange={handleInputChange}
-                />
-              </label>
+                    type='password'
+                    name='password2'
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
             </div>
           </div>
+          <button className='ProfilePersonal__button'>Guardar cambios</button>
+        </form>
+        <div className='logged-options'>
+          <a className='logged-options__logout' onClick={handleLogout}>Cerrar sesión</a>
         </div>
-        <button className='ProfilePersonal__button'>Guardar cambios</button>
-      </form>
-      <div className='logged-options'>
-        <a className='logged-options__logout' onClick={handleLogout}>Cerrar sesión</a>
-      </div>
-    </article>
+      </article>
+    </>
   );
 };
 

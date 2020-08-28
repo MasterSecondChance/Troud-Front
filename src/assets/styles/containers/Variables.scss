@@ -146,8 +146,14 @@ $spacing-05: 50px;
 
 // Reset
 
+button {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 a:visited {
