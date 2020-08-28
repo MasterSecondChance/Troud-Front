@@ -97,7 +97,7 @@ const Confirm = (props) => {
           <div className='Confirm__Card'>
             <div className='Confirm__Card__Item'>
               <p className='Confirm__Card__Item--title' tabIndex="1">Imagen de perfil</p>
-              <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt=""/>
+              <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt="" />
             </div>
             <div className='Confirm__Card__Item'>
               <p className='Confirm__Card__Item--title' tabIndex="2">Nombre</p>
@@ -108,8 +108,9 @@ const Confirm = (props) => {
               <p className='Confirm__Card__Item--text' tabIndex="5">{phone}</p>
             </div>
           </div>
-        ) :
-          <></>}
+          :
+          <></>
+        }
 
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
