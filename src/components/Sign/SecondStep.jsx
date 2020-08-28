@@ -23,23 +23,19 @@ export class SecondStep extends Component {
   }
 
   render() {
-
     const { stepper, title } = this.props;
 
     return (
       <div>
-
         <Header />
-
         <section className='SecondStep__container Form'>
 
           <div className='White'>
             <div className='Stepper__container'>
-              <span>{stepper}</span>
+              <span tabIndex="1">{stepper}</span>
               {/* <button onClick={this.continue}>Omitir</button> */}
             </div>
-
-            <h2>{title}</h2>
+            <h2 tabIndex="2">{title}</h2>
 
             <UploadImage />
 
@@ -47,6 +43,8 @@ export class SecondStep extends Component {
               <button
                 onClick={this.back}
                 className='Back__button'
+                aria-label="Botón atrás"
+                tabIndex="5"
               >
                 Atrás
                 </button>
@@ -54,6 +52,8 @@ export class SecondStep extends Component {
               <button
                 onClick={this.continue}
                 className='Next__button'
+                aria-label="Botón continuar"
+                tabIndex="6"
               >
                 Siguiente
                 </button>

@@ -44,7 +44,7 @@ export class ThirdStep extends Component {
     return (
       <div>
 
-        <Header />
+        {this.props.header ? <Header /> : ''}
 
         <section className='Form'>
 
@@ -78,9 +78,9 @@ export class ThirdStep extends Component {
                   Prenda
                   <input
                     type='text'
-                    name='piece'
-                    onChange={handleChange('piece')}
-                    defaultValue={values.piece}
+                    name='name'
+                    onChange={handleChange('name')}
+                    defaultValue={values.name}
                   />
                 </label>
               </div>
@@ -111,14 +111,14 @@ export class ThirdStep extends Component {
               </div>
 
               <div className='Back-next__buttons'>
-
-                {this.props.action == 'aditionalGarment' ?
-
-                  <></>
-                  :
-                  <button onClick={this.back} className='Back__button'>Atrás</button>
-                }
-
+                {this.props.action === 'initialGarment' ? (
+                  <button
+                    onClick={this.back}
+                    className='Back__button'
+                  >
+                    Atrás
+                  </button>
+                ) : ''}
 
                 <button
                   onClick={this.continue}

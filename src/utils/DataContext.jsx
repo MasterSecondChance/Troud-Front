@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 
-export const DataContext = createContext()
+export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
 
@@ -12,12 +12,12 @@ const DataProvider = ({ children }) => {
       userName: '',
       token: '',
       userArticles: 0,
-    }
+    },
   );
   const [category, setCategory] = useState(
     {
-      category: ''
-    }
+      category: '',
+    },
   );
 
   const saveUserData = (data) => {
@@ -28,19 +28,19 @@ const DataProvider = ({ children }) => {
       userName: data.user.userName,
       token: data.access_token,
       userArticles: data.articles,
-    })
-  }
+    });
+  };
 
   const saveCategory = (data) => {
-    setCategory({ category: data })
-  }
+    setCategory({ category: data });
+  };
 
   return (
     <DataContext.Provider value={{ userData, saveUserData, category, saveCategory }}>
       {children}
     </DataContext.Provider>
-  )
+  );
 
-}
+};
 
 export default DataProvider;

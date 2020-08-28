@@ -206,7 +206,7 @@ const Card = () => {
                 </div>
               </div>
               <div className='Card__Info__Desc'>
-                <p className='Card__Info__Desc--Info'><b>Descripccion: </b> {article.description}</p>
+                <p className='Card__Info__Desc--Info'><b>Descripción: </b> {article.description}</p>
               </div>
             </div>
             <div className='Card__Actions'>

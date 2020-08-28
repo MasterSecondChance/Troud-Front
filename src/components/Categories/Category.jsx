@@ -60,7 +60,7 @@ const Category = () => {
         setUniqueCategories(categoryFilt.filter(filterCategory))
       } catch (error) {
         console.log(error);
-        toast('Error al cargar Articulos', {
+        toast('Error al cargar artículos.', {
           type: 'error',
           autoClose: 2000,
         });
@@ -85,7 +85,7 @@ const Category = () => {
         <div className="Category__Item" key='clear' onClick={() => {
           setCategoryContext('')
         }}>
-          <span className="Category__Item-Name">DesFiltrar</span>
+          <span className="Category__Item-Name">Quitar filtros</span>
         </div>
       </div>
     </>

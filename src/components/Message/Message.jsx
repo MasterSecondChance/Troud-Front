@@ -6,8 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getMatchByPhone, deleteMatchs } from '../../../api';
 import { useHistory } from 'react-router-dom';
 
-const msg = 'PEPITO, acabas de hacer match con el usuario NOMBRE_OTRO_USUARIO, por la prenda: PRENDA_A_LA_QUE_LE_DOY_LIKE'
-
 const Message = () => {
 
   const [matchs, setMatchs] = useState([]);
@@ -16,14 +14,14 @@ const Message = () => {
   const handleDeleteMatchs = async (phoneFirst, phoneSecond) => {
     try {
       await deleteMatchs(phoneFirst, phoneSecond);
-      toast('Ya no te gusta', {
+      toast('Ya no te gusta.', {
         type: 'info',
         autoClose: 3000,
       })
       history.push('/inbox');
     } catch (error) {
       console.log(error);
-      toast('No se pudo borrar el Match', {
+      toast('No se pudo borrar el match.', {
         type: 'error',
         autoClose: 2000,
       });
@@ -58,7 +56,7 @@ const Message = () => {
               <img className="Message__image" src={item.urlPhotoArticleFirst} alt={item.firstArticleName} />
               <div>
                 <h3 className='Message__user' tabIndex='0'>{item.nameSecond}</h3>
-                <time className='Message__date' tabIndex='0'><b>Articulo: </b>{item.secondArticleName}</time>
+                <time className='Message__date' tabIndex='0'><b>Artículo: </b>{item.secondArticleName}</time>
               </div>
               <div>
                 <button className='Message__delete button' onClick={() => {

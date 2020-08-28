@@ -19,7 +19,7 @@
       align-items: center;
       display: flex;
       margin: 1em;
-      justify-content: space-between;
+      justify-content: flex-end;
 
       &--Pic {
         height: 2em;
@@ -31,8 +31,26 @@
         align-items: center;
       }
 
+      & button {
+        border: none;
+        background-color: transparent;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
       .options {
         font-size: 2em;
+      }
+
+      & .delete {
+        margin-inline-end: $spacing-04;
+        color: $warning-color;
+      }
+
+      & .edit {
+        color: $secondary-color;
       }
     }
 
@@ -148,20 +166,15 @@
         margin: auto;
         right: 40px;
         top: 50px;
-        padding: 1em;
-
-        .faEllipsisV {
-          margin-left: 10.5em;
-        }
       }
 
       &__Desc {
         margin: 0 2em;
       }
-  
+
       &-wrapper {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
       }
 
