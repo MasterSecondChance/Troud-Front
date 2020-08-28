@@ -23,7 +23,7 @@ export class ThirdStep extends Component {
     return (
       <div>
 
-        <Header />
+        {this.props.header ? <Header /> : ''}
 
         <section className='Form'>
 
@@ -43,9 +43,9 @@ export class ThirdStep extends Component {
                   Prenda
                   <input
                     type='text'
-                    name='piece'
-                    onChange={handleChange('piece')}
-                    defaultValue={values.piece}
+                    name='name'
+                    onChange={handleChange('name')}
+                    defaultValue={values.name}
                   />
                 </label>
               </div>

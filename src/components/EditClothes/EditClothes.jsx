@@ -1,100 +1,116 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 
 import { getArticleById } from '../../../api/index';
 import ThirdStep from '../Sign/ThirdStep';
 import FourthStep from '../Sign/FourthStep';
 import Confirm from '../Sign/Confirm';
 
-const EditClothes = (props) => {
-
-  const [step, setStep] = useState(1);
-  const [article, setArticle] = useState({
-    type: '',
-    size: '',
-    name: '',
-    brand: '',
-    condition: '',
-    gender: '',
-    description: '',
-    color: '',
-    urlPhoto: '',
-    city: '',
-  });
-
-  const next = () => {
-    setStep(step + 1);
-  };
-
-  const previous = () => {
-    setStep(step - 1);
-  };
-
-  const handleChange = (input) => (e) => {
-    setArticle({ [input]: e.target.value });
-  };
-
-  useEffect(() => {
-    const getArticle = async () => {
-      try {
-        const result = await getArticleById(props.id);
-        setArticle(result.data.data);
-      } catch (error) {
-        toast(error, {
-          type: 'error',
-          autoClose: 2000,
-        });
-      }
+class EditClothes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      error: null,
+      step: 1,
+      data: {
+        type: '',
+        size: '',
+        name: '',
+        brand: '',
+        condition: '',
+        gender: '',
+        description: '',
+        color: '',
+        urlPhoto: '',
+        city: '',
+      },
     };
+  }
 
-    getArticle();
-  }, []);
+  componentDidMount() {
+    this.getArticle();
+  }
 
-  const renderForm = () => {
-    const { type, size, name: piece, brand, condition, gender, description, color, urlPhoto, city } = article;
-    const values = { type, size, piece, brand, condition, gender, description, color, urlPhoto, city };
+  next = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step + 1,
+    });
+  };
+
+  previous = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - 1,
+    });
+  }
+
+  handleChange = (input) => (e) => {
+    this.setState({
+      data: {
+        ...this.state.data,
+        [input]: e.target.value,
+      },
+    });
+  };
+
+  getArticle = async () => {
+    this.setState({ loading: true, error: null });
+    try {
+      const result = await getArticleById(this.props.id);
+      this.setState({ loading: false, data: result.data.data });
+    } catch (error) {
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
+      this.setState({ loading: false, error });
+    }
+  };
+
+  render() {
+    const { step } = this.state;
+    const { data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city } } = this.state;
+    const values = { type, size, name, brand, condition, gender, description, color, urlPhoto, city };
+
     switch (step) {
       case 1:
         return (
           <ThirdStep
-            previous={previous}
-            next={next}
-            handleChange={handleChange}
+            previous={this.previous}
+            next={this.next}
+            handleChange={this.handleChange}
             values={values}
             stepper='Paso 1 de 2'
+            header={false}
           />
         );
 
       case 2:
         return (
           <FourthStep
-            previous={previous}
-            next={next}
-            handleChange={handleChange}
+            previous={this.previous}
+            next={this.next}
+            handleChange={this.handleChange}
             values={values}
             stepper='Paso 2 de 2'
+            header={false}
           />
         );
 
       case 3:
         return (
           <Confirm
-            previous={previous}
-            next={next}
-            handleChange={handleChange}
+            previous={this.previous}
+            next={this.next}
+            handleChange={this.handleChange}
             values={values}
-            id={props.id}
+            id={this.props.id}
+            header={false}
           />
         );
     }
-  };
-
-  return (
-    <div>
-      {
-        renderForm()
-      }
-    </div>
-  );
-};
+  }
+}
 
 export default EditClothes;

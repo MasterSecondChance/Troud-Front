@@ -19,6 +19,7 @@ const Confirm = (props) => {
   const handleUpdateClothe = async () => {
     try {
       await createArticle({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
+      history.push('/home');
     } catch (error) {
       toast(error, {
         type: 'error',
@@ -46,7 +47,8 @@ const Confirm = (props) => {
 
   const handleModifyClothe = async () => {
     try {
-      await updateArticle({ id, ...clothe });
+      const modifyClothe = await updateArticle(props.id, clothe);
+      history.push('/user');
     } catch (error) {
       toast(error, {
         type: 'error',
@@ -55,7 +57,7 @@ const Confirm = (props) => {
     }
   };
 
-  const { values: { userName, password, phone, piece, type, gender, description, city, brand, size, color, condition } } = props;
+  const { values: { userName, password, phone, name, type, gender, description, city, brand, size, color, condition } } = props;
   const user = {
     userName,
     phone,
@@ -70,7 +72,7 @@ const Confirm = (props) => {
     description,
     brand,
     size,
-    name: piece,
+    name,
     color,
     condition,
     urlPhoto: 'https://static.anuevayork.com/wp-content/uploads/2016/01/25231532/Que-ropa-llevar-Nueva-York-tiempo-y-estacion-1500x1021.jpg',
@@ -78,7 +80,7 @@ const Confirm = (props) => {
 
   return (
     <>
-      <Header />
+      {props.header ? <Header /> : ''}
       <section className='Confirm'>
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
@@ -94,7 +96,7 @@ const Confirm = (props) => {
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Tu Prenda</p>
-            <p className='Confirm__Card__Item--text'>{piece}</p>
+            <p className='Confirm__Card__Item--text'>{name}</p>
           </div>
           <div className='Confirm__Card__Item'>
             <p className='Confirm__Card__Item--title'>Categoría</p>

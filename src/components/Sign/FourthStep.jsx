@@ -21,7 +21,7 @@ export class FourthStep extends Component {
     return (
       <div>
 
-        <Header />
+        {this.props.header ? <Header /> : ''}
 
         <section className='Form Reset-height'>
           <div className='White Long'>
@@ -36,7 +36,7 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Marca
-                    <input
+                  <input
                     type='text'
                     name='brand'
                     onChange={handleChange('brand')}
@@ -48,7 +48,7 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Color
-                    <input
+                  <input
                     type='text'
                     name='color'
                     onChange={handleChange('color')}
@@ -60,12 +60,12 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Categoría
-                    <select name='type' defaultValue={values.type} onChange={handleChange('type')}>
-                    <option value="">Elige el tipo de prenda...</option>
-                    <option value="Camisetas">Camisetas</option>
-                    <option value="Pantalones">Pantalones</option>
-                    <option value="Calzado">Calzado</option>
-                    <option value="Accesorios">Accesorios</option>
+                  <select name='type' defaultValue={values.type} onChange={handleChange('type')}>
+                    <option value=''>Elige el tipo de prenda...</option>
+                    <option value='Camisetas'>Camisetas</option>
+                    <option value='Pantalones'>Pantalones</option>
+                    <option value='Calzado'>Calzado</option>
+                    <option value='Accesorios'>Accesorios</option>
                   </select>
                 </label>
               </div>
@@ -73,7 +73,7 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Talla
-                    <input
+                  <input
                     type='text'
                     name='size'
                     onChange={handleChange('size')}
@@ -85,8 +85,8 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Estado
-                    <select name='condition' defaultValue={values.condition} onChange={handleChange('condition')}>
-                    <option value="">Estado de tu prenda...</option>
+                  <select name='condition' defaultValue={values.condition} onChange={handleChange('condition')}>
+                    <option value=''>Estado de tu prenda...</option>
                     <option value='Nuevo'>Nuevo</option>
                     <option value='Usado'>Usado</option>
                   </select>
@@ -98,19 +98,19 @@ export class FourthStep extends Component {
               <div className='Input__container'>
                 <label>
                   Ciudad
-                    <select name='city' defaultValue={values.city} onChange={handleChange('city')}>
-                    <option value=""></option>
-                    <optgroup label="Cundinamarca">
-                      <option value="Bogotá">Bogotá</option>
-                      <option value="Soacha">Soacha</option>
+                  <select name='city' defaultValue={values.city} onChange={handleChange('city')}>
+                    <option value='' />
+                    <optgroup label='Cundinamarca'>
+                      <option value='Bogotá'>Bogotá</option>
+                      <option value='Soacha'>Soacha</option>
                     </optgroup>
-                    <optgroup label="Antioquia">
-                      <option value="Medellín">Medellín</option>
-                      <option value="Sabaneta">Sabaneta</option>
+                    <optgroup label='Antioquia'>
+                      <option value='Medellín'>Medellín</option>
+                      <option value='Sabaneta'>Sabaneta</option>
                     </optgroup>
-                    <optgroup label="Valle del Cauca">
-                      <option value="Cali">Cali</option>
-                      <option value="Buga">Buga</option>
+                    <optgroup label='Valle del Cauca'>
+                      <option value='Cali'>Cali</option>
+                      <option value='Buga'>Buga</option>
                     </optgroup>
                   </select>
                 </label>
@@ -124,14 +124,14 @@ export class FourthStep extends Component {
                   className='Back__button'
                 >
                   Atrás
-                  </button>
+                </button>
 
                 <button
                   onClick={this.continue}
                   className='Next__button'
                 >
                   Publicar
-                  </button>
+                </button>
               </div>
             </form>
           </div>
