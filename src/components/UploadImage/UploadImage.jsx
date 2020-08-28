@@ -38,12 +38,16 @@ class UploadImage extends Component {
           name='file'
           id='file'
           onChange={this.fileSelectedHandler}
+          aria-label='Botón seleccionar imagen'
+          tabIndex='3'
         />
         <label htmlFor='file'><div>+</div></label>
 
         <button
           onClick={this.fileUploadHandler}
           className='Upload__image-button'
+          aria-label='Botón subir imagen'
+          tabIndex='4'
         >
           Subir foto
         </button>
