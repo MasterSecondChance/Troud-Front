@@ -22,6 +22,19 @@ export const getUserById = async (id) => {
   }
 };
 
+export const getUsers = async (token) => {
+  try {
+    const { data } = await serviceInstance.get('/users', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createUser = async (user) => {
   try {
     const newUser = await serviceInstance.post('/users', user);
@@ -100,19 +113,6 @@ export const userLogin = async (user, pass) => {
       },
     });
     return data.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getUsers = async (token) => {
-  try {
-    const { data } = await serviceInstance.get('/users', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return data;
   } catch (error) {
     console.log(error);
   }

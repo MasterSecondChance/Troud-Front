@@ -20,10 +20,10 @@ const ProfilePersonal = () => {
     e.preventDefault();
     try {
       await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
-        userName: values.name,
-        email: values.email,
+        userName: values.name || user.userName,
+        email: values.email || user.email,
         phone: user.phone,
-        password: values.password,
+        //password: values.password || user.password,
       });
       toast('Datos Guardados', {
         type: 'success',
