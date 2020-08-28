@@ -7,8 +7,6 @@ import FourthStep from '../components/Sign/FourthStep';
 import Confirm from '../components/Sign/Confirm';
 import Modal from '../components/Sign/Modal';
 
-import DataContext from '../utils/DataContext';
-
 class SignUp extends Component {
 
   state = {

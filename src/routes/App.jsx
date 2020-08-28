@@ -13,13 +13,11 @@ import Details from '../pages/Details';
 import NotFound from '../pages/NotFound';
 import User from '../components/User/User';
 import FirstStep from '../components/Sign/FirstStep';
-// import DataProvider from '../utils/DataContext';
 
 function App() {
 
   return (
 
-    // <DataProvider>
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={SignIn} />
@@ -36,7 +34,6 @@ function App() {
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
-    // </DataProvider>
 
   );
 }
