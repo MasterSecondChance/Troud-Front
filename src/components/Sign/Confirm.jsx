@@ -158,7 +158,7 @@ const Confirm = (props) => {
             if (props.action === 'initialGarment') {
               return <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button>;
             } if (props.action === 'aditionalGarment') {
-              return <button className='Next__button' onClick={handleUpdateClothe}>Confirmar</button>;
+              return <button className='Next__button' onClick={handleAditionalClothe}>Confirmar</button>;
             }
 
             return <button className='Next__button' onClick={handleModifyClothe}>Confirmar</button>;

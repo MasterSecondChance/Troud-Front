@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { deleteArticleById, getArticleById } from '../../../api/index';
 import './FullCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faVenus, faEllipsisV, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
-import { getArticleById } from '../../../api/index';
-
-const image = 'https://st2.depositphotos.com/2885805/5996/v/450/depositphotos_59961247-stock-illustration-businesswoman-clothes-icons.jpg';
-const profilePic = 'https://droplr.com/wp-content/uploads/2020/06/iconfinder_discord_2308078-512x400.png';
+import { faMars, faEllipsisV, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 const FullCard = (props) => {
 
@@ -22,6 +19,22 @@ const FullCard = (props) => {
     urlPhoto: '',
     city: '',
   });
+
+  const handleDeleteArticle = () => {
+    const deleteArticle = async () => {
+      try {
+        await deleteArticleById(props.id);
+        history.push('/user');
+      } catch (error) {
+        toast(error, {
+          type: 'error',
+          autoClose: 2000,
+        });
+      }
+    };
+
+    deleteArticle();
+  };
 
   useEffect(() => {
     const getArticle = async () => {
@@ -46,14 +59,11 @@ const FullCard = (props) => {
 
           <div className='FullCard__imag-wrapper'>
             <div className='FullCard__Info__Header'>
-              <div className='FullCard__Info__Header--Title'>
-                <div>
-                  <img className='FullCard__Info__Header--Pic' src={profilePic} alt='' />
-                </div>
-                <span />
-              </div>
+              <button type='button' onClick={handleDeleteArticle}>
+                <FontAwesomeIcon className='options delete' icon={faTrash} title='Eliminar' />
+              </button>
               <Link to={`/modify/${props.id}`}>
-                <FontAwesomeIcon className='options faEllipsisV' icon={faEllipsisV} title='Opciones' />
+                <FontAwesomeIcon className='options edit' icon={faPen} title='Editar' />
               </Link>
             </div>
             <div className='FullCard__Info__Img'>

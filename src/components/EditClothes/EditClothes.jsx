@@ -21,7 +21,7 @@ class EditClothes extends Component {
         gender: '',
         description: '',
         color: '',
-        urlPhoto: '',
+        urlPhoto: sessionStorage.getItem('clotheImage'),
         city: '',
       },
     };

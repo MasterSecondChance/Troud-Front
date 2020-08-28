@@ -34,15 +34,16 @@ class UploadImage extends Component {
       <div className='Upload__Image'>
 
         <input
-          type="file"
-          name="file"
-          id="file"
-          onChange={this.fileSelectedHandler}/>
-        <label for="file"><div>+</div></label>
+          type='file'
+          name='file'
+          id='file'
+          onChange={this.fileSelectedHandler}
+        />
+        <label htmlFor='file'><div>+</div></label>
 
         <button
           onClick={this.fileUploadHandler}
-          className="Upload__image-button"
+          className='Upload__image-button'
         >
           Subir foto
         </button>

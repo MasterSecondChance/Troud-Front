@@ -88,6 +88,21 @@ export const getArticleById = async (id) => {
   }
 };
 
+export const deleteArticleById = async (id) => {
+  //token
+  const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
+  try {
+    const data = await serviceInstance.delete(`/articles/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getArticleByPhone = async (phone) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
@@ -141,7 +156,7 @@ export const createArticle = async (clothe) => {
   }
 };
 
-export const updateArticle = async (clothe) => {
+export const updateArticle = async (id, clothe) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
   try {
