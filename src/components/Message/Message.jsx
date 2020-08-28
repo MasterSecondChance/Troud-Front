@@ -48,15 +48,12 @@ const Message = () => {
     geArticles();
   }, []);
 
-  console.log(matchs);
-
   return (
     <>
       <ToastContainer />
       <section className="ListOfMessages">
-        {
+        {matchs ?
           matchs.map(item => (
-
             <div className='Message' key={item._id}>
               <img className="Message__image" src={item.urlPhotoArticleFirst} alt={item.firstArticleName} />
               <div>
@@ -74,7 +71,10 @@ const Message = () => {
                 </a>
               </div>
             </div>
-          ))}
+          ))
+          :
+          <h1>jsdfdfskfgsfgdfgd          </h1>
+        }
       </section>
 
     </>

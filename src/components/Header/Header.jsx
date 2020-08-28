@@ -1,15 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faPlusCircle, faUser, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
-import { DataContext } from '../../utils/DataContext';
 
 import './Header.scss';
 
 const HeaderForm = () => {
-
-  const { userData } = useContext(DataContext);
-  const [state, setState] = useState();
 
   return (
     <header className='Header'>

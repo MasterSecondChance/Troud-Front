@@ -11,8 +11,6 @@ const Confirm = (props) => {
 
   const { userData, profileImage } = useContext(DataContext);
 
-  //console.log(profileImage);
-
   const history = useHistory();
 
   const back = (e) => {
@@ -23,7 +21,6 @@ const Confirm = (props) => {
   const handleAditionalClothe = async () => {
     try {
       await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: userData.userId });
-      console.log({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
       history.push('/home');
     } catch (error) {
       console.log(error);
