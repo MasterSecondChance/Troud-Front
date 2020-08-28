@@ -48,13 +48,13 @@ describe('<Header />', () => {
 // })
 
 
-// describe('Header Snapshot', () => {
-//   test('Comprobar la UI del Header', () => {
-//     const header = create(
-//       <ProviderMock>
-//         <Header />
-//       </ProviderMock>
-//     )
-//     expect(header.toJSON()).toMatchSnapshot();
-//   })
-// })
+//describe('Header Snapshot', () => {
+//  test('Comprobar la UI del Header', () => {
+//    const header = create(
+//      <ProviderMock>
+//        <Header />
+//      </ProviderMock>
+//    )
+//    expect(header.toJSON()).toMatchSnapshot();
+//  })
+//})

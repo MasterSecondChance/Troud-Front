@@ -3,7 +3,6 @@ import './Category.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTshirt, faShoePrints, faHatCowboy, faUserSecret, faMitten, faSocks } from '@fortawesome/free-solid-svg-icons';
 import api, { getArticles } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

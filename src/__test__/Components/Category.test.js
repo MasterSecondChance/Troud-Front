@@ -13,8 +13,8 @@ describe('<Category />', () => {
     );
     expect(header.length).toEqual(1);
   })
-  // test('Comprobar categoria quitar filtros', () => {
-  //   const removeFilter = mount(<Category />, { attachTo: document.body })
-  //   expect(removeFilter.find('span').text()).toEqual('Quitar filtros')
-  // })
+  test('Comprobar categoria quitar filtros', () => {
+    const removeFilter = shallow(<Category />);
+    expect(removeFilter.find('span').text()).toEqual('Quitar filtros')
+  })
 })

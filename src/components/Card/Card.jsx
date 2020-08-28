@@ -5,7 +5,6 @@ import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRigh
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
 
 const Card = () => {
 
