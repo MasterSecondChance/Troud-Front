@@ -67,8 +67,8 @@ const SignIn = (props) => {
         <section className='SignIn__container'>
 
           <div className='SignIn__description-text'>
-            <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
-            <h2>Inicia sesión</h2>
+            <p tabIndex="1">Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
+            <h2 tabIndex="2">Inicia sesión</h2>
           </div>
 
           <form className='SignIn__Form' onSubmit={handleLogin}>
@@ -81,6 +81,7 @@ const SignIn = (props) => {
                   name='phone'
                   type='text'
                   onChange={handleInputChange}
+                  aria-label="Teléfono"
                 />
                 <small />
               </label>
@@ -94,6 +95,7 @@ const SignIn = (props) => {
                   name='password'
                   type='password'
                   onChange={handleInputChange}
+                  aria-label="Contraseña"
                 />
                 <small />
               </label>
@@ -102,6 +104,7 @@ const SignIn = (props) => {
             <button
               type='submit'
               aria-label='Botón iniciar sesión'
+              aria-label="Botón iniciar sesión"
             >
               Ingresar
             </button>

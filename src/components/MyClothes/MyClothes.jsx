@@ -24,7 +24,7 @@ const MyClothes = () => {
         setUser(dataUser.data.data);
       } catch (error) {
         console.log(error);
-        toast('Error al cargar Usuario', {
+        toast('Error al cargar usuario.', {
           type: 'error',
           autoClose: 2000,
         });
@@ -42,7 +42,7 @@ const MyClothes = () => {
         setArticles(getedArticles)
       } catch (error) {
         console.log(error);
-        toast('Error al cargar Articulos', {
+        toast('Error al cargar artículos.', {
           type: 'error',
           autoClose: 2000,
         });

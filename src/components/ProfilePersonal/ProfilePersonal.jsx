@@ -53,7 +53,7 @@ const ProfilePersonal = () => {
         setUser(result.data.data);
       } catch (error) {
         console.log(error);
-        toast('Error al cargar Usuario', {
+        toast('Error al cargar usuario.', {
           type: 'error',
           autoClose: 2000,
         });
@@ -80,17 +80,19 @@ const ProfilePersonal = () => {
                 name='name'
                 placeholder={user.userName}
                 onChange={handleInputChange}
+                aria-label="Nombre"
               />
             </label>
           </div>
           <div className='Input__container'>
             <label>
-              Email
+              Correo
             <input
                 type='email'
                 name='email'
                 placeholder={user.email}
                 onChange={handleInputChange}
+                aria-label="Correo electrónico"
               />
             </label>
           </div>
@@ -116,6 +118,7 @@ const ProfilePersonal = () => {
                     type='password'
                     name='password'
                     onChange={handleInputChange}
+                    aria-label="Nueva contraseña"
                   />
                 </label>
               </div>
@@ -126,15 +129,16 @@ const ProfilePersonal = () => {
                     type='password'
                     name='password2'
                     onChange={handleInputChange}
+                    aria-label="Confirmar contraseña"
                   />
                 </label>
               </div>
             </div>
           </div>
-          <button className='ProfilePersonal__button'>Guardar cambios</button>
+          <button className='ProfilePersonal__button' aria-label="Botón guardar cambios">Guardar cambios</button>
         </form>
         <div className='logged-options'>
-          <a className='logged-options__logout' onClick={handleLogout}>Cerrar sesión</a>
+          <a className='logged-options__logout' onClick={handleLogout} aria-label="Cerrar sesión">Cerrar sesión</a>
         </div>
       </article>
     </>

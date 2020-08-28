@@ -81,20 +81,19 @@ const Confirm = (props) => {
       <Header />
       <section className='Confirm'>
 
-
         {props.action === 'initialGarment' ?
           <div className='Confirm__Card'>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Imagen de perfil</p>
-              <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt="" />
+              <p className='Confirm__Card__Item--title' tabIndex="1">Imagen de perfil</p>
+              <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt=""/>
             </div>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Nombre</p>
-              <p className='Confirm__Card__Item--text'>{userName}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="2">Nombre</p>
+              <p className='Confirm__Card__Item--text' tabIndex="3">{userName}</p>
             </div>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Teléfono</p>
-              <p className='Confirm__Card__Item--text'>{phone}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="4">Teléfono</p>
+              <p className='Confirm__Card__Item--text' tabIndex="5">{phone}</p>
             </div>
           </div> :
           <></>
@@ -102,50 +101,50 @@ const Confirm = (props) => {
 
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Tu Prenda</p>
-            <p className='Confirm__Card__Item--text'>{piece}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="6">Tu Prenda</p>
+            <p className='Confirm__Card__Item--text' tabIndex="7">{piece}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Categoría</p>
-            <p className='Confirm__Card__Item--text'>{type}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="8">Categoría</p>
+            <p className='Confirm__Card__Item--text' tabIndex="9">{type}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Descripción</p>
-            <p className='Confirm__Card__Item--text'>{description}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="10">Descripción</p>
+            <p className='Confirm__Card__Item--text' tabIndex="11">{description}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Talla</p>
-            <p className='Confirm__Card__Item--text'>{size}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="12">Talla</p>
+            <p className='Confirm__Card__Item--text' tabIndex="13">{size}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Género</p>
-            <p className='Confirm__Card__Item--text'>{gender}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="14">Género</p>
+            <p className='Confirm__Card__Item--text' tabIndex="15">{gender}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Estado</p>
-            <p className='Confirm__Card__Item--text'>{condition}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="16">Estado</p>
+            <p className='Confirm__Card__Item--text' tabIndex="17">{condition}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Marca</p>
-            <p className='Confirm__Card__Item--text'>{brand}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="18">Marca</p>
+            <p className='Confirm__Card__Item--text' tabIndex="19">{brand}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Color</p>
-            <p className='Confirm__Card__Item--text'>{color}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="20">Color</p>
+            <p className='Confirm__Card__Item--text' tabIndex="21">{color}</p>
           </div>
           <div className='Confirm__Card__Item'>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Ciudad</p>
-              <p className='Confirm__Card__Item--text'>{city}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="22">Ciudad</p>
+              <p className='Confirm__Card__Item--text' tabIndex="23">{city}</p>
             </div>
           </div>
         </div>
 
         <div className='Confirm__Actions'>
-          <button onClick={back}>Volver</button>
+          <button onClick={back} aria-label="Botón atrás" tabIndex="24">Atrás</button>
           {props.action === 'initialGarment' ?
-            <button className='Next__button' onClick={handleFirstCreate}>Confirmar Primera</button> :
-            <button className='Next__button' onClick={handleAditionalClothe}>Confirmar Adicional</button>}
+            <button className='Next__button' aria-label="Botón confirmar" onClick={handleFirstCreate}>Confirmar</button> :
+            <button className='Next__button' aria-label="Botón confirmar adicional" onClick={handleAditionalClothe}>Confirmar adicional</button>}
         </div>
       </section>
     </>
