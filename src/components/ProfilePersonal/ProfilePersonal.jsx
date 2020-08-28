@@ -2,13 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import './ProfilePersonal.scss';
 import api, { getUserById, updateUser } from '../../../api';
 import { useHistory } from 'react-router-dom';
-import { DataContext } from '../../utils/DataContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePersonal = () => {
-
-  const { userData } = useContext(DataContext);
 
   const history = useHistory();
   const [user, setUser] = useState([]);
@@ -21,12 +18,24 @@ const ProfilePersonal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
-      userName: values.name,
-      password: values.password,
-      email: values.email,
-      phone: user.phone
-    });
+    try {
+      await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
+        userName: values.name || user.userName,
+        email: values.email || user.email,
+        phone: user.phone,
+        //password: values.password || user.password,
+      });
+      toast('Datos Guardados', {
+        type: 'success',
+        autoClose: 3000,
+      })
+    } catch (error) {
+      console.log(error);
+      toast('No se pudo guardar los datos', {
+        type: 'error',
+        autoClose: 2000,
+      });
+    }
   };
 
   const handleLogout = () => {
@@ -35,6 +44,9 @@ const ProfilePersonal = () => {
   }
 
   useEffect(() => {
+    if (!sessionStorage) {
+      history.push('/');
+    }
     const getUser = async () => {
       try {
         const result = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
@@ -47,7 +59,6 @@ const ProfilePersonal = () => {
         });
       }
     };
-
     getUser();
   }, []);
 
@@ -59,11 +70,6 @@ const ProfilePersonal = () => {
           <figure className='ProfilePersonal__photoContainer'>
             <img className='ProfilePersonal__photo' width='90' src={user.urlPhoto} role='presentation' />
           </figure>
-          {/* <a className='ProfilePersonal__edit-photo'>
-            Cambiar foto
-          <br />
-          de perfil
-        </a> */}
         </div>
         <form onSubmit={handleSubmit}>
           <div className='Input__container'>

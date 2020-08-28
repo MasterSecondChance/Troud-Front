@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createReaction, getArticles, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
+import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
 
 function Card() {
 
-  const { userData, category } = useContext(DataContext);
+  const { category } = useContext(DataContext);
 
   const [articles, setArticles] = useState([]);
 
@@ -58,16 +58,15 @@ function Card() {
       })
       if (match.match == 1) {
         await createMatch({
-          nameFirst: match.owner._id,
+          nameFirst: match.owner.userName,
           phoneFirst: match.owner.phone,
           urlPhotoArticleFirst: match.articleOwner.urlPhoto,
-          firstArticleName: articleName,
+          firstArticleName: match.articleOwner.name,
 
-          nameSecond: match.articleOwner._id,
-          phoneSecond: match.articleOwner.phoneOwner,
+          nameSecond: match.user.userName,
+          phoneSecond: match.user.phone,
           urlPhotoArticleSecond: match.articleOwner.urlPhoto,
           secondArticleName: articleName,
-
           urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
         })
         toast('HICISTEE MATCH', {
@@ -97,14 +96,17 @@ function Card() {
         phoneOwner: phoneOwner,
       })
       if (match.match == 1) {
-        const matched = await createMatch({
-          article: idArticle,
-          articleName: articleName,
-          articleImg: articleImg,
-          userName: match.owner.userName,
-          phone: match.owner.phone,
-          userName: match.user.userName,
-          phone: match.user.phone,
+        await createMatch({
+          nameFirst: match.owner.userName,
+          phoneFirst: match.owner.phone,
+          urlPhotoArticleFirst: match.articleOwner.urlPhoto,
+          firstArticleName: match.articleOwner.name,
+
+          nameSecond: match.user.userName,
+          phoneSecond: match.user.phone,
+          urlPhotoArticleSecond: match.articleOwner.urlPhoto,
+          secondArticleName: articleName,
+          urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
         })
         toast('HICISTEE MATCH', {
           type: 'success',
@@ -135,7 +137,6 @@ function Card() {
   };
 
   const handleDisappear = (id) => {
-    console.log(id);
     const hiddeCard = document.getElementById(`${id}`)
     hiddeCard.style.display = "none";
   }
@@ -170,9 +171,6 @@ function Card() {
           <div className={`Card ${article._id}`} key={article._id} id={article._id}>
             <div className='Card__Info'>
               <div className='Card__Info__Header'>
-                {/* <div>
-                  <img className='Card__Info__Header--Pic' src={profilePic} alt='' />
-                </div> */}
                 <span className='Card__Info__Header--name'>Articulo: {article.name}</span>
               </div>
               <div className='Card__Info__Img'>
@@ -207,7 +205,6 @@ function Card() {
                   />
                 </div>
               </div>
-              {/* <p className='Card__Info__Name'>{article.name}</p> */}
               <div className='Card__Info__Desc'>
                 <p className='Card__Info__Desc--Info'><b>Descripccion: </b> {article.description}</p>
               </div>

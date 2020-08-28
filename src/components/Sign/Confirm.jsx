@@ -42,7 +42,7 @@ const Confirm = (props) => {
       const newUser = await createUser(user);
       sessionStorage.setItem('profilePic', '')
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
-      history.push('/home');
+      history.push('/');
     } catch (error) {
       console.log(error);
       toast('Error al Registrar', {
