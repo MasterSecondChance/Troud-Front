@@ -42,7 +42,7 @@ const Category = () => {
   const setCategoryContext = (newCategory) => {
     // saveCategory(newCategory)
     sessionStorage.setItem('category', newCategory);
-    console.log(newCategory);
+    // console.log(newCategory);
   }
 
   useEffect(() => {
