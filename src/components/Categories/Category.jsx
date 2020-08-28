@@ -60,7 +60,7 @@ const Category = () => {
         setUniqueCategories(categoryFilt.filter(filterCategory))
       } catch (error) {
         console.log(error);
-        toast('Error al cargar archivos', {
+        toast('Error al cargar Articulos', {
           type: 'error',
           autoClose: 2000,
         });

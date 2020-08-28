@@ -83,3 +83,22 @@
     }
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .MyClothes {
+    margin-bottom: 10em;
+
+    &__Profile {
+      display: flex;
+      margin: 2em;
+      justify-content: center;
+      align-items: center;
+
+      &--Config {
+        background-color: $grey-1;
+        top: 1em;
+        right: 1em;
+      }
+    }
+  }
+}

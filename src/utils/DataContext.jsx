@@ -41,12 +41,12 @@ const DataProvider = ({ children }) => {
     setCategory({ category: data });
   };
 
-  const saveImageURL = (data) => {
+  const saveImage = (data) => {
     setProfileImage({ profileImage: data })
   }
 
   return (
-    <DataContext.Provider value={{ userData, saveUserData, category, saveCategory, profileImage, saveImageURL }}>
+    <DataContext.Provider value={{ userData, saveUserData, category, saveCategory, profileImage, saveImage }}>
       {children}
     </DataContext.Provider>
   );
