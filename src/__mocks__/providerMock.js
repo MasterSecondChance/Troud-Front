@@ -3,11 +3,13 @@ import { createStore } from 'redux'
 import { Router, BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
+
+// Redux declarations
 // import initialState from '../initialState';
 // import reducer from '../reducers';
-
 // const store = createStore(reducer, initialState);
 // const store = createStore(reducer);
+
 const history = createBrowserHistory();
 
 const ProviderMock = props => (

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 import { DataContext } from '../../utils/DataContext';
 
-function Card() {
+const Card = () => {
 
   const { category } = useContext(DataContext);
 

@@ -9,10 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
-  const { userData, profileImage } = useContext(DataContext);
-
+  const { userData } = useContext(DataContext);
   const history = useHistory();
-
   const back = (e) => {
     e.preventDefault();
     props.previous();
