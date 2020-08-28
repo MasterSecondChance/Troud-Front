@@ -244,11 +244,26 @@ export const getMatchs = async (reaction) => {
   }
 };
 
-export const deleteMatchs = async (id) => {
+export const deleteMatchs = async (phoneFirst, phoneSecond) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
   try {
-    const { data } = await serviceInstance.delete(`/matches/${id}`, {
+    const { data } = await serviceInstance.delete(`/matches/${phoneFirst}/${phoneSecond}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getMatchByPhone = async (phone) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
+  try {
+    const { data } = await serviceInstance.get(`/matches/phone/${phone}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
