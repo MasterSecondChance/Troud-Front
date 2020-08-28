@@ -73,6 +73,21 @@ export const getArticles = async () => {
   }
 };
 
+export const getArticleById = async (id) => {
+  //Token
+  const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
+  try {
+    const data = await serviceInstance.get(`/articles/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getArticleByPhone = async (phone) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
