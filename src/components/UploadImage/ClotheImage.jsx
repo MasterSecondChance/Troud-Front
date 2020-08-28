@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import './UploadImages.scss';
+
 class ClotheImage extends Component {
 
   state = {
@@ -26,11 +28,20 @@ class ClotheImage extends Component {
 
     return (
       <div className='Upload__Image'>
+
         <input
-          type='file'
-          onChange={this.fileSelectedHandler}
-        />
-        <button onClick={this.fileUploadHandler}>Subir Foto Prenda</button>
+          type="file"
+          name="file"
+          id="file"
+          onChange={this.fileSelectedHandler}/>
+        <label for="file"><div>+</div></label>
+
+        <button
+          onClick={this.fileUploadHandler}
+          className="Upload__image-button"
+        >
+          Subir prenda
+        </button>
       </div>
     );
   }
