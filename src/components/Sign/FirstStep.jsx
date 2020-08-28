@@ -25,10 +25,10 @@ export class FirstStep extends Component {
           <div className='White'>
 
             <div className='Form__stepper'>
-              <span>{stepper}</span>
+              <span tabIndex="1">{stepper}</span>
             </div>
 
-            <h2>{title}</h2>
+            <h2 tabIndex="2">{title}</h2>
 
             <form>
 
@@ -40,6 +40,7 @@ export class FirstStep extends Component {
                     name='userName'
                     onChange={handleChange('userName')}
                     defaultValue={values.userName}
+                    aria-label="Nombre de usuario"
                   />
                 </label>
               </div>
@@ -52,6 +53,7 @@ export class FirstStep extends Component {
                     name='phone'
                     onChange={handleChange('phone')}
                     defaultValue={values.phone}
+                    aria-label="Teléfono"
                   />
                 </label>
               </div>
@@ -64,17 +66,19 @@ export class FirstStep extends Component {
                     name='password'
                     onChange={handleChange('password')}
                     defaultValue={values.password}
+                    aria-label="Contraseña"
                   />
                 </label>
               </div>
               <p className='Account__confirmation'>
                 ¿Ya tienes una cuenta?
-                  <Link className='Account__confirmation--link' to='/signin' aria-label='Registrarse'>¡Inicia sesión!</Link>
+                  <Link className='Account__confirmation--link' to='/signin' aria-label='Iniciar sesión'>¡Inicia sesión!</Link>
               </p>
 
               <button
                 onClick={this.continue}
                 className='Center'
+                aria-label="Botón continuar"
               >
                 Siguiente
                 </button>
