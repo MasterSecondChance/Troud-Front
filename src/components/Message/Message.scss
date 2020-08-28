@@ -12,6 +12,10 @@
     margin-block-end: 0;
   }
 
+  &__image {
+    height: 7em;
+  }
+
   &__user {
     margin: 0;
     margin-block-end: $spacing-01;
