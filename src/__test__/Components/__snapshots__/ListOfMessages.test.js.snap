@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListOfMessages Snapshot Comprobar la UI del ListOfMessages 1`] = `
+<section
+  className="ListOfMessages"
+>
+  <div
+    className="Toastify"
+  />
+  <section
+    className="ListOfMessages"
+  />
+</section>
+`;

@@ -9,8 +9,6 @@ import { DataContext } from '../../utils/DataContext';
 
 const Card = () => {
 
-  const { category } = useContext(DataContext);
-
   const [articles, setArticles] = useState([]);
 
   const changeImageLeft = () => {
@@ -144,12 +142,12 @@ const Card = () => {
   useEffect(() => {
     const geArticles = async () => {
       try {
-        if (!category.category) {
+        if (!sessionStorage.getItem("category")) {
           const result = await getArticlesUnreaction(JSON.parse(sessionStorage.getItem("userData")).user.phone);
           setArticles(result.data.data);
         }
-        if (category.category) {
-          const result = await getArticleByCategory(category.category);
+        if (sessionStorage.getItem("category")) {
+          const result = await getArticleByCategory(sessionStorage.getItem("category"));
           setArticles(result.data.data);
         }
       } catch (error) {
@@ -160,7 +158,7 @@ const Card = () => {
       }
     };
     geArticles();
-  }, [category]);
+  }, [sessionStorage.getItem("category")]);
 
   return (
     <>

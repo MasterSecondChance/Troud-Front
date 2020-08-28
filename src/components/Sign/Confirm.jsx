@@ -4,12 +4,10 @@ import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
-  const { userData } = useContext(DataContext);
   const history = useHistory();
   const back = (e) => {
     e.preventDefault();
@@ -18,7 +16,7 @@ const Confirm = (props) => {
 
   const handleAditionalClothe = async () => {
     try {
-      await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: userData.userId });
+      await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: JSON.parse(sessionStorage.getItem("userData")).user._id });
       history.push('/home');
     } catch (error) {
       console.log(error);
