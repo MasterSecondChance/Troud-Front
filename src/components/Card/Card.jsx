@@ -5,11 +5,8 @@ import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRigh
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
 
-function Card() {
-
-  const { category } = useContext(DataContext);
+const Card = () => {
 
   const [articles, setArticles] = useState([]);
 
@@ -144,12 +141,12 @@ function Card() {
   useEffect(() => {
     const geArticles = async () => {
       try {
-        if (!category.category) {
+        if (!sessionStorage.getItem("category")) {
           const result = await getArticlesUnreaction(JSON.parse(sessionStorage.getItem("userData")).user.phone);
           setArticles(result.data.data);
         }
-        if (category.category) {
-          const result = await getArticleByCategory(category.category);
+        if (sessionStorage.getItem("category")) {
+          const result = await getArticleByCategory(sessionStorage.getItem("category"));
           setArticles(result.data.data);
         }
       } catch (error) {
@@ -160,7 +157,7 @@ function Card() {
       }
     };
     geArticles();
-  }, [category]);
+  }, [sessionStorage.getItem("category")]);
 
   return (
     <>
