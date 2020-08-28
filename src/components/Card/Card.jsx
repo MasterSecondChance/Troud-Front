@@ -9,6 +9,7 @@ import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatc
 const Card = () => {
 
   const [articles, setArticles] = useState([]);
+  const [category, setCategory] = useState([]);
 
   const changeImageLeft = () => {
     alert('Left: Foto Anterior');
@@ -157,7 +158,7 @@ const Card = () => {
       }
     };
     geArticles();
-  }, [sessionStorage.getItem("category")]);
+  });
 
   return (
     <>

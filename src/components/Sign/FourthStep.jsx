@@ -66,6 +66,7 @@ export class FourthStep extends Component {
                     <option value='Pantalones'>Pantalones</option>
                     <option value='Calzado'>Calzado</option>
                     <option value='Accesorios'>Accesorios</option>
+                    <option value='Otros'>Otros</option>
                   </select>
                 </label>
               </div>
@@ -102,15 +103,18 @@ export class FourthStep extends Component {
                     <option value='' />
                     <optgroup label='Cundinamarca'>
                       <option value='Bogotá'>Bogotá</option>
-                      <option value='Soacha'>Soacha</option>
                     </optgroup>
                     <optgroup label='Antioquia'>
                       <option value='Medellín'>Medellín</option>
-                      <option value='Sabaneta'>Sabaneta</option>
                     </optgroup>
                     <optgroup label='Valle del Cauca'>
                       <option value='Cali'>Cali</option>
-                      <option value='Buga'>Buga</option>
+                    </optgroup>
+                    <optgroup label='Santander'>
+                      <option value='Bucaramanga'>Bucaramanga</option>
+                    </optgroup>
+                    <optgroup label='Bolivar'>
+                      <option value='Cartagena'>Cartagena</option>
                     </optgroup>
                   </select>
                 </label>
