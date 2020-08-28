@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import UploadImage from './UploadImage';
+//import UploadImage from './UploadImage';
+import UploadImage from '../UploadImage/UploadImage';
 
 import './SignUp.scss';
 
@@ -17,6 +18,10 @@ export class SecondStep extends Component {
     this.props.previous();
   }
 
+  handleImageChange = (value) => {
+    this.setState({ profileImage: value });
+  }
+
   render() {
 
     const { stepper, title } = this.props;
@@ -31,7 +36,7 @@ export class SecondStep extends Component {
           <div className='White'>
             <div className='Stepper__container'>
               <span>{stepper}</span>
-              <button onClick={this.continue}>Omitir</button>
+              {/* <button onClick={this.continue}>Omitir</button> */}
             </div>
 
             <h2>{title}</h2>

@@ -11,11 +11,6 @@ const HeaderForm = () => {
   const { userData } = useContext(DataContext);
   const [state, setState] = useState();
 
-  const test = () => {
-    setState({ token: 'qwe1234' })
-    console.log(state)
-  }
-
   return (
     <header className='Header'>
       <Link to='/home'>

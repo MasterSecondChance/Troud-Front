@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import './SignUp.scss';
 
 import Header from '../HeaderLight/HeaderLight';
+import ClotheImage from '../UploadImage/ClotheImage';
 
 export class ThirdStep extends Component {
+
+  state = {
+    selectedFile: null,
+  }
+
+  fileSelectedHandler = (event) => {
+    this.setState({
+      selectedFile: event.target.files[0],
+    });
+  };
+
+  fileUploadHandler = () => {
+    const fd = new FormData();
+    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+    axios.post('https://trode.afcarrion.vercel.app/api/images', fd)
+      .then((res) => {
+        console.log(res);
+      });
+  }
 
   continue = (e) => {
     e.preventDefault();
@@ -33,6 +54,20 @@ export class ThirdStep extends Component {
             </div>
 
             <h2>{title}</h2>
+
+            {/* <div className="UploadClothe">
+              <input
+                className="UploadClothe__input"
+                type="file"
+                name="file"
+                id="file"
+                onChange={this.fileSelectedHandler}
+              />
+              <label className="UploadClothe__label" htmlFor="file"><div>+</div></label>
+              <button onClick={this.fileUploadHandler}>Subir foto</button>
+            </div> */}
+
+            <ClotheImage />
 
             <h3>Datos del artículo</h3>
 

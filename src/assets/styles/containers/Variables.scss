@@ -149,6 +149,8 @@ $spacing-05: 50px;
 
 a {
   text-decoration: none;
+  user-select: none;
+  cursor: pointer;
 }
 
 a:visited {
