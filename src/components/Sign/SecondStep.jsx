@@ -23,14 +23,11 @@ export class SecondStep extends Component {
   }
 
   render() {
-
     const { stepper, title } = this.props;
 
     return (
       <div>
-
         <Header />
-
         <section className='SecondStep__container Form'>
 
           <div className='White'>
@@ -38,7 +35,6 @@ export class SecondStep extends Component {
               <span tabIndex="1">{stepper}</span>
               {/* <button onClick={this.continue}>Omitir</button> */}
             </div>
-
             <h2 tabIndex="2">{title}</h2>
 
             <UploadImage />

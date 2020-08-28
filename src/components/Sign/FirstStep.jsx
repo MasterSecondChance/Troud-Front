@@ -13,25 +13,17 @@ export class FirstStep extends Component {
   }
 
   render() {
-
     const { values, handleChange, stepper, title } = this.props;
-
     return (
       <div>
-
         <Header />
-
         <section className='Form'>
           <div className='White'>
-
             <div className='Form__stepper'>
               <span tabIndex="1">{stepper}</span>
             </div>
-
             <h2 tabIndex="2">{title}</h2>
-
             <form>
-
               <div className='Input__container'>
                 <label>
                   Nombre
@@ -44,7 +36,6 @@ export class FirstStep extends Component {
                   />
                 </label>
               </div>
-
               <div className='Input__container'>
                 <label>
                   Teléfono
@@ -57,7 +48,6 @@ export class FirstStep extends Component {
                   />
                 </label>
               </div>
-
               <div className='Input__container'>
                 <label>
                   Contraseña
@@ -74,7 +64,6 @@ export class FirstStep extends Component {
                 ¿Ya tienes una cuenta?
                   <Link className='Account__confirmation--link' to='/signin' aria-label='Iniciar sesión'>¡Inicia sesión!</Link>
               </p>
-
               <button
                 onClick={this.continue}
                 className='Center'

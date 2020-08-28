@@ -6,8 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getMatchByPhone, deleteMatchs } from '../../../api';
 import { useHistory } from 'react-router-dom';
 
-const msg = 'PEPITO, acabas de hacer match con el usuario NOMBRE_OTRO_USUARIO, por la prenda: PRENDA_A_LA_QUE_LE_DOY_LIKE';
-
 const Message = () => {
 
   const [matchs, setMatchs] = useState([]);
