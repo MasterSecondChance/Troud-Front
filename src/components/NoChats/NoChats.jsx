@@ -13,7 +13,7 @@ const NoChats = () => {
       <p className='NoChats__description'>
         Sigue explorando y encuentra la prenda que estás buscando.
       </p>
-      <Link className='NoChats__button' to='/' aria-label='Explorar'>Explorar</Link>
+      <Link className='NoChats__button' to='/home' aria-label='Explorar'>Explorar</Link>
     </article>
   );
 };

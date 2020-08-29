@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Snapshot Comprobar la UI del Hero 1`] = `
+<section
+  className="Hero"
+>
+  <div>
+    <div
+      className="Hero__circle"
+    />
+    <h1
+      className="Hero__title"
+      tabIndex="0"
+    />
+    <figure
+      className="Hero__imageContainer"
+    >
+      <img
+        className="Hero__image"
+        role="presentation"
+        width="440"
+      />
+    </figure>
+  </div>
+</section>
+`;

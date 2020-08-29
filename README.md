@@ -85,3 +85,5 @@ You can see the demo live [here](https://trode.netlify.app/).
 ## **License**
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://gist.github.com/PurpleBooth/LICENSE.md) file for more details.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1615fde3-6155-4136-9aab-ab6f500f34aa/deploy-status)](https://app.netlify.com/sites/trode/deploys)

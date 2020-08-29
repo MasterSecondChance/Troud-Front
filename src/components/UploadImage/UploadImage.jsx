@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './UploadImages.scss';
 
@@ -20,7 +22,14 @@ class UploadImage extends Component {
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
     axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
       onUploadProgress: (progressEvent) => {
-        console.log(progressEvent.loaded / progressEvent.total);
+        console.log(progressEvent.loaded / progressEvent.total * 100);
+        if (progressEvent.loaded / progressEvent.total == 1) {
+          toast('Foto subida con exito', {
+            type: 'success',
+            autoClose: 2000,
+          });
+        }
+
       },
     })
       .then((res) => {
@@ -31,27 +40,30 @@ class UploadImage extends Component {
   render() {
 
     return (
-      <div className='Upload__Image'>
+      <>
+        <ToastContainer />
+        <div className='Upload__Image'>
 
-        <input
-          type="file"
-          name="file"
-          id="file"
-          onChange={this.fileSelectedHandler}
-          aria-label="Botón seleccionar imagen"
-          tabIndex="3"
-        />
-        <label for="file"><div>+</div></label>
+          <input
+            type='file'
+            name='file'
+            id='file'
+            onChange={this.fileSelectedHandler}
+            aria-label='Botón seleccionar imagen'
+            tabIndex='3'
+          />
+          <label htmlFor='file'><div>+</div></label>
 
-        <button
-          onClick={this.fileUploadHandler}
-          className="Upload__image-button"
-          aria-label="Botón subir imagen"
-          tabIndex="4"
-        >
-          Subir foto
+          <button
+            onClick={this.fileUploadHandler}
+            className='Upload__image-button'
+            aria-label='Botón subir imagen'
+            tabIndex='4'
+          >
+            Subir foto
         </button>
-      </div>
+        </div>
+      </>
     );
   }
 }

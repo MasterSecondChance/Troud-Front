@@ -5,6 +5,8 @@ import './SignUp.scss';
 
 import Header from '../HeaderLight/HeaderLight';
 import ClotheImage from '../UploadImage/ClotheImage';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class ThirdStep extends Component {
 
@@ -21,9 +23,20 @@ export class ThirdStep extends Component {
   fileUploadHandler = () => {
     const fd = new FormData();
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://trode.afcarrion.vercel.app/api/images', fd)
+    axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
+      onUploadProgress: (progressEvent) => {
+        console.log(progressEvent.loaded / progressEvent.total * 100);
+        if (progressEvent.loaded / progressEvent.total == 1) {
+          toast('Foto subida con exito', {
+            type: 'success',
+            autoClose: 2000,
+          });
+        }
+
+      },
+    })
       .then((res) => {
-        console.log(res);
+        sessionStorage.setItem('clotheImage', res.data.path.profilePicture);
       });
   }
 
@@ -43,16 +56,13 @@ export class ThirdStep extends Component {
 
     return (
       <div>
-
-        <Header />
-
+        <ToastContainer />
+        {this.props.header ? <Header /> : ''}
         <section className='Form'>
-
           <div className='White'>
             <div className='Stepper__container'>
               <span>{stepper}</span>
             </div>
-
             <h2>{title}</h2>
 
             {/* <div className="UploadClothe">
@@ -78,9 +88,9 @@ export class ThirdStep extends Component {
                   Prenda
                   <input
                     type='text'
-                    name='piece'
-                    onChange={handleChange('piece')}
-                    defaultValue={values.piece}
+                    name='name'
+                    onChange={handleChange('name')}
+                    defaultValue={values.name}
                   />
                 </label>
               </div>
@@ -111,14 +121,14 @@ export class ThirdStep extends Component {
               </div>
 
               <div className='Back-next__buttons'>
-
-                {this.props.action == 'aditionalGarment' ?
-
-                  <></>
-                  :
-                  <button onClick={this.back} className='Back__button'>Atrás</button>
-                }
-
+                {this.props.action === 'initialGarment' ? (
+                  <button
+                    onClick={this.back}
+                    className='Back__button'
+                  >
+                    Atrás
+                  </button>
+                ) : ''}
 
                 <button
                   onClick={this.continue}
