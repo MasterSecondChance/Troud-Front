@@ -6,8 +6,8 @@ import api, { getArticles } from '../../../api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Category = () => {
-
+const Category = ({setCategory}) => {
+  
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
   const categoryFilt = [];
@@ -42,12 +42,14 @@ const Category = () => {
   const setCategoryContext = (newCategory) => {
     // saveCategory(newCategory)
     sessionStorage.setItem('category', newCategory);
+    setCategory(newCategory);
     // console.log(newCategory);
   }
 
   useEffect(() => {
     if (!sessionStorage.length) {
       sessionStorage.setItem('category', JSON.stringify({ category: 0 }));
+      setCategory(JSON.stringify({ category: 0 }));
     }
     const filterCategories = async () => {
       try {
@@ -69,7 +71,7 @@ const Category = () => {
       }
     };
     filterCategories();
-  }, []);
+  },[]);
 
   return (
     <>

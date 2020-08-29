@@ -6,11 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 
-const Card = () => {
+const Card = ({category}) => {
 
+  
   const [articles, setArticles] = useState([]);
-  const [category, setCategory] = useState([]);
-
+  
   const changeImageLeft = () => {
     alert('Left: Foto Anterior');
   };
@@ -138,7 +138,7 @@ const Card = () => {
     const hiddeCard = document.getElementById(`${id}`)
     hiddeCard.style.display = "none";
   }
-
+  
   useEffect(() => {
     const geArticles = async () => {
       try {
@@ -158,7 +158,7 @@ const Card = () => {
       }
     };
     geArticles();
-  });
+  }, [category]);
 
   return (
     <>
