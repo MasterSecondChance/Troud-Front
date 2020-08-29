@@ -4,13 +4,15 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: calc(100vh - 60px);
+  margin: 0 auto;
   padding: 0 .5em;
 
-
+  &--img {
+    display: none;
+  }
 
   .SignIn__container {
-    height: calc(100vh - 60px);
-    background-color: #F4F3F5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,9 +99,24 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 769px) {
+  .SignIn {
+    max-width: 1200px;
 
-  .SignIn--img {
-    display: none;
+    &--img {
+      display: block;
+      max-width: 45%;
+      padding-inline-end: 5%;
+
+      & img {
+        max-width: 100%;
+      }
+    }
+
+    &__container {
+      max-width: 45%;
+      padding-inline-start: 5%;
+      border-inline-start: 1px solid $grey-2;
+    }
   }
 }

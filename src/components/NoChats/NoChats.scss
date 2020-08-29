@@ -1,0 +1,67 @@
+@import '../../assets/styles/containers/Variables.scss';
+
+.NoChats {
+  max-width: 390px;
+  margin: $spacing-04 auto 0;
+  text-align: center;
+
+  &__imageContainer {
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin: $spacing-04 0 $spacing-01;
+    font-size: 1rem;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  &__button {
+    display: inline-block;
+    @include default-button;
+    width: 100%;
+    margin-block-start: $spacing-03;
+    cursor: pointer;
+    line-height: 52px;
+    transition: transform .3s ease-out, filter 0.3s ease-out;
+
+    &:hover {
+      filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
+      transform: scale(1.06);
+    }
+
+    &:focus {
+      transform: scale(0.94);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .NoChats {
+    &__imageContainer {
+      width: 195px;
+    }
+
+    &__image {
+      width: 100%;
+    }
+
+    &__title {
+      margin: $spacing-04 0 $spacing-02;
+      font-size: 1.5rem;
+    }
+
+    &__description {
+      font-size: 1.5rem;
+    }
+
+    &__button {
+      margin-block-start: $spacing-04;
+      font-size: 1.25rem;
+    }
+  }
+}
