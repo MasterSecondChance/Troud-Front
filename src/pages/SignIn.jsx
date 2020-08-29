@@ -1,17 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import api, { userLogin, getUsers } from '../../api';
-import { DataContext } from '../utils/DataContext';
 import { ToastContainer, toast } from 'react-toastify';
+import api, { userLogin, getUsers } from '../../api';
 import 'react-toastify/dist/ReactToastify.css';
 import '../components/Sign/SignIn.scss';
-import SignInImage from '../assets/static/trode-card2x.png';
 import Header from '../components/HeaderLight/HeaderLight';
 
 const SignIn = (props) => {
 
   const history = useHistory();
-  const { saveUserData } = useContext(DataContext);
 
   const [values, setValues] = useState('');
 
@@ -38,8 +35,6 @@ const SignIn = (props) => {
     e.preventDefault();
     try {
       const login = await userLogin(values.phone, values.password);
-      //Set values in context
-      saveUserData(login)
       sessionStorage.setItem('userData', JSON.stringify(login));
       //Redirect
       if (login.articles == 0) {
@@ -62,13 +57,13 @@ const SignIn = (props) => {
       <Header />
       <div className='SignIn'>
         <section className='SignIn--img'>
-          <img src={SignInImage} alt="Signin" />
+          <img src='https://trode-s3.s3.amazonaws.com/public/trode-card@2x.png' alt='Signin' />
         </section>
         <section className='SignIn__container'>
 
           <div className='SignIn__description-text'>
-            <p>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
-            <h2>Inicia sesión</h2>
+            <p tabIndex='1'>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
+            <h2 tabIndex='2'>Inicia sesión</h2>
           </div>
 
           <form className='SignIn__Form' onSubmit={handleLogin}>
@@ -81,6 +76,7 @@ const SignIn = (props) => {
                   name='phone'
                   type='text'
                   onChange={handleInputChange}
+                  aria-label='Teléfono'
                 />
                 <small />
               </label>
@@ -94,6 +90,7 @@ const SignIn = (props) => {
                   name='password'
                   type='password'
                   onChange={handleInputChange}
+                  aria-label='Contraseña'
                 />
                 <small />
               </label>
@@ -101,6 +98,7 @@ const SignIn = (props) => {
 
             <button
               type='submit'
+              aria-label='Botón iniciar sesión'
               aria-label='Botón iniciar sesión'
             >
               Ingresar

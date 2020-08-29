@@ -8,6 +8,7 @@ class EditClothes extends Component {
 
   state = {
     step: 1,
+    name: '',
     description: '',
     piece: '',
     gender: '',
@@ -39,8 +40,8 @@ class EditClothes extends Component {
   render() {
 
     const { step } = this.state;
-    const { piece, description, gender, brand, color, category, size, type, condition, city } = this.state;
-    const values = { piece, description, gender, brand, color, category, size, type, condition, city };
+    const { piece, description, gender, brand, color, category, size, type, condition, city, name } = this.state;
+    const values = { piece, description, gender, brand, color, category, size, type, condition, city, name };
 
     switch (step) {
       case 1:

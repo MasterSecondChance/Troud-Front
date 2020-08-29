@@ -1,20 +1,14 @@
 import React, { Component, useContext } from 'react';
 import './Confirm.scss';
 import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Header from '../HeaderLight/HeaderLight';
 import api, { createUser, createArticle, updateArticle } from '../../../api';
-import { DataContext } from '../../utils/DataContext';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Confirm = (props) => {
 
-  const { userData, profileImage } = useContext(DataContext);
-
-  //console.log(profileImage);
-
   const history = useHistory();
-
   const back = (e) => {
     e.preventDefault();
     props.previous();
@@ -22,8 +16,7 @@ const Confirm = (props) => {
 
   const handleAditionalClothe = async () => {
     try {
-      await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: userData.userId });
-      console.log({ ...clothe, phoneOwner: userData.userPhone, idOwner: userData.userId });
+      await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem("userData")).user.phone, idOwner: JSON.parse(sessionStorage.getItem("userData")).user._id });
       history.push('/home');
     } catch (error) {
       console.log(error);
@@ -40,7 +33,7 @@ const Confirm = (props) => {
   const handleFirstCreate = async () => {
     try {
       const newUser = await createUser(user);
-      sessionStorage.setItem('profilePic', '')
+      sessionStorage.setItem('profilePic', '');
       const newClothe = await createArticle({ ...clothe, phoneOwner: newUser.phone, idOwner: newUser.userId });
       history.push('/');
     } catch (error) {
@@ -52,7 +45,19 @@ const Confirm = (props) => {
     }
   };
 
-  const { values: { userName, password, phone, piece, type, gender, description, city, brand, size, color, condition } } = props;
+  const handleModifyClothe = async () => {
+    try {
+      const modifyClothe = await updateArticle(props.id, clothe);
+      history.push('/user');
+    } catch (error) {
+      toast(error, {
+        type: 'error',
+        autoClose: 2000,
+      });
+    }
+  };
+
+  const { values: { userName, password, phone, name, type, gender, description, city, brand, size, color, condition } } = props;
   const user = {
     userName,
     phone,
@@ -68,7 +73,7 @@ const Confirm = (props) => {
     description,
     brand,
     size,
-    name: piece,
+    name,
     color,
     condition,
     urlPhoto: sessionStorage.getItem('clotheImage'),
@@ -78,74 +83,79 @@ const Confirm = (props) => {
   return (
     <>
       <ToastContainer />
-      <Header />
+      {props.header ? <Header /> : ''}
       <section className='Confirm'>
-
 
         {props.action === 'initialGarment' ?
           <div className='Confirm__Card'>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Imagen de perfil</p>
+              <p className='Confirm__Card__Item--title' tabIndex="1">Imagen de perfil</p>
               <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt="" />
             </div>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Nombre</p>
-              <p className='Confirm__Card__Item--text'>{userName}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="2">Nombre</p>
+              <p className='Confirm__Card__Item--text' tabIndex="3">{userName}</p>
             </div>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Teléfono</p>
-              <p className='Confirm__Card__Item--text'>{phone}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="4">Teléfono</p>
+              <p className='Confirm__Card__Item--text' tabIndex="5">{phone}</p>
             </div>
-          </div> :
+          </div>
+          :
           <></>
         }
 
         <div className='Confirm__Card'>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Tu Prenda</p>
-            <p className='Confirm__Card__Item--text'>{piece}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="6">Tu Prenda</p>
+            <p className='Confirm__Card__Item--text' tabIndex="7">{name}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Categoría</p>
-            <p className='Confirm__Card__Item--text'>{type}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="8">Categoría</p>
+            <p className='Confirm__Card__Item--text' tabIndex="9">{type}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Descripción</p>
-            <p className='Confirm__Card__Item--text'>{description}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="10">Descripción</p>
+            <p className='Confirm__Card__Item--text' tabIndex="11">{description}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Talla</p>
-            <p className='Confirm__Card__Item--text'>{size}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="12">Talla</p>
+            <p className='Confirm__Card__Item--text' tabIndex="13">{size}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Género</p>
-            <p className='Confirm__Card__Item--text'>{gender}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="14">Género</p>
+            <p className='Confirm__Card__Item--text' tabIndex="15">{gender}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Estado</p>
-            <p className='Confirm__Card__Item--text'>{condition}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="16">Estado</p>
+            <p className='Confirm__Card__Item--text' tabIndex="17">{condition}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Marca</p>
-            <p className='Confirm__Card__Item--text'>{brand}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="18">Marca</p>
+            <p className='Confirm__Card__Item--text' tabIndex="19">{brand}</p>
           </div>
           <div className='Confirm__Card__Item'>
-            <p className='Confirm__Card__Item--title'>Color</p>
-            <p className='Confirm__Card__Item--text'>{color}</p>
+            <p className='Confirm__Card__Item--title' tabIndex="20">Color</p>
+            <p className='Confirm__Card__Item--text' tabIndex="21">{color}</p>
           </div>
           <div className='Confirm__Card__Item'>
             <div className='Confirm__Card__Item'>
-              <p className='Confirm__Card__Item--title'>Ciudad</p>
-              <p className='Confirm__Card__Item--text'>{city}</p>
+              <p className='Confirm__Card__Item--title' tabIndex="22">Ciudad</p>
+              <p className='Confirm__Card__Item--text' tabIndex="23">{city}</p>
             </div>
           </div>
         </div>
 
         <div className='Confirm__Actions'>
           <button onClick={back}>Volver</button>
-          {props.action === 'initialGarment' ?
-            <button className='Next__button' onClick={handleFirstCreate}>Confirmar Primera</button> :
-            <button className='Next__button' onClick={handleAditionalClothe}>Confirmar Adicional</button>}
+          {(() => {
+            if (props.action === 'initialGarment') {
+              return <button className='Next__button' onClick={handleFirstCreate}>Confirmar</button>;
+            } if (props.action === 'aditionalGarment') {
+              return <button className='Next__button' onClick={handleAditionalClothe}>Confirmar</button>;
+            }
+            return <button className='Next__button' onClick={handleModifyClothe}>Confirmar</button>;
+          })()}
         </div>
       </section>
     </>

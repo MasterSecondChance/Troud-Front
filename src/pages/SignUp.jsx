@@ -7,8 +7,6 @@ import FourthStep from '../components/Sign/FourthStep';
 import Confirm from '../components/Sign/Confirm';
 import Modal from '../components/Sign/Modal';
 
-import DataContext from '../utils/DataContext';
-
 class SignUp extends Component {
 
   state = {
@@ -50,8 +48,8 @@ class SignUp extends Component {
   render() {
 
     const { step } = this.state;
-    const { phone, password, Confirmpassword, userName, city, color, brand, description, size, condition, gender, type, piece } = this.state;
-    const values = { phone, password, Confirmpassword, userName, city, brand, color, description, size, condition, gender, type, piece };
+    const { phone, password, Confirmpassword, userName, city, color, brand, description, size, condition, gender, type, name } = this.state;
+    const values = { phone, password, Confirmpassword, userName, city, brand, color, description, size, condition, gender, type, name };
 
     switch (step) {
       case 1:
@@ -86,6 +84,8 @@ class SignUp extends Component {
             values={values}
             stepper='Paso 3 de 4'
             title='¡Sube tu primera prenda!'
+            action='initialGarment'
+            header={true}
           />
         );
 
@@ -98,6 +98,7 @@ class SignUp extends Component {
             values={values}
             stepper='Paso 4 de 4'
             title='Un último paso...'
+            header={true}
           />
         );
 
@@ -109,6 +110,7 @@ class SignUp extends Component {
             handleChange={this.handleChange}
             values={values}
             action='initialGarment'
+            header={true}
           />
         );
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './Message.scss';
-import Icon from '../../assets/fonts/icon';
+import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
 import 'react-toastify/dist/ReactToastify.css';
 import { getMatchByPhone, deleteMatchs } from '../../../api';
-import { useHistory } from 'react-router-dom';
-
-const msg = 'PEPITO, acabas de hacer match con el usuario NOMBRE_OTRO_USUARIO, por la prenda: PRENDA_A_LA_QUE_LE_DOY_LIKE'
+import NoChats from '../NoChats/NoChats';
+import './Message.scss';
 
 const Message = () => {
 
@@ -16,14 +16,14 @@ const Message = () => {
   const handleDeleteMatchs = async (phoneFirst, phoneSecond) => {
     try {
       await deleteMatchs(phoneFirst, phoneSecond);
-      toast('Ya no te gusta', {
+      toast('Ya no te gusta.', {
         type: 'info',
         autoClose: 3000,
-      })
+      });
       history.push('/inbox');
     } catch (error) {
       console.log(error);
-      toast('No se pudo borrar el Match', {
+      toast('No se pudo borrar el match.', {
         type: 'error',
         autoClose: 2000,
       });
@@ -36,7 +36,7 @@ const Message = () => {
         history.push('/');
       }
       try {
-        const matchs = await getMatchByPhone(JSON.parse(sessionStorage.getItem("userData")).user.phone);
+        const matchs = await getMatchByPhone(JSON.parse(sessionStorage.getItem('userData')).user.phone);
         setMatchs(matchs.data);
       } catch (error) {
         toast('Error al cargar tus Matchs', {
@@ -48,35 +48,51 @@ const Message = () => {
     geArticles();
   }, []);
 
-  console.log(matchs);
-
   return (
     <>
       <ToastContainer />
-      <section className="ListOfMessages">
-        {
-          matchs.map(item => (
-
-            <div className='Message' key={item._id}>
-              <img className="Message__image" src={item.urlPhotoArticleFirst} alt={item.firstArticleName} />
-              <div>
-                <h3 className='Message__user' tabIndex='0'>{item.nameSecond}</h3>
-                <time className='Message__date' tabIndex='0'><b>Articulo: </b>{item.secondArticleName}</time>
-              </div>
-              <div>
-                <button className='Message__delete button' onClick={() => {
-                  handleDeleteMatchs(item.phoneFirst, item.phoneSecond)
-                }}>
-                  <Icon icon='delete' />
-                </button>
-                <a className='Message__chat button' target="_blank" href={`https://api.whatsapp.com/send?phone=${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`}>
-                  <Icon icon='message' />
-                </a>
-              </div>
-            </div>
-          ))}
-      </section>
-
+      {
+        (() => {
+          if (matchs.length === 0) {
+            return (
+              <NoChats />
+            );
+          }
+          return (
+            <section className='ListOfMessages'>
+              {
+                matchs.map((item) => (
+                  <div className='Message' key={item._id}>
+                    <div>
+                      <img className='Message__image' src={item.urlPhotoArticleFirst} alt={item.firstArticleName} />
+                      <div>
+                        <h3 className='Message__user' tabIndex='0'>{item.nameSecond}</h3>
+                        <span className='Message__garment' tabIndex='0'>
+                          <b>Artículo: </b>
+                          {item.secondArticleName}
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <button
+                        className='Message__delete button'
+                        onClick={() => {
+                          handleDeleteMatchs(item.phoneFirst, item.phoneSecond);
+                        }}
+                      >
+                        <FontAwesomeIcon className='faTrash' icon={faTrash} title='Eliminar' />
+                      </button>
+                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`}>
+                        <FontAwesomeIcon className='faCommentAlt' icon={faCommentAlt} title='Mensaje' />
+                      </a>
+                    </div>
+                  </div>
+                ))
+              }
+            </section>
+          );
+        })()
+      }
     </>
   );
 };

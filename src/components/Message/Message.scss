@@ -1,19 +1,34 @@
 @import '../../assets/styles/containers/Variables.scss';
 
 .Message {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-block-end: $spacing-01;
-  padding: $spacing-02;
+  padding: $spacing-01 15px;
   @include card;
 
   &:last-child {
     margin-block-end: 0;
   }
 
+  & div:first-child {
+    display: flex;
+
+    &>div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
   &__image {
-    height: 7em;
+    width: 75px;
+    height: 75px;
+    margin-inline-end: $spacing-01;
+    border-radius: 5px;
+    object-fit: cover;
   }
 
   &__user {
@@ -22,28 +37,79 @@
     font-size: 1rem;
   }
 
-  &__date {
+  &__garment {
     font-size: 0.75rem;
   }
 
-  & button {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    border: none;
-    padding: 0;
-    background-color: transparent;
+  & div:nth-of-type(2) {
+    position: absolute;
+    bottom: $spacing-01;
+    right: $spacing-02;
   }
 
   &__delete {
-    margin-inline-end: $spacing-03;
+    width: 25px;
+    height: 25px;
+    margin-inline-end: $spacing-02;
+    padding: 0;
+    border: none;
+    padding: 0;
+    font-size: 1.5em;
+    background-color: transparent;
+
+    & .faTrash {
+      color: $warning-color;
+    }
+  }
+
+  &__chat {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    font-size: 1.5em;
+
+    & .faCommentAlt {
+      color: $secondary-color;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .Message {
+    justify-content: space-between;
+
+    & div:nth-of-type(2) {
+      position: initial;
+    }
+
+    &__user {
+      font-size: 1.3rem;
+    }
+
+    &__garment {
+      font-size: 1rem;
+    }
   }
 }
 
 @media screen and (min-width: 768px) {
   .Message {
+    padding: $spacing-02;
+
+    &__image {
+      width: 100px;
+      height: 100px;
+      margin-inline-end: $spacing-02;
+    }
+
     &__user {
       font-size: 1.5rem;
+    }
+
+    &__delete {
+      width: 25px;
+      height: 25px;
+      margin-inline-end: $spacing-03;
     }
   }
 }
