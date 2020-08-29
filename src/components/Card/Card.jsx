@@ -147,7 +147,7 @@ const Card = () => {
           setArticles(result.data.data);
         }
         if (sessionStorage.getItem("category")) {
-          const result = await getArticleByCategory(sessionStorage.getItem("category"));
+          const result = await getArticleByCategory(sessionStorage.getItem("category"),JSON.parse(sessionStorage.getItem("userData")).user.phone);
           setArticles(result.data.data);
         }
       } catch (error) {
