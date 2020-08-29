@@ -6,10 +6,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
 
-const Card = () => {
+const Card = ({ category }) => {
 
   const [articles, setArticles] = useState([]);
-  const [category, setCategory] = useState([]);
 
   const changeImageLeft = () => {
     alert('Left: Foto Anterior');
@@ -106,7 +105,7 @@ const Card = () => {
           secondArticleName: articleName,
           urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
         });
-        toast('HICISTEE MATCH', {
+        toast('Hiciste match', {
           type: 'success',
           autoClose: 3000,
         });
@@ -147,7 +146,7 @@ const Card = () => {
           setArticles(result.data.data);
         }
         if (sessionStorage.getItem('category')) {
-          const result = await getArticleByCategory(sessionStorage.getItem('category'));
+          const result = await getArticleByCategory(sessionStorage.getItem('category'), JSON.parse(sessionStorage.getItem('userData')).user.phone);
           setArticles(result.data.data);
         }
       } catch (error) {
@@ -158,7 +157,7 @@ const Card = () => {
       }
     };
     geArticles();
-  });
+  }, [category]);
 
   return (
     <>

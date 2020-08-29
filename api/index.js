@@ -118,11 +118,11 @@ export const getArticleByPhone = async (phone) => {
   }
 };
 
-export const getArticleByCategory = async (category) => {
+export const getArticleByCategory = async (category , phone) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
   try {
-    const data = await serviceInstance.get(`/articles/categories/${category}`, {
+    const data = await serviceInstance.get(`/articles/categories/${category}/${phone}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
