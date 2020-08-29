@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { deleteArticleById, getArticleById } from '../../../api/index';
+import { Link, useHistory } from 'react-router-dom';
 import './FullCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faEllipsisV, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import { faMars, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { deleteArticleById, getArticleById } from '../../../api/index';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FullCard = (props) => {
 
+  const history = useHistory();
   const [article, setArticle] = useState({
     type: '',
     size: '',
@@ -24,9 +27,15 @@ const FullCard = (props) => {
     const deleteArticle = async () => {
       try {
         await deleteArticleById(props.id);
-        history.push('/user');
+        toast('Se eliminó la prenda', {
+          type: 'success',
+          autoClose: 3000,
+        });
+        setTimeout(() => {
+          history.push('/user');
+        }, 3000);
       } catch (error) {
-        toast(error, {
+        toast('No fue posible eliminar la prenda', {
           type: 'error',
           autoClose: 2000,
         });
@@ -54,6 +63,7 @@ const FullCard = (props) => {
 
   return (
     <>
+      <ToastContainer />
       <div className='FullCard'>
         <div className='FullCard__Info'>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../assets/styles/containers/App.scss';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -7,7 +7,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Inbox from '../pages/Inbox';
 import ProfileSettings from '../pages/ProfileSettings';
-import UploadClothes from '../pages/UploadClothes';
+import UploadClothe from '../pages/UploadClothe';
 import ModifyClothe from '../pages/ModifyClothe';
 import Details from '../pages/Details';
 import NotFound from '../pages/NotFound';
@@ -30,7 +30,7 @@ function App() {
         <Route exact path='/inbox' component={Inbox} />
         <Route exact path='/settings' component={ProfileSettings} />
         <Route exact path='/modify/:articleId' component={ModifyClothe} />
-        <Route exact path='/upload' component={UploadClothes} />
+        <Route exact path='/upload' component={UploadClothe} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProfilePersonal.scss';
-import api, { getUserById, updateUser } from '../../../api';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import api, { getUserById, updateUser } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ProfilePersonal = () => {
 
   const history = useHistory();
   const [user, setUser] = useState([]);
-  const [values, setValues] = useState('')
+  const [values, setValues] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +19,7 @@ const ProfilePersonal = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateUser(JSON.parse(sessionStorage.getItem("userData")).user._id, {
+      await updateUser(JSON.parse(sessionStorage.getItem('userData')).user._id, {
         userName: values.name || user.userName,
         email: values.email || user.email,
         phone: user.phone,
@@ -28,10 +28,10 @@ const ProfilePersonal = () => {
       toast('Datos Guardados', {
         type: 'success',
         autoClose: 3000,
-      })
+      });
     } catch (error) {
       console.log(error);
-      toast('No se pudo guardar los datos', {
+      toast('No se pudieron guardar los datos', {
         type: 'error',
         autoClose: 2000,
       });
@@ -39,9 +39,9 @@ const ProfilePersonal = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.clear()
+    sessionStorage.clear();
     history.push('/');
-  }
+  };
 
   useEffect(() => {
     if (!sessionStorage) {
@@ -49,7 +49,7 @@ const ProfilePersonal = () => {
     }
     const getUser = async () => {
       try {
-        const result = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
+        const result = await getUserById(JSON.parse(sessionStorage.getItem('userData')).user._id);
         setUser(result.data.data);
       } catch (error) {
         console.log(error);
@@ -75,36 +75,39 @@ const ProfilePersonal = () => {
           <div className='Input__container'>
             <label>
               Nombre
-            <input
+              <input
                 type='text'
                 name='name'
                 placeholder={user.userName}
                 onChange={handleInputChange}
-                aria-label="Nombre"
+                aria-label='Nombre'
               />
             </label>
           </div>
           <div className='Input__container'>
             <label>
               Correo
-            <input
+              <input
                 type='email'
                 name='email'
                 placeholder={user.email}
                 onChange={handleInputChange}
-                aria-label="Correo electrónico"
+                aria-label='Correo electrónico'
               />
             </label>
           </div>
           <div className='Input__container'>
             <label>
               Teléfono
-            <p
-                className="phone"
+              <p
+                className='phone'
                 placeholder={user.phone}
                 type='text'
                 name='phone'
-              >{user.phone}</p>
+              >
+                {user.phone}
+
+              </p>
             </label>
           </div>
           <div className='ProfilePersonal__change-password'>
@@ -114,31 +117,31 @@ const ProfilePersonal = () => {
               <div className='Input__container'>
                 <label>
                   Nueva contraseña
-                <input
+                  <input
                     type='password'
                     name='password'
                     onChange={handleInputChange}
-                    aria-label="Nueva contraseña"
+                    aria-label='Nueva contraseña'
                   />
                 </label>
               </div>
               <div className='Input__container'>
                 <label>
                   Confirmar contraseña
-                <input
+                  <input
                     type='password'
                     name='password2'
                     onChange={handleInputChange}
-                    aria-label="Confirmar contraseña"
+                    aria-label='Confirmar contraseña'
                   />
                 </label>
               </div>
             </div>
           </div>
-          <button className='ProfilePersonal__button' aria-label="Botón guardar cambios">Guardar cambios</button>
+          <button className='ProfilePersonal__button' aria-label='Botón guardar cambios'>Guardar cambios</button>
         </form>
         <div className='logged-options'>
-          <a className='logged-options__logout' onClick={handleLogout} aria-label="Cerrar sesión">Cerrar sesión</a>
+          <a className='logged-options__logout' onClick={handleLogout} aria-label='Cerrar sesión'>Cerrar sesión</a>
         </div>
       </article>
     </>

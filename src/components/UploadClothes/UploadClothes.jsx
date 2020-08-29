@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 
-import ThirdStep from '../components/Sign/ThirdStep';
-import FourthStep from '../components/Sign/FourthStep';
-import Confirm from '../components/Sign/Confirm';
+import ThirdStep from '../Sign/ThirdStep';
+import FourthStep from '../Sign/FourthStep';
+import Confirm from '../Sign/Confirm';
 
-class EditClothes extends Component {
-
-  state = {
-    step: 1,
-    name: '',
-    description: '',
-    piece: '',
-    gender: '',
-    brand: '',
-    size: '',
-    category: '',
-    quality: '',
-    state: '',
+class UploadClothes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      error: null,
+      step: 1,
+      data: {
+        type: '',
+        size: '',
+        name: '',
+        brand: '',
+        condition: '',
+        gender: '',
+        description: '',
+        color: '',
+        urlPhoto: '',
+        city: '',
+      },
+    };
   }
 
   next = () => {
@@ -34,14 +41,19 @@ class EditClothes extends Component {
   }
 
   handleChange = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
+    this.setState({
+      data: {
+        ...this.state.data,
+        [input]: e.target.value,
+      },
+    });
   }
 
   render() {
 
     const { step } = this.state;
-    const { piece, description, gender, brand, color, category, size, type, condition, city, name } = this.state;
-    const values = { piece, description, gender, brand, color, category, size, type, condition, city, name };
+    const { data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city } } = this.state;
+    const values = { type, size, name, brand, condition, gender, description, color, urlPhoto, city };
 
     switch (step) {
       case 1:
@@ -83,4 +95,4 @@ class EditClothes extends Component {
   }
 }
 
-export default EditClothes;
+export default UploadClothes;

@@ -35,17 +35,17 @@
   }
 
   &__Actions {
+    @include back-next-buttons;
     display: flex;
     justify-content: center;
+    width: 80%;
     margin: 0 auto;
     padding: 1em;
-    width: 80%;
   }
 
   button {
     @include default-button();
     margin: 0 0.3em;
-    box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
 
     &:hover {
       cursor: pointer;

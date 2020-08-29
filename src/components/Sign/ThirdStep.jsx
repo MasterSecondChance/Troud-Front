@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import './SignUp.scss';
 
+import { ToastContainer, toast } from 'react-toastify';
 import Header from '../HeaderLight/HeaderLight';
 import ClotheImage from '../UploadImage/ClotheImage';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export class ThirdStep extends Component {
+class ThirdStep extends Component {
 
   state = {
     selectedFile: null,
@@ -134,7 +134,7 @@ export class ThirdStep extends Component {
                   onClick={this.continue}
                   className='Next__button'
                 >
-                  Siguiente
+                  Continuar
                 </button>
               </div>
             </form>

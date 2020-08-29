@@ -22,24 +22,24 @@ const Card = () => {
   const handleDislike = async (type, idArticle, phoneUser, phoneOwner) => {
     try {
       const match = await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       if (match.match == 1) {
-        toast('HICISTEE MATCH', {
+        toast('Hiciste match', {
           type: 'success',
           autoClose: 3000,
-        })
+        });
       }
       toast('No te gusta', {
         type: 'error',
         autoClose: 2000,
       });
-      handleDisappear(idArticle)
+      handleDisappear(idArticle);
     } catch (error) {
-      toast('No se pudo dar tu Dislike', {
+      toast('No se pudo dar tu dislike', {
         type: 'error',
         autoClose: 2000,
       });
@@ -49,11 +49,11 @@ const Card = () => {
   const handleLike = async (type, idArticle, phoneUser, phoneOwner, articleName, articleImg) => {
     try {
       const match = await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       if (match.match == 1) {
         await createMatch({
           nameFirst: match.owner.userName,
@@ -66,19 +66,19 @@ const Card = () => {
           urlPhotoArticleSecond: match.articleOwner.urlPhoto,
           secondArticleName: articleName,
           urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
-        })
-        toast('HICISTEE MATCH', {
+        });
+        toast('Hiciste match', {
           type: 'success',
           autoClose: 3000,
-        })
+        });
       }
       toast('Te gusta', {
         autoClose: 2000,
       });
-      handleDisappear(idArticle)
+      handleDisappear(idArticle);
     } catch (error) {
       console.log(error);
-      toast('No se pudo dar tu Like', {
+      toast('No se pudo dar tu like', {
         type: 'error',
         autoClose: 2000,
       });
@@ -88,11 +88,11 @@ const Card = () => {
   const handleSuperLike = async (type, idArticle, phoneUser, phoneOwner, articleName, articleImg) => {
     try {
       const match = await createReaction({
-        type: type,
-        idArticle: idArticle,
-        phoneUser: phoneUser,
-        phoneOwner: phoneOwner,
-      })
+        type,
+        idArticle,
+        phoneUser,
+        phoneOwner,
+      });
       if (match.match == 1) {
         await createMatch({
           nameFirst: match.owner.userName,
@@ -105,29 +105,29 @@ const Card = () => {
           urlPhotoArticleSecond: match.articleOwner.urlPhoto,
           secondArticleName: articleName,
           urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
-        })
+        });
         toast('HICISTEE MATCH', {
           type: 'success',
           autoClose: 3000,
-        })
+        });
       }
-      toast('Te Super Encanta', {
+      toast('Te súper encanta', {
         type: 'success',
         autoClose: 5000,
       });
-      const supers = document.querySelectorAll('.small')
-      supers.forEach(item => {
-        item.style.display = "none";
-      })
-      handleDisappear(idArticle)
+      const supers = document.querySelectorAll('.small');
+      supers.forEach((item) => {
+        item.style.display = 'none';
+      });
+      handleDisappear(idArticle);
       const displaySupers = () => {
-        supers.forEach(item => {
-          item.style.display = "initial";
-        })
-      }
-      setTimeout(displaySupers, 60000)
+        supers.forEach((item) => {
+          item.style.display = 'initial';
+        });
+      };
+      setTimeout(displaySupers, 60000);
     } catch (error) {
-      toast('No se pudo dar tu Super Like', {
+      toast('No se pudo dar tu súper like', {
         type: 'error',
         autoClose: 2000,
       });
@@ -135,23 +135,23 @@ const Card = () => {
   };
 
   const handleDisappear = (id) => {
-    const hiddeCard = document.getElementById(`${id}`)
-    hiddeCard.style.display = "none";
-  }
+    const hiddeCard = document.getElementById(`${id}`);
+    hiddeCard.style.display = 'none';
+  };
 
   useEffect(() => {
     const geArticles = async () => {
       try {
-        if (!sessionStorage.getItem("category")) {
-          const result = await getArticlesUnreaction(JSON.parse(sessionStorage.getItem("userData")).user.phone);
+        if (!sessionStorage.getItem('category')) {
+          const result = await getArticlesUnreaction(JSON.parse(sessionStorage.getItem('userData')).user.phone);
           setArticles(result.data.data);
         }
-        if (sessionStorage.getItem("category")) {
-          const result = await getArticleByCategory(sessionStorage.getItem("category"));
+        if (sessionStorage.getItem('category')) {
+          const result = await getArticleByCategory(sessionStorage.getItem('category'));
           setArticles(result.data.data);
         }
       } catch (error) {
-        toast('Error al cargar Articulos', {
+        toast('Error al cargar artículos', {
           type: 'error',
           autoClose: 2000,
         });
@@ -164,21 +164,27 @@ const Card = () => {
     <>
       <ToastContainer />
       {
-        articles.map(article => (
+        articles.map((article) => (
 
           <div className={`Card ${article._id}`} key={article._id} id={article._id}>
             <div className='Card__Info'>
               <div className='Card__Info__Header'>
-                <span className='Card__Info__Header--name'>Articulo: {article.name}</span>
+                <span className='Card__Info__Header--name'>
+                  Articulo:
+                  {' '}
+                  {article.name}
+                </span>
               </div>
               <div className='Card__Info__Img'>
                 <img className='Card__Info__Img__Image' src={article.urlPhoto} alt='Img Card' />
                 {article.gender === 'male' ?
-                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div>
-                  :
-                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>
-                }
-                <div className='Card__Info__Img__Size'>Talla: {article.size}</div>
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faMars' icon={faMars} title='Hombre' /></div> :
+                  <div className='Card__Info__Img__Gender'><FontAwesomeIcon className='faVenus' icon={faVenus} title='Mujer' /></div>}
+                <div className='Card__Info__Img__Size'>
+                  Talla:
+                  {' '}
+                  {article.size}
+                </div>
                 {/* <div className='ChevronLeft' onClick={changeImageLeft} role='button' tabIndex='0'>
                   <FontAwesomeIcon className='faChevronLeft' icon={faChevronLeft} title='faChevronLeft' />
                 </div>
@@ -187,10 +193,11 @@ const Card = () => {
                 </div> */}
                 <div className='center'>
                   <div
-                    className='left' role='button'
+                    className='left'
+                    role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleDislike('Dislike', article._id, JSON.parse(sessionStorage.getItem("userData")).user.phone, article.phoneOwner)
+                      handleDislike('Dislike', article._id, JSON.parse(sessionStorage.getItem('userData')).user.phone, article.phoneOwner);
                     }}
                   />
                   <div
@@ -198,13 +205,17 @@ const Card = () => {
                     role='button'
                     tabIndex='0'
                     onClick={() => {
-                      handleLike('Like', article._id, JSON.parse(sessionStorage.getItem("userData")).user.phone, article.phoneOwner, article.name, article.urlPhoto)
+                      handleLike('Like', article._id, JSON.parse(sessionStorage.getItem('userData')).user.phone, article.phoneOwner, article.name, article.urlPhoto);
                     }}
                   />
                 </div>
               </div>
               <div className='Card__Info__Desc'>
-                <p className='Card__Info__Desc--Info'><b>Descripción: </b> {article.description}</p>
+                <p className='Card__Info__Desc--Info'>
+                  <b>Descripción: </b>
+                  {' '}
+                  {article.description}
+                </p>
               </div>
             </div>
             <div className='Card__Actions'>
@@ -213,7 +224,7 @@ const Card = () => {
                 icon={faTimes}
                 title='No Me Gusta'
                 onClick={() => {
-                  handleDislike('Dislike', article._id, JSON.parse(sessionStorage.getItem("userData")).user.phone, article.phoneOwner)
+                  handleDislike('Dislike', article._id, JSON.parse(sessionStorage.getItem('userData')).user.phone, article.phoneOwner);
                 }}
               />
               <FontAwesomeIcon
@@ -221,7 +232,7 @@ const Card = () => {
                 icon={faStar}
                 title='Super Like'
                 onClick={() => {
-                  handleSuperLike('SuperLike', article._id, JSON.parse(sessionStorage.getItem("userData")).user.phone, article.phoneOwner, article.name, article.urlPhoto) //Pending fix
+                  handleSuperLike('SuperLike', article._id, JSON.parse(sessionStorage.getItem('userData')).user.phone, article.phoneOwner, article.name, article.urlPhoto); //Pending fix
                 }}
               />
               <FontAwesomeIcon
@@ -229,7 +240,7 @@ const Card = () => {
                 icon={faHeart}
                 title='Me gusta'
                 onClick={() => {
-                  handleLike('Like', article._id, JSON.parse(sessionStorage.getItem("userData")).user.phone, article.phoneOwner, article.name, article.urlPhoto)
+                  handleLike('Like', article._id, JSON.parse(sessionStorage.getItem('userData')).user.phone, article.phoneOwner, article.name, article.urlPhoto);
                 }}
               />
             </div>
@@ -238,6 +249,6 @@ const Card = () => {
       }
     </>
   );
-}
+};
 
 export default Card;
