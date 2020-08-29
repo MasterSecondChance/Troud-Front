@@ -32,10 +32,10 @@ export class SecondStep extends Component {
 
           <div className='White'>
             <div className='Stepper__container'>
-              <span tabIndex="1">{stepper}</span>
+              <span tabIndex='1'>{stepper}</span>
               {/* <button onClick={this.continue}>Omitir</button> */}
             </div>
-            <h2 tabIndex="2">{title}</h2>
+            <h2 tabIndex='2'>{title}</h2>
 
             <UploadImage />
 
@@ -43,20 +43,20 @@ export class SecondStep extends Component {
               <button
                 onClick={this.back}
                 className='Back__button'
-                aria-label="Botón atrás"
-                tabIndex="5"
+                aria-label='Botón atrás'
+                tabIndex='5'
               >
                 Atrás
-                </button>
+              </button>
 
               <button
                 onClick={this.continue}
                 className='Next__button'
-                aria-label="Botón continuar"
-                tabIndex="6"
+                aria-label='Botón continuar'
+                tabIndex='6'
               >
-                Siguiente
-                </button>
+                Continuar
+              </button>
             </div>
           </div>
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SignUp.scss';
 import Header from '../HeaderLight/HeaderLight';
 
-export class FourthStep extends Component {
+class FourthStep extends Component {
 
   continue = (e) => {
     e.preventDefault();
@@ -134,7 +134,7 @@ export class FourthStep extends Component {
                   onClick={this.continue}
                   className='Next__button'
                 >
-                  Publicar
+                  Continuar
                 </button>
               </div>
             </form>

@@ -24,7 +24,7 @@ class ClotheImage extends Component {
       onUploadProgress: (progressEvent) => {
         console.log(progressEvent.loaded / progressEvent.total * 100);
         if (progressEvent.loaded / progressEvent.total == 1) {
-          toast('Foto subida con exito', {
+          toast('Foto subida con éxito', {
             type: 'success',
             autoClose: 2000,
           });
@@ -57,7 +57,7 @@ class ClotheImage extends Component {
             className='Upload__image-button'
           >
             Subir prenda
-        </button>
+          </button>
         </div>
       </>
     );

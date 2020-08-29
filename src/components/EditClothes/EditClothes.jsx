@@ -59,6 +59,7 @@ class EditClothes extends Component {
     try {
       const result = await getArticleById(this.props.id);
       this.setState({ loading: false, data: result.data.data });
+      sessionStorage.setItem('clotheImage', result.data.data.urlPhoto);
     } catch (error) {
       toast(error, {
         type: 'error',
