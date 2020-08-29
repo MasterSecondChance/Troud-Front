@@ -158,7 +158,7 @@ const Card = () => {
       }
     };
     geArticles();
-  });
+  }, []);
 
   return (
     <>
