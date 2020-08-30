@@ -56,7 +56,7 @@ const MyClothes = () => {
       <ToastContainer />
       <div className='MyClothes'>
         <div className='MyClothes__Profile'>
-          <img className='MyClothes__Profile--Image' src={user.urlPhoto} alt='Profile' />
+          <img className='MyClothes__Profile--Image' src={user.urlPhoto} alt='Profile' width='90' />
           <div className='MyClothes__Profile--Info'>
             <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
             <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
@@ -64,7 +64,12 @@ const MyClothes = () => {
               <span className='MyClothes__Profile--Info-Count'>
                 {JSON.parse(sessionStorage.getItem('userData')).articles}
                 {' '}
-                Prendas
+                {(() => {
+                  if (sessionStorage.getItem('userData').articles > 1) {
+                    return 'Prendas';
+                  }
+                  return 'Prenda';
+                })()}
               </span>
             )}
           </div>
@@ -85,7 +90,9 @@ const MyClothes = () => {
                 key={articles[id]._id}
                 id={articles[id]._id}
               >
-                <img src={articles[id].urlPhoto} alt='img' />
+                <figure>
+                  <img src={articles[id].urlPhoto} alt='img' />
+                </figure>
               </Link>
             ))}
           </div>
