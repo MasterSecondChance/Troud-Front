@@ -5,7 +5,6 @@ import SecondStep from '../components/Sign/SecondStep';
 import ThirdStep from '../components/Sign/ThirdStep';
 import FourthStep from '../components/Sign/FourthStep';
 import Confirm from '../components/Sign/Confirm';
-import Modal from '../components/Sign/Modal';
 
 class SignUp extends Component {
 
@@ -24,7 +23,7 @@ class SignUp extends Component {
     quality: '',
     state: '',
     color: '',
-    profileImage: ''
+    profileImage: '',
   }
 
   next = () => {
@@ -111,14 +110,6 @@ class SignUp extends Component {
             values={values}
             action='initialGarment'
             header={true}
-          />
-        );
-
-      case 6:
-        return (
-          <Modal
-            modalTrigger='Open Modal'
-            modalComponent="I'm a modal"
           />
         );
     }

@@ -3,8 +3,9 @@
 .Confirm {
   display: grid;
   grid-gap: 1.5em;
+  max-width: 690px;
   margin: 2em auto;
-  max-width: 50%;
+  padding: 0 $spacing-02;
 
   &__Card {
     background-color: #fff;
@@ -12,9 +13,6 @@
     box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-    margin: 0 auto;
-    width: 80%;
     padding: 1em;
 
     &__Item {

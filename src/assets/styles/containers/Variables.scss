@@ -46,12 +46,11 @@ $spacing-05: 50px;
 //Mixins
 
 @mixin steps-container {
-  height: calc(100vh - 60px);
-  background-color: #F4F3F5;
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-family: $text-font;
+  background-color: #F4F3F5;
 }
 
 @mixin default-button {
@@ -93,12 +92,13 @@ $spacing-05: 50px;
 
   .Back__button {
     border: none;
-    background: none;
     outline: none;
     text-decoration: underline;
     font-family: $text-font;
     font-size: 16px;
+    text-align: left;
     font-weight: bold;
+    background: none;
   }
 
   .Next__button {
