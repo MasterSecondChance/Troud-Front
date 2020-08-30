@@ -8,14 +8,55 @@
   padding: 0 $spacing-02;
 
   &__Card {
-    background-color: #fff;
+    display: grid;
+    grid-template: repeat(3, auto) / repeat(2, 1fr);
+    grid-template-areas: "garment gender"
+      "brand category"
+      "size state"
+      "city color"
+      "description description";
+    padding: $spacing-02;
     border-radius: 0.5em;
     box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 1em;
+    background-color: #fff;
 
     &__Item {
+
+      &.garment {
+        grid-area: garment;
+      }
+
+      &.category {
+        grid-area: category;
+      }
+
+      &.description {
+        grid-area: description;
+      }
+
+      &.size {
+        grid-area: size;
+      }
+
+      &.gender {
+        grid-area: gender;
+      }
+
+      &.state {
+        grid-area: state;
+      }
+
+      &.brand {
+        grid-area: brand;
+      }
+
+      &.color {
+        grid-area: color;
+      }
+
+      &.city {
+        grid-area: city;
+      }
 
       &--title {
         font-weight: bold;
@@ -29,7 +70,29 @@
         height: 5em;
       }
     }
+  }
 
+  & .user-information {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "profile-picture profile-picture"
+      "name phone";
+
+    & .profile-picture {
+      grid-area: profile-picture;
+      text-align: center;
+
+      & .Confirm__Card__Item--image {
+        border-radius: 50%;
+      }
+    }
+
+    & .name {
+      grid-area: name;
+    }
+
+    & .phone {
+      grid-area: phone;
+    }
   }
 
   &__Actions {
