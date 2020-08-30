@@ -29,7 +29,7 @@
     }
   }
 
-  input + label {
+  input+label {
     width: 46px;
     height: 61px;
     font-size: 1.25em;
@@ -39,20 +39,13 @@
     border: 1px dashed $grey-3;
   }
 
-  input:hover + label,
-  input:focus + label:hover {
-      background-color: $secondary-color;
+  input:hover+label,
+  input:focus+label:hover {
+    background-color: $secondary-color;
   }
 
   .Upload__image-button {
-      border: none;
-      background: none;
-      outline: none;
-      text-decoration: underline;
-      font-family: $text-font;
-      font-size: 16px;
-      text-align: center;
-      margin-bottom: 2em;
-      font-weight: bold;
+    margin: $spacing-02 0;
+    @include default-button;
   }
 }

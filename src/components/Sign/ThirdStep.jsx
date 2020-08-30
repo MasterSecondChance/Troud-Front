@@ -63,7 +63,13 @@ class ThirdStep extends Component {
             <div className='Stepper__container'>
               <span>{stepper}</span>
             </div>
-            <h2>{title}</h2>
+            {(() => {
+              if (this.props.action === 'initialGarment') {
+                return <h2>{title}</h2>;
+              }
+              return '';
+
+            })()}
 
             {/* <div className="UploadClothe">
               <input

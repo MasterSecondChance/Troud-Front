@@ -2,12 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import './Category.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTshirt, faShoePrints, faHatCowboy, faUserSecret, faMitten, faSocks } from '@fortawesome/free-solid-svg-icons';
-import api, { getArticles } from '../../../api';
 import { ToastContainer, toast } from 'react-toastify';
+import api, { getArticles } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Category = ({setCategory}) => {
-  
+const Category = ({ setCategory }) => {
+
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
   const categoryFilt = [];
@@ -37,14 +37,14 @@ const Category = ({setCategory}) => {
       default:
         return faShoePrints;
     }
-  }
+  };
 
   const setCategoryContext = (newCategory) => {
     // saveCategory(newCategory)
     sessionStorage.setItem('category', newCategory);
     setCategory(newCategory);
     // console.log(newCategory);
-  }
+  };
 
   useEffect(() => {
     if (!sessionStorage.length) {
@@ -53,15 +53,15 @@ const Category = ({setCategory}) => {
     }
     const filterCategories = async () => {
       try {
-        const categoryList = await getArticles()
-        Object.keys(categoryList.data.data).map(id => {
+        const categoryList = await getArticles();
+        Object.keys(categoryList.data.data).map((id) => {
           categoryFilt.push(categoryList.data.data[id].type);
-        })
+        });
         // Remove duplicates or more
         const filterCategory = (valor, indice, self) => {
           return self.indexOf(valor) === indice;
-        }
-        setUniqueCategories(categoryFilt.filter(filterCategory))
+        };
+        setUniqueCategories(categoryFilt.filter(filterCategory));
       } catch (error) {
         console.log(error);
         toast('Error al cargar artículos.', {
@@ -71,25 +71,33 @@ const Category = ({setCategory}) => {
       }
     };
     filterCategories();
-  },[]);
+  }, []);
 
   return (
     <>
       <ToastContainer />
-      <div className="Category">
+      <div className='Category'>
         {
-          uniqueCategories.map(item => (
-            <div className="Category__Item" key={item} onClick={() => {
-              setCategoryContext(item)
-            }}>
-              <span className="Category__Item-Name">{item}</span>
+          uniqueCategories.map((item) => (
+            <div
+              className='Category-item'
+              key={item}
+              onClick={() => {
+                setCategoryContext(item);
+              }}
+            >
+              <span className='Category-item__name'>{item}</span>
             </div>
           ))
         }
-        <div className="Category__Item" key='clear' onClick={() => {
-          setCategoryContext('')
-        }}>
-          <span className="Category__Item-Name">Quitar filtros</span>
+        <div
+          className='Category-item'
+          key='clear'
+          onClick={() => {
+            setCategoryContext('');
+          }}
+        >
+          <span className='Category-item__name'>Quitar filtros</span>
         </div>
       </div>
     </>
