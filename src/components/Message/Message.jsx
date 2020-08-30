@@ -82,7 +82,7 @@ const Message = () => {
                       >
                         <FontAwesomeIcon className='faTrash' icon={faTrash} title='Eliminar' />
                       </button>
-                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`}>
+                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=57${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`}>
                         <FontAwesomeIcon className='faCommentAlt' icon={faCommentAlt} title='Mensaje' />
                       </a>
                     </div>
