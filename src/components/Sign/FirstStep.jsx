@@ -47,7 +47,7 @@ class FirstStep extends Component {
                     aria-label='Teléfono'
                   />
                 </label>
-                <span className='prevention-message prevention-message--margin-bottom'>Número de celular en colombia</span>
+                <span className='prevention-message prevention-message--margin-bottom'>Número de celular en Colombia</span>
               </div>
               <div className='Input__container'>
                 <label>

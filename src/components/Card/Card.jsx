@@ -163,7 +163,6 @@ const Card = ({ category }) => {
             <div className='Card__Info'>
               <div className='Card__Info__Header'>
                 <span className='Card__Info__Header--name'>
-                  Articulo:
                   {' '}
                   {article.name}
                 </span>
