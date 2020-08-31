@@ -98,7 +98,7 @@ const FullCard = (props) => {
                 <p className='FullCard__Details--item-text'>{article.condition}</p>
               </div>
               <div className='FullCard__Details--item'>
-                <p className='FullCard__Details--item-title'>Categoria</p>
+                <p className='FullCard__Details--item-title'>Categoría</p>
                 <p className='FullCard__Details--item-text'>{article.type}</p>
               </div>
               <div className='FullCard__Details--item'>
