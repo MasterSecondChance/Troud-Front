@@ -13,6 +13,16 @@
     @include input();
   }
 
+  & .Input__container:nth-of-type(2) {
+    position: relative;
+  }
+
+  & .Input__character-limit {
+    position: absolute;
+    right: 0;
+    font-size: 0.75rem;
+  }
+
   button {
     @include default-button();
     transition: transform .3s ease-out, filter 0.3s ease-out;
