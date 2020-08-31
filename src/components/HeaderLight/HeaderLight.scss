@@ -1,18 +1,15 @@
 @import '../../assets/styles/containers/Variables.scss';
 
 .HeaderLight {
-  align-items: center;
-  background-color: $primary-color-dark-2;
   display: flex;
-  height: 60px;
+  align-items: center;
   justify-content: space-around;
+  height: 60px;
   width: 100%;
+  background-color: $primary-color-dark-2;
 
-  &__Title {
-    color: $font-color;
-    font-family: $headlines-font;
+  &__logoContainer {
     margin: 0;
-    padding: 0;
   }
 
   ul {
