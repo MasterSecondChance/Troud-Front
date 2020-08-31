@@ -29,7 +29,13 @@ class FourthStep extends Component {
               <span>{stepper}</span>
             </div>
 
-            <h2>{title}</h2>
+            {(() => {
+              if (this.props.action === 'initialGarment') {
+                return <h2>{title}</h2>;
+              }
+              return '';
+
+            })()}
 
             <form className='FourthStep__Form'>
 
