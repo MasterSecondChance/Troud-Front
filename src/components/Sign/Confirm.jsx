@@ -40,7 +40,7 @@ const Confirm = (props) => {
         autoClose: 3000,
       });
       setTimeout(() => {
-        history.push('/home');
+        history.push('/');
       }, 3000);
     } catch (error) {
       console.log(error);

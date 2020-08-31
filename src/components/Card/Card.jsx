@@ -26,12 +26,6 @@ const Card = ({ category }) => {
         phoneUser,
         phoneOwner,
       });
-      if (match.match == 1) {
-        toast('Hiciste match', {
-          type: 'success',
-          autoClose: 3000,
-        });
-      }
       toast('No te gusta', {
         type: 'error',
         autoClose: 2000,
