@@ -17,6 +17,24 @@
     position: relative;
   }
 
+  & input[type='password'] {
+    margin-block-end: 0;
+  }
+
+  & input[name='phone'] {
+    margin-block-end: 0;
+  }
+
+  & .prevention-message {
+    font-size: 0.75rem;
+    line-height: .7;
+
+    &--margin-bottom {
+      display: inline-block;
+      margin-block-end: 1.5em;
+    }
+  }
+
   & .Input__character-limit {
     position: absolute;
     right: 0;
