@@ -12,18 +12,18 @@ class SignUp extends Component {
     step: 1,
     phone: '',
     userName: '',
-    city: '',
-    password: '',
-    description: '',
-    piece: '',
-    gender: '',
-    brand: '',
-    size: '',
-    type: '',
-    quality: '',
-    state: '',
-    color: '',
     profileImage: '',
+    password: '',
+    type: '',
+    size: '',
+    name: '',
+    brand: '',
+    condition: '',
+    gender: '',
+    description: '',
+    color: '',
+    urlPhoto: sessionStorage.getItem('clotheImage'),
+    city: '',
   }
 
   next = () => {
@@ -47,8 +47,8 @@ class SignUp extends Component {
   render() {
 
     const { step } = this.state;
-    const { phone, password, Confirmpassword, userName, city, color, brand, description, size, condition, gender, type, name } = this.state;
-    const values = { phone, password, Confirmpassword, userName, city, brand, color, description, size, condition, gender, type, name };
+    const { phone, password, Confirmpassword, userName, city, color, brand, description, size, condition, gender, type, name, urlPhoto } = this.state;
+    const values = { phone, password, Confirmpassword, userName, city, brand, color, description, size, condition, gender, type, name, urlPhoto };
 
     switch (step) {
       case 1:
