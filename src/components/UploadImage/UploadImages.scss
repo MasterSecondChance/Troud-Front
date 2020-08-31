@@ -16,6 +16,18 @@
     cursor: pointer;
   }
 
+  span {
+    display: inline-block;
+
+    &:first-child {
+      margin-block-end: $spacing-01;
+    }
+
+    &:nth-of-type(2) {
+      margin-block-start: $spacing-01;
+    }
+  }
+
   label {
     border-radius: 10px;
     cursor: pointer;
@@ -45,7 +57,7 @@
   }
 
   .Upload__image-button {
-    margin: $spacing-02 0;
+    margin: $spacing-01 0 $spacing-03;
     @include default-button;
   }
 }

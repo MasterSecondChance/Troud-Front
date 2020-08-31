@@ -47,6 +47,7 @@ class FirstStep extends Component {
                     aria-label='Teléfono'
                   />
                 </label>
+                <span className='prevention-message prevention-message--margin-bottom'>Número de celular en colombia</span>
               </div>
               <div className='Input__container'>
                 <label>
@@ -59,6 +60,7 @@ class FirstStep extends Component {
                     aria-label='Contraseña'
                   />
                 </label>
+                <span className='prevention-message'>Debe contener: mayúscula y minúsculas, 8 caracteres y mínimo un dígito</span>
               </div>
               <p className='Account__confirmation'>
                 ¿Ya tienes una cuenta?

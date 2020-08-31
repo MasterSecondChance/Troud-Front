@@ -43,7 +43,7 @@ class UploadImage extends Component {
       <>
         <ToastContainer />
         <div className='Upload__Image'>
-
+          <span>Selecciona tu foto</span>
           <input
             type='file'
             name='file'
@@ -53,7 +53,7 @@ class UploadImage extends Component {
             tabIndex='3'
           />
           <label htmlFor='file'><div>+</div></label>
-
+          <span>Ahora haz clic en subir foto</span>
           <button
             onClick={this.fileUploadHandler}
             className='Upload__image-button'
@@ -61,7 +61,7 @@ class UploadImage extends Component {
             tabIndex='4'
           >
             Subir foto
-        </button>
+          </button>
         </div>
       </>
     );
