@@ -2,24 +2,22 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import ProviderMock from '../../__mocks__/providerMock';
 import HeaderLight from '../../components/HeaderLight/HeaderLight';
-import renderer, { create } from 'react-test-renderer';
 
 describe('<HeaderLight />', () => {
   test('Render del componente HeaderLight', () => {
     const header = shallow(
       <ProviderMock>
         <HeaderLight />
-      </ProviderMock>
+      </ProviderMock>,
     );
     expect(header.length).toEqual(1);
-  })
-  test('Render del titulo', () => {
-    const header = shallow(
-      <HeaderLight />
-    );
-    expect(header.find('.HeaderLight__Title').text()).toEqual('Trode')
-  })
-})
+  });
+  test('Render del logotipo de troud', () => {
+    const header = shallow(<HeaderLight />);
+    const logo = 'https://trode-s3.s3.amazonaws.com/public/troud-logotipo-negative-corporate-color.svg';
+    expect(header.find('img').prop('src')).toEqual(logo);
+  });
+});
 
 // describe('HeaderLight Snapshot', () => {
 //   test('Comprobar la UI del HeaderLight', () => {
