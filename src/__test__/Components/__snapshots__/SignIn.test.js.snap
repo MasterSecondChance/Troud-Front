@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero Snapshot Comprobar la UI del inicio de sesión`] = `
+<div>
+      <ToastContainer />
+      <Header />
+      <div className='SignIn'>
+        <section className='SignIn--img'>
+          <img src='https://trode-s3.s3.amazonaws.com/public/trode-card@2x.png' alt='Signin' />
+        </section>
+        <section className='SignIn__container'>
+
+          <div className='SignIn__description-text'>
+            <p tabIndex='1'>Tu aplicación para buscar, encontrar e intercambiar ropa.</p>
+            <h2 tabIndex='2'>Inicia sesión</h2>
+          </div>
+
+          <form className='SignIn__Form' onSubmit={handleLogin}>
+
+            <div className='Input__container'>
+              <label>
+                Teléfono
+                <input
+                  id='phone'
+                  name='phone'
+                  type='text'
+                  onChange={handleInputChange}
+                  aria-label='Teléfono'
+                />
+                <small />
+              </label>
+            </div>
+
+            <div className='Input__container'>
+              <label>
+                Contraseña
+                <input
+                  id='password'
+                  name='password'
+                  type='password'
+                  onChange={handleInputChange}
+                  aria-label='Contraseña'
+                />
+                <small />
+              </label>
+            </div>
+
+            <button
+              type='submit'
+              aria-label='Botón iniciar sesión'
+              aria-label='Botón iniciar sesión'
+            >
+              Ingresar
+            </button>
+
+            <p className='Account__confirmation'>
+              ¿No tienes una cuenta?
+              <Link className='Account__confirmation--link' to='/signup' aria-label='Registrarse'>¡Regístrate!</Link>
+            </p>
+          </form>
+        </section>
+      </div>
+
+    </div>
+`;
