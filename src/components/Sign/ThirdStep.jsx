@@ -63,7 +63,13 @@ class ThirdStep extends Component {
             <div className='Stepper__container'>
               <span>{stepper}</span>
             </div>
-            <h2>{title}</h2>
+            {(() => {
+              if (this.props.action === 'initialGarment') {
+                return <h2>{title}</h2>;
+              }
+              return '';
+
+            })()}
 
             {/* <div className="UploadClothe">
               <input
@@ -98,12 +104,14 @@ class ThirdStep extends Component {
               <div className='Input__container'>
                 <label>
                   Descripción
+                  <span className='Input__character-limit'>Máximo 30 caracteres</span>
                   <textarea
                     type='text'
                     name='description'
                     placeholder='Describe tu prenda.'
                     onChange={handleChange('description')}
                     defaultValue={values.description}
+                    maxLength='30'
                   />
                 </label>
               </div>

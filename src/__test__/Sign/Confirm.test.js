@@ -12,7 +12,7 @@ describe('<Confirm />', () => {
       </ProviderMock>
     );
     expect(confirm.length).toEqual(1);
-  })
+  })/*
   test('Render de 2 tarjetas principales', () => {
     const confirm = shallow(
       <ProviderMock>
@@ -28,5 +28,5 @@ describe('<Confirm />', () => {
       </ProviderMock>
     );
     expect(confirm.find('.Confirm__Card__Item--title').length).toEqual(14);
-  })
+  })*/
 })

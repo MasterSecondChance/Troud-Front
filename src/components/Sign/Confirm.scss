@@ -3,35 +3,92 @@
 .Confirm {
   display: grid;
   grid-gap: 1.5em;
-  margin: 2em auto;
-  max-width: 50%;
+  max-width: 690px;
+  margin: $spacing-03 auto 0;
+  padding: 0 $spacing-02 100px;
 
   &__Card {
-    background-color: #fff;
-    border-radius: 0.5em;
-    box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
-    margin: 0 auto;
-    width: 80%;
-    padding: 1em;
+    grid-template: repeat(5, auto) / repeat(2, 1fr);
+    grid-template-areas: "garment gender"
+      "brand category"
+      "size state"
+      "city color"
+      "description description";
+    padding: $spacing-02;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
+    background-color: #fff;
 
     &__Item {
 
-      &--title {
-        font-weight: bold;
+      &.garment {
+        grid-area: garment;
       }
 
-      &--text {
-        padding: 0 0.5em;
+      &.category {
+        grid-area: category;
+      }
+
+      &.description {
+        grid-area: description;
+      }
+
+      &.size {
+        grid-area: size;
+      }
+
+      &.gender {
+        grid-area: gender;
+      }
+
+      &.state {
+        grid-area: state;
+      }
+
+      &.brand {
+        grid-area: brand;
+      }
+
+      &.color {
+        grid-area: color;
+      }
+
+      &.city {
+        grid-area: city;
+      }
+
+      &--title {
+        font-weight: bold;
       }
 
       &--image {
         height: 5em;
       }
     }
+  }
 
+  & .user-information {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "profile-picture profile-picture"
+      "name phone";
+
+    & .profile-picture {
+      grid-area: profile-picture;
+      text-align: center;
+
+      & .Confirm__Card__Item--image {
+        border-radius: 50%;
+      }
+    }
+
+    & .name {
+      grid-area: name;
+    }
+
+    & .phone {
+      grid-area: phone;
+    }
   }
 
   &__Actions {
@@ -56,5 +113,11 @@
     &:focus {
       transform: scale(0.94);
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Confirm {
+    margin: $spacing-05 auto 100px;
   }
 }

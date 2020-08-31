@@ -40,7 +40,7 @@ const Confirm = (props) => {
         autoClose: 3000,
       });
       setTimeout(() => {
-        history.push('/home');
+        history.push('/');
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -97,16 +97,16 @@ const Confirm = (props) => {
       <section className='Confirm'>
 
         {props.action === 'initialGarment' ? (
-          <div className='Confirm__Card'>
-            <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card user-information'>
+            <div className='Confirm__Card__Item profile-picture'>
               <p className='Confirm__Card__Item--title' tabIndex='1'>Imagen de perfil</p>
               <img className='Confirm__Card__Item--image' src={sessionStorage.getItem('profilePic')} alt='' />
             </div>
-            <div className='Confirm__Card__Item'>
+            <div className='Confirm__Card__Item name'>
               <p className='Confirm__Card__Item--title' tabIndex='2'>Nombre</p>
               <p className='Confirm__Card__Item--text' tabIndex='3'>{userName}</p>
             </div>
-            <div className='Confirm__Card__Item'>
+            <div className='Confirm__Card__Item phone'>
               <p className='Confirm__Card__Item--title' tabIndex='4'>Teléfono</p>
               <p className='Confirm__Card__Item--text' tabIndex='5'>{phone}</p>
             </div>
@@ -114,40 +114,40 @@ const Confirm = (props) => {
         ) :
           <></>}
 
-        <div className='Confirm__Card'>
-          <div className='Confirm__Card__Item'>
+        <div className='Confirm__Card garment-information'>
+          <div className='Confirm__Card__Item garment'>
             <p className='Confirm__Card__Item--title' tabIndex='6'>Tu Prenda</p>
             <p className='Confirm__Card__Item--text' tabIndex='7'>{name}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item category'>
             <p className='Confirm__Card__Item--title' tabIndex='8'>Categoría</p>
             <p className='Confirm__Card__Item--text' tabIndex='9'>{type}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item description'>
             <p className='Confirm__Card__Item--title' tabIndex='10'>Descripción</p>
             <p className='Confirm__Card__Item--text' tabIndex='11'>{description}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item size'>
             <p className='Confirm__Card__Item--title' tabIndex='12'>Talla</p>
             <p className='Confirm__Card__Item--text' tabIndex='13'>{size}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item gender'>
             <p className='Confirm__Card__Item--title' tabIndex='14'>Género</p>
             <p className='Confirm__Card__Item--text' tabIndex='15'>{gender}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item state'>
             <p className='Confirm__Card__Item--title' tabIndex='16'>Estado</p>
             <p className='Confirm__Card__Item--text' tabIndex='17'>{condition}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item brand'>
             <p className='Confirm__Card__Item--title' tabIndex='18'>Marca</p>
             <p className='Confirm__Card__Item--text' tabIndex='19'>{brand}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item color'>
             <p className='Confirm__Card__Item--title' tabIndex='20'>Color</p>
             <p className='Confirm__Card__Item--text' tabIndex='21'>{color}</p>
           </div>
-          <div className='Confirm__Card__Item'>
+          <div className='Confirm__Card__Item city'>
             <div className='Confirm__Card__Item'>
               <p className='Confirm__Card__Item--title' tabIndex='22'>Ciudad</p>
               <p className='Confirm__Card__Item--text' tabIndex='23'>{city}</p>

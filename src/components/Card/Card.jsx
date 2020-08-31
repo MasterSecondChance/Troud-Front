@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Card.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -26,12 +26,6 @@ const Card = ({ category }) => {
         phoneUser,
         phoneOwner,
       });
-      if (match.match == 1) {
-        toast('Hiciste match', {
-          type: 'success',
-          autoClose: 3000,
-        });
-      }
       toast('No te gusta', {
         type: 'error',
         autoClose: 2000,

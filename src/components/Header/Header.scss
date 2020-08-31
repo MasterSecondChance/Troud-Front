@@ -8,11 +8,8 @@
   justify-content: space-around;
   width: 100%;
 
-  &__Title {
-    color: $font-color;
-    font-family: $headlines-font;
+  &__logoContainer {
     margin: 0;
-    padding: 0;
   }
 
   ul {
@@ -50,36 +47,22 @@
 
 @media screen and (max-width: 769px) {
   .Header {
+    &__Menu {
+      background-color: $grey-1;
+      bottom: 0;
+      font-size: 1.2em;
+      justify-content: space-around;
+      margin: 0;
+      position: fixed;
+      width: 100%;
+      z-index: 6;
 
-    &__Title {
-
-
-      // li {
-      //   border-radius: 0.4em;
-      //   list-style: none;
-      //   margin: 0em;
-      //   padding: 1em;
-      // }
-
-      &__Menu {
-        background-color: $grey-1;
-        bottom: 0;
-        font-size: 1.2em;
-        justify-content: space-around;
-        margin: 0;
-        position: fixed;
-        width: 100%;
-        z-index: 6;
-
-        &--Item {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-        }
-
+      &--Item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
       }
     }
-
   }
 }

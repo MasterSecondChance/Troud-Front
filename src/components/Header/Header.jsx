@@ -10,7 +10,9 @@ const HeaderForm = () => {
   return (
     <header className='Header'>
       <Link to='/home'>
-        <h1 className='Header__Title'>Trode</h1>
+        <figure className='Header__logoContainer'>
+          <img className='Header__logoContainer' tabIndex='0' width='85' src='https://trode-s3.s3.amazonaws.com/public/troud-logotipo-negative-corporate-color.svg' alt='troud' />
+        </figure>
       </Link>
       <ul className='Header__Menu'>
         <li className='Menu-Item'>

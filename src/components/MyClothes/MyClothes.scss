@@ -2,7 +2,7 @@
 
 .MyClothes {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
   padding: $spacing-03 $spacing-02 0;
 
   &__Profile {
@@ -102,6 +102,8 @@
 
       &--Image {
         width: 190px;
+        height: 190px;
+        object-fit: fill;
         margin-inline-end: $spacing-04;
       }
 

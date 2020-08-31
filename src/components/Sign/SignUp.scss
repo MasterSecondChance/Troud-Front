@@ -1,9 +1,9 @@
 @import '../../assets/styles/containers/Variables.scss';
 
 .Form {
-  @include steps-container;
-  padding: 0 40px 40px;
   display: flex;
+  padding: $spacing-03 $spacing-02 100px;
+  @include steps-container;
 
   label {
     color: $grey-3;
@@ -11,6 +11,16 @@
 
   input {
     @include input();
+  }
+
+  & .Input__container:nth-of-type(2) {
+    position: relative;
+  }
+
+  & .Input__character-limit {
+    position: absolute;
+    right: 0;
+    font-size: 0.75rem;
   }
 
   button {
@@ -141,13 +151,15 @@
 
 @media screen and (min-width: 769px) {
   .Form {
-    max-width: 50%;
-    margin: 0 auto;
+    align-items: center;
+    max-width: 690px;
+    margin: $spacing-05 auto 100px;
+    padding: $spacing-04 0;
+    border-radius: 15px;
+    background-color: #fff;
 
     .White {
-      background-color: #fff;
-      padding: 3em;
-      border-radius: 15px;
+      width: 390px;
     }
 
     .Long {
