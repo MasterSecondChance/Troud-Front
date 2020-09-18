@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Token initialized
 
@@ -15,7 +17,11 @@ export const uploadImage = async (id) => {
     const data = await serviceInstance.post();
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -30,7 +36,11 @@ export const getUserById = async (id) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -45,7 +55,11 @@ export const getUsers = async () => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -54,7 +68,11 @@ export const createUser = async (user) => {
     const newUser = await serviceInstance.post('/users', user);
     return { phone: user.phone, userId: newUser.data.data };
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -69,7 +87,11 @@ export const getArticles = async () => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -84,7 +106,11 @@ export const getArticleById = async (id) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -99,7 +125,11 @@ export const deleteArticleById = async (id) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -114,11 +144,15 @@ export const getArticleByPhone = async (phone) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
-export const getArticleByCategory = async (category , phone) => {
+export const getArticleByCategory = async (category, phone) => {
   //Token
   const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
   try {
@@ -129,7 +163,11 @@ export const getArticleByCategory = async (category , phone) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -144,7 +182,11 @@ export const getArticlesUnreaction = async (phone) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -152,7 +194,11 @@ export const createArticle = async (clothe) => {
   try {
     await serviceInstance.post('/articles', clothe);
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -166,7 +212,11 @@ export const updateArticle = async (id, clothe) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -180,7 +230,11 @@ export const updateUser = async (id, user) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -194,7 +248,11 @@ export const userLogin = async (user, pass) => {
     });
     return data.data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -210,7 +268,11 @@ export const createReaction = async (reaction) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -225,7 +287,11 @@ export const createMatch = async (reaction) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -240,7 +306,11 @@ export const getMatchs = async (reaction) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -255,7 +325,11 @@ export const deleteMatchs = async (phoneFirst, phoneSecond) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 
@@ -270,7 +344,11 @@ export const getMatchByPhone = async (phone) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.error);
+    toast(error.response.data.error, {
+      type: 'error',
+      autoClose: 2000,
+    });
   }
 };
 

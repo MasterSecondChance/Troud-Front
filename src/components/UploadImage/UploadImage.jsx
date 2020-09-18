@@ -11,10 +11,11 @@ class UploadImage extends Component {
     selectedFile: null,
   }
 
-  fileSelectedHandler = (event) => {
-    this.setState({
+  fileSelectedHandler = async (event) => {
+    await this.setState({
       selectedFile: event.target.files[0],
     });
+    this.fileUploadHandler();
   };
 
   fileUploadHandler = () => {
@@ -22,9 +23,12 @@ class UploadImage extends Component {
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
     axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
       onUploadProgress: (progressEvent) => {
-        console.log(progressEvent.loaded / progressEvent.total * 100);
+        toast(`Carga ${(progressEvent.loaded / progressEvent.total * 100)} %`, {
+          type: 'info',
+          autoClose: 2000,
+        });
         if (progressEvent.loaded / progressEvent.total == 1) {
-          toast('Foto subida con exito', {
+          toast('Foto subida con éxito', {
             type: 'success',
             autoClose: 2000,
           });
