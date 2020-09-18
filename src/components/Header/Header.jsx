@@ -24,7 +24,7 @@ const HeaderForm = () => {
         <li className='Menu-Item'>
           <Link className='Header__Menu--Item' to='/inbox'>
             <FontAwesomeIcon className='icon faCommentAlt' icon={faCommentAlt} title='Mensajes' />
-            <span className='Header__Menu--itemMenu'>Mensajes</span>
+            <span className='Header__Menu--itemMenu'>Matchs</span>
           </Link>
         </li>
         <li className='Menu-Item'>
