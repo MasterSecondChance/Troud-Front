@@ -18,9 +18,10 @@
     "url": "git+https://github.com/MasterSecondChance/Trode-Front.git"
   },
   "keywords": [
+    "React",
     "Trode",
     "Clothe",
-    "React"
+    "Exchange"
   ],
   "author": "Alexander Alvarez",
   "license": "MIT",
@@ -42,7 +43,7 @@
     "react-dom": "^16.13.1",
     "react-icomoon": "^2.1.5",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^3.4.3",
     "react-svg-loader": "^3.0.3",
     "react-test-renderer": "^16.13.1",
     "react-toastify": "^6.0.8",

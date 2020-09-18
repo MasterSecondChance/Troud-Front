@@ -3,7 +3,8 @@
 .Category {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 90%;
   padding: 0.5em;
   margin: 20px auto 20px;
