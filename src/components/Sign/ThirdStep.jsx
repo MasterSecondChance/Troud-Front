@@ -68,7 +68,6 @@ class ThirdStep extends Component {
                 return <h2>{title}</h2>;
               }
               return '';
-
             })()}
 
             {/* <div className="UploadClothe">
@@ -83,13 +82,9 @@ class ThirdStep extends Component {
               <button onClick={this.fileUploadHandler}>Subir foto</button>
             </div> */}
             <h3>Selecciona la imagen de la prenda</h3>
-
             <ClotheImage />
-
             <h3>Datos del artículo</h3>
-
             <form>
-
               <div className='Input__container'>
                 <label>
                   Prenda
@@ -101,7 +96,6 @@ class ThirdStep extends Component {
                   />
                 </label>
               </div>
-
               <div className='Input__container'>
                 <label>
                   Descripción
@@ -116,7 +110,6 @@ class ThirdStep extends Component {
                   />
                 </label>
               </div>
-
               <div className='Input__container'>
                 <label>
                   Género
@@ -128,7 +121,6 @@ class ThirdStep extends Component {
                   </select>
                 </label>
               </div>
-
               <div className='Back-next__buttons'>
                 {this.props.action === 'initialGarment' ? (
                   <button
@@ -138,7 +130,6 @@ class ThirdStep extends Component {
                     Atrás
                   </button>
                 ) : ''}
-
                 <button
                   onClick={this.continue}
                   className='Next__button'
