@@ -82,6 +82,7 @@ class ThirdStep extends Component {
               <label className="UploadClothe__label" htmlFor="file"><div>+</div></label>
               <button onClick={this.fileUploadHandler}>Subir foto</button>
             </div> */}
+            <h3>Selecciona la imagen de la prenda</h3>
 
             <ClotheImage />
 

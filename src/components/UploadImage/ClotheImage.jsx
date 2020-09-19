@@ -23,8 +23,8 @@ class ClotheImage extends Component {
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
     axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
       onUploadProgress: (progressEvent) => {
-        toast((progressEvent.loaded / progressEvent.total * 100), {
-          type: 'success',
+        toast(`Cargando imagen: ${(progressEvent.loaded / progressEvent.total * 100).toFixed(2)} %`, {
+          type: 'info',
           autoClose: 2000,
         });
         if (progressEvent.loaded / progressEvent.total == 1) {
