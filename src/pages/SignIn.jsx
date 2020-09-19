@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import api, { userLogin, getUsers } from '../../api';
 import 'react-toastify/dist/ReactToastify.css';
+import api, { userLogin, getUsers } from '../../api';
 import '../components/Sign/SignIn.scss';
 import Header from '../components/HeaderLight/HeaderLight';
 
@@ -44,10 +44,10 @@ const SignIn = (props) => {
       }
     } catch (error) {
       console.log(error);
-      toast('Usuario o Contraseña Erronea', {
-        type: 'error',
-        autoClose: 2000,
-      });
+      // toast('Usuario o Contraseña Erronea', {
+      //   type: 'error',
+      //   autoClose: 2000,
+      // });
     }
   };
 
