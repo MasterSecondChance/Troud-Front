@@ -23,7 +23,7 @@ class UploadImage extends Component {
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
     axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
       onUploadProgress: (progressEvent) => {
-        toast(`Carga ${(progressEvent.loaded / progressEvent.total * 100)} %`, {
+        toast(`Cargando imagen: ${(progressEvent.loaded / progressEvent.total * 100).toFixed(2)} %`, {
           type: 'info',
           autoClose: 2000,
         });
