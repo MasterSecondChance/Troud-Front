@@ -1,6 +1,6 @@
-# 👨‍💻 Trode Developer Guide
+# 👨‍💻 Troud Developer Guide
 
-Esta guía contiene información técnica detallada para desarrolladores que trabajen en el proyecto Trode.
+Esta guía contiene información técnica detallada para desarrolladores que trabajen en el proyecto Troud.
 
 ## 🔧 Configuración de Entorno
 
@@ -372,4 +372,4 @@ npm run build
 
 ---
 
-**Mantenido por el equipo de desarrollo de Trode** 
+**Mantenido por el equipo de desarrollo de Troud** 

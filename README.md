@@ -1,15 +1,15 @@
-# 👔 Trode - Modern Clothing Exchange Platform
+# 👔 Troud - Modern Clothing Exchange Platform
 
 <div align="center">
 
-![Trode Preview](preview.png)
+![Troud Preview](preview.png)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1615fde3-6155-4136-9aab-ab6f500f34aa/deploy-status)](https://app.netlify.com/sites/trode/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1615fde3-6155-4136-9aab-ab6f500f34aa/deploy-status)](https://app.netlify.com/sites/troud/deploys)
 [![Node.js](https://img.shields.io/badge/Node.js-20.19.2-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![Webpack](https://img.shields.io/badge/Webpack-5.99.9-blue.svg)](https://webpack.js.org/)
 
-**Trode** - The app to search, find, and exchange clothes! 🔄
+**Troud** - The app to search, find, and exchange clothes! 🔄
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ## 📝 Description
 
-Trode is a modern web application designed to help users search, find, and exchange both used and new clothes. Built with cutting-edge technologies and a user-friendly interface, Trode makes clothing exchange simple and sustainable.
+Troud is a modern web application designed to help users search, find, and exchange both used and new clothes. Built with cutting-edge technologies and a user-friendly interface, Troud makes clothing exchange simple and sustainable.
 
 ### 🎯 Features
 
@@ -83,7 +83,7 @@ Before starting, ensure you have the following installed:
 
 ```bash
 # Frontend
-git clone https://github.com/MasterSecondChance/Trode-Front.git
+git clone https://github.com/MasterSecondChance/Troud-Front.git
 cd Troud-Front
 
 # Backend (if needed)
@@ -200,7 +200,7 @@ firebase deploy
 
 ### **Netlify Deployment**
 
-Current deployment: [https://trode.netlify.app/](https://trode.netlify.app/)
+Current deployment: [https://troud.netlify.app/](https://troud.netlify.app/)
 
 ### **Docker Deployment**
 
@@ -297,7 +297,7 @@ npm run build
 
 ## 🎨 Design Resources
 
-- **Wireframes & MockUps:** [Figma Project](https://www.figma.com/file/TxD8bIGgXi1UTRwy9BVsA7/Trode?node-id=24%3A3)
+- **Wireframes & MockUps:** [Figma Project](https://www.figma.com/file/TxD8bIGgXi1UTRwy9BVsA7/Troud?node-id=24%3A3)
 - **Color Palette:** Modern, accessible colors
 - **Typography:** Clean, readable fonts
 - **Icons:** FontAwesome icons for consistency
@@ -357,13 +357,13 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](https:
 
 ## 🌐 Live Demo
 
-**Production:** [https://trode.netlify.app/](https://trode.netlify.app/)
+**Production:** [https://troud.netlify.app/](https://troud.netlify.app/)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by the Trode Team**
+**Made with ❤️ by the Troud Team**
 
 *Contributing to a more sustainable future through clothing exchange*
 
