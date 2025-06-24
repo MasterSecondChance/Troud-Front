@@ -3,7 +3,7 @@
   publish = "dist"
   
   # Build command
-  command = "npm run build"
+  command = "npm ci && npm run build"
   
   # Environment variables for build
   [build.environment]
