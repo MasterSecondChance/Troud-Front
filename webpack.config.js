@@ -4,27 +4,29 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const sass = require('sass');
 
 module.exports = {
-  entry: './src/index.js', /*referencia al archivo principal*/
-  output: { /*resolve permite detectar el __dirname directorio en el que estamos y pasandole un directorio para guardar los archivos*/
+  entry: './src/index.js',
+  mode: 'development',
+  output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js', /* filename es el nombre del archivo final */
-  }, /*output donde se guardan los archivos resultantes cuando se haga la compilación*/
+    filename: 'bundle.js',
+    clean: true, // Clean dist folder on each build
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
-  }, /*resuelve las extensiones que usarán en el proyecto*/
+  },
   module: {
     rules: [
-      { /* Regla principal */
-        test: /\.(js|jsx)$/, /* Identificación de los archivos js y jsx */
-        exclude: /node_modules/, /* Excluye la carpeta node_modules */
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', /* Hay que usar el loader para que babel haga el trabajo */
+          loader: 'babel-loader',
         },
       },
-      { /* Nueva regla */
-        test: /\.html$/, /* Identificación de los archivos html */
+      {
+        test: /\.html$/,
         use: {
-          loader: 'html-loader', /* Loader de html */
+          loader: 'html-loader',
         },
       },
       {
@@ -42,7 +44,7 @@ module.exports = {
                 quietDeps: true,
                 outputStyle: 'compressed',
                 logger: {
-                  warn: () => {}, // Silenciar advertencias de deprecación
+                  warn: () => {}, // Silence deprecation warnings
                 },
               },
             },
@@ -50,61 +52,29 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true, // true outputs JSX tags
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(png|gif|jpg|jpeg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'assets/[hash].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.svg$/,
-        exclude: path.resolve(__dirname, 'node_modules', 'font-awesome'),
-        use: ['babel-loader', 'react-svg-loader'],
-      },
-      {
-        test: /\.svg$/,
-        include: path.resolve(__dirname, 'node_modules', 'font-awesome'),
-        use: [{
-          loader: 'file-loader',
-          options: {
-            jsx: true,
-          },
-        }],
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-react-loader',
+        test: /\.(png|gif|jpg|jpeg|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[hash][ext][query]',
+        },
       },
     ],
-  }, /* Dicta las reglas necesarias para el proyecto */
+  },
   devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     historyApiFallback: true,
+    port: 8080,
+    open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', /* Donde esta ubicado el template */
-      filename: './index.html', /* Nombre */
+      template: './public/index.html',
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
-  ] /* Añada los plugins que se necesitan */,
+  ],
 };

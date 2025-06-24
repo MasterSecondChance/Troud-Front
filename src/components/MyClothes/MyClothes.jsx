@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import './MyClothes.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { getUserById, getArticleByPhone } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
+import { getArticleByPhone, getUserById } from '../../../api';
+import './MyClothes.scss';
 
 const MyClothes = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [user, setUser] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -17,7 +17,7 @@ const MyClothes = () => {
   useEffect(() => {
     const getUser = async () => {
       if (!sessionStorage) {
-        history.push('/');
+        navigate('/');
       }
       try {
         const dataUser = await getUserById(JSON.parse(sessionStorage.getItem('userData')).user._id);

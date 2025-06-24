@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import api, { userLogin, getUsers } from '../../api';
-import '../components/Sign/SignIn.scss';
+import { getUsers, userLogin } from '../../api';
 import Header from '../components/HeaderLight/HeaderLight';
+import '../components/Sign/SignIn.scss';
 
 const SignIn = (props) => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [values, setValues] = useState('');
 
@@ -38,9 +38,9 @@ const SignIn = (props) => {
       sessionStorage.setItem('userData', JSON.stringify(login));
       //Redirect
       if (login.articles == 0) {
-        history.push('/upload');
+        navigate('/upload');
       } else {
-        history.push('/home');
+        navigate('/home');
       }
     } catch (error) {
       console.log(error);
