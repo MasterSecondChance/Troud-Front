@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { faCommentAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faCommentAlt } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getMatchByPhone, deleteMatchs } from '../../../api';
+import { deleteMatchs, getMatchByPhone } from '../../../api';
 import NoChats from '../NoChats/NoChats';
 import './Message.scss';
 
 const Message = () => {
 
   const [matchs, setMatchs] = useState([]);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleDeleteMatchs = async (phoneFirst, phoneSecond) => {
     try {
@@ -20,7 +20,7 @@ const Message = () => {
         type: 'info',
         autoClose: 3000,
       });
-      history.push('/inbox');
+      navigate('/inbox');
     } catch (error) {
       console.log(error);
       toast('No se pudo borrar el match.', {
@@ -33,7 +33,7 @@ const Message = () => {
   useEffect(() => {
     const geArticles = async () => {
       if (!sessionStorage) {
-        history.push('/');
+        navigate('/');
       }
       try {
         const matchs = await getMatchByPhone(JSON.parse(sessionStorage.getItem('userData')).user.phone);
@@ -75,6 +75,7 @@ const Message = () => {
                     </div>
                     <div>
                       <button
+                        type='button'
                         className='Message__delete button'
                         onClick={() => {
                           handleDeleteMatchs(item.phoneFirst, item.phoneSecond);
@@ -82,7 +83,7 @@ const Message = () => {
                       >
                         <FontAwesomeIcon className='faTrash' icon={faTrash} title='Eliminar' />
                       </button>
-                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=57${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`}>
+                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=57${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`} rel='noreferrer'>
                         <FontAwesomeIcon className='faCommentAlt' icon={faCommentAlt} title='Mensaje' />
                       </a>
                     </div>
