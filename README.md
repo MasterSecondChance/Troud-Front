@@ -368,3 +368,59 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](https:
 *Contributing to a more sustainable future through clothing exchange*
 
 </div>
+
+## 🚀 Environment Variables
+
+This project uses environment variables for different configurations between development and production.
+
+### 📁 **Files:**
+- `.env` - Production environment (used by Netlify)
+- `.env.local` - Local development environment  
+- `.env.example` - Template for new setups
+
+### 🛠️ **Local Development Setup:**
+
+1. **Copy environment template:**
+```bash
+cp .env.example .env.local
+```
+
+2. **Configure local backend:**
+```bash
+# Edit .env.local with your local backend URL
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_IMAGE_UPLOAD_URL=http://localhost:3000/api/images
+```
+
+3. **Start your local backend** on `http://localhost:3000`
+
+4. **Start frontend development server:**
+```bash
+npm run dev
+# Frontend runs on http://localhost:8080
+```
+
+### 🌐 **Available Variables:**
+
+| Variable | Description | Local Example | Production Example |
+|----------|-------------|---------------|-------------------|
+| `VITE_API_BASE_URL` | Backend API URL | `http://localhost:3000/api` | `https://your-api.vercel.app/api` |
+| `VITE_IMAGE_UPLOAD_URL` | Image upload endpoint | `http://localhost:3000/api/images` | `https://your-api.vercel.app/api/images` |
+| `VITE_WHATSAPP_API_URL` | WhatsApp API URL | `https://api.whatsapp.com/send` | `https://api.whatsapp.com/send` |
+| `VITE_S3_BASE_URL` | CDN/Storage URL | `https://your-bucket.s3.amazonaws.com` | `https://your-bucket.s3.amazonaws.com` |
+| `VITE_NODE_ENV` | Environment mode | `development` | `production` |
+| `VITE_DEBUG` | Debug mode | `true` | `false` |
+
+### 🔧 **Development vs Production:**
+
+**Local Development (`npm run dev`):**
+- Uses `.env.local` 
+- Backend: `http://localhost:3000`
+- Frontend: `http://localhost:8080`
+- Debug mode enabled
+
+**Production Build (`npm run build`):**
+- Uses `.env`
+- Backend: Production URLs
+- Optimized bundle
+- Debug mode disabled

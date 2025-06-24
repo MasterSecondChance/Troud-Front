@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 //Token initialized
@@ -9,7 +9,7 @@ if (!sessionStorage.length) {
 }
 
 const serviceInstance = axios.create({
-  baseURL: 'https://trode.afcarrion.vercel.app/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://trode.afcarrion.vercel.app/api',
 });
 
 export const uploadImage = async (id) => {
@@ -335,7 +335,7 @@ export const deleteMatchs = async (phoneFirst, phoneSecond) => {
 
 export const getMatchByPhone = async (phone) => {
   //Token
-  const token = JSON.parse(sessionStorage.getItem("userData")).access_token;
+  const token = JSON.parse(sessionStorage.getItem('userData')).access_token;
   try {
     const { data } = await serviceInstance.get(`/matches/phone/${phone}`, {
       headers: {

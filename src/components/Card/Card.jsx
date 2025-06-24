@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './Card.scss';
+import { faHeart, faMars, faStar, faTimes, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faVenus, faTimes, faHeart, faStar, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createReaction, getArticleByCategory, getArticlesUnreaction, createMatch } from '../../../api';
+import { createMatch, createReaction, getArticleByCategory, getArticlesUnreaction } from '../../../api';
+import './Card.scss';
 
-const Card = ({ category }) => {
+function Card({ category }) {
 
   const [articles, setArticles] = useState([]);
 
@@ -97,7 +97,7 @@ const Card = ({ category }) => {
           phoneSecond: match.user.phone,
           urlPhotoArticleSecond: match.articleOwner.urlPhoto,
           secondArticleName: articleName,
-          urlChat: `https://api.whatsapp.com/send?phone=${match.owner.phone}`,
+          urlChat: `${import.meta.env.VITE_WHATSAPP_API_URL || 'https://api.whatsapp.com/send'}?phone=${match.owner.phone}`,
         });
         toast('Hiciste match', {
           type: 'success',
@@ -241,6 +241,6 @@ const Card = ({ category }) => {
       }
     </>
   );
-};
+}
 
 export default Card;

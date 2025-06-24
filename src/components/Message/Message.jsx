@@ -8,7 +8,7 @@ import { deleteMatchs, getMatchByPhone } from '../../../api';
 import NoChats from '../NoChats/NoChats';
 import './Message.scss';
 
-const Message = () => {
+function Message() {
 
   const [matchs, setMatchs] = useState([]);
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const Message = () => {
                       >
                         <FontAwesomeIcon className='faTrash' icon={faTrash} title='Eliminar' />
                       </button>
-                      <a className='Message__chat button' target='_blank' href={`https://api.whatsapp.com/send?phone=57${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`} rel='noreferrer'>
+                      <a className='Message__chat button' target='_blank' href={`${import.meta.env.VITE_WHATSAPP_API_URL || 'https://api.whatsapp.com/send'}?phone=57${item.phoneSecond}&text=hola%20soy%20${item.nameFirst} y me gusta tu '${item.firstArticleName}'`} rel='noreferrer'>
                         <FontAwesomeIcon className='faCommentAlt' icon={faCommentAlt} title='Mensaje' />
                       </a>
                     </div>
@@ -96,6 +96,6 @@ const Message = () => {
       }
     </>
   );
-};
+}
 
 export default Message;

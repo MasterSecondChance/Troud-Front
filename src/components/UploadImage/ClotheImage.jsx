@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import axios from 'axios';
+import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,7 +21,7 @@ class ClotheImage extends Component {
   fileUploadHandler = () => {
     const fd = new FormData();
     fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
+    axios.post(import.meta.env.VITE_IMAGE_UPLOAD_URL || 'https://trode.afcarrion.vercel.app/api/images', fd, {
       onUploadProgress: (progressEvent) => {
         toast(`Cargando imagen: ${(progressEvent.loaded / progressEvent.total * 100).toFixed(2)} %`, {
           type: 'info',
