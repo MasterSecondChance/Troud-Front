@@ -38,6 +38,13 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: sass,
+              sassOptions: {
+                quietDeps: true,
+                outputStyle: 'compressed',
+                logger: {
+                  warn: () => {}, // Silenciar advertencias de deprecación
+                },
+              },
             },
           },
         ],
