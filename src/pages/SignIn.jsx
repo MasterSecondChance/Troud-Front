@@ -6,7 +6,7 @@ import { getUsers, userLogin } from '../../api';
 import Header from '../components/HeaderLight/HeaderLight';
 import '../components/Sign/SignIn.scss';
 
-const SignIn = (props) => {
+function SignIn(props) {
 
   const navigate = useNavigate();
 
@@ -99,7 +99,6 @@ const SignIn = (props) => {
             <button
               type='submit'
               aria-label='Botón iniciar sesión'
-              aria-label='Botón iniciar sesión'
             >
               Ingresar
             </button>
@@ -114,6 +113,6 @@ const SignIn = (props) => {
 
     </div>
   );
-};
+}
 
 export default SignIn;
