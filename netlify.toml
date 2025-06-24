@@ -1,0 +1,58 @@
+[build]
+  # Directory with the build output
+  publish = "dist"
+  
+  # Build command
+  command = "npm run build"
+  
+  # Environment variables for build
+  [build.environment]
+    NODE_VERSION = "20.19.2"
+    NPM_VERSION = "10.9.2"
+    NODE_ENV = "production"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache bundle files for 1 year
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect rules for SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Handle SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirect old domain if needed
+# [[redirects]]
+#   from = "https://trode.netlify.app/*"
+#   to = "https://troud.netlify.app/:splat"
+#   status = 301
+#   force = true 
