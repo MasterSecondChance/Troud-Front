@@ -1,4 +1,4 @@
-@import '../../assets/styles/containers/Variables.scss';
+@use '../../assets/styles/containers/Variables.scss' as *;
 
 .Header {
   align-items: center;

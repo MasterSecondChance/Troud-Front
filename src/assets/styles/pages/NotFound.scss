@@ -1,4 +1,4 @@
-@import '../containers/Variables.scss';
+@use '../containers/Variables.scss' as *;
 
 .NotFoundPage {
   display: flex;

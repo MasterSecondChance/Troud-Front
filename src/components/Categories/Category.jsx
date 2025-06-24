@@ -1,12 +1,11 @@
+import { faHatCowboy, faMitten, faShoePrints, faSocks, faTshirt, faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
-import './Category.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTshirt, faShoePrints, faHatCowboy, faUserSecret, faMitten, faSocks } from '@fortawesome/free-solid-svg-icons';
 import { ToastContainer, toast } from 'react-toastify';
-import api, { getArticles } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
+import { getArticles } from '../../../api';
+import './Category.scss';
 
-const Category = ({ setCategory }) => {
+function Category({ setCategory }) {
 
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
@@ -15,27 +14,19 @@ const Category = ({ setCategory }) => {
   const defineIcon = (item) => {
     switch (item) {
       case 'Camisetas':
-        return (
-          faTshirt
-        );
+        return faTshirt;
       case 'Calzado':
-        return (
-          faTshirt
-        );
-      case 'Camisetas':
-        return (
-          faTshirt
-        );
-      case 'Camisetas':
-        return (
-          faTshirt
-        );
-      case 'Pantalones':
-        return (
-          faTshirt
-        );
-      default:
         return faShoePrints;
+      case 'Accesorios':
+        return faHatCowboy;
+      case 'Pantalones':
+        return faUserSecret;
+      case 'Ropa Interior':
+        return faMitten;
+      case 'Otros':
+        return faSocks;
+      default:
+        return faTshirt;
     }
   };
 
@@ -102,6 +93,6 @@ const Category = ({ setCategory }) => {
       </div>
     </>
   );
-};
+}
 
 export default Category;

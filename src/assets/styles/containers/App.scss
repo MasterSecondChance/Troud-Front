@@ -1,4 +1,4 @@
-@import './Variables.scss';
+@use './Variables.scss' as *;
 
 body {
   background-color: $grey-1;
