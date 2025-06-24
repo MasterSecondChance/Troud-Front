@@ -1,14 +1,14 @@
-import React, { Component, useContext } from 'react';
-import './Confirm.scss';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import Header from '../HeaderLight/HeaderLight';
-import { createUser, createArticle, updateArticle } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
+import { createArticle, createUser, updateArticle } from '../../../api';
+import Header from '../HeaderLight/HeaderLight';
+import './Confirm.scss';
 
 const Confirm = (props) => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const back = (e) => {
     e.preventDefault();
     props.previous();
@@ -17,7 +17,7 @@ const Confirm = (props) => {
   const handleAditionalClothe = async () => {
     try {
       await createArticle({ ...clothe, phoneOwner: JSON.parse(sessionStorage.getItem('userData')).user.phone, idOwner: JSON.parse(sessionStorage.getItem('userData')).user._id });
-      history.push('/home');
+      navigate('/home');
     } catch (error) {
       console.log(error);
       toast('No se pudo crear la prenda', {
@@ -40,7 +40,7 @@ const Confirm = (props) => {
         autoClose: 3000,
       });
       setTimeout(() => {
-        history.push('/');
+        navigate('/');
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ const Confirm = (props) => {
         autoClose: 3000,
       });
       setTimeout(() => {
-        history.push('/user');
+        navigate('/user');
       }, 3000);
     } catch (error) {
       toast(error, {

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import './ProfilePersonal.scss';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import api, { getUserById, updateUser } from '../../../api';
 import 'react-toastify/dist/ReactToastify.css';
+import { getUserById, updateUser } from '../../../api';
+import './ProfilePersonal.scss';
 
 const ProfilePersonal = () => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const [user, setUser] = useState([]);
   const [values, setValues] = useState('');
 
@@ -40,12 +40,12 @@ const ProfilePersonal = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    history.push('/');
+    navigate('/');
   };
 
   useEffect(() => {
     if (!sessionStorage) {
-      history.push('/');
+      navigate('/');
     }
     const getUser = async () => {
       try {

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import './FullCard.scss';
+import { faMars, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { faMars, faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
-import { deleteArticleById, getArticleById } from '../../../api/index';
 import 'react-toastify/dist/ReactToastify.css';
+import { deleteArticleById, getArticleById } from '../../../api/index';
+import './FullCard.scss';
 
 const FullCard = (props) => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const [article, setArticle] = useState({
     type: '',
     size: '',
@@ -32,7 +32,7 @@ const FullCard = (props) => {
           autoClose: 3000,
         });
         setTimeout(() => {
-          history.push('/user');
+          navigate('/user');
         }, 3000);
       } catch (error) {
         toast('No fue posible eliminar la prenda', {
