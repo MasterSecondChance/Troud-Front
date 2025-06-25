@@ -40,7 +40,7 @@ By visiting this website, users can:
 
 - **React** `18.3.1` - Modern UI library with Hooks & Concurrent Features
 - **React Router** `6.30.1` - Modern routing with latest navigation APIs
-- **Webpack** `5.99.9` - Modern bundling with asset modules
+- **Vite** `7.0.0` - Ultra-fast build tool and dev server
 - **Sass** `1.89.2` - Modern CSS preprocessing (Dart Sass)
 - **Axios** `1.10.0` - HTTP client for API calls
 - **React Toastify** `6.0.8` - Beautiful notifications
@@ -57,10 +57,10 @@ By visiting this website, users can:
 ### **Development Tools**
 
 - **Node.js** `20.19.2 LTS` - JavaScript runtime
-- **Jest** `29.7.0` - Modern testing framework
-- **Prettier** - Automatic code formatting
+- **Jest** `29.7.0` - Modern testing framework with React Testing Library
+- **Prettier** - Automatic code formatting (via npx)
 - **Babel** `7.x` - JavaScript transpilation
-- **Webpack Dev Server** `5.2.2` - Hot reload development server
+- **Vite Dev Server** - Ultra-fast hot reload development server
 
 ---
 
@@ -133,24 +133,26 @@ npm start
 ### **Development**
 
 ```bash
-npm start              # Start development server with hot reload
+npm run dev            # Start development server with hot reload (Vite)
+npm start              # Alternative: Start development server
 npm run build          # Build for production
-npm run build:quiet    # Build with minimal output
+npm run preview        # Preview production build locally
 ```
 
 ### **Code Quality**
 
 ```bash
-npm run format         # Format code with Prettier
-npm run format         # Format code with Prettier
+npm run format         # Format code with Prettier (via npx)
 ```
 
 ### **Testing**
 
 ```bash
-npm test               # Run test suite
+npm test               # Run test suite (10 tests passing)
 npm run test:watch     # Run tests in watch mode
-npm run test:coverage  # Generate coverage report
+npm run test:coverage  # Generate coverage report (text)
+npm run test:coverage:html  # Generate HTML coverage report
+npm run test:coverage:open  # Generate and open HTML coverage report
 npm run test:update    # Update test snapshots
 ```
 
@@ -181,10 +183,13 @@ Troud-Front/
 │   ├── 📁 __test__/        # Test files
 │   └── index.js            # App entry point
 ├── 📁 api/                 # API integration
-├── 📁 dist/                # Production build output
+├── 📁 dist/                # Production build output (Vite)
+├── 📁 coverage/            # Test coverage reports
 ├── package.json            # Dependencies & scripts
-├── webpack.config.js       # Webpack configuration
+├── vite.config.mjs         # Vite configuration
 ├── firebase.json           # Firebase hosting config
+├── .prettierrc             # Prettier configuration
+├── .prettierignore         # Prettier ignore patterns
 └── README.md              # This file
 ```
 
@@ -198,6 +203,47 @@ The project is configured for Firebase hosting:
 
 ```bash
 # Build the project
+npm run build
+
+# Deploy to Firebase
+npm run deploy
+```
+
+### **Development Server**
+
+For local development with Vite:
+
+```bash
+# Start development server (recommended)
+npm run dev
+
+# App will open at http://localhost:5173
+```
+
+---
+
+## 🧪 Testing
+
+### **Current Test Suite**
+
+The project has **10 tests** covering critical components:
+
+- **Pages**: Home, SignIn, NotFound, Inbox, ProfileSettings, UploadClothe (6 tests)
+- **Components**: Header, HeaderLight, Hero, Containers (4 tests)
+
+### **Testing Framework**
+
+- **Jest** `29.7.0` - Modern testing framework
+- **React Testing Library** - Modern React component testing
+- **Coverage Reports** - HTML and text formats available
+
+### **Test Commands**
+
+```bash
+npm test                    # Run all tests
+npm run test:coverage       # Basic coverage report
+npm run test:coverage:html  # Generate HTML coverage report
+npm run test:coverage:open  # Open HTML coverage in browser
 npm run build
 
 # Deploy to Firebase (if configured)

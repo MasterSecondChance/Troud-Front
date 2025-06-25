@@ -61,11 +61,11 @@ src/components/
   <Route path="/home" element={<Home />} />
   <Route path="/details/:id" element={<Details />} />
   <Route path="*" element={<NotFound />} />
-</Routes>
+</Routes>;
 
 // Navegación
 const navigate = useNavigate();
-navigate('/home');
+navigate("/home");
 ```
 
 ## 🛠️ Herramientas de Desarrollo
@@ -80,17 +80,21 @@ npm run format          # Formatear código usando npx
 ```
 
 **Configuración recomendada para VS Code:**
+
 - Instalar extensión "Prettier - Code formatter"
 - Habilitar "Format on Save" en configuración
 - El archivo `.prettierrc` define las reglas de formateo
+- Configuración automática en `.vscode/settings.json`
 
-### Webpack 5
+### Vite 7
 
 Configuración moderna con:
-- Asset modules para imágenes
-- Hot Module Replacement
-- Code splitting
-- Tree shaking
+
+- Ultra-fast Hot Module Replacement (HMR)
+- ES modules nativo
+- Build optimizado con Rollup
+- TypeScript support out-of-the-box
+- CSS preprocessing automático
 
 ## 🧪 Testing
 
@@ -110,11 +114,21 @@ Configuración moderna con:
 ### Comandos de Testing
 
 ```bash
-npm test                    # Ejecutar tests
+npm test                    # Ejecutar tests (10 tests básicos)
 npm run test:watch         # Modo watch
-npm run test:coverage      # Cobertura de código
+npm run test:coverage      # Cobertura de código (texto)
+npm run test:coverage:html # Reporte HTML de cobertura
+npm run test:coverage:open # Abrir reporte HTML en navegador
 npm run test:update        # Actualizar snapshots
 ```
+
+### Sistema de Testing Moderno
+
+- **Jest 29.7.0**: Framework de testing moderno
+- **React Testing Library**: Testing de componentes React (reemplaza Enzyme)
+- **Coverage configurado**: Reportes automáticos de cobertura
+- **10 tests funcionando**: Componentes y páginas críticas cubiertos
+- **Sin warnings**: Configuración de mocks limpios
 
 ## 🎨 Estilos y Diseño
 
@@ -122,7 +136,7 @@ npm run test:update        # Actualizar snapshots
 
 ```scss
 // Variables globales
-@import 'assets/styles/containers/Variables.scss';
+@import "assets/styles/containers/Variables.scss";
 
 // Mixins comunes
 @mixin flex-center {
@@ -151,7 +165,7 @@ $desktop: 1200px;
 
 ```javascript
 // api/index.js
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -160,9 +174,9 @@ const api = axios.create({
 
 // Interceptors para manejo de errores
 api.interceptors.response.use(
-  response => response,
-  error => {
-    console.error('API Error:', error);
+  (response) => response,
+  (error) => {
+    console.error("API Error:", error);
     return Promise.reject(error);
   }
 );
@@ -172,14 +186,14 @@ api.interceptors.response.use(
 
 ```javascript
 // Guardar datos del usuario
-sessionStorage.setItem('userData', JSON.stringify(userData));
+sessionStorage.setItem("userData", JSON.stringify(userData));
 
 // Obtener datos del usuario
-const userData = JSON.parse(sessionStorage.getItem('userData'));
+const userData = JSON.parse(sessionStorage.getItem("userData"));
 
 // Logout
 sessionStorage.clear();
-navigate('/');
+navigate("/");
 ```
 
 ## 🔍 Debugging
@@ -190,18 +204,20 @@ navigate('/');
 2. Inspeccionar componentes en tiempo real
 3. Analizar hooks y estado
 
-### Webpack Dev Server
+### Vite Dev Server
 
-- Hot reloading automático
-- Source maps habilitados
-- Overlay de errores en el navegador
+- Ultra-fast Hot Module Replacement (HMR)
+- Source maps habilitados por defecto
+- Error overlay en el navegador
+- Servidor en http://localhost:5173 (modo dev)
+- Build optimizado con Rollup
 
 ### Console Logging
 
 ```javascript
 // Development only
-if (process.env.NODE_ENV === 'development') {
-  console.log('Debug info:', data);
+if (process.env.NODE_ENV === "development") {
+  console.log("Debug info:", data);
 }
 ```
 
@@ -254,7 +270,7 @@ const isValidEmail = (email) => {
 
 // Sanitizar input
 const sanitizeInput = (input) => {
-  return input.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  return input.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
 };
 ```
 
@@ -310,7 +326,7 @@ test: add unit tests for auth components
 // Error boundary para capturar errores
 class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
-    console.error('Error caught:', error, errorInfo);
+    console.error("Error caught:", error, errorInfo);
     // Enviar a servicio de error tracking
   }
 }
@@ -320,8 +336,8 @@ class ErrorBoundary extends React.Component {
 
 ```javascript
 // Performance API
-const navigation = performance.getEntriesByType('navigation')[0];
-console.log('Page load time:', navigation.loadEventEnd - navigation.loadEventStart);
+const navigation = performance.getEntriesByType("navigation")[0];
+console.log("Page load time:", navigation.loadEventEnd - navigation.loadEventStart);
 ```
 
 ## 🆘 Resolución de Problemas Comunes
@@ -369,4 +385,4 @@ npm run build
 
 ---
 
-**Mantenido por el equipo de desarrollo de Troud** 
+**Mantenido por el equipo de desarrollo de Troud**
