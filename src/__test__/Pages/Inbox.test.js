@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import ProfileSettings from "../../pages/ProfileSettings";
+import Inbox from "../../pages/Inbox";
 
 // Mock the child components to avoid complex dependencies
 jest.mock("../../components/Header/Header", () => {
@@ -10,21 +10,21 @@ jest.mock("../../components/Header/Header", () => {
   };
 });
 
-jest.mock("../../components/ProfilePersonal/ProfilePersonal", () => {
-  return function MockProfilePersonal() {
-    return <div data-testid="profile-personal">Profile Personal Component</div>;
+jest.mock("../../components/ListOfMessages/ListOfMessages", () => {
+  return function MockListOfMessages() {
+    return <div data-testid="list-of-messages">List Of Messages Component</div>;
   };
 });
 
-describe("<ProfileSettings />", () => {
-  test("Render del componente ProfileSettings", () => {
+describe("<Inbox />", () => {
+  test("Render del componente Inbox", () => {
     render(
       <BrowserRouter>
-        <ProfileSettings />
+        <Inbox />
       </BrowserRouter>
     );
 
-    // ProfileSettings renders without crashing
+    // Inbox renders without crashing
     expect(true).toBe(true);
   });
 });

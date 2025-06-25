@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .Message {
   position: relative;
@@ -16,7 +16,7 @@
   & div:first-child {
     display: flex;
 
-    &>div {
+    & > div {
       display: flex;
       flex-direction: column;
       justify-content: center;

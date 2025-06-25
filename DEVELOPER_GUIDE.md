@@ -70,22 +70,19 @@ navigate('/home');
 
 ## 🛠️ Herramientas de Desarrollo
 
-### ESLint
-
-Configuración estricta para calidad de código:
-
-```bash
-npm run eslint          # Ejecutar linting
-npm run eslint --fix    # Corregir automáticamente
-```
-
 ### Prettier
 
-Formateo automático de código:
+Formateo automático de código sin dependencias locales:
 
 ```bash
-npm run format          # Formatear código
+npm run format          # Formatear código usando npx
+# O instala la extensión de Prettier en tu editor para formateo automático
 ```
+
+**Configuración recomendada para VS Code:**
+- Instalar extensión "Prettier - Code formatter"
+- Habilitar "Format on Save" en configuración
+- El archivo `.prettierrc` define las reglas de formateo
 
 ### Webpack 5
 

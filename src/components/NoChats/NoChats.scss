@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .NoChats {
   max-width: 390px;
@@ -27,7 +27,9 @@
     margin-block-start: $spacing-03;
     cursor: pointer;
     line-height: 52px;
-    transition: transform .3s ease-out, filter 0.3s ease-out;
+    transition:
+      transform 0.3s ease-out,
+      filter 0.3s ease-out;
 
     &:hover {
       filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));

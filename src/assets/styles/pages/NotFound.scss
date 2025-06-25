@@ -1,4 +1,4 @@
-@use '../containers/Variables.scss' as *;
+@use "../containers/Variables.scss" as *;
 
 .NotFoundPage {
   display: flex;
@@ -34,7 +34,9 @@
       margin-block-start: $spacing-03;
       cursor: pointer;
       line-height: 52px;
-      transition: transform .3s ease-out, filter 0.3s ease-out;
+      transition:
+        transform 0.3s ease-out,
+        filter 0.3s ease-out;
 
       &:hover {
         filter: drop-shadow(0px 4px 4px rgba(178, 225, 1, 0.2));
@@ -65,7 +67,7 @@
       }
 
       &__description {
-        font-size: 1.5rem
+        font-size: 1.5rem;
       }
 
       &__button {

@@ -24,7 +24,7 @@ Troud is a modern web application designed to help users search, find, and excha
 By visiting this website, users can:
 
 - ✅ **Register or Login** - Secure authentication system
-- 🖼️ **Upload Profile Images** - Personalized user profiles  
+- 🖼️ **Upload Profile Images** - Personalized user profiles
 - 👕 **Upload Clothes & Accessories** - Share items you no longer use
 - 💖 **Like, Dislike, or Super-like** - Interactive clothing rating system
 - 💬 **Chat via WhatsApp** - Connect with users when there's a match
@@ -37,6 +37,7 @@ By visiting this website, users can:
 ## 🚀 Technology Stack
 
 ### **Frontend (Modernized 2024)**
+
 - **React** `18.3.1` - Modern UI library with Hooks & Concurrent Features
 - **React Router** `6.30.1` - Modern routing with latest navigation APIs
 - **Webpack** `5.99.9` - Modern bundling with asset modules
@@ -46,6 +47,7 @@ By visiting this website, users can:
 - **FontAwesome** `5.13.1` - Icon library
 
 ### **Backend**
+
 - **Express.js** - Fast, minimalist web framework
 - **MongoDB** - NoSQL database for flexible data storage
 - **Passport.js** - Authentication middleware
@@ -53,9 +55,10 @@ By visiting this website, users can:
 - **UUID** - Unique identifier generation
 
 ### **Development Tools**
+
 - **Node.js** `20.19.2 LTS` - JavaScript runtime
-- **Jest** `29.7.0` - Modern testing framework  
-- **ESLint** `9.29.0` - Code linting with modern rules
+- **Jest** `29.7.0` - Modern testing framework
+- **Prettier** - Automatic code formatting
 - **Babel** `7.x` - JavaScript transpilation
 - **Webpack Dev Server** `5.2.2` - Hot reload development server
 
@@ -128,6 +131,7 @@ npm start
 ## 🛠️ Available Scripts
 
 ### **Development**
+
 ```bash
 npm start              # Start development server with hot reload
 npm run build          # Build for production
@@ -135,12 +139,14 @@ npm run build:quiet    # Build with minimal output
 ```
 
 ### **Code Quality**
+
 ```bash
-npm run eslint         # Lint and fix JavaScript/React code
+npm run format         # Format code with Prettier
 npm run format         # Format code with Prettier
 ```
 
 ### **Testing**
+
 ```bash
 npm test               # Run test suite
 npm run test:watch     # Run tests in watch mode
@@ -221,18 +227,21 @@ CMD ["npm", "start"]
 ## 🧪 Modern Features
 
 ### **React 18 Features**
+
 - ✅ **Concurrent Rendering** - Improved performance
 - ✅ **createRoot API** - Modern root creation
 - ✅ **Automatic Batching** - Optimized state updates
 - ✅ **Suspense** - Ready for future data fetching
 
 ### **Webpack 5 Features**
+
 - ✅ **Asset Modules** - Built-in asset handling
 - ✅ **Tree Shaking** - Optimized bundle size
 - ✅ **Module Federation** - Ready for micro-frontends
 - ✅ **Persistent Caching** - Faster rebuilds
 
 ### **Modern JavaScript**
+
 - ✅ **ES2022+ Features** - Latest JavaScript syntax
 - ✅ **Optional Chaining** - Safe property access
 - ✅ **Nullish Coalescing** - Better default values
@@ -243,6 +252,7 @@ CMD ["npm", "start"]
 ## 🔧 Development Tips
 
 ### **Hot Reload Development**
+
 The development server supports hot reloading for instant feedback:
 
 ```bash
@@ -252,11 +262,13 @@ npm start
 ```
 
 ### **Debugging**
+
 - Use React DevTools browser extension
 - Modern source maps are enabled for debugging
 - Console warnings are helpful for development
 
 ### **Performance Optimization**
+
 - Images are automatically optimized by Webpack
 - Bundle analysis available with webpack-bundle-analyzer
 - Code splitting recommendations in build output
@@ -268,18 +280,21 @@ npm start
 ### **Common Issues**
 
 **Port 8080 already in use:**
+
 ```bash
 # Kill the process using port 8080
 lsof -ti:8080 | xargs kill -9
 ```
 
 **Node.js version issues:**
+
 ```bash
 # Use Node Version Manager
 nvm use 20.19.2
 ```
 
 **Dependency conflicts:**
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -287,6 +302,7 @@ npm install --legacy-peer-deps
 ```
 
 **Build failures:**
+
 ```bash
 # Clean build
 rm -rf dist
@@ -313,7 +329,8 @@ npm run build
 5. Open a Pull Request
 
 ### **Code Standards**
-- Follow ESLint configuration
+
+- Use Prettier for consistent code formatting
 - Use Prettier for formatting
 - Write tests for new features
 - Update documentation
@@ -325,6 +342,7 @@ npm run build
 **Current Version:** `1.0.0` (Modernized 2024)
 
 **Modernization Status:** ✅ **COMPLETED**
+
 - **Node.js:** 16.20.2 → 20.19.2 LTS ✅
 - **React:** 16.13.1 → 18.3.1 ✅
 - **Webpack:** 4.47.0 → 5.99.9 ✅
@@ -332,6 +350,7 @@ npm run build
 - **All Dependencies:** Updated to 2024 standards ✅
 
 **Performance Metrics:**
+
 - **Bundle Size:** ~318KB (optimized)
 - **Build Time:** ~5 seconds
 - **Development Server:** Hot reload enabled
@@ -365,6 +384,68 @@ This project is licensed under the **MIT License** - see the [LICENSE.md](https:
 
 **Made with ❤️ by the Troud Team**
 
-*Contributing to a more sustainable future through clothing exchange*
+_Contributing to a more sustainable future through clothing exchange_
 
 </div>
+
+## 🚀 Environment Variables
+
+This project uses environment variables for different configurations between development and production.
+
+### 📁 **Files:**
+
+- `.env` - Production environment (used by Netlify)
+- `.env.local` - Local development environment
+- `.env.example` - Template for new setups
+
+### 🛠️ **Local Development Setup:**
+
+1. **Copy environment template:**
+
+```bash
+cp .env.example .env.local
+```
+
+2. **Configure local backend:**
+
+```bash
+# Edit .env.local with your local backend URL
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_IMAGE_UPLOAD_URL=http://localhost:3000/api/images
+```
+
+3. **Start your local backend** on `http://localhost:3000`
+
+4. **Start frontend development server:**
+
+```bash
+npm run dev
+# Frontend runs on http://localhost:8080
+```
+
+### 🌐 **Available Variables:**
+
+| Variable                | Description           | Local Example                          | Production Example                       |
+| ----------------------- | --------------------- | -------------------------------------- | ---------------------------------------- |
+| `VITE_API_BASE_URL`     | Backend API URL       | `http://localhost:3000/api`            | `https://your-api.vercel.app/api`        |
+| `VITE_IMAGE_UPLOAD_URL` | Image upload endpoint | `http://localhost:3000/api/images`     | `https://your-api.vercel.app/api/images` |
+| `VITE_WHATSAPP_API_URL` | WhatsApp API URL      | `https://api.whatsapp.com/send`        | `https://api.whatsapp.com/send`          |
+| `VITE_S3_BASE_URL`      | CDN/Storage URL       | `https://your-bucket.s3.amazonaws.com` | `https://your-bucket.s3.amazonaws.com`   |
+| `VITE_NODE_ENV`         | Environment mode      | `development`                          | `production`                             |
+| `VITE_DEBUG`            | Debug mode            | `true`                                 | `false`                                  |
+
+### 🔧 **Development vs Production:**
+
+**Local Development (`npm run dev`):**
+
+- Uses `.env.local`
+- Backend: `http://localhost:3000`
+- Frontend: `http://localhost:8080`
+- Debug mode enabled
+
+**Production Build (`npm run build`):**
+
+- Uses `.env`
+- Backend: Production URLs
+- Optimized bundle
+- Debug mode disabled

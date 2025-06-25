@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import './UploadImages.scss';
+import "./UploadImages.scss";
 
 class UploadImage extends Component {
-
   state = {
     selectedFile: null,
-  }
+  };
 
   fileSelectedHandler = async (event) => {
     await this.setState({
@@ -20,49 +19,57 @@ class UploadImage extends Component {
 
   fileUploadHandler = () => {
     const fd = new FormData();
-    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://trode.afcarrion.vercel.app/api/images', fd, {
-      onUploadProgress: (progressEvent) => {
-        toast(`Cargando imagen: ${(progressEvent.loaded / progressEvent.total * 100).toFixed(2)} %`, {
-          type: 'info',
-          autoClose: 2000,
-        });
-        if (progressEvent.loaded / progressEvent.total == 1) {
-          toast('Foto subida con éxito', {
-            type: 'success',
-            autoClose: 2000,
-          });
+    fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
+    axios
+      .post(
+        import.meta.env.VITE_IMAGE_UPLOAD_URL || "https://trode.afcarrion.vercel.app/api/images",
+        fd,
+        {
+          onUploadProgress: (progressEvent) => {
+            toast(
+              `Cargando imagen: ${((progressEvent.loaded / progressEvent.total) * 100).toFixed(2)} %`,
+              {
+                type: "info",
+                autoClose: 2000,
+              }
+            );
+            if (progressEvent.loaded / progressEvent.total == 1) {
+              toast("Foto subida con éxito", {
+                type: "success",
+                autoClose: 2000,
+              });
+            }
+          },
         }
-
-      },
-    })
+      )
       .then((res) => {
-        sessionStorage.setItem('profilePic', res.data.path.profilePicture);
+        sessionStorage.setItem("profilePic", res.data.path.profilePicture);
       });
-  }
+  };
 
   render() {
-
     return (
       <>
         <ToastContainer />
-        <div className='Upload__Image'>
+        <div className="Upload__Image">
           <span>Selecciona tu foto</span>
           <input
-            type='file'
-            name='file'
-            id='file'
+            type="file"
+            name="file"
+            id="file"
             onChange={this.fileSelectedHandler}
-            aria-label='Botón seleccionar imagen'
-            tabIndex='3'
+            aria-label="Botón seleccionar imagen"
+            tabIndex="3"
           />
-          <label htmlFor='file'><div>+</div></label>
+          <label htmlFor="file">
+            <div>+</div>
+          </label>
           <span>Ahora haz clic en subir foto</span>
           <button
             onClick={this.fileUploadHandler}
-            className='Upload__image-button'
-            aria-label='Botón subir imagen'
-            tabIndex='4'
+            className="Upload__image-button"
+            aria-label="Botón subir imagen"
+            tabIndex="4"
           >
             Subir foto
           </button>

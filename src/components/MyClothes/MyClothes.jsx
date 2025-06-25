@@ -1,14 +1,13 @@
-import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { getArticleByPhone, getUserById } from '../../../api';
-import './MyClothes.scss';
+import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getArticleByPhone, getUserById } from "../../../api";
+import "./MyClothes.scss";
 
 const MyClothes = () => {
-
   const navigate = useNavigate();
 
   const [user, setUser] = useState([]);
@@ -17,15 +16,15 @@ const MyClothes = () => {
   useEffect(() => {
     const getUser = async () => {
       if (!sessionStorage) {
-        navigate('/');
+        navigate("/");
       }
       try {
-        const dataUser = await getUserById(JSON.parse(sessionStorage.getItem('userData')).user._id);
+        const dataUser = await getUserById(JSON.parse(sessionStorage.getItem("userData")).user._id);
         setUser(dataUser.data.data);
       } catch (error) {
         console.log(error);
-        toast('Error al cargar usuario.', {
-          type: 'error',
+        toast("Error al cargar usuario.", {
+          type: "error",
           autoClose: 2000,
         });
       }
@@ -37,13 +36,15 @@ const MyClothes = () => {
   useEffect(() => {
     const getArticles = async () => {
       try {
-        const getArticles = await getArticleByPhone(JSON.parse(sessionStorage.getItem('userData')).user.phone);
+        const getArticles = await getArticleByPhone(
+          JSON.parse(sessionStorage.getItem("userData")).user.phone
+        );
         const getedArticles = getArticles.data.data;
         setArticles(getedArticles);
       } catch (error) {
         console.log(error);
-        toast('Error al cargar artículos.', {
-          type: 'error',
+        toast("Error al cargar artículos.", {
+          type: "error",
           autoClose: 2000,
         });
       }
@@ -54,44 +55,42 @@ const MyClothes = () => {
   return (
     <>
       <ToastContainer />
-      <div className='MyClothes'>
-        <div className='MyClothes__Profile'>
-          <img className='MyClothes__Profile--Image' src={user.urlPhoto} alt='Profile' width='90' />
-          <div className='MyClothes__Profile--Info'>
-            <span className='MyClothes__Profile--Info-Name'>{user.userName}</span>
-            <span className='MyClothes__Profile--Info-Number'>{user.phone}</span>
-            {JSON.parse(sessionStorage.getItem('userData')) && (
-              <span className='MyClothes__Profile--Info-Count'>
-                {JSON.parse(sessionStorage.getItem('userData')).articles}
-                {' '}
+      <div className="MyClothes">
+        <div className="MyClothes__Profile">
+          <img className="MyClothes__Profile--Image" src={user.urlPhoto} alt="Profile" width="90" />
+          <div className="MyClothes__Profile--Info">
+            <span className="MyClothes__Profile--Info-Name">{user.userName}</span>
+            <span className="MyClothes__Profile--Info-Number">{user.phone}</span>
+            {JSON.parse(sessionStorage.getItem("userData")) && (
+              <span className="MyClothes__Profile--Info-Count">
+                {JSON.parse(sessionStorage.getItem("userData")).articles}{" "}
                 {(() => {
-                  if (sessionStorage.getItem('userData').articles > 1) {
-                    return 'Prendas';
+                  if (sessionStorage.getItem("userData").articles > 1) {
+                    return "Prendas";
                   }
-                  return 'Prenda';
+                  return "Prenda";
                 })()}
               </span>
             )}
           </div>
-          <div className='MyClothes__Profile--Config'>
-            <Link to='/settings'>
-              <FontAwesomeIcon className='icon faCog' icon={faCog} title='Config' />
+          <div className="MyClothes__Profile--Config">
+            <Link to="/settings">
+              <FontAwesomeIcon className="icon faCog" icon={faCog} title="Config" />
             </Link>
           </div>
         </div>
-        <div className='MyClothes__Clothes'>
+        <div className="MyClothes__Clothes">
           <h1>Mis Prendas</h1>
-          <div className='MyClothes__Clothes-List'>
-
+          <div className="MyClothes__Clothes-List">
             {Object.keys(articles).map((id) => (
               <Link
                 to={`/details/${articles[id]._id}`}
-                className='MyClothes__Clothes-List-Items'
+                className="MyClothes__Clothes-List-Items"
                 key={articles[id]._id}
                 id={articles[id]._id}
               >
                 <figure>
-                  <img src={articles[id].urlPhoto} alt='img' />
+                  <img src={articles[id].urlPhoto} alt="img" />
                 </figure>
               </Link>
             ))}

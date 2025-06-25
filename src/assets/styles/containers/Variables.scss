@@ -1,39 +1,36 @@
 //Color Palette
 
-$primary-color: #C7A0DA;
-$primary-color-light: #D3B5E5;
-$primary-color-light-2: #DDC8ED;
-$primary-color-dark: #B38DC9;
-$primary-color-dark-2: #A17DBC;
+$primary-color: #c7a0da;
+$primary-color-light: #d3b5e5;
+$primary-color-light-2: #ddc8ed;
+$primary-color-dark: #b38dc9;
+$primary-color-dark-2: #a17dbc;
 
+$background-color: #e5e5e5;
+$warning-color: #cc0e0e;
 
-$background-color: #E5E5E5;
-$warning-color: #CC0E0E;
+$male: #6fd9d9;
+$female: #eb6283;
 
-$male: #6FD9D9;
-$female: #EB6283;
+$secondary-color: #b2e101;
+$secondary-color-dark: #a6ce00;
+$secondary-color-dark-2: #9fba00;
+$secondary-color-light: #caf222;
+$secondary-color-light-2: #dcf739;
 
-$secondary-color: #B2E101;
-$secondary-color-dark: #A6CE00;
-$secondary-color-dark-2: #9FBA00;
-$secondary-color-light: #CAF222;
-$secondary-color-light-2: #DCF739;
+$success-color: #45d567;
 
-$success-color: #45D567;
-
-$white-color: #FFFFFF;
-$grey-1: #F4F3F5;
-$grey-2: #D3CFD4;
-$grey-3: #9C95A0;
-$grey-4: #4A3C51;
+$white-color: #ffffff;
+$grey-1: #f4f3f5;
+$grey-2: #d3cfd4;
+$grey-3: #9c95a0;
+$grey-4: #4a3c51;
 
 //Font
 
-$headlines-font: 'Montserrat',
-sans-serif;
-$text-font: 'Source Sans Pro',
-sans-serif;
-$font-color: #4A3C51;
+$headlines-font: "Montserrat", sans-serif;
+$text-font: "Source Sans Pro", sans-serif;
+$font-color: #4a3c51;
 
 //Spacing
 
@@ -50,7 +47,7 @@ $spacing-05: 50px;
   justify-content: center;
   flex-direction: column;
   font-family: $text-font;
-  background-color: #F4F3F5;
+  background-color: #f4f3f5;
 }
 
 @mixin default-button {
@@ -60,7 +57,7 @@ $spacing-05: 50px;
   outline: none;
   border: none;
   border-radius: 10px;
-  background-color: #B2E101;
+  background-color: #b2e101;
   font-weight: bold;
   font-size: 16px;
   justify-content: flex-end;
@@ -108,7 +105,7 @@ $spacing-05: 50px;
     outline: none;
     border: none;
     border-radius: 10px;
-    background-color: #B2E101;
+    background-color: #b2e101;
     font-weight: bold;
     font-size: 16px;
     justify-content: flex-end;
@@ -118,7 +115,7 @@ $spacing-05: 50px;
 }
 
 @mixin hover-button {
-  background-color: #B2E101;
+  background-color: #b2e101;
   border-radius: 10px;
   text-align: center;
   outline: none;
@@ -127,7 +124,7 @@ $spacing-05: 50px;
 }
 
 @mixin card {
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 4px 4px rgba(211, 207, 212, 0.4);
   border-radius: 10px;
 }
@@ -137,7 +134,7 @@ $spacing-05: 50px;
   outline: none;
   margin-bottom: 1.5em;
   display: block;
-  padding: .6em 1.4em .5em .8em;
+  padding: 0.6em 1.4em 0.5em 0.8em;
   width: 100%;
   height: 44px;
   box-sizing: border-box;

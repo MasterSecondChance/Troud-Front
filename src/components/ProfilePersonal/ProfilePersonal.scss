@@ -1,10 +1,10 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .ProfilePersonal {
   margin-block-end: 100px;
   padding: 0 $spacing-02 $spacing-04;
 
-  &>div {
+  & > div {
     text-align: center;
   }
 
@@ -20,19 +20,22 @@
   }
 
   &__change-password {
-    &>input {
+    & > input {
       display: none;
       visibility: hidden;
 
-      &:checked~.expand {
+      &:checked ~ .expand {
         height: 200px;
         visibility: visible;
         opacity: 1;
-        transition: height 0.3s ease-out, visibility 0.7s ease-out, opacity 0.7s ease-out;
+        transition:
+          height 0.3s ease-out,
+          visibility 0.7s ease-out,
+          opacity 0.7s ease-out;
       }
     }
 
-    &>label {
+    & > label {
       display: inline-block;
       margin-block-end: $spacing-03;
       color: $grey-4;
@@ -44,7 +47,10 @@
       height: 0;
       visibility: hidden;
       opacity: 0;
-      transition: height 0.3s ease-out, visibility 0.2s ease-out, opacity 0.2s ease-out;
+      transition:
+        height 0.3s ease-out,
+        visibility 0.2s ease-out,
+        opacity 0.2s ease-out;
     }
   }
 
@@ -56,7 +62,7 @@
     border-radius: 10px;
     font-weight: 700;
     font-size: 16px;
-    background-color: #B2E101;
+    background-color: #b2e101;
   }
 }
 
@@ -106,7 +112,7 @@
     padding: $spacing-04 0 $spacing-04;
     @include card;
 
-    &>div {
+    & > div {
       margin-block-end: $spacing-04;
     }
 

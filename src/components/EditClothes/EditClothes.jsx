@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { getArticleById } from '../../../api/index';
-import ThirdStep from '../Sign/ThirdStep';
-import FourthStep from '../Sign/FourthStep';
-import Confirm from '../Sign/Confirm';
+import { getArticleById } from "../../../api/index";
+import ThirdStep from "../Sign/ThirdStep";
+import FourthStep from "../Sign/FourthStep";
+import Confirm from "../Sign/Confirm";
 
 class EditClothes extends Component {
   constructor(props) {
@@ -13,16 +13,16 @@ class EditClothes extends Component {
       error: null,
       step: 1,
       data: {
-        type: '',
-        size: '',
-        name: '',
-        brand: '',
-        condition: '',
-        gender: '',
-        description: '',
-        color: '',
-        urlPhoto: sessionStorage.getItem('clotheImage'),
-        city: '',
+        type: "",
+        size: "",
+        name: "",
+        brand: "",
+        condition: "",
+        gender: "",
+        description: "",
+        color: "",
+        urlPhoto: sessionStorage.getItem("clotheImage"),
+        city: "",
       },
     };
   }
@@ -43,7 +43,7 @@ class EditClothes extends Component {
     this.setState({
       step: step - 1,
     });
-  }
+  };
 
   handleChange = (input) => (e) => {
     this.setState({
@@ -59,10 +59,10 @@ class EditClothes extends Component {
     try {
       const result = await getArticleById(this.props.id);
       this.setState({ loading: false, data: result.data.data });
-      sessionStorage.setItem('clotheImage', result.data.data.urlPhoto);
+      sessionStorage.setItem("clotheImage", result.data.data.urlPhoto);
     } catch (error) {
       toast(error, {
-        type: 'error',
+        type: "error",
         autoClose: 2000,
       });
       this.setState({ loading: false, error });
@@ -71,8 +71,21 @@ class EditClothes extends Component {
 
   render() {
     const { step } = this.state;
-    const { data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city } } = this.state;
-    const values = { type, size, name, brand, condition, gender, description, color, urlPhoto, city };
+    const {
+      data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city },
+    } = this.state;
+    const values = {
+      type,
+      size,
+      name,
+      brand,
+      condition,
+      gender,
+      description,
+      color,
+      urlPhoto,
+      city,
+    };
 
     switch (step) {
       case 1:
@@ -82,7 +95,7 @@ class EditClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
-            stepper='Paso 1 de 2'
+            stepper="Paso 1 de 2"
             header={false}
           />
         );
@@ -94,7 +107,7 @@ class EditClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
-            stepper='Paso 2 de 2'
+            stepper="Paso 2 de 2"
             header={false}
           />
         );

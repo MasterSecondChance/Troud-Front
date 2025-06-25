@@ -1,24 +1,19 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-
-  const [userData, setUserData] = useState(
-    {
-      userId: '',
-      userPhone: 0,
-      urlPhoto: '',
-      userName: '',
-      token: '',
-      userArticles: 0,
-    },
-  );
-  const [category, setCategory] = useState(
-    {
-      category: '',
-    },
-  );
+  const [userData, setUserData] = useState({
+    userId: "",
+    userPhone: 0,
+    urlPhoto: "",
+    userName: "",
+    token: "",
+    userArticles: 0,
+  });
+  const [category, setCategory] = useState({
+    category: "",
+  });
 
   const saveUserData = (data) => {
     setUserData({
@@ -40,7 +35,6 @@ const DataProvider = ({ children }) => {
       {children}
     </DataContext.Provider>
   );
-
 };
 
 export default DataProvider;

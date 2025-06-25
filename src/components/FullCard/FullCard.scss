@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .FullCard {
   border: 1px solid $grey-1;
@@ -61,7 +61,8 @@
       text-transform: uppercase;
     }
 
-    &__Desc {}
+    &__Desc {
+    }
 
     &__Img {
       margin: 0 auto;
@@ -147,7 +148,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .FullCard {
     display: flex;
     align-items: center;
@@ -165,7 +165,6 @@
       }
 
       &__Img {
-
         &__Gender {
           top: $spacing-02;
           right: $spacing-02;
