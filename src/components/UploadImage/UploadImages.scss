@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .Upload__Image {
   display: flex;
@@ -41,18 +41,18 @@
     }
   }
 
-  input+label {
+  input + label {
     width: 46px;
     height: 61px;
     font-size: 1.25em;
     font-weight: 700;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: inline-block;
     border: 1px dashed $grey-3;
   }
 
-  input:hover+label,
-  input:focus+label:hover {
+  input:hover + label,
+  input:focus + label:hover {
     background-color: $secondary-color;
   }
 

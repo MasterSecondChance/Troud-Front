@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .Hero {
   padding: $spacing-03 $spacing-02 0;
@@ -28,7 +28,7 @@
     background: linear-gradient(93deg, $primary-color-dark 0%, $primary-color 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b38dc9", endColorstr="#c7a0da", GradientType=1);
 
-    &>div {
+    & > div {
       position: relative;
       max-width: 1000px;
       height: inherit;

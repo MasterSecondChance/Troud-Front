@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .HeaderLight {
   display: flex;
@@ -43,7 +43,6 @@
 
 @media screen and (max-width: 769px) {
   .Header {
-
     &__Menu {
       background-color: $grey-1;
       bottom: 0;
@@ -60,8 +59,6 @@
         align-items: center;
         flex-direction: column;
       }
-
     }
-
   }
 }

@@ -55,7 +55,7 @@ By visiting this website, users can:
 ### **Development Tools**
 - **Node.js** `20.19.2 LTS` - JavaScript runtime
 - **Jest** `29.7.0` - Modern testing framework  
-- **ESLint** `9.29.0` - Code linting with modern rules
+- **Prettier** - Automatic code formatting
 - **Babel** `7.x` - JavaScript transpilation
 - **Webpack Dev Server** `5.2.2` - Hot reload development server
 
@@ -136,7 +136,7 @@ npm run build:quiet    # Build with minimal output
 
 ### **Code Quality**
 ```bash
-npm run eslint         # Lint and fix JavaScript/React code
+npm run format         # Format code with Prettier
 npm run format         # Format code with Prettier
 ```
 
@@ -313,7 +313,7 @@ npm run build
 5. Open a Pull Request
 
 ### **Code Standards**
-- Follow ESLint configuration
+- Use Prettier for consistent code formatting
 - Use Prettier for formatting
 - Write tests for new features
 - Update documentation

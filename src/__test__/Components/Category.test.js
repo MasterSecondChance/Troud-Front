@@ -1,20 +1,20 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
-import ProviderMock from '../../__mocks__/providerMock';
-import Category from '../../components/Categories/Category';
-import renderer, { create } from 'react-test-renderer';
+import React from "react";
+import { mount, shallow } from "enzyme";
+import ProviderMock from "../../__mocks__/providerMock";
+import Category from "../../components/Categories/Category";
+import renderer, { create } from "react-test-renderer";
 
-describe('<Category />', () => {
-  test('Render del componente Category', () => {
+describe("<Category />", () => {
+  test("Render del componente Category", () => {
     const header = shallow(
       <ProviderMock>
         <Category />
       </ProviderMock>
     );
     expect(header.length).toEqual(1);
-  })
-  test('Comprobar categoria quitar filtros', () => {
+  });
+  test("Comprobar categoria quitar filtros", () => {
     const removeFilter = shallow(<Category />);
-    expect(removeFilter.find('span').text()).toEqual('Quitar filtros')
-  })
-})
+    expect(removeFilter.find("span").text()).toEqual("Quitar filtros");
+  });
+});

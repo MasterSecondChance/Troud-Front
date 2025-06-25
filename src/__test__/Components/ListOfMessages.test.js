@@ -1,15 +1,15 @@
-import React from 'react';
-import { mount, shallow } from 'enzyme';
-import renderer, { create } from 'react-test-renderer';
-import ProviderMock from '../../__mocks__/providerMock';
-import ListOfMessages from '../../components/ListOfMessages/ListOfMessages';
+import React from "react";
+import { mount, shallow } from "enzyme";
+import renderer, { create } from "react-test-renderer";
+import ProviderMock from "../../__mocks__/providerMock";
+import ListOfMessages from "../../components/ListOfMessages/ListOfMessages";
 
-describe('<ListOfMessages />', () => {
-  test('Render del componente ListOfMessages', () => {
+describe("<ListOfMessages />", () => {
+  test("Render del componente ListOfMessages", () => {
     const listOfMessages = shallow(
       <ProviderMock>
         <ListOfMessages />
-      </ProviderMock>,
+      </ProviderMock>
     );
     expect(listOfMessages.length).toEqual(1);
   });

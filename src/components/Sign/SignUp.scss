@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .Form {
   display: flex;
@@ -17,17 +17,17 @@
     position: relative;
   }
 
-  & input[type='password'] {
+  & input[type="password"] {
     margin-block-end: 0;
   }
 
-  & input[name='phone'] {
+  & input[name="phone"] {
     margin-block-end: 0;
   }
 
   & .prevention-message {
     font-size: 0.75rem;
-    line-height: .7;
+    line-height: 0.7;
 
     &--margin-bottom {
       display: inline-block;
@@ -43,7 +43,9 @@
 
   button {
     @include default-button();
-    transition: transform .3s ease-out, filter 0.3s ease-out;
+    transition:
+      transform 0.3s ease-out,
+      filter 0.3s ease-out;
 
     &:hover {
       cursor: pointer;
@@ -114,7 +116,6 @@
       text-decoration: underline;
       margin-left: 5px;
     }
-
   }
 }
 
@@ -134,7 +135,6 @@
   .Upload__photo-button {
     border: none;
   }
-
 }
 
 .Stepper__container {

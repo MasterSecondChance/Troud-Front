@@ -1,29 +1,35 @@
-import { faHatCowboy, faMitten, faShoePrints, faSocks, faTshirt, faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import React, { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { getArticles } from '../../../api';
-import './Category.scss';
+import {
+  faHatCowboy,
+  faMitten,
+  faShoePrints,
+  faSocks,
+  faTshirt,
+  faUserSecret,
+} from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getArticles } from "../../../api";
+import "./Category.scss";
 
 function Category({ setCategory }) {
-
   const [uniqueCategories, setUniqueCategories] = useState([]);
 
   const categoryFilt = [];
 
   const defineIcon = (item) => {
     switch (item) {
-      case 'Camisetas':
+      case "Camisetas":
         return faTshirt;
-      case 'Calzado':
+      case "Calzado":
         return faShoePrints;
-      case 'Accesorios':
+      case "Accesorios":
         return faHatCowboy;
-      case 'Pantalones':
+      case "Pantalones":
         return faUserSecret;
-      case 'Ropa Interior':
+      case "Ropa Interior":
         return faMitten;
-      case 'Otros':
+      case "Otros":
         return faSocks;
       default:
         return faTshirt;
@@ -32,14 +38,14 @@ function Category({ setCategory }) {
 
   const setCategoryContext = (newCategory) => {
     // saveCategory(newCategory)
-    sessionStorage.setItem('category', newCategory);
+    sessionStorage.setItem("category", newCategory);
     setCategory(newCategory);
     // console.log(newCategory);
   };
 
   useEffect(() => {
     if (!sessionStorage.length) {
-      sessionStorage.setItem('category', JSON.stringify({ category: 0 }));
+      sessionStorage.setItem("category", JSON.stringify({ category: 0 }));
       setCategory(JSON.stringify({ category: 0 }));
     }
     const filterCategories = async () => {
@@ -55,8 +61,8 @@ function Category({ setCategory }) {
         setUniqueCategories(categoryFilt.filter(filterCategory));
       } catch (error) {
         console.log(error);
-        toast('Error al cargar artículos.', {
-          type: 'error',
+        toast("Error al cargar artículos.", {
+          type: "error",
           autoClose: 2000,
         });
       }
@@ -67,28 +73,26 @@ function Category({ setCategory }) {
   return (
     <>
       <ToastContainer />
-      <div className='Category'>
-        {
-          uniqueCategories.map((item) => (
-            <div
-              className='Category-item'
-              key={item}
-              onClick={() => {
-                setCategoryContext(item);
-              }}
-            >
-              <span className='Category-item__name'>{item}</span>
-            </div>
-          ))
-        }
+      <div className="Category">
+        {uniqueCategories.map((item) => (
+          <div
+            className="Category-item"
+            key={item}
+            onClick={() => {
+              setCategoryContext(item);
+            }}
+          >
+            <span className="Category-item__name">{item}</span>
+          </div>
+        ))}
         <div
-          className='Category-item'
-          key='clear'
+          className="Category-item"
+          key="clear"
           onClick={() => {
-            setCategoryContext('');
+            setCategoryContext("");
           }}
         >
-          <span className='Category-item__name'>Quitar filtros</span>
+          <span className="Category-item__name">Quitar filtros</span>
         </div>
       </div>
     </>

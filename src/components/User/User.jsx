@@ -1,6 +1,6 @@
-import React from 'react';
-import MyClothes from '../MyClothes/MyClothes';
-import Header from '../Header/Header'
+import React from "react";
+import MyClothes from "../MyClothes/MyClothes";
+import Header from "../Header/Header";
 
 const User = (props) => {
   return (
@@ -9,6 +9,6 @@ const User = (props) => {
       <MyClothes />
     </>
   );
-}
+};
 
 export default User;

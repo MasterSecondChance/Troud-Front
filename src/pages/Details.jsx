@@ -1,14 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Header from '../components/Header/Header';
-import FullCard from '../components/FullCard/FullCard';
+import Header from "../components/Header/Header";
+import FullCard from "../components/FullCard/FullCard";
 
 const Details = (props) => {
   const {
     match: {
-      params: {
-        articleId: id,
-      },
+      params: { articleId: id },
     },
   } = props;
 

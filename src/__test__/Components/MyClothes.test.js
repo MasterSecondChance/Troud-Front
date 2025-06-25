@@ -1,14 +1,14 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ProviderMock from '../../__mocks__/providerMock';
-import MyClothes from '../../components/MyClothes/MyClothes';
+import React from "react";
+import { shallow } from "enzyme";
+import ProviderMock from "../../__mocks__/providerMock";
+import MyClothes from "../../components/MyClothes/MyClothes";
 
-describe('<MyClothes />', () => {
-  test('Render del componente My Clothes', () => {
+describe("<MyClothes />", () => {
+  test("Render del componente My Clothes", () => {
     const myClothes = shallow(
       <ProviderMock>
         <MyClothes />
-      </ProviderMock>,
+      </ProviderMock>
     );
     expect(myClothes.length).toEqual(1);
   });

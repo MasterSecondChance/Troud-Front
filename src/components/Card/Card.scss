@@ -1,4 +1,4 @@
-@use '../../assets/styles/containers/Variables.scss' as *;
+@use "../../assets/styles/containers/Variables.scss" as *;
 
 .Card {
   max-width: 550px;
@@ -89,7 +89,7 @@
 
       &__Gender {
         position: absolute;
-        top: .5em;
+        top: 0.5em;
         right: 0.2em;
         display: flex;
         align-items: center;
@@ -107,7 +107,7 @@
       &__Size {
         align-items: center;
         background-color: $white-color;
-        bottom: .5em;
+        bottom: 0.5em;
         border-radius: 0.3em;
         color: $font-color;
         display: flex;

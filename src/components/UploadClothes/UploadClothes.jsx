@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import ThirdStep from '../Sign/ThirdStep';
-import FourthStep from '../Sign/FourthStep';
-import Confirm from '../Sign/Confirm';
+import ThirdStep from "../Sign/ThirdStep";
+import FourthStep from "../Sign/FourthStep";
+import Confirm from "../Sign/Confirm";
 
 class UploadClothes extends Component {
   constructor(props) {
@@ -12,16 +12,16 @@ class UploadClothes extends Component {
       error: null,
       step: 1,
       data: {
-        type: '',
-        size: '',
-        name: '',
-        brand: '',
-        condition: '',
-        gender: '',
-        description: '',
-        color: '',
-        urlPhoto: '',
-        city: '',
+        type: "",
+        size: "",
+        name: "",
+        brand: "",
+        condition: "",
+        gender: "",
+        description: "",
+        color: "",
+        urlPhoto: "",
+        city: "",
       },
     };
   }
@@ -31,14 +31,14 @@ class UploadClothes extends Component {
     this.setState({
       step: step + 1,
     });
-  }
+  };
 
   previous = () => {
     const { step } = this.state;
     this.setState({
       step: step - 1,
     });
-  }
+  };
 
   handleChange = (input) => (e) => {
     this.setState({
@@ -47,13 +47,25 @@ class UploadClothes extends Component {
         [input]: e.target.value,
       },
     });
-  }
+  };
 
   render() {
-
     const { step } = this.state;
-    const { data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city } } = this.state;
-    const values = { type, size, name, brand, condition, gender, description, color, urlPhoto, city };
+    const {
+      data: { type, size, name, brand, condition, gender, description, color, urlPhoto, city },
+    } = this.state;
+    const values = {
+      type,
+      size,
+      name,
+      brand,
+      condition,
+      gender,
+      description,
+      color,
+      urlPhoto,
+      city,
+    };
 
     switch (step) {
       case 1:
@@ -63,9 +75,9 @@ class UploadClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
-            stepper='Paso 1 de 2'
-            title='Sube tu prenda'
-            action='aditionalGarment'
+            stepper="Paso 1 de 2"
+            title="Sube tu prenda"
+            action="aditionalGarment"
           />
         );
 
@@ -76,8 +88,8 @@ class UploadClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
-            stepper='Paso 2 de 2'
-            title='Sube tu prenda'
+            stepper="Paso 2 de 2"
+            title="Sube tu prenda"
           />
         );
 
@@ -88,7 +100,7 @@ class UploadClothes extends Component {
             next={this.next}
             handleChange={this.handleChange}
             values={values}
-            action='aditionalGarment'
+            action="aditionalGarment"
           />
         );
     }
