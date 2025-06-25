@@ -28,18 +28,35 @@ Object.defineProperty(window, "localStorage", {
   writable: true,
 });
 
-// Mock console.warn to avoid noise in tests
+// Mock console.warn and console.error to avoid noise in tests
 const originalWarn = console.warn;
+const originalError = console.error;
+
 console.warn = (...args) => {
   if (
     typeof args[0] === "string" &&
     (args[0].includes("React.createFactory") ||
       args[0].includes("componentWillMount") ||
-      args[0].includes("componentWillReceiveProps"))
+      args[0].includes("componentWillReceiveProps") ||
+      args[0].includes("React Router Future Flag Warning") ||
+      args[0].includes("v7_startTransition") ||
+      args[0].includes("v7_relativeSplatPath"))
   ) {
     return;
   }
   originalWarn(...args);
+};
+
+console.error = (...args) => {
+  if (
+    typeof args[0] === "string" &&
+    (args[0].includes("Support for defaultProps will be removed") ||
+      args[0].includes("FontAwesomeIcon: Support for defaultProps") ||
+      args[0].includes("ToastContainer: Support for defaultProps"))
+  ) {
+    return;
+  }
+  originalError(...args);
 };
 
 // Mock matchMedia for components that use it
