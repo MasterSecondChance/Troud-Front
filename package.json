@@ -80,6 +80,14 @@
     },
     "setupFiles": [
       "<rootDir>/src/__test__/jest.setup.js"
-    ]
+    ],
+    "globals": {
+      "import.meta": {
+        "env": {
+          "VITE_WHATSAPP_API_URL": "https://api.whatsapp.com/send",
+          "VITE_API_BASE_URL": "https://test-api.com/api"
+        }
+      }
+    }
   }
 }
